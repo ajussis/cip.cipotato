@@ -1,0 +1,396 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="cipnews python: getattr(context, 'cip-news');
+                                ss python:context.portal_catalog(id='cip-in-the-news');
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+
+            <div class='tabbed_content'>
+                <div class='tabs'>
+                    <div class='moving_bg'>
+                            &nbsp;
+                    </div>
+                    <span class='tab_item cip-front1-tab'>
+                            Genebank
+                    </span>
+                    <span class='tab_item cip-front2-tab'>
+                            Potato
+                    </span>
+                    <span class='tab_item cip-front3-tab'>
+                            Sweetpotato
+                    </span>
+                    <span class='tab_item cip-front4-tab'>
+                            RTAs
+                    </span>
+                </div>
+                <div class='slide_content'>
+                    <div class='tabslider'>
+                        <ul class="cip-front1">
+                            <li>
+                            </li>
+                        </ul>
+                        <ul class="cip-front2">
+                            <li>
+                            </li>
+                        </ul>
+                        <ul class="cip-front3">
+                            <li>
+                            </li>
+                        </ul>
+                        <ul class="cip-front4">
+                            <li>
+                            </li>
+                        </ul>
+                    </div>
+                    <br style='clear: both' />
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="lineBreak"></div>
+
+            <div class="cip-news">
+                <h1>News from CIP</h1>
+                <tal:defs define="n cipnews/queryCatalog">
+                    <div class="cip-news-p" tal:repeat="m n">
+                        <a href="#"
+                            tal:define="item_object m/getObject;
+                                        item_url m/getURL;"
+                            tal:condition="exists:item_object/image_thumb"
+                            tal:attributes="href python:item_url+'/view', item_url">
+                            <img src="" alt=""
+                                 tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
+                        </a>
+                        <tal:rep define="pType m/portal_type;
+                                         author m/Creator">
+                            <b>
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a><br />
+                            </b>
+                            <p tal:content="m/Description" />
+                            <span class="frontDate">
+                                <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                <span class="frontDate2" tal:content="pType" />
+                                <span class="frontDate3" tal:content="author" />
+                            </span>
+                        </tal:rep>
+                    </div>
+                </tal:defs>
+            </div>
+
+
+            <div class="cip-in-the-news">
+                <h1>CIP in the News</h1>
+
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
+
+            </div>
+
+
+            <!--div class="areaupdates">
+                <div class="fpUpdates" tal:define="gpLatest python: getattr(context, 'gpNews');
+                                                   latest python: getattr(context, 'ssNews');
+                                                   latest2 python: getattr(context, 'cmnNews');
+                                                   latest3 python: getattr(context, 'vaNews');
+                                                   latest4 python: getattr(context, 'ucNews');
+                                                   fpProjects python: getattr(context, 'fpProjects');
+                                                   fpInsitutions python: getattr(context, 'fpInstitutions');">
+                    <h2 class="default-content-tab">Germplasm<img src="arrow_grey_right.png" /></h2>
+                    <div style="width:120px; margin-right:20px; float:left;">
+                        <img src="icon_germp.gif" style="margin:15px 10px 30px 0;" />
+                    </div>
+                    <div style="width:417px; float:left;">
+                        <tal:defs define="n gpLatest/queryCatalog">
+                            <p class="frontP" tal:repeat="m n">
+                                <tal:rep define="pType m/portal_type;
+                                                 author m/Creator">
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                    <span class="frontDate">
+                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                        <span class="frontDate2" tal:content="pType" />
+                                        <span class="frontDate3" tal:content="author" />
+                                    </span>
+                                </tal:rep>
+                            </p>
+                        </tal:defs>
+                    </div>
+                    <div style="width:40px; float:left;">
+                        <a href="../germplasm">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Go to section &raquo;
+                            </p>
+                        </a>
+                        <a href="../discussion-forum">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Germplasm Discussion &raquo;
+                            </p>
+                        </a>
+                        <a href="../gpLatest">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                All latest updates &raquo;
+                            </p>
+                        </a>
+                    </div>
+                    <h2 class="content-tab">Seed System</h2>
+                    <div style="width:120px; margin-right:20px; float:left;">
+                        <img src="icon_seeds.gif" style="margin:15px 10px 30px 0;" />
+                    </div>
+                    <div style="width:417px; float:left;">
+                        <tal:defs define="n latest/queryCatalog">
+                            <p class="frontP" tal:repeat="m n">
+                                <tal:rep define="pType m/portal_type;
+                                                 author m/Creator">
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                    <span class="frontDate">
+                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                        <span class="frontDate2" tal:content="pType" />
+                                        <span class="frontDate3" tal:content="author" />
+                                    </span>
+                                </tal:rep>
+                            </p>
+                        </tal:defs>
+                    </div>
+                    <div style="width:40px; float:left;">
+                        <a href="../seedsystem">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Go to section &raquo;
+                            </p>
+                        </a>
+                        <a href="../discussion-forum">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Seed System <br />Discussion &raquo;
+                            </p>
+                        </a>
+                        <a href="../ssLatest">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                All latest updates &raquo;
+                            </p>
+                        </a>
+                    </div>
+                    <h2 class="content-tab">Crop Management</h2>
+                    <div style="width:120px; margin-right:20px; float:left;">
+                        <img src="icon_cropm.gif" style="margin:15px 10px 30px 0;" />
+                    </div>
+                    <div style="width:417px; float:left;">
+                        <tal:defs define="n latest2/queryCatalog">
+                            <p class="frontP" tal:repeat="m n">
+                                <tal:rep define="pType m/portal_type;
+                                                 author m/Creator">
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                    <span class="frontDate">
+                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                        <span class="frontDate2" tal:content="pType" />
+                                        <span class="frontDate3" tal:content="author" />
+                                    </span>
+                                </tal:rep>
+                            </p>
+                        </tal:defs>
+                    </div>
+                    <div style="width:40px; float:left;">
+                        <a href="../crop-management">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Go to section &raquo;
+                            </p>
+                        </a>
+                        <a href="../discussion-forum">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Crop Management Discussion &raquo;
+                            </p>
+                        </a>
+                        <a href="../cmLatest">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                All latest updates &raquo;
+                            </p>
+                        </a>
+                    </div>
+                    <h2 class="content-tab">Adding Value</h2>
+                    <div style="width:120px; margin-right:20px; float:left;">
+                        <img src="icon_valuea.gif" style="margin:15px 10px 30px 0;" />
+                    </div>
+                    <div style="width:417px; float:left;">
+                        <tal:defs define="n latest3/queryCatalog">
+                            <p class="frontP" tal:repeat="m n">
+                                <tal:rep define="pType m/portal_type;
+                                                 author m/Creator">
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                    <span class="frontDate">
+                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                        <span class="frontDate2" tal:content="pType" />
+                                        <span class="frontDate3" tal:content="author" />
+                                    </span>
+                                </tal:rep>
+                            </p>
+                        </tal:defs>
+                    </div>
+                    <div style="width:40px; float:left;">
+                        <a href="../adding-value">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Go to section &raquo;
+                            </p>
+                        </a>
+                        <a href="../discussion-forum">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Adding Value <br />Discussion &raquo;
+                            </p>
+                        </a>
+                        <a href="../avLatest">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                All latest updates &raquo;
+                            </p>
+                        </a>
+                    </div>
+                    <h2 class="content-tab">Use and Consumption</h2>
+                    <div style="width:120px; margin-right:20px; float:left;">
+                        <img src="icon_usec.gif" style="margin:15px 10px 30px 0;" />
+                    </div>
+                    <div style="width:417px; float:left;">
+                        <tal:defs define="n latest4/queryCatalog">
+                            <p class="frontP" tal:repeat="m n">
+                                <tal:rep define="pType m/portal_type;
+                                                 author m/Creator">
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                    <span class="frontDate">
+                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                        <span class="frontDate2" tal:content="pType" />
+                                        <span class="frontDate3" tal:content="author" />
+                                    </span>
+                                </tal:rep>
+                            </p>
+                        </tal:defs>
+                    </div>
+                    <div style="width:40px; float:left;">
+                        <a href="../use-consumption">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Go to section &raquo;
+                            </p>
+                        </a>
+                        <a href="../discussion-forum">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                Use and Consumption Discussion &raquo;
+                            </p>
+                        </a>
+                        <a href="../ucLatest">
+                            <p style="background:none repeat scroll 0 0 #F0F0F0; padding:5px; width:165px; -webkit-border-radius:0.4em; -moz-border-radius:0.4em;">
+                                All latest updates &raquo;
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects">
+                <div class="fpUpdates" tal:define="projects python: getattr(context, 'fpProjects');
+                                                   institutions python: getattr(context, 'fpInstitutions');">
+                    <h2 class="default-content-tab">New Projects</h2>
+                    <tal:defs define="n projects/queryCatalog">
+                        <p class="frontP" tal:repeat="m n">
+                            <tal:rep define="pType m/portal_type;
+                                             author m/Creator">
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a><br />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate2" tal:content="pType" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </p>
+                        <a href="../fpProjects" class="seeAll">See all...</a>
+                    </tal:defs>
+                    <h2 class="content-tab">New Institutions</h2>
+                    <tal:defs define="n institutions/queryCatalog">
+                        <p class="frontP" tal:repeat="m n">
+                            <tal:rep define="pType m/portal_type;
+                                             author m/Creator">
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a><br />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate2" tal:content="pType" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </p>
+                        <a href="../fpInstitutions" class="seeAll">See all...</a>
+                    </tal:defs>
+                </div>
+            </div>
+            <div class="fpgalleries">
+                <div class="fpUpdates" tal:define="fpGalleries python: getattr(context, 'siteGalleries');">
+                    <h2 class="default-content-tab">Latest Photo Galleries</h2>
+                    <img src="fpGallery.png" style="width:70px; float:left; margin-right:10px;" />
+                    <tal:defs define="n fpGalleries/queryCatalog">
+                        <p class="frontP" tal:repeat="m n">
+                            <tal:rep define="author m/Creator">
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a><br />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </p>
+                    </tal:defs>
+                    <a href="../galleries" class="seeAll">See all...</a>
+                </div>
+            </div>
+            <div class="comments">
+                <div class="fpUpdates" tal:define="comments python: getattr(context, 'comments');">
+                    <h2 class="default-content-tab">Comments</h2>
+                    <img src="comment.png" style="float:left; margin: 5px 10px 0 0; " />
+                    <tal:defs define="n comments/queryCatalog">
+                        <p class="frontP" tal:repeat="m n">
+                            <tal:rep define="pType m/portal_type;
+                                             author m/Creator">
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a><br />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </p>
+                        <a href="../comments" class="seeAll">See all...</a>
+                    </tal:defs>
+                </div>
+            </div-->
+
+
+        </metal:main>
+    </metal:main_macro>
+</html>

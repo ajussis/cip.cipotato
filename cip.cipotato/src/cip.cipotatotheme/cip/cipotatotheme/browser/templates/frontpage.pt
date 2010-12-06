@@ -5,7 +5,7 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="cipnews python: getattr(context, 'cip-news');
-                                ss python:context.portal_catalog(id='cip-in-the-news');
+                                cipinthenews python:getattr(context, 'cip-in-the-news');
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
 
@@ -57,55 +57,148 @@
 
             <div class="lineBreak"></div>
 
-            <div class="cip-news">
-                <h1>News from CIP</h1>
-                <tal:defs define="n cipnews/queryCatalog">
-                    <div class="cip-news-p" tal:repeat="m n">
-                        <a href="#"
-                            tal:define="item_object m/getObject;
-                                        item_url m/getURL;"
-                            tal:condition="exists:item_object/image_thumb"
-                            tal:attributes="href python:item_url+'/view', item_url">
-                            <img src="" alt=""
-                                 tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
-                        </a>
-                        <tal:rep define="pType m/portal_type;
-                                         author m/Creator">
-                            <b>
-                                <a href="#" tal:attributes="href m/getURL">
-                                    <span tal:replace="m/pretty_title_or_id"/>
-                                </a><br />
-                            </b>
-                            <p tal:content="m/Description" />
-                            <span class="frontDate">
-                                <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                <span class="frontDate2" tal:content="pType" />
-                                <span class="frontDate3" tal:content="author" />
-                            </span>
-                        </tal:rep>
+            <div class="first-column">
+                <div class="cip-news">
+                    <h1>News from CIP</h1>
+                    <tal:defs define="n cipnews/queryCatalog">
+                        <div class="cip-news-p" tal:repeat="m n">
+                            <a href="#"
+                                tal:define="item_object m/getObject;
+                                            item_url m/getURL;"
+                                tal:condition="exists:item_object/image_thumb"
+                                tal:attributes="href python:item_url+'/view', item_url">
+                                <img src="" alt=""
+                                     tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
+                            </a>
+                            <tal:rep define="pType m/portal_type;
+                                             author m/Creator">
+                                <b>
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                </b>
+                                <p tal:content="m/Description" />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate2" tal:content="pType" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </div>
+                    </tal:defs>
+                </div>
+            </div>
+
+            <div class="second-column">
+                <div class="cip-in-the-news">
+                    <h1>CIP in the News</h1>
+                    <tal:defs define="n cipinthenews/queryCatalog">
+                        <div class="cip-news-p" tal:repeat="m n">
+                            <a href="#"
+                                tal:define="item_object m/getObject;
+                                            item_url m/getURL;"
+                                tal:condition="exists:item_object/image_thumb"
+                                tal:attributes="href python:item_url+'/view', item_url">
+                                <img src="" alt=""
+                                     tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
+                            </a>
+                            <tal:rep define="pType m/portal_type;
+                                             author m/Creator">
+                                <b>
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                </b>
+                                <p tal:content="m/Description" />
+                                <span class="frontDate">
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate2" tal:content="pType" />
+                                    <span class="frontDate3" tal:content="author" />
+                                </span>
+                            </tal:rep>
+                        </div>
+                    </tal:defs>
+                </div>
+
+
+                <h1>Video</h1>
+
+                <div class="cip-frontvideo divDestMineCarrossel">
+                    <!--div class="divGaleriaCarrossel_h">
+                        <ul class="carrosel jcarousel-skin-video-horizontal">
+                            <li>
+                                <a href="http://www.youtube.com/v/HISfJjrc0fs&amp;hl=pt-br&amp;fs=1&amp;rel=0"
+                                   rev="Brazil has currently 15 locomotives Maria Fumaça type by country"
+                                   name="http://www.brasil.gov.br/movie/200911-1/maria-fumaca"
+                                   title="Maria Fumaça">
+                                    <img src="http://www.brasil.gov.br/movie/200911-1/maria-fumaca/image_tile" alt="Maria Fumaça" title="Maria Fumaça" height="48" width="64" class="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.youtube.com/v/4V2YVtUqtic&amp;hl=pt-br&amp;fs=1&amp;rel=0"
+                                   rev="The Brazilian passport went through several changes to ensure more security"
+                                   name="http://www.brasil.gov.br/movie/200911-1/passport"
+                                   title="Passport">
+                                    <img src="http://www.brasil.gov.br/movie/200911-1/passport/image_tile" alt="Passport" title="Passport" height="48" width="64" class="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.youtube.com/v/Qics3BTq_sE&amp;hl=pt-br&amp;fs=1&amp;rel=0"
+                                   rev="Brazil is a favorite destination in the world for ecotourism"
+                                   name="http://www.brasil.gov.br/movie/200911-1/ecotourism"
+                                   title="Ecotourism">
+                                    <img src="http://www.brasil.gov.br/movie/200911-1/ecotourism/image_tile" alt="Ecotourism" title="Ecotourism" height="48" width="64" class="" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.youtube.com/v/SC58DQK3PXI&amp;hl=pt-br&amp;fs=1&amp;rel=0"
+                                   rev="Learn about the dances and rhythms that make the Brazilian people famous around the world"
+                                   name="http://www.brasil.gov.br/movie/200911-1/dances-and-rhythms"
+                                   title="Dances and Rhythms">
+                                    <img src="http://www.brasil.gov.br/movie/200911-1/dances-and-rhythms/image_tile" alt="Dances and Rhythms" title="Dances and Rhythms" height="48" width="64" class="" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div-->
+                    <!--div class="divBoxVideo" style="width: 238px; height:170px; clear:both;">
+                        <object width="238" height="160">
+                            <param name="movie"
+                                   value="http://www.youtube.com/v/HISfJjrc0fs&amp;hl=pt-br&amp;fs=1&amp;rel=0" />
+                            <param name="allowFullScreen" value="true" />
+                            <param name="allowscriptaccess" value="always" />
+                            <embed type="application/x-shockwave-flash"
+                                   allowscriptaccess="always"
+                                   allowfullscreen="true" width="238" height="160"
+                                   src="http://www.youtube.com/v/HISfJjrc0fs&amp;hl=pt-br&amp;fs=1&amp;rel=0">
+                            </embed>
+                        </object>
                     </div>
-                </tal:defs>
+
+                    <p>Maria Fumaça</p>
+                    <span>
+                        Brazil has currently 15 locomotives Maria Fumaça type by country
+                    </span>
+
+                    <span class="spanMais">
+                        <a title="More Videos"
+                           href="http://www.brasil.gov.br/whybrazil">
+                            <img height="8" width="10" alt="More Videos"
+                                 class="baixoContraste"
+                                 src="http://www.brasil.gov.br/ico/icoSetaDuplaAzul.gif" />
+                            <strong>More Videos</strong>
+                        </a>
+                    </span>
+                </div-->
+
+                <object width="425" height="344">
+                    <param name="movie" value="http://www.youtube.com/v/B1tKFXobPy8?fs=1&amp;hl=en_US" />
+                    <param name="allowFullScreen" value="true" />
+                    <param name="allowscriptaccess" value="always" />
+                    <embed src="http://www.youtube.com/v/B1tKFXobPy8?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="355" height="304" />
+                </object>
             </div>
 
 
-            <div class="cip-in-the-news">
-                <h1>CIP in the News</h1>
-
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-blaablaa blaablaabl a abl a ablaab laabla ablaabla ablaa blaabl aabl aab laab laa blaab laabl aab laab laa bla ablaa
-
-            </div>
 
 
             <!--div class="areaupdates">

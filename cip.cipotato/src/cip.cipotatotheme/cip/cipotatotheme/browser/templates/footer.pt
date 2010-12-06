@@ -1,0 +1,16 @@
+<div metal:define-macro="portal_footer"
+     i18n:domain="plone"
+     class="row">
+    <div class="cell width-full position-0">
+
+        <div id="portal-footer">
+            Copyright <span class="footer-ciptext">International Potato Center</span>. Av La Molina 1895, La Molina.
+        </div>
+        <div class="footer-blocks">
+            <div class="footer-b1 footer-bw"></div>
+            <div class="footer-b2 footer-bw"></div>
+            <div class="footer-b3 footer-bw"></div>
+            <div class="footer-b4 footer-bw"></div>
+        </div>
+    </div>
+</div>

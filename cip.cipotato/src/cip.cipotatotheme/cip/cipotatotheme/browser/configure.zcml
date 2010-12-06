@@ -50,4 +50,12 @@
       layer=".interfaces.IThemeSpecific"
       />
 
+  <browser:page
+      for="*"
+      name="frontpage"
+      template="templates/frontpage.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
 </configure>

@@ -23,10 +23,13 @@
       ResourceRegistries/tools/CSSRegistry.py for the latest list of all
       available keys and default values.
       -->
- <stylesheet title=""
-    id="++resource++cip.cipotatotheme.stylesheets/main.css"
-    media="screen" rel="stylesheet" rendering="import"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="1" expression=""/>
+
+ <stylesheet title="CIPotato.org Stylesheet" cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="" id="cipotato.css" media="screen"
+    rel="stylesheet" rendering="import"/>
+
+ <stylesheet title="TabbedContent" cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="" id="tabbedContent.css" media="screen"
+    rel="stylesheet" rendering="import"/>
 
 </object>

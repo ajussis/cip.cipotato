@@ -10,7 +10,7 @@
        persistence'.
        -->
 <object name="portal_skins" allow_any="False" cookie_persistence="False"
-   default_skin="Plone Default">
+   default_skin="Theme for CIPotato.org">
 
  <!-- This list registers the folders that are stored in the skins directory
       of your product (on the filesystem) as Filesystem Directory Views within
@@ -38,7 +38,7 @@
        Note: insert-before (and -after) accepts the value "*" which means
        "all".
        -->
- <skin-path name="Theme for CIPotato.org" based-on="Plone Default">
+ <skin-path name="Theme for CIPotato.org" based-on="Sunburst Theme">
   <layer name="cip_cipotatotheme_custom_images"
      insert-after="custom"/>
   <layer name="cip_cipotatotheme_custom_templates"

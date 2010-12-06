@@ -24,4 +24,10 @@
     enabled="True" expression=""  inline="False"/>
 -->
 
+ <javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="tabbedContent.js" inline="False"/>
+
+ <!--javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="sifr.js" inline="False"/-->
+
 </object>

@@ -58,4 +58,61 @@
       permission="zope.Public"
       />
 
+  <browser:page
+      for="*"
+      name="mainareas"
+      template="templates/mainareas.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="pressroom"
+      template="templates/pressroom.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="researchmain"
+      template="templates/researchmain.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="aboutcip"
+      template="templates/aboutcip.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="pressroomgallery"
+      template="templates/pressroomgallery.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="pressroomvideos"
+      template="templates/pressroomvideos.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+    <browser:viewlet
+        name="plone.footer"
+        for="*"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.FooterViewlet"
+        layer=".interfaces.IThemeSpecific"
+        permission="zope.Public"
+        />
+
 </configure>

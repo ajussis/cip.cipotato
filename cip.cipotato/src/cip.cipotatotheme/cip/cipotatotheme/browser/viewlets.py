@@ -1,5 +1,6 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
+from datetime import date
 
 # Sample code for a basic viewlet (In order to use it, you'll have to):
 # - Un-comment the following useable piece of code (viewlet python class).
@@ -19,3 +20,10 @@ from plone.app.layout.viewlets.common import ViewletBase
 #
 #    def update(self):
 #        self.computed_value = 'any output'
+
+
+class FooterViewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/footer.pt')
+
+    def update(self):
+        self.year = date.today().year

@@ -27,6 +27,18 @@
  <javascript cacheable="True" compression="none" cookable="True"
       enabled="True" expression="" id="tabbedContent.js" inline="False"/>
 
+ <javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="jquery.easing.1.3.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="jquery.coda-slider-2.0.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="jcarousel.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+      enabled="True" expression="" id="carrosel.js" inline="False"/>
+
  <!--javascript cacheable="True" compression="none" cookable="True"
       enabled="True" expression="" id="sifr.js" inline="False"/-->
 

@@ -32,4 +32,8 @@
     enabled="1" expression="" id="tabbedContent.css" media="screen"
     rel="stylesheet" rendering="import"/>
 
+ <stylesheet title="columns.css" cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression="" id="columns.css" media="screen"
+    rel="stylesheet" rendering="import"/>
+
 </object>

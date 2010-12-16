@@ -1,0 +1,46 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="cip.ciptypes">
+
+  <!-- configure your content components here -->
+  
+  <!-- -*- extra stuff goes here -*- -->
+  <class class=".publication.Publication">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IPublication"
+        />
+  </class>
+  <class class=".gallery.Gallery">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IGallery"
+        />
+  </class>
+  <class class=".seminar.Seminar">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ISeminar"
+        />
+  </class>
+  <class class=".faq.FAQ">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.IFAQ"
+        />
+  </class>
+  <class class=".career.Career">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ICareer"
+        />
+  </class>
+  <class class=".cipinthenews.CIPintheNews">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ICIPintheNews"
+        />
+  </class>
+
+</configure>

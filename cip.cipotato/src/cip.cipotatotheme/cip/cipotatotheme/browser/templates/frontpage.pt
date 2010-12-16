@@ -16,16 +16,16 @@
                             &nbsp;
                     </div>
                     <span class='tab_item cip-front1-tab'>
-                            Genebank
+                            GENEBANK
                     </span>
                     <span class='tab_item cip-front2-tab'>
-                            <a href="potato">Potato</a>
+                            <a href="potato">POTATO</a>
                     </span>
                     <span class='tab_item cip-front3-tab'>
-                            Sweetpotato
+                            SWEETPOTATO
                     </span>
                     <span class='tab_item cip-front4-tab'>
-                            RTAs
+                            ROOTS AND TUBERS
                     </span>
                 </div>
                 <div class='slide_content'>
@@ -51,16 +51,12 @@
                 </div>
             </div>
 
-
-
-
-
-
             <div class="lineBreak"></div>
 
             <div class="first-column">
                 <div class="cip-news">
-                    <h1>News from CIP</h1>
+                    <img src="news-from-cip-title.jpg" class="news-from-cip"/>
+
                     <tal:defs define="n cipnews/queryCatalog;
                                       n python:n[:2]">
                         <div class="cip-news-p" tal:repeat="m n">
@@ -111,9 +107,9 @@
 
             <div class="second-column">
                 <div class="cip-in-the-news">
-                    <h1>CIP in the News</h1>
-                    <tal:defs define="n cipinthenews/queryCatalog">
-                        <div class="cip-news-p" tal:repeat="m n">
+                    <img src="cip-in-the-media.jpg" class="cip-in-the-media">
+                    <ul tal:define="n cipinthenews/queryCatalog">
+                        <li class="cip-news-li" tal:repeat="m n">
                             <tal:defs2 define="item_object m/getObject;
                                                item_url m/getURL;">
                                 <a href="#"
@@ -134,13 +130,21 @@
                                     </span>
                                 </tal:rep>
                             </tal:defs2>
-                        </div>
-                    </tal:defs>
+                        </li>
+                    </ul>
                 </div>
                 <div class="cip-front-social">
-                    <p>Social Media</p>
+                    <img src="front-facebook.jpg" class="front-social-blocks" />
+                    <img src="front-flickr.jpg" class="front-social-blocks" />
+                    <img src="front-slideshare.jpg" class="front-social-blocks" />
+                    <img src="front-yammer.jpg" class="front-social-blocks" />
+                    <img src="front-youtube.jpg" class="front-social-blocks" />
                 </div>
             </div>
+
+
+
+<!-- _______________________ PUBLICATIONS __________________________________-->
 
             <script type="text/javascript">
                 $().ready(function() {
@@ -178,17 +182,15 @@
                 });
              </script>
 
-
-
             <div class="second-row">
                 <div class="third-column">
-                    <h1>Featured publications</h1>
+                    <img src="front-publications.jpg" class="front-publications" />
                     <div class="coda-slider-wrapper cip-front-pub">
                         <div class="coda-slider preload" id="coda-slider-1">
                             <tal:defs define="n featured/queryCatalog">
                                 <div class="panel" tal:repeat="m n">
                                     <div class="title" tal:define="item_url m/getURL;">
-                                        <img src="" alt=""
+                                        <img src="" alt="" 
                                              tal:attributes="src python:item_url + '/coverimage_thumb';
                                                              class python:'cip-front-pubimg';" />
                                     </div>
@@ -197,11 +199,10 @@
                                             <tal:rep define="source item_object/getType">
                                                 <a href="#" tal:attributes="href m/getURL">
                                                     <span tal:replace="m/pretty_title_or_id"/>
-                                                </a>
-                                                <!--span class="frontDate">
-                                                    <span class="frontDate3" tal:content="source" />
+                                                </a><br />
+                                                <span class="frontDate">                                                    <span class="frontDate3" tal:content="source" />
                                                     <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                                </span-->
+                                                </span>
                                             </tal:rep>
                                         </p>
                                     </div>
@@ -211,94 +212,10 @@
                     </div>
                 </div>
                 <div class="forth-column">
-                    <h1>Video</h1>
-                    <div class="cip-frontvideo divDestMineCarrossel">
-                        <!--div class="divGaleriaCarrossel_h">
-                            <ul class="carrosel jcarousel-skin-video-horizontal">
-                                <li>
-                                    <a href="http://www.youtube.com/v/HISfJjrc0fs&amp;hl=pt-br&amp;fs=1&amp;rel=0"
-                                       rev="Brazil has currently 15 locomotives Maria Fumaça type by country"
-                                       name="http://www.brasil.gov.br/movie/200911-1/maria-fumaca"
-                                       title="Maria Fumaça">
-                                        <img src="http://www.brasil.gov.br/movie/200911-1/maria-fumaca/image_tile" alt="Maria Fumaça" title="Maria Fumaça" height="48" width="64" class="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.youtube.com/v/4V2YVtUqtic&amp;hl=pt-br&amp;fs=1&amp;rel=0"
-                                       rev="The Brazilian passport went through several changes to ensure more security"
-                                       name="http://www.brasil.gov.br/movie/200911-1/passport"
-                                       title="Passport">
-                                        <img src="http://www.brasil.gov.br/movie/200911-1/passport/image_tile" alt="Passport" title="Passport" height="48" width="64" class="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.youtube.com/v/Qics3BTq_sE&amp;hl=pt-br&amp;fs=1&amp;rel=0"
-                                       rev="Brazil is a favorite destination in the world for ecotourism"
-                                       name="http://www.brasil.gov.br/movie/200911-1/ecotourism"
-                                       title="Ecotourism">
-                                        <img src="http://www.brasil.gov.br/movie/200911-1/ecotourism/image_tile" alt="Ecotourism" title="Ecotourism" height="48" width="64" class="" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://www.youtube.com/v/SC58DQK3PXI&amp;hl=pt-br&amp;fs=1&amp;rel=0"
-                                       rev="Learn about the dances and rhythms that make the Brazilian people famous around the world"
-                                       name="http://www.brasil.gov.br/movie/200911-1/dances-and-rhythms"
-                                       title="Dances and Rhythms">
-                                        <img src="http://www.brasil.gov.br/movie/200911-1/dances-and-rhythms/image_tile" alt="Dances and Rhythms" title="Dances and Rhythms" height="48" width="64" class="" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div-->
-                        <!--div class="divBoxVideo" style="width: 238px; height:170px; clear:both;">
-                            <object width="238" height="160">
-                                <param name="movie"
-                                       value="http://www.youtube.com/v/HISfJjrc0fs&amp;hl=pt-br&amp;fs=1&amp;rel=0" />
-                                <param name="allowFullScreen" value="true" />
-                                <param name="allowscriptaccess" value="always" />
-                                <embed type="application/x-shockwave-flash"
-                                       allowscriptaccess="always"
-                                       allowfullscreen="true" width="238" height="160"
-                                       src="http://www.youtube.com/v/HISfJjrc0fs&amp;hl=pt-br&amp;fs=1&amp;rel=0">
-                                </embed>
-                            </object>
-                            <p>
-                                San Ramon, Peru - What if we could combine the high levels beta-carotene
-                                a precursor of vitamin A - found orange fleshed sweet potatoes.
-                            </p>
-                        </div>
-
-                        <p>Maria Fumaça</p>
-                        <span>
-                            Brazil has currently 15 locomotives Maria Fumaça type by country
-                        </span>
-
-                        <span class="spanMais">
-                            <a title="More Videos"
-                               href="http://www.brasil.gov.br/whybrazil">
-                                <img height="8" width="10" alt="More Videos"
-                                     class="baixoContraste"
-                                     src="http://www.brasil.gov.br/ico/icoSetaDuplaAzul.gif" />
-                                <strong>More Videos</strong>
-                            </a>
-                        </span>
-                    </div-->
-
-                    <object width="425" height="344">
-                        <param name="movie" value="http://www.youtube.com/v/B1tKFXobPy8?fs=1&amp;hl=en_US" />
-                        <param name="allowFullScreen" value="true" />
-                        <param name="allowscriptaccess" value="always" />
-                        <embed src="http://www.youtube.com/v/B1tKFXobPy8?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="355" height="304" />
-                    </object>
-
-                    <p>
-                        San Ramon, Peru - What if we could combine the high levels beta-carotene
-                        a precursor of vitamin A - found orange fleshed sweet potatoes.
-                    </p>
-
-
+                    <img src="front-papatube.jpg" class="front-papatube" />
+                    <img src="front-newsletter.jpg" class="front-newsletter" />
+                </div>
             </div>
-
-
 
         </metal:main>
     </metal:main_macro>

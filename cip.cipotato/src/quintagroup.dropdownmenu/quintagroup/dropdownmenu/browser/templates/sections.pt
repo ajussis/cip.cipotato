@@ -1,0 +1,25 @@
+<tal:tabs tal:condition="view/portal_tabs"
+          i18n:domain="plone">
+    <ul id="portal-globalnav">
+        <li tal:replace="structure view/createMenu">
+            DropDown Menu
+        </li>
+    </ul>
+    <div class='tabbed_content_static' tal:define="object_title context/@@plone_context_state/object_id;">
+        <div class='tabs_static' tal:condition="python:object_title != 'Frontpage'">
+            <span class='tab_item_static cip-front1-tab'>
+                    Genebank
+            </span>
+            <span class='tab_item_static cip-front2-tab'>
+                    <a href="potato">Potato</a>
+            </span>
+            <span class='tab_item_static cip-front3-tab'>
+                    Sweetpotato
+            </span>
+            <span class='tab_item_static cip-front4-tab'>
+                    Roots and Tubers
+            </span>
+        </div>
+    </div>
+
+</tal:tabs>

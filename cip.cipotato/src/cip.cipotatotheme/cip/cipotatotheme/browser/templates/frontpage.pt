@@ -16,16 +16,16 @@
                             &nbsp;
                     </div>
                     <span class='tab_item cip-front1-tab'>
-                            GENEBANK
+                            <a href="potato">GENEBANK</a>
                     </span>
                     <span class='tab_item cip-front2-tab'>
                             <a href="potato">POTATO</a>
                     </span>
                     <span class='tab_item cip-front3-tab'>
-                            SWEETPOTATO
+                            <a href="potato">SWEETPOTATO</a>
                     </span>
                     <span class='tab_item cip-front4-tab'>
-                            ROOTS AND TUBERS
+                            <a href="potato">ROOTS AND TUBERS</a>
                     </span>
                 </div>
                 <div class='slide_content'>
@@ -213,7 +213,7 @@
                 </div>
                 <div class="forth-column">
                     <img src="front-papatube.jpg" class="front-papatube" />
-                    <img src="front-newsletter.jpg" class="front-newsletter" />
+                    <!--img src="front-newsletter.jpg" class="front-newsletter" /-->
                 </div>
             </div>
 

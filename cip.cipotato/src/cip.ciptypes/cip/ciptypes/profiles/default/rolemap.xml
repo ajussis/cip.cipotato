@@ -2,6 +2,26 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
+    <permission name="cip.ciptypes: Add Jobholder" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="cip.ciptypes: Add Jobs" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="cip.ciptypes: Add Pubholder" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="cip.ciptypes: Add Personnel Container" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="cip.ciptypes: Add Person" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
     <permission name="cip.ciptypes: Add Publication" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />

@@ -5,7 +5,7 @@
 
 .tabbed_content {
 background-color:transparent;
-height:321px;
+height:290px;
 margin:-33px 126px 15px -38px;
 width:839px;
 }
@@ -16,11 +16,14 @@ width:839px;
 }*/
 
 .tabs {
-background:none repeat scroll 0 0 #9A0040;
-height:62px;
-margin:0 20px;
-position:relative;
-width:963px;
+    background: none repeat scroll 0 0 #9A0040;
+    height: 62px;
+    margin: 30px 20px 0;
+    position: relative;
+    width: 963px;
+}
+.discussion {
+margin-left:20px;
 }
 
 .tabs_static {
@@ -86,7 +89,13 @@ display:none;
 
 .tab_item a {
 color:white !important;
+font-size:17px;
+color:white;
 }
+.tab_item a:hover {
+color:white !important;
+}
+
 
 .tabs_static .tab_item_static {
 color:#FFFFFF;
@@ -136,7 +145,7 @@ width:963px;
 
 .tabbed_content_static {
     background-color: transparent;
-    height: 38px;
+    height: 0px;
     margin: -12px 0 0 -20px;
     overflow: visible;
     padding: 0 0 0;
@@ -145,7 +154,7 @@ width:963px;
 }
 
 .tabslider {
-margin:-114px;
+margin:0px;
 width:5000px;
 }
 

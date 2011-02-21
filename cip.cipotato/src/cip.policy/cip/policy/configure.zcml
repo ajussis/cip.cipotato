@@ -1,0 +1,87 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="cip.policy">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+    <!-- collective.transmogrifier registrations for importing articles -->
+    <include package="collective.transmogrifier" file="meta.zcml" />
+    <include package="collective.transmogrifier" />
+    <!--include package="plone.app.transmogrifier" /-->
+
+  <include package=".browser" />
+
+  <!--transmogrifier:registerConfig
+      name="Persons import" 
+      title="Import of persons for personnel section" 
+      description="" 
+      configuration="transmogrifier.cfg"
+      />
+
+    <utility
+        component=".transmogrifier.PersonSource"
+        name="cip.policy.transmogrifier.personsource"
+        />      
+    <utility
+        component=".transmogrifier.PathSetter"
+        name="cip.policy.transmogrifier.pathsetter"
+        />      
+    <utility
+        component=".transmogrifier.FormatSetter"
+        name="cip.policy.transmogrifier.formatsetter"
+        /-->
+
+    <transmogrifier:registerConfig
+      name="Publications import"
+      title="Import publications"
+      description=""
+      configuration="transmogrifierpublications.cfg"
+        />
+
+    <utility
+        component=".transmogrifierpublications.PublicationSource"
+        name="cip.policy.transmogrifierpublications.publicationsource"
+        />
+    <utility
+        component=".transmogrifierpublications.PathSetter"
+        name="cip.policy.transmogrifierpublications.pathsetter"
+        />
+    <utility
+        component=".transmogrifierpublications.FormatSetter"
+        name="cip.policy.transmogrifierpublications.formatsetter"
+        />
+
+
+
+  <!-- Register the installation GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="cip.policy"
+      directory="profiles/default"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Register the import step -->
+  <genericsetup:importStep
+      name="cip.policy"
+      title="cip.policy special import handlers"
+      description=""
+      handler="cip.policy.setuphandlers.import_various" />
+
+  <!-- Register the upgrade step -->
+  <genericsetup:upgradeStep
+      title="Add catalog indexes"
+      description=""
+      source="1000"
+      destination="1001"
+      handler="cip.policy.setuphandlers.add_catalog_indexes"
+      profile="cip.policy:default" />
+
+  <!-- -*- extra stuff goes here -*- -->
+  
+</configure>

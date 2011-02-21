@@ -68,6 +68,14 @@
 
   <browser:page
       for="*"
+      name="contactsView"
+      class=".contacts.ContactsView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
       name="pressroom"
       template="templates/pressroom.pt"
       layer=".interfaces.IThemeSpecific"

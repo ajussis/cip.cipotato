@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="cip.cipotatheme.various"
+               version="20100309-01"
+               handler="cip.cipotatotheme.setuphandlers.setupVarious"
+               title="Folder structure: miscellaneous import steps">
+    <dependency step="rolemap" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>

@@ -10,6 +10,11 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
   <factorytypes>
     <!-- -*- extra stuff goes here -*- -->
+    <type portal_type="Jobholder" />
+    <type portal_type="Jobs" />
+    <type portal_type="Pubholder" />
+    <type portal_type="Personnel Container" />
+    <type portal_type="Person" />
     <type portal_type="Publication" />
     <type portal_type="Gallery" />
     <type portal_type="Seminar" />

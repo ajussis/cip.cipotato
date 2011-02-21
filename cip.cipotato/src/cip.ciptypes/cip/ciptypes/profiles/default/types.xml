@@ -8,6 +8,16 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="Jobholder"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Jobs"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Pubholder"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Personnel Container"
+    meta_type="Factory-based Type Information with dynamic views" />
+  <object name="Person"
+    meta_type="Factory-based Type Information with dynamic views" />
   <object name="Publication"
     meta_type="Factory-based Type Information with dynamic views" />
   <object name="Gallery"

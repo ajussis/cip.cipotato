@@ -4,28 +4,27 @@
                              disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="cipnews python: getattr(context, 'cip-news');
-                                cipinthenews python:getattr(context, 'cip-in-the-news');
+                    tal:define="cipnews python: getattr(context, 'cipnews');
+                                cipinthenews python:getattr(context, 'cipinthenews');
                                 featured python:getattr(context, 'featured');
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-
 
             <div class='tabbed_content'>
                 <div class='tabs'>
                     <div class='moving_bg'>
                             &nbsp;
                     </div>
-                    <span class='tab_item cip-front1-tab'>
-                            <a href="potato">GENEBANK</a>
+                    <span class='tab_item_static tab_item cip-front1-tab'>
+                            <a href="genebank">GENEBANK</a>
                     </span>
                     <span class='tab_item cip-front2-tab'>
                             <a href="potato">POTATO</a>
                     </span>
                     <span class='tab_item cip-front3-tab'>
-                            <a href="potato">SWEETPOTATO</a>
+                            <a href="sweetpotato">SWEETPOTATO</a>
                     </span>
                     <span class='tab_item cip-front4-tab'>
-                            <a href="potato">ROOTS AND TUBERS</a>
+                            <a href="roots-and-tubers">ROOTS AND TUBERS</a>
                     </span>
                 </div>
                 <div class='slide_content'>
@@ -191,18 +190,20 @@
                                 <div class="panel" tal:repeat="m n">
                                     <div class="title" tal:define="item_url m/getURL;">
                                         <img src="" alt="" 
-                                             tal:attributes="src python:item_url + '/coverimage_thumb';
+                                             tal:attributes="src python:item_url + '/image_thumb';
                                                              class python:'cip-front-pubimg';" />
                                     </div>
                                     <div class="panel-wrapper" tal:define="item_object m/getObject;">
                                         <p>
-                                            <tal:rep define="source item_object/getType">
+                                            <tal:rep define="source item_object/getCategory">
+                                                <span class="frontDate">
+                                                    <span class="frontDate3" tal:content="source" />
+                                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                                </span>
+                                                <br />
                                                 <a href="#" tal:attributes="href m/getURL">
                                                     <span tal:replace="m/pretty_title_or_id"/>
                                                 </a><br />
-                                                <span class="frontDate">                                                    <span class="frontDate3" tal:content="source" />
-                                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                                </span>
                                             </tal:rep>
                                         </p>
                                     </div>

@@ -8,16 +8,16 @@
     <div class='tabbed_content_static' tal:define="object_title context/@@plone_context_state/object_title;">
         <div class='tabs_static' tal:condition="python:object_title != 'International Potato Center'">
             <span class='tab_item_static cip-front1-tab'>
-                    <a href="potato">GENEBANK</a>
+                    <a href="genebank">GENEBANK</a>
             </span>
             <span class='tab_item_static cip-front2-tab'>
                     <a href="potato">POTATO</a>
             </span>
             <span class='tab_item_static cip-front3-tab'>
-                    <a href="potato">SWEETPOTATO</a>
+                    <a href="sweetpotato">SWEETPOTATO</a>
             </span>
             <span class='tab_item_static cip-front4-tab'>
-                    <a href="potato">ROOTS AND TUBERS</a>
+                    <a href="roots-and-tubers">ROOTS AND TUBERS</a>
             </span>
         </div>
     </div>

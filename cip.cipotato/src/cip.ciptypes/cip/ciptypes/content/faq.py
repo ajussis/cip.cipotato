@@ -8,6 +8,7 @@ from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
 
 # -*- Message Factory Imported Here -*-
+from cip.ciptypes import ciptypesMessageFactory as _
 
 from cip.ciptypes.interfaces import IFAQ
 from cip.ciptypes.config import PROJECTNAME
@@ -15,6 +16,16 @@ from cip.ciptypes.config import PROJECTNAME
 FAQSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
+
+    atapi.StringField(
+        'answer',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Answer"),
+            description=_(u"Answer"),
+        ),
+    ),
+
 
 ))
 
@@ -38,5 +49,7 @@ class FAQ(base.ATCTContent):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    answer = atapi.ATFieldProperty('answer')
+
 
 atapi.registerType(FAQ, PROJECTNAME)

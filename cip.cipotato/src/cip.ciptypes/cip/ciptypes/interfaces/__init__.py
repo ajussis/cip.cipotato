@@ -1,4 +1,9 @@
 # -*- extra stuff goes here -*-
+from jobholder import IJobholder
+from jobs import IJobs
+from pubholder import IPubholder
+from personnelcontainer import IPersonnelContainer
+from person import IPerson
 from publication import IPublication
 from gallery import IGallery
 from seminar import ISeminar

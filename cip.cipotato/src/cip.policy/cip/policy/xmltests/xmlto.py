@@ -69,7 +69,7 @@ class XmlParser():
         
 root = ElementTree.XML("<?xml version='1.0' encoding='ISO-8859-1'?><list><publication><author></author><title><![CDATA[Catalogo de variedades de papa nativa de Huancavelica-Peru]]></title><series></series><conference></conference><year>2006</year><category>Catalog</category></publication><publication><author></author><title><![CDATA[Catalogo de variedades de papa nativa de Huancavelica-Peru]]></title><series></series><conference></conference><year>2006</year><year2>2009</year2><category>Catalog</category></publication></list>")
 
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
 
 xmldict = XmlParser().xmlToDict(root)
 

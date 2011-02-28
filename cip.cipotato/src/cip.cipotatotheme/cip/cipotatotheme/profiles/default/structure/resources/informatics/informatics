@@ -1,0 +1,25 @@
+id: informatics
+title: Informatics
+description: 
+subject: 
+relatedItems: 
+location: 
+language: en
+effectiveDate: 2011/02/18 11:00:47.330896 GMT-5
+expirationDate: None
+creation_date: 2011/02/16 10:28:44.435303 GMT-5
+modification_date: 2011/02/18 11:00:47.331400 GMT-5
+creators: admin
+contributors: 
+rights: 
+allowDiscussion: False
+excludeFromNav: False
+presentation: False
+tableContents: False
+Content-Type: text/html
+
+<p><a href="https://research.cip.cgiar.org/confluence/display/cpx/Germplasm+Passport+and+Evaluation+Data+Search"><span>Germplasm</span></a><span></span><br /><span>CIP germplasm passport and evaluation data. Searchable via Biomart. </span><br /><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/IPD/Home"><span>Inter-genebank Potato Database</span></a><span> </span><br /><span>Global database of wild potato species available from genebank members, including <br class="kix-line-break" />CIP, of the Association of Potato Inter-genebank Collaborators (APIC).</span><br /><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/SPGI/Home"><span>Sweetpotato Gene Index</span></a><span></span><br /><span>Hybrid   assembly of 454 sequencing reads of two normalized cDNA libraries, one   derived from leaves and one from stems of the sweetpotato clone  Tanzania  (CIP 440160), with 22,094 EST data from the  National Center  for  Biotechnology Information (NCBI) GenBank. Use Biomart to search and   compare sequences.</span><br /><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/IPD/SSR+Marker"><span>Potato Genetic Identity Kit</span></a><span></span><br /><span>Database   of 24 SSR markers for genotyping potato landraces. Markers were   selected based on quality criteria, genome coverage, and locus-specific   information content. Use to standardize the choice and allele sizing of   microsatellites in potato and for cumulative analysis of independently   generated data. </span><br /><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/potatogene/Home"><span>PotatoGENE</span></a><span></span><br /><span>The   Potato Gene Engineering NEtwork (PotatoGENE) was created by scientists   to share and provide information on the development and use of   transgenic potato varieties for the benefit of resource-poor farmers in   developing countries.</span><span></span><br /><span></span><br /><a href="http://singer.cgiar.org/index.jsp"><span>System-wide Information Network for Genetic Resources (SINGER)</span></a><span></span><br /><span>Germplasm   information exchange network of the Consultative Group on  International  Agricultural Research (CGIAR) and its partners.</span><br /><span></span></p>
+<hr />
+<p><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/divagis/Home"><span>DIVA-GIS</span></a><span></span><br /><span>F</span><span>ree,   open-source GIS for creating species distribution maps and analyzing   distribution data. Use with data from national and international   genebanks and SINGER.</span><br /><span></span><br /><a href="https://research.cip.cgiar.org/gis/index.php"><span>GIS</span></a><span></span><br /><span>Downloadable climate data, maps, and geo-referenced databases.</span><span></span><br /><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/ilcym/Home"><span>Insect Life Cycle Modeling (ILCYM)</span></a><span></span><br /><span>Tools for modeling pest insect phenology and studying pest population ecology.</span><br /><span></span></p>
+<hr />
+<p><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/wpa/Home"><span>World Potato Atlas</span></a><span></span><br /><span>Information about world potato production and use, with emphasis on developing countries.</span><br /><span></span><br /><a href="https://research.cip.cgiar.org/confluence/display/wsa/Home"><span>World Sweetpotato Atlas</span></a><span></span><br /><span>Information about world sweetpotato production and use, with emphasis on developing countries.</span><br /><span></span><br /><a href="https://research.cip.cgiar.org/genebankdb/modules/wpsa_old/"><span>Wild Potato Species Atlas</span></a><span></span><br /><span>Distribution maps of all currently recognized wild potato species.</span></p>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+ <factorytypes>
+  <type portal_type="CIP in the News"/>
+  <type portal_type="Career"/>
+  <type portal_type="Document"/>
+  <type portal_type="Event"/>
+  <type portal_type="FAQ"/>
+  <type portal_type="File"/>
+  <type portal_type="Folder"/>
+  <type portal_type="Gallery"/>
+  <type portal_type="Image"/>
+  <type portal_type="Jobholder"/>
+  <type portal_type="Jobs"/>
+  <type portal_type="Link"/>
+  <type portal_type="News Item"/>
+  <type portal_type="Person"/>
+  <type portal_type="Personnel Container"/>
+  <type portal_type="Pubholder"/>
+  <type portal_type="Publication"/>
+  <type portal_type="Seminar"/>
+  <type portal_type="Topic"/>
+ </factorytypes>
+</object>

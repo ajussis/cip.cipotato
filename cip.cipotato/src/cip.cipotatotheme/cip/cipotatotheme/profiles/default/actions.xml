@@ -19,6 +19,23 @@
    </property>
    <property name="visible">False</property>
   </object>
+
+<!-- MULTI UPLOAD -->
+  <object name="upload" meta_type="CMF Action" i18n:domain="collective.uploadify">
+   <property name="title" i18n:translate="">Upload</property>
+   <property name="description" i18n:translate="">Batch upload files.</property>
+   <property name="url_expr">
+     string:${plone_context_state/canonical_object_url}/@@upload
+   </property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">
+     python:plone_context_state.is_folderish() or plone_context_state.is_default_page()
+   </property>
+   <property name="permissions">
+    <element value="Add portal content"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
   <object name="print" meta_type="CMF Action" i18n:domain="plone">
    <property name="title" i18n:translate="">Print this</property>
    <property name="description" i18n:translate=""></property>
@@ -442,7 +459,7 @@
     <property name="title">Global contacts</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/global-contacts</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/global-contacts</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -453,7 +470,7 @@
     <property name="title">Message from DG</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/message-from-dg</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/message-from-dg</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -464,7 +481,7 @@
     <property name="title">Internal structure</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/internal-structure</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/internal-structure</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -475,7 +492,7 @@
     <property name="title">Board</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/board</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/board</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -486,7 +503,7 @@
     <property name="title">Staff</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/staff</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/staff</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -497,7 +514,7 @@
     <property name="title">Jobs</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/jobs</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/jobs</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -508,18 +525,7 @@
     <property name="title">How to collaborate</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/how-to-collaborate-with-cip</property>
-    <property name="link_target"></property>
-    <property name="icon_expr"></property>
-    <property name="available_expr"></property>
-    <property name="permissions"/>
-    <property name="visible">True</property>
-   </object>
-   <object name="lodging" meta_type="CMF Action">
-    <property name="title">Lodging</property>
-    <property name="description"></property>
-    <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/lodging</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/how-to-collaborate-with-cip</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -536,6 +542,20 @@
     <property name="available_expr"></property>
     <property name="permissions"/>
     <property name="visible">True</property>
+   </object>
+   <object name="about-cip_sub" meta_type="CMF Action Category">
+    <property name="title"></property>
+    <object name="lodging" meta_type="CMF Action">
+     <property name="title">Lodging</property>
+     <property name="description"></property>
+     <property
+        name="url_expr">string:${globals_view/navigationRootUrl}/about-cip/visitors-office/lodging</property>
+     <property name="link_target"></property>
+     <property name="icon_expr"></property>
+     <property name="available_expr"></property>
+     <property name="permissions"/>
+     <property name="visible">True</property>
+    </object>
    </object>
   </object>
   <object name="research_sub" meta_type="CMF Action Category">
@@ -766,11 +786,33 @@
     <property name="permissions"/>
     <property name="visible">True</property>
    </object>
-   <object name="souveniers-shop" meta_type="CMF Action">
-    <property name="title">Souveniers Shop</property>
+   <object name="library" meta_type="CMF Action">
+    <property name="title">Library</property>
     <property name="description"></property>
     <property
-       name="url_expr">string:${globals_view/navigationRootUrl}/resources/souveniers-shop</property>
+       name="url_expr">string:${globals_view/navigationRootUrl}/resources/publications</property>
+    <property name="link_target"></property>
+    <property name="icon_expr"></property>
+    <property name="available_expr"></property>
+    <property name="permissions"/>
+    <property name="visible">True</property>
+   </object>
+   <object name="ordering-germplasm" meta_type="CMF Action">
+    <property name="title">Ordering germplasm</property>
+    <property name="description"></property>
+    <property
+       name="url_expr">string:${globals_view/navigationRootUrl}/resources/publications</property>
+    <property name="link_target"></property>
+    <property name="icon_expr"></property>
+    <property name="available_expr"></property>
+    <property name="permissions"/>
+    <property name="visible">True</property>
+   </object>
+   <object name="capacity-strengthening" meta_type="CMF Action">
+    <property name="title">Capacity Strenghtening</property>
+    <property name="description"></property>
+    <property
+       name="url_expr">string:${globals_view/navigationRootUrl}/resources/publications</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>
@@ -799,6 +841,53 @@
     <property name="description"></property>
     <property
        name="url_expr">string:${globals_view/navigationRootUrl}/jobs/scholarships</property>
+    <property name="link_target"></property>
+    <property name="icon_expr"></property>
+    <property name="available_expr"></property>
+    <property name="permissions"/>
+    <property name="visible">True</property>
+   </object>
+  </object>
+  <object name="impacts_sub" meta_type="CMF Action Category">
+   <property name="title">About CIP</property>
+   <object name="impact-stories" meta_type="CMF Action">
+    <property name="title">Impact stories</property>
+    <property name="description"></property>
+    <property
+       name="url_expr">string:${globals_view/navigationRootUrl}/impacts/impact-stories</property>
+    <property name="link_target"></property>
+    <property name="icon_expr"></property>
+    <property name="available_expr"></property>
+    <property name="permissions"/>
+    <property name="visible">True</property>
+   </object>
+   <object name="partcipatory-impact-pathways" meta_type="CMF Action">
+    <property name="title">Participatory impact pathways</property>
+    <property name="description"></property>
+    <property
+       name="url_expr">string:${globals_view/navigationRootUrl}/impacts/participatory-impact-pathways</property>
+    <property name="link_target"></property>
+    <property name="icon_expr"></property>
+    <property name="available_expr"></property>
+    <property name="permissions"/>
+    <property name="visible">True</property>
+   </object>
+   <object name="impact-briefs" meta_type="CMF Action">
+    <property name="title">Impact briefs</property>
+    <property name="description"></property>
+    <property
+       name="url_expr">string:${globals_view/navigationRootUrl}/impacts/impact-briefs</property>
+    <property name="link_target"></property>
+    <property name="icon_expr"></property>
+    <property name="available_expr"></property>
+    <property name="permissions"/>
+    <property name="visible">True</property>
+   </object>
+   <object name="assessing-impacts" meta_type="CMF Action">
+    <property name="title">Assessing impact</property>
+    <property name="description"></property>
+    <property
+       name="url_expr">string:${globals_view/navigationRootUrl}/impacts/assessing-impact</property>
     <property name="link_target"></property>
     <property name="icon_expr"></property>
     <property name="available_expr"></property>

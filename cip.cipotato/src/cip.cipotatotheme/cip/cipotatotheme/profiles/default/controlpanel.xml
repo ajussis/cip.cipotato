@@ -146,6 +146,12 @@
     url_expr="string:${portal_url}/@@imaging-controlpanel" visible="True">
   <permission>Manage portal</permission>
  </configlet>
+ <configlet title="Facebook Settings" action_id="fbconnect"
+    appId="Facebook Settings" category="Products" condition_expr=""
+    icon_expr="" url_expr="string:${portal_url}/@@facebook-settings"
+    visible="True">
+  <permission>Manage portal</permission>
+ </configlet>
  <configlet title="Configuration Registry" action_id="plone.app.registry"
     appId="plone.app.registry" category="Plone" condition_expr=""
     icon_expr="string:$portal_url/++resource++plone.app.registry/icon.png"
@@ -155,12 +161,6 @@
  <configlet title="DropDown Menu" action_id="dropdownmenu"
     appId="quintagroup.dropdownmenu" category="Products" condition_expr=""
     icon_expr="" url_expr="string:${portal_url}/@@dropdownmenu-settings"
-    visible="True">
-  <permission>Manage portal</permission>
- </configlet>
- <configlet title="Facebook Settings" action_id="fbconnect"
-    appId="Facebook Settings" category="Products" condition_expr=""
-    icon_expr="" url_expr="string:${portal_url}/@@facebook-settings"
     visible="True">
   <permission>Manage portal</permission>
  </configlet>

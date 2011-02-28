@@ -146,7 +146,7 @@ width:963px;
 .tabbed_content_static {
     background-color: transparent;
     height: 0px;
-    margin: -12px 0 0 -20px;
+    margin: -13px 0 0 -20px;
     overflow: visible;
     padding: 0 0 0;
     position: relative;

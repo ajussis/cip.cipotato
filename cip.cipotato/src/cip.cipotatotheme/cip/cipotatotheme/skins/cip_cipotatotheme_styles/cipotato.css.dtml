@@ -13,7 +13,7 @@ background-color:#FFFFFF;
 margin-left:auto !important;
 margin-right:auto !important;
 position:static;
-width:963px;
+width:960px;
 }
 
 
@@ -23,7 +23,7 @@ width:963px;
 margin:0;
 }
 #portal-header {
-    background: url("cip_header.png") repeat scroll 0 0 transparent;
+    background: url("cip_header.gif") repeat scroll 10px 10px white;
     height: 121px;
     position: relative;
     z-index: 3;
@@ -84,7 +84,7 @@ margin:<dtml-var "(122-_[logoName].height)/2">px 0 0 <dtml-var "(259-_[logoName]
     list-style-type: none;
     margin-top: 119px;
     overflow: visible;
-    padding: 6px 0 6px 1em;
+    padding: 6px 0 4px 1em;
     z-index: 500;
 }
 
@@ -873,7 +873,7 @@ text-decoration:underline;
 }
 
 .footer-blocks {
-width:498px;
+width:495px;
 height:24px;
 float:left;
 background-color:#63210B;
@@ -1944,4 +1944,58 @@ dl.portalMessage {
 }
 
 
+.section-genebank div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-genebank.jpg") repeat scroll 0 0 transparent;
+    height: 279px;
+}
+.section-genebank #portal-header {
+    background: url("cip_header.gif") repeat scroll 10px 10px transparent;
+    height: 121px;
+    position: relative;
+    z-index: 3;
+}
+
+.section-potato div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-papas.jpg") repeat scroll 0 0 transparent;
+    height: 279px;
+}
+.section-potato #portal-header {
+    background: url("cip_header.gif") repeat scroll 10px 10px transparent;
+    height: 121px;
+    position: relative;
+    z-index: 3;
+}
+
+.template-frontpage div#portal-header {
+background-color:white;
+}
+
+.pub_menu {
+background:#f8e3f0;
+padding:10px;
+float:left;
+width:97%
+}
+
+.pub_menu_item {
+font-size:19px;
+color:#500f67;
+display:block;
+float:left;
+width:220px;
+font-weight:bold;
+}
+.pub_links {
+float:left;
+width:200px;
+padding:10px;
+}
+.pub_links li {
+color:#500f67;
+float:left;
+}
+
+.pub_listing {
+width:70%;
+}
 /* </dtml-with> */

@@ -1,11 +1,47 @@
 <?xml version="1.0"?>
 <import-steps>
-  <import-step id="cip.cipotatheme.various"
-               version="20100309-01"
-               handler="cip.cipotatotheme.setuphandlers.setupVarious"
-               title="Folder structure: miscellaneous import steps">
-    <dependency step="rolemap" />
+ <import-step id="cip.cipotatheme.various" version="20100309-01" handler="cip.cipotatotheme.setuphandlers.setupVarious" title="Folder structure: miscellaneous import steps">
+  <dependency step="rolemap"/>
+  
+    
     Various import steps that are not handled by GS import/export
     handlers.
-  </import-step>
+  
+ </import-step>
+ <import-step id="languagetool" version="20070615-01" handler="Products.PloneLanguageTool.exportimport.importLanguageTool" title="Plone Language Tool">
+  <dependency step="toolset"/>
+  
+  
+  Import language settings.
+ 
+ </import-step>
+ <import-step id="mimetypes-registry-various" version="20070309-01" handler="Products.MimetypesRegistry.setuphandlers.setupMimetypesRegistry" title="MimetypesRegistry setup">
+  <dependency step="componentregistry"/>
+  
+  
+    MimetypesRegistry installation step.
+ 
+ </import-step>
+ <import-step id="plonepas" version="20061230-01" handler="Products.PlonePAS.setuphandlers.setupPlonePAS" title="PlonePAS setup">
+  <dependency step="componentregistry"/>
+  <dependency step="controlpanel"/>
+  <dependency step="memberdata-properties"/>
+  <dependency step="plonepas-contents"/>
+  <dependency step="rolemap"/>
+  
+  
+  
+  
+  
+  
+    PlonePAS installation step.
+ 
+ </import-step>
+ <import-step id="portal-transforms-various" version="20070309-01" handler="Products.PortalTransforms.setuphandlers.setupPortalTransforms" title="PortalTransforms setup">
+  <dependency step="componentregistry"/>
+  
+  
+    PortalTransforms installation step.
+ 
+ </import-step>
 </import-steps>

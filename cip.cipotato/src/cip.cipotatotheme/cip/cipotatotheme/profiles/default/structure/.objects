@@ -1,5 +1,6 @@
+cipnews,Topic
+cipinthenews,Topic
 front-page,Document
-news,Folder
 events,Folder
 Members,Folder
 cip-news,Topic
@@ -14,3 +15,8 @@ resources,Folder
 jobs,Folder
 featured,Topic
 potato,Folder
+genebank,Folder
+potato-1,Folder
+sweetpotato,Folder
+roots-and-tubers,Folder
+andean-roots-tubers,Folder

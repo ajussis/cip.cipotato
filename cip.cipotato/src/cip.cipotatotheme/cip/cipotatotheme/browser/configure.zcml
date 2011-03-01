@@ -53,7 +53,7 @@
   <browser:page
       for="*"
       name="publications_view"
-      template="templates/publications.pt"
+      class=".publications.PublicationsView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />

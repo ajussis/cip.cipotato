@@ -81,6 +81,7 @@ PublicationSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
     atapi.StringField(
         'pdf',
         storage=atapi.AnnotationStorage(),
+        searchable=1,
         widget=atapi.StringWidget(
             label=_(u"PDF"),
             description=_(u"PDF"),

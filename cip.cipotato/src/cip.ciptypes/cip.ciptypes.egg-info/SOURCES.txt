@@ -27,8 +27,11 @@ cip/ciptypes/content/cipinthenews.py
 cip/ciptypes/content/configure.zcml
 cip/ciptypes/content/faq.py
 cip/ciptypes/content/gallery.py
+cip/ciptypes/content/jobholder.py
+cip/ciptypes/content/jobs.py
 cip/ciptypes/content/person.py
 cip/ciptypes/content/personnelcontainer.py
+cip/ciptypes/content/pubholder.py
 cip/ciptypes/content/publication.py
 cip/ciptypes/content/seminar.py
 cip/ciptypes/interfaces/__init__.py
@@ -36,8 +39,11 @@ cip/ciptypes/interfaces/career.py
 cip/ciptypes/interfaces/cipinthenews.py
 cip/ciptypes/interfaces/faq.py
 cip/ciptypes/interfaces/gallery.py
+cip/ciptypes/interfaces/jobholder.py
+cip/ciptypes/interfaces/jobs.py
 cip/ciptypes/interfaces/person.py
 cip/ciptypes/interfaces/personnelcontainer.py
+cip/ciptypes/interfaces/pubholder.py
 cip/ciptypes/interfaces/publication.py
 cip/ciptypes/interfaces/seminar.py
 cip/ciptypes/portlets/__init__.py
@@ -53,8 +59,11 @@ cip/ciptypes/profiles/default/types/CIP_in_the_News.xml
 cip/ciptypes/profiles/default/types/Career.xml
 cip/ciptypes/profiles/default/types/FAQ.xml
 cip/ciptypes/profiles/default/types/Gallery.xml
+cip/ciptypes/profiles/default/types/Jobholder.xml
+cip/ciptypes/profiles/default/types/Jobs.xml
 cip/ciptypes/profiles/default/types/Person.xml
 cip/ciptypes/profiles/default/types/Personnel_Container.xml
+cip/ciptypes/profiles/default/types/Pubholder.xml
 cip/ciptypes/profiles/default/types/Publication.xml
 cip/ciptypes/profiles/default/types/Seminar.xml
 cip/ciptypes/struc_REMOVE/.objects

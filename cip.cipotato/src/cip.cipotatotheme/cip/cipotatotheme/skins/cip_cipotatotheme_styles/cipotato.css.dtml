@@ -1722,6 +1722,11 @@ margin-right:4%;
 margin-top:-15px;
 }
 
+.cip-news-press {
+margin-right:4%;
+margin-top:15px;
+}
+
 #content li.cip-news-li {
 display:list-item;
 list-style:square;
@@ -1998,4 +2003,73 @@ float:left;
 .pub_listing {
 width:70%;
 }
+
+.media_info {
+width:660px;
+}
+
+.media_contact {
+    background: none repeat scroll 0 0 #F8DAFF;
+    border-top: 3px solid #581A74;
+    display: block;
+    height: 71px;
+    padding: 5px;
+    width: 320px;
+}
+
+.media_contact_title {
+    font-size: 20px;
+    margin-bottom: -9px;
+    text-align: right;
+    width: 320px;
+}
+
+.media_contact_name_name {
+color: #581A74;
+font-weight:bold;
+margin-bottom:0 !important;
+}
+.media_contact_name {
+    border-right: 2px solid #581A74;
+    float: left;
+    margin-right: 4px;
+    width: 155px;
+}
+.media_contact_info {
+    float: left;
+    width: 155px;
+}
+
+.media_about_title {
+    font-size: 20px;
+    margin-bottom: -9px;
+    text-align: right;
+    width: 320px;
+    color:#FF6A0C;
+}
+
+.media_abouts {
+width: 325px;
+float:left;
+}
+.media_contacts {
+width: 325px;
+float:left;
+}
+
+.media_about {
+    background: none repeat scroll 0 0 #ffe2d0;
+    border-top: 3px solid #FF6A0C;
+    display: block;
+    height: 71px;
+    padding: 5px;
+    width: 320px;
+}
+
+.page_title {
+color:#581A74;
+margin-bottom:0;
+padding-bottom:0;
+}
+
 /* </dtml-with> */

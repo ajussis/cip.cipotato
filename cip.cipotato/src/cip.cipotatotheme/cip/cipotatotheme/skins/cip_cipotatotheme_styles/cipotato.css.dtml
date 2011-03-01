@@ -2076,4 +2076,44 @@ padding-bottom:0;
 display:none;
 }
 
+.research_column {
+width:53%;
+float:left;
+margin-left:10px;
+}
+
+.research_column2 {
+    float: left;
+    margin-left: 35px;
+    width: 42%;
+}
+.research_column2 ul li {
+    margin-bottom: 1px !important;
+    padding: 2px 2px 2px 5px;
+    font-weight:bold;
+}
+
+.research_link_potato {
+border-left:5px solid #8F46A2;
+color: #8F46A2;
+border-bottom:1px dotted #8F46A2;
+}
+
+.research_link_sweetpotato {
+border-left:5px solid #FF6A0C;
+color: #FF6A0C;
+border-bottom:1px dotted #FF6A0C;
+}
+.research_link_division {
+border-left:5px solid #9A0040;
+color: #9A0040;
+border-bottom:1px dotted #9A0040;
+}
+.research_link_other {
+border-left:5px solid #EC006E;
+color: #EC006E;
+border-bottom:1px dotted #EC006E;
+}
+
+
 /* </dtml-with> */

@@ -6,4 +6,5 @@
   <column value="getEmail"/>
   <column value="getTel"/>
   <column value="getHead"/>
+  <column value="getPosition"/>
 </object>

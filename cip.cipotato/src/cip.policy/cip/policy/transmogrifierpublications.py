@@ -1,7 +1,9 @@
-from xml.etree import ElementTree as etree
 from collective.transmogrifier.interfaces import ISectionBlueprint, ISection
 from zope.interface import classProvides, implements
 from collective.transmogrifier.utils import defaultMatcher
+from BeautifulSoup import BeautifulStoneSoup
+from collective.transmogrifier import utils
+import sys
 
 class FormatSetter(object):
 
@@ -44,13 +46,16 @@ class PathSetter(object):
         self.options = options
         self.previous = previous
         
-        # options
-        self.container = options.get('container', 'person')
-        
     def __iter__(self):
 
         for item in self.previous:
-            item['_path'] = self.container + '/' + item['id']
+            categ = item['category'].lower()
+            categ = categ.replace(' ','-')
+            categ = categ.replace('/-','')
+            sys.setrecursionlimit(7000)
+            item['_path'] = '/resources/publications/' + categ + '/' + item['id']
+            item['_path'] = item['_path'].encode('ascii','ignore')
+            print item
             yield item
 
 
@@ -62,105 +67,85 @@ class PublicationSource(object):
     def __init__(self, transmogrifier, name, options, previous):
         self.options = options
         self.previous = previous
-        
+        pipeline = transmogrifier['transmogrifier']['pipeline']
+
         # options
-        self.type = options.get('type', 'Person')
+        self.type = options.get('type', 'Publication')
         self.author = options.get('author', 'admin')
 
     def __iter__(self):
 
+        """
+        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/config.xml")
+        soup = BeautifulStoneSoup(xml)
+        allPubs = len(soup.findAll('publication'))-1
+        allFields = len(soup.contents[0].contents[1])-1
+        d = {}
+        list = []
+        for count in range(1, allPubs,2):
+            for field in range(1, allFields, 2):
+                d[soup.contents[0].contents[count].contents[field].name] = soup.contents[0].contents[count].contents[field].string
+                list.append(d)
+
+        for record in list:"""
 
         for record in self.source():
 
             item = dict()
-            
-            # set general settings
+
             item['_type'] = self.type
-            item['creators'] = (self.author,)           
-            
+            item['creators'] = (self.author,)
+
             # set dates
-            item['creation_date'] = record['date']
-            item['effectiveDate'] = record['date']
-            
+            #item['creation_date'] = record['year']
+            #item['effectiveDate'] = record['year']
+
             # set content fields
             item['title'] = record['title']
-            item['text'] = record['text']
-            item['subject'] = (record['category'],)
+            #item['subject'] = (record['category'],)
+            item['author'] = record['author']
+            item['series'] = record['series']
+            #import pdb; pdb.set_trace()
+            item['category'] = record['category']
+            item['conference'] = record['conference']
+            #import pdb; pdb.set_trace()
+            if record.get('division',None) is not None:
+                item['division'] = record['division']
+            item['year'] = record['year']
+            item['imprint'] = record['imprint']
+            item['publisher'] = record['publisher']
+            item['isbn'] = record['isbn']
+            item['issn'] = record['issn']
+            item['pages'] = record['pages']
+            item['price'] = record['price']
+            item['link'] = record['link']
+            #item['_image'] = self.image
+            item['pdf'] = record['pdf']
+            item['pubcode'] = record['pubcode']
+            item['pub_earthprint'] = record['pub_earthprint']
+            item['pubstock'] = record['pubstock']
+            item['pub_salenote'] = record['pub_salenote']
+            item['pub_abstract'] = record['pub_abstract']
             
             # publish news item
             item['_transitions'] = ('publish',)
-            
+
             yield item
-            
+
         for item in self.previous:
             yield item
 
-
     def source(self):
-        """A method that parses raw data and returns results.
-        You can parse data from HTML document, CSV, JSON, etc. 
-        Your options are virtually limitless.
-        
-        Check out real-world examples can be found in /branches of this product's repository.
-        """
-
-#        import pdb; pdb.set_trace()
-        
-        categories = ["anual_report.xml", "brochures_fact_sheets.xml"]
-
-        route = '/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/'+categories[0]
-        file = route
-
-        list = {'list': [
-                    {'publication':
-                        [{'author': 'Centro Internacional de la Papa (CIP)'},
-                         {'title': 'Papa madre. Historia de una exposicion fotografica. History of a photographic exhibition'},
-                         {'series': {}},
-                         {'conference': {}},
-                         {'year': '2009'},
-                         {'category': 'Book'},
-                         {'division': {}},
-                         {'imprint': {}},
-                         {'publisher': 'Centro Internacional de la Papa'},
-                         {'isbn': '978-92-9060-376-4'},
-                         {'issn': {}},
-                         {'pages': '151'},
-                         {'price': '30.00'},
-                         {'link': {}},
-                         {'image': '004755.jpg'},
-                         {'pdf': {}},
-                         {'PubCode': '004755'},
-                         {'Pub_EarthPrint': {}},
-                         {'PubStock': '999'},
-                         {'Pub_SaleNote': {}},
-                         {'Pub_Abstract': {}}
-                        ]
-                    },
-                    {'publication': [{'author': 'Graves, C. (ed.).'}, {'title': 'La papa tesoro de los Andes. De la agricultura  a la cultura.  (Reimpresion Nov 2006)'}, {'series': {}}, {'conference': {}}, {'year': '2006'}, {'category': 'Book'}, {'division': {}}, {'imprint': {}}, {'publisher': 'Centro Internacional de la Papa'}, {'isbn': '92-9060-204-X'}, {'issn': {}}, {'pages': '210'}, {'price': '60.00'}, {'link': 'http://www.cipotato.org/publications/books/papa_tesoro_andes_online/'}, {'image': '003793.jpg'}, {'pdf': {}}, {'PubCode': '003793'}, {'Pub_EarthPrint': 'http://www.earthprint.com/productfocus.php?id=CIP027'}, {'PubStock': '827'}, {'Pub_SaleNote': {}}, {'Pub_Abstract': {}}]}, {'publication': [{'author': 'Balbotin Arenas, P.'}, {'title': 'I custodi della biodiversita / The custodians of biodiversity / Los custodios de la biodiversidad.'}, {'series': {}}, {'conference': {}}, {'year': '2003'}, {'category': 'Book'}, {'division': {}}, {'imprint': {}}, {'publisher': 'Edizioni Angolo Manzoni; FAO; Istituto Agronomico per l&#39;Otremare; CIP; Fondazione Italiana La Fotografia; Forum di Associazioni per la cultura.'}, {'isbn': '88-861142-95-1'}, {'issn': {}}, {'pages': '168'}, {'price': '30.00'}, {'link': {}}, {'image': '002711.jpg'}, {'pdf': {}}, {'PubCode': '002711'}, {'Pub_EarthPrint': 'http://www.earthprint.com/product.aspx?id=4217'}, {'PubStock': '374'}, {'Pub_SaleNote': {}}, {'Pub_Abstract': {}}]}, {'publication': [{'author': 'Centro Internacional de la Papa (CIP); FEDECCH, Federacion Departamental de Comunidades Campesinas de Huancavelica'}, {'title': 'Catalogo de variedades de papa nativa de Huancavelica-Peru'}, {'series': {}}, {'conference': {}}, {'year': '2006'}, {'category': 'Catalog'}, {'division': {}}, {'imprint': {}}, {'publisher': 'Centro Internacional de la Papa'}, {'isbn': '92-9060-274-0'}, {'issn': {}}, {'pages': '206'}, {'price': '30.00'}, {'link': {}}, {'image': '003524.jpg'}, {'pdf': '003524.pdf'}, {'PubCode': '003524'}, {'Pub_EarthPrint': 'http://www.earthprint.com/product.aspx?id=4228'}, {'PubStock': '377'}, {'Pub_SaleNote': {}}, {'Pub_Abstract': {}}]}]}
-
-
-"""from xml.etree import ElementTree as etree
-
-file = open("best_sellers.xml")
-tree = etree.parse(file)
-el = tree.getroot()
-
-def xml_to_dict(el):
-    d={}
-    if el.text:
-        d[el.tag] = el.text
-    else:
-        d[el.tag] = {}
-    children = el.getchildren()
-    if children:
-        d[el.tag] = map(xml_to_dict, children)
-    return d
-
-xml_to_dict(el)
-"""
-"""
-def source():
-    for count in range(1, 6):
-        result = dict(title = 'news item %i' %count, category = 'category %i' %count,date = '2010/01/0%i' %count,text = 'bolded number: <b>%i</b>' %count,)
-        yield result"""
-            
+        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/publications.xml____")
+        lines = xml.readlines()
+        xml = '\n'.join(lines[1:])
+        soup = BeautifulStoneSoup(xml)
+        allPubs = len(soup.findAll('publication'))
+        allFields = len(soup.contents[0].contents[1])-1
+        d = {}
+        list = []
+        #import pdb; pdb.set_trace()
+        for count in range(1, allPubs,2):
+            for field in range(1, allFields, 2):
+                d[soup.contents[0].contents[count].contents[field].name] = soup.contents[0].contents[count].contents[field].string
+            yield d

@@ -11,11 +11,11 @@
     <!-- collective.transmogrifier registrations for importing articles -->
     <include package="collective.transmogrifier" file="meta.zcml" />
     <include package="collective.transmogrifier" />
-    <!--include package="plone.app.transmogrifier" /-->
+    <include package="plone.app.transmogrifier" />
 
   <include package=".browser" />
 
-  <!--transmogrifier:registerConfig
+  <transmogrifier:registerConfig
       name="Persons import" 
       title="Import of persons for personnel section" 
       description="" 
@@ -33,7 +33,7 @@
     <utility
         component=".transmogrifier.FormatSetter"
         name="cip.policy.transmogrifier.formatsetter"
-        /-->
+        />
 
     <transmogrifier:registerConfig
       name="Publications import"
@@ -54,6 +54,28 @@
         component=".transmogrifierpublications.FormatSetter"
         name="cip.policy.transmogrifierpublications.formatsetter"
         />
+
+
+    <!--transmogrifier:registerConfig
+        name="News Items import"
+        title="Import of News Items from a PHP site"
+        description=""
+        configuration="transmogrifier_1.cfg"
+        />
+
+    <utility
+        component=".transmogrifier_1.NewsItemSource"
+        name="niteoweb.transmogrifier.simpleusage.newsitemsource"
+        />
+    <utility
+        component=".transmogrifier_1.PathSetter"
+        name="niteoweb.transmogrifier.simpleusage.pathsetter"
+        />
+    <utility
+        component=".transmogrifier_1.FormatSetter"
+        name="niteoweb.transmogrifier.simpleusage.formatsetter"
+        /-->
+
 
 
 

@@ -24,7 +24,7 @@ margin:0;
 }
 #portal-header {
     background: url("cip_header.gif") repeat scroll 10px 10px white;
-    height: 121px;
+    height: 104px;
     position: relative;
     z-index: 3;
 }
@@ -82,10 +82,10 @@ margin:<dtml-var "(122-_[logoName].height)/2">px 0 0 <dtml-var "(259-_[logoName]
     line-height: 13px;
     list-style-image: none;
     list-style-type: none;
-    margin-top: 119px;
+    margin-top: 102px;
     overflow: visible;
     padding: 6px 0 4px 1em;
-    z-index: 500;
+    z-index: 1;
 }
 
 #portal-globalnav li {
@@ -285,22 +285,22 @@ border-right: 2px solid #e69bc4;
     width: 32%;
 }
 .second-row {
-    border-top: 2px solid #976F89;
+    border-top: 0px solid #976F89;
     float: left;
     margin-top: 2em;
-    padding-top: 15px;
+    padding-top: 0px;
     width: 97%;
 }
 .third-column {
-width: 57%;
+width: 64%;
 float: left;
-border-right: 2px solid #e69bc4;
+border-right: 0px solid #e69bc4;
 }
 .forth-column {
     float: left;
     padding: 71px 0 0 25px;
     text-align: left;
-    width: 39%;
+    width: 32%;
 }
 .front-papatube {
 width:186px;
@@ -324,22 +324,22 @@ margin-top:-15px;
 
 .cip-front1 {
 background-image:url("cip-front1.jpg");
-height:240px;
+height:224px;
 width:963px !important;
 }
 .cip-front2 {
 background-image:url("cip-front2.jpg");
-height:240px;
+height:224px;
 width:963px !important;
 }
 .cip-front3 {
 background-image:url("cip-front3.jpg");
-height:240px;
+height:224px;
 width:963px !important;
 }
 .cip-front4 {
 background-image:url("cip-front4.jpg");
-height:240px;
+height:224px;
 width:963px !important;
 }
 
@@ -347,13 +347,14 @@ width:963px !important;
 background-color:#ec006e;
 }
 .cip-front2-tab {
-background-color:#ff6a0c;
-}
-.cip-front3-tab {
 background-color:#8f46a2;
 }
+.cip-front3-tab {
+background-color:#ff6a0c;
+}
 .cip-front4-tab {
-background-color:#9a0040;
+    background-color: #9A0040;
+    width: 257px !important;
 }
 
 .cip-frontvideo {
@@ -2115,5 +2116,22 @@ color: #EC006E;
 border-bottom:1px dotted #EC006E;
 }
 
-
+.cip-front1-img {
+    float: left;
+    margin-left: 0px;
+}
+.cip-front2-img {
+    float: left;
+    height: 15px;
+    margin-left: 228px;
+    width: 736px;
+}
+.cip-front3-img {
+    float: left;
+    margin-left: 456px;
+}
+.cip-front4-img {
+    float: right;
+    margin-right: -7px;
+}
 /* </dtml-with> */

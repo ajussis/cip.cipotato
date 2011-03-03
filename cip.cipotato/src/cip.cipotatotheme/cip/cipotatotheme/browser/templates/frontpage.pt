@@ -24,25 +24,29 @@
                             <a href="sweetpotato">SWEETPOTATO</a>
                     </span>
                     <span class='tab_item cip-front4-tab'>
-                            <a href="roots-and-tubers">ROOTS AND TUBERS</a>
+                            <a href="roots-and-tubers">ANDEAN ROOTS AND TUBERS</a>
                     </span>
                 </div>
                 <div class='slide_content'>
                     <div class='tabslider'>
                         <ul class="cip-front1">
                             <li>
+                                <img class="cip-front1-img" src="bargene.png" />
                             </li>
                         </ul>
                         <ul class="cip-front2">
                             <li>
+                                <img class="cip-front2-img" src="barpotato.png" />
                             </li>
                         </ul>
                         <ul class="cip-front3">
                             <li>
+                                <img class="cip-front3-img" src="barsweet.png" />
                             </li>
                         </ul>
                         <ul class="cip-front4">
                             <li>
+                                <img class="cip-front4-img" src="barrtas.png" />
                             </li>
                         </ul>
                     </div>
@@ -145,7 +149,7 @@
 
 <!-- _______________________ PUBLICATIONS __________________________________-->
 
-            <script type="text/javascript">
+            <!--script type="text/javascript">
                 $().ready(function() {
                     $('#coda-slider-1').codaSlider();
                     $('#coda-slider-2').codaSlider({
@@ -179,12 +183,12 @@
                                             dynamicArrows: false
                                     });
                 });
-             </script>
+             </script-->
 
             <div class="second-row">
                 <div class="third-column">
                     <img src="front-publications.jpg" class="front-publications" />
-                    <div class="coda-slider-wrapper cip-front-pub">
+                    <!--div class="coda-slider-wrapper cip-front-pub">
                         <div class="coda-slider preload" id="coda-slider-1">
                             <tal:defs define="n featured/queryCatalog">
                                 <div class="panel" tal:repeat="m n">
@@ -210,6 +214,158 @@
                                 </div>
                             </tal:defs>
                         </div>
+                    </div-->
+
+
+
+
+
+
+                    <style type="text/css">
+#wrapper {
+    width: 450px;
+    margin: 10px 25px;
+}
+
+#intro {
+    padding-bottom: 10px;
+}
+
+#slider {
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #ccc;
+}
+
+.scroll {
+	overflow: hidden;
+	width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.scrollContainer {
+	position: relative;
+}
+
+.scrollContainer div.panel {
+    padding: 0 10px;
+    width: 220px;
+    height: 318px;
+}
+
+#left-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 12px;
+	bottom: 0;
+	background: url(leftshadow.png) repeat-y;
+}
+
+#right-shadow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 12px;
+	bottom: 0;
+	background: url(rightshadow.png) repeat-y;
+}
+
+.inside {
+	padding: 0 10px;
+	border: 0px solid #999;
+}
+
+.inside img {
+    border: 1px solid #666666;
+    display: block;
+    margin: 0 7px 5px 0;
+    width: 80px;
+}
+
+.inside h2 {
+	font-weight: normal;
+	color: #111;
+	font-size: 16px;
+	margin: 0 0 8px 0;
+}
+
+.inside p {
+	font-size: 9px;
+	color: #ccc;
+}
+
+a {
+	color: #999;
+	text-decoration: none;
+	border-bottom: 1px dotted #ccc;
+}
+
+a:hover {
+	border-bottom: 1px solid #999;
+}
+
+.scrollButtons {
+    position: absolute;
+    top: 108px;
+    cursor: pointer;
+}
+
+.scrollButtons.left {
+    left: -22px;
+}
+
+.scrollButtons.right {
+    right: -22px;
+}
+
+.hide {
+    display: none;
+}
+
+</style>
+
+
+                    <div id="wrapper">
+                        <div id="slider">
+                            <img class="scrollButtons left" src="leftarrow.png">
+                                <div style="overflow: hidden;" class="scroll">
+                                    <div class="scrollContainer" tal:define="n featured/queryCatalog;">
+                                        <tal:defs tal:repeat="m n">
+                                            <div  class="panel" tal:define="s repeat/m/number;
+                                                                ids python:'panel_'+str(s)"
+                                                                tal:attributes="id ids">
+                                                <div class="inside">
+                                                    <div class="titles" tal:define="item_url m/getURL;">
+                                                        <img src="" alt=""
+                                                             tal:attributes="src python:item_url + '/image';
+                                                                             class python:'cip-front-pubimg';" />
+                                                        <div tal:define="item_object m/getObject;">
+                                                            <p>
+                                                                <tal:rep define="source item_object/getCategory">
+                                                                    <span class="frontDate">
+                                                                        <span class="frontDate3" tal:content="source" />
+                                                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                                                    </span>
+                                                                    <br />
+                                                                    <a href="#" tal:attributes="href m/getURL">
+                                                                        <span tal:replace="m/pretty_title_or_id"/>
+                                                                    </a><br />
+                                                                </tal:rep>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </tal:defs>
+                                    </div>
+                                    <div id="left-shadow"></div>
+                                    <div id="right-shadow"></div>
+                                </div>
+                            <img class="scrollButtons right" src="rightarrow.png">
+                        </div>
                     </div>
                 </div>
                 <div class="forth-column">
@@ -217,7 +373,6 @@
                     <!--img src="front-newsletter.jpg" class="front-newsletter" /-->
                 </div>
             </div>
-
         </metal:main>
     </metal:main_macro>
 </html>

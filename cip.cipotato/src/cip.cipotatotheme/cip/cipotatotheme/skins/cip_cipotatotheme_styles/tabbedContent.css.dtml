@@ -28,10 +28,10 @@ margin-left:20px;
 
 .tabs_static {
     background: none repeat scroll 0 0 #9A0040;
-    height: 39px;
+    height: 53px;
     margin: 0 20px;
     position: relative;
-    width: 963px;
+    width: 960px;
 }
 
 /*.tabs .moving_bg {
@@ -80,10 +80,10 @@ display:none;
     font-family: arial;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px;
+    padding: 17px 10px;
     position: static;
     text-align: center;
-    width: 220px;
+    width: 208px;
     z-index: 200;
 }
 
@@ -104,11 +104,11 @@ display:block;
 float:left;
 font-family:arial;
 font-weight:bold;
-padding:10px;
+padding:17px 10px;
 /*position:relative;*/
 position:static;
 text-align:center;
-width:220px;
+width:207px;
 z-index:200;
 font-size:16px;
 }
@@ -117,10 +117,10 @@ font-size:16px;
 background-color:#fd3291;
 }
 .cip-front2-tab:hover {
-    background-color: #ff8f4b;
+    background-color: #b062c4;
 }
 .cip-front3-tab:hover {
-    background-color: #b062c4;
+    background-color: #ff8f4b;
 }
 .cip-front4-tab:hover {
     background-color: #c91360;

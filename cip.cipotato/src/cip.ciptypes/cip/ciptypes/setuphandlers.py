@@ -122,7 +122,7 @@ def importPAS(portal):
         index += 1
     print "Imported %d users (from %d lines of CSV)" % (imported_count, index)
 
-def createFolderStructure(portal):
+def TEMPcreateFolderStructure(portal):
     """Define which objects we want to create in the site.
     """
 

@@ -242,45 +242,7 @@ class Publication(base.ATCTContent):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
-    author = atapi.ATFieldProperty('author')
 
-    pub_abstract = atapi.ATFieldProperty('pub_abstract')
-
-    pub_salenote = atapi.ATFieldProperty('pub_salenote')
-
-    pubstock = atapi.ATFieldProperty('pubstock')
-
-    pub_earthprint = atapi.ATFieldProperty('pub_earthprint')
-
-    pubcode = atapi.ATFieldProperty('pubcode')
-
-    pdf = atapi.ATFieldProperty('pdf')
-
-    image = atapi.ATFieldProperty('image')
-
-    link = atapi.ATFieldProperty('link')
-
-    price = atapi.ATFieldProperty('price')
-
-    pages = atapi.ATFieldProperty('pages')
-
-    issn = atapi.ATFieldProperty('issn')
-
-    isbn = atapi.ATFieldProperty('isbn')
-
-    publisher = atapi.ATFieldProperty('publisher')
-
-    imprint = atapi.ATFieldProperty('imprint')
-
-    division = atapi.ATFieldProperty('division')
-
-    category = atapi.ATFieldProperty('category')
-
-    year = atapi.ATFieldProperty('year')
-
-    conference = atapi.ATFieldProperty('conference')
-
-    series = atapi.ATFieldProperty('series')
 
 
 

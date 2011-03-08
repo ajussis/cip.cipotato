@@ -66,4 +66,4 @@ def setupVarious(context):
         type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['Publication'])
 
-    updateCatalog()
+#    updateCatalog()

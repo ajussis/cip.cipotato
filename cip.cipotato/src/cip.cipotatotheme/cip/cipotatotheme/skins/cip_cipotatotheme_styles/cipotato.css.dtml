@@ -4,7 +4,7 @@
 /*---------- GENERAL STYLE ----------*/
 body {
 background-color:#eee;
-font-family: ‘Arial Narrow’, sans-serif;
+font-family: .Arial Narrow., sans-serif;
 background-image:url(background.png);
 }
 
@@ -50,7 +50,7 @@ border-right:1px dotted #DDDDDD;
 border:0;
 color:#DDDDDD;
 /*font-family:Verdana, Geneva, sans-serif;*/
-font-family: ‘Arial Narrow’, sans-serif;
+font-family: .Arial Narrow., sans-serif;
 margin:0;
 padding:0 9px;
 text-transform:none;
@@ -265,14 +265,18 @@ z-index:250 !important;
 /*---------- PORTAL BREAD CRUMBS ----------*/
 #portal-breadcrumbs {
     color: grey;
-    font-size: 68%;
-    float:right;
-    margin-right:40px;
-    margin-bottom:0.4em;
+    float: left;
+    font-size: 66%;
+    margin-bottom: 0.4em;
+    margin-left: 18px;
 }
 
 #portal-breadcrumbs a {
 text-decoration:underline;
+}
+
+#breadcrumbs-you-are-here {
+display:none;
 }
 
 /*-------------FRONT PAGE COLUMNS------------------*/
@@ -285,7 +289,7 @@ border-right: 2px solid #e69bc4;
 .second-column {
     float: left;
     padding-left: 22px;
-    width: 32%;
+    width: 33%;
 }
 .second-row {
     border-top: 1px solid #976F89;
@@ -330,6 +334,8 @@ background-image:url("cip-front1.jpg");
 height:224px;
 width:960px !important;
 }
+
+
 .cip-front2 {
     background-image: url("cip-front2.jpg");
     background-position: 0 -76px;
@@ -347,6 +353,7 @@ background-image:url("cip-front4.jpg");
 height:224px;
 width:960px !important;
 }
+
 
 .cip-front1-tab {
 background-color:#ec006e;
@@ -854,6 +861,7 @@ width:7.9em;
 /*---------- DOCUMENT ACTIONS ----------*/
 .documentActions {
 margin:2.5em 0 1em;
+display:none;
 }
 .documentActions ul {
 margin:-0.9em 0 0 !important;
@@ -1340,8 +1348,9 @@ padding:0;
 border-right:0px solid #9485A9;
 }
 .contact-p-1-2 {
-margin-left:15px;
+margin-left:0px;
 color:#9485A9;
+margin-top:-11px !important;
 }
 
 .contact-p-1 div {
@@ -1355,6 +1364,7 @@ background:none repeat scroll 0 0 #ffe3d4;
 }
 
 .tabs-nav {
+/*    background: none repeat scroll 0 0 #F8E3F0; */
     background: none repeat scroll 0 0 #F8E3F0;
     clear: both;
     height: 35px;
@@ -1813,7 +1823,7 @@ margin-left:0 !important;
     float: left;
     font-size: 17px;
     height: 30px;
-    margin: 15px 0 106px;
+    margin: 0 0 106px;
     padding: 12px 0 5px 5px;
     text-align: left;
     width: 100%;
@@ -2062,14 +2072,14 @@ width:660px;
     display: block;
     height: 71px;
     padding: 5px;
-    width: 320px;
+    width: 250px;
 }
 
 .media_contact_title {
     font-size: 20px;
     margin-bottom: -9px;
     text-align: right;
-    width: 320px;
+    width: 250px;
 }
 
 .media_contact_name_name {
@@ -2078,40 +2088,40 @@ font-weight:bold;
 margin-bottom:0 !important;
 }
 .media_contact_name {
-    border-right: 2px solid #581A74;
+    border-right: 0 none;
     float: left;
     margin-right: 4px;
-    width: 155px;
+    width: 245px;
 }
 .media_contact_info {
     float: left;
-    width: 155px;
+    width: 245px;
 }
 
 .media_about_title {
+    color: #FF6A0C;
     font-size: 20px;
     margin-bottom: -9px;
     text-align: right;
-    width: 320px;
-    color:#FF6A0C;
+    width: 340px;
 }
 
 .media_abouts {
-width: 325px;
-float:left;
+    float: left;
+    width: 357px;
 }
 .media_contacts {
-width: 325px;
-float:left;
+    float: left;
+    width: 266px;
 }
 
 .media_about {
-    background: none repeat scroll 0 0 #ffe2d0;
+    background: none repeat scroll 0 0 #FFE2D0;
     border-top: 3px solid #FF6A0C;
     display: block;
     height: 71px;
     padding: 5px;
-    width: 320px;
+    width: 357px;
 }
 
 .page_title {
@@ -2132,6 +2142,7 @@ margin-left:10px;
 
 .research_column2 {
     float: left;
+    margin-bottom: 20px;
     margin-left: 35px;
     width: 42%;
 }
@@ -2362,4 +2373,31 @@ margin-top:2em !important;
 text-decoration:none;
 color:white !important;
 }
+
+#slider1 li {
+margin-left:0px !important;
+}
+
+.cip-news-p a {
+size:110%;
+}
+
+
+.cip-front1 li {
+display:block;
+margin-left:0 !important;
+}
+.cip-front2 li {
+display:block;
+margin-left:0 !important;
+}
+.cip-front3 li {
+display:block;
+margin-left:0 !important;
+}
+.cip-front4 li {
+display:block;
+margin-left:0 !important;
+}
 /* </dtml-with> */
+

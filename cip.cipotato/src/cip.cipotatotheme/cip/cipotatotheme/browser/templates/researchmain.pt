@@ -18,37 +18,37 @@
             <div class="research_column2">
                 <ul>
                     <li class="research_link_potato">
-                        <a href="">Potato in highlands of South America, Asia & Africa</a>
+                        <a href="potato-in-highlands">Potato in highlands</a>
                     </li>
                     <li class="research_link_potato">
-                        Potato in the lowlands of Asia
+                        <a href="potato-in-lowlands">Potato in the lowlands of Asia</a>
                     </li>
                     <li class="research_link_potato">
-                        Potato in temperate Asia
+                        <a href="potato-in-temparate-asia">Potato in temperate Asia</a>
                     </li>
                     <li class="research_link_sweetpotato">
-                        Sweetpotato in Sub-Saharan Africa
+                        <a href="sweetpotato-in-africa">Sweetpotato in Sub-Saharan Africa</a>
                     </li>
                     <li class="research_link_sweetpotato">
-                        Sweetpotato in Asia
+                        <a href="sweetpotato-in-asia">Sweetpotato in Asia</a>
                     </li>
                     <li class="research_link_division">
-                        Genetic resources
+                        <a href="genetic-resources">Genetic resources</a>
                     </li>
                     <li class="research_link_division">
-                        Genetic enhancement & crop improvement
+                        <a href="genetic-enhancement-crop-improvement">Genetic enhancement & crop improvement</a>
                     </li>
                     <li class="research_link_division">
-                        Crop management & production systems
+                        <a href="crop-management-production-systems">Crop management & production systems</a>
                     </li>
                     <li class="research_link_division">
-                        Social & health sciences
+                        <a href="social-health-sciences">Social & health sciences</a>
                     </li>
                     <li class="research_link_other">
-                        Partnerships
+                        <a href="partnerships">Partnerships</a>
                     </li>
                     <li class="research_link_other">
-                        Gender
+                        <a href="gender">Gender</a>
                     </li>
                 </ul>
             </div>

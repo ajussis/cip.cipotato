@@ -10,27 +10,16 @@ class PublicationsView(BrowserView):
     """
     __call__ = ViewPageTemplateFile('templates/publications.pt')
 
-    def getInfo(self):
-        print m
-        results = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection="CPAD")
-        return results
+    def Pubs(self, address):
+#        import pdb; pdb.set_trace()
+        pubpath = (self.context.portal_url.getPortalPath()+'/resources/publications/'+address)
+        return self.context.portal_catalog.searchResults(path = {"query": (pubpath)},portal_type="Publication", sort_on="Date", sort_order="reverse")[:2]
 
-    def cpadHead(self):
-        result = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection="CPAD", getHead=1)
-        return result[0]
-
-    def dg(self):
-        """
-        Get all the persons working for CPAD
-        """
-        results = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection="DG")
-        return results
-
-    def grants(self):
-        """
-        Get all the persons working for CPAD
-        """
-        #import ipdb
-        #ipdb.set_trace()
-        results = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection="Grants")
-        return results
+    def ImageExist(self, img_id):
+#        import pdb; pdb.set_trace()
+        img_id = img_id + '-jpg'
+        img = self.context.portal_catalog.searchResults(id=img_id)
+        if img:
+            return img_id
+        else:
+            return 0

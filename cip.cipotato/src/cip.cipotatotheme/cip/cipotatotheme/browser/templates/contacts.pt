@@ -20,13 +20,14 @@
             }
             </style>
 
+            <h1>Staff</h1>
 
             <div class="contact-div-1" id="tabwrap">
                 <ul id="tabnav">
                     <li><a href="#tab1">DGs office</a></li>
-                    <li><a href="#tab2">Division</a></li>
-                    <li><a href="#tab3">Partnerships</a></li>
                     <li><a href="#tab4">Regional offices</a></li>
+                    <li><a href="#tab2">Divisions</a></li>
+                    <li><a href="#tab3">Partnerships</a></li>
                 </ul>
 
                 <div id="tab1" class="tab1-c">
@@ -35,17 +36,17 @@
                         <div class="contact-p" tal:define="n view/cpadHead">
                             <div class="contact-p-1">
                                 <div class="contact-p-1-1">
-                                    <h2>
-                                        <span tal:replace="n/pretty_title_or_id" />
-                                    </h2>
                                     <div class="contact-position">Head</div>
+                                    <h3>
+                                        <span tal:replace="n/pretty_title_or_id" />
+                                    </h3>
                                 </div>
                                 <div class="contact-p-1-2">
-                                    <p>Email: alksdjflkasdlaks</p>
+                                    <p>Email: valerie@email.com</p>
                                     <p>Tel: 89482489</p>
                                 </div>
                             </div>
-                            <p class="show" id="clickme">Show all</p>
+                            <p class="show" id="clickme">Show all staff</p>
                             <div class="lineBreak"></div>
                         </div>
                         <div class="contacttoggle">
@@ -61,7 +62,7 @@
                                     </div>
                                     <div>
                                         <p>Email: alksdjflkasdlaks</p>
-                                        <p>Tel: 89482489</p>
+                                        <!--p>Tel: 89482489</p-->
                                     </div>
                                 </div>
                             </tal:defs>
@@ -71,18 +72,18 @@
                         <h2 class="contact-h2">Human Resources</h2>
                         <div class="contact-p" tal:define="n view/cpadHead">
                             <div class="contact-p-1">
-                                <div>
-                                    <h2>
-                                        <span tal:replace="n/pretty_title_or_id" />
-                                    </h2>
+                                <div class="contact-p-1-1">
                                     <div class="contact-position">Head</div>
+                                    <h3>
+                                        <span tal:replace="n/pretty_title_or_id" />
+                                    </h3>
                                 </div>
-                                <div>
-                                    <p>Email: alksdjflkasdlaks</p>
+                                <div class="contact-p-1-2">
+                                    <p>Email: valerie@email.com</p>
                                     <p>Tel: 89482489</p>
                                 </div>
                             </div>
-                            <p class="show" id="clickme">Show all</p>
+                            <p class="show" id="clickme">Show all staff</p>
                             <div class="lineBreak"></div>
                         </div>
                         <div class="contacttoggle">
@@ -98,7 +99,7 @@
                                     </div>
                                     <div>
                                         <p>Email: alksdjflkasdlaks</p>
-                                        <p>Tel: 89482489</p>
+                                        <!--p>Tel: 89482489</p-->
                                     </div>
                                 </div>
                             </tal:defs>
@@ -107,18 +108,18 @@
                         <h2 class="contact-h2">Administration</h2>
                         <div class="contact-p" tal:define="n view/cpadHead">
                             <div class="contact-p-1">
-                                <div>
-                                    <h2>
-                                        <span tal:replace="n/pretty_title_or_id" />
-                                    </h2>
+                                <div class="contact-p-1-1">
                                     <div class="contact-position">Head</div>
+                                    <h3>
+                                        <span tal:replace="n/pretty_title_or_id" />
+                                    </h3>
                                 </div>
-                                <div>
-                                    <p>Email: alksdjflkasdlaks</p>
+                                <div class="contact-p-1-2">
+                                    <p>Email: valerie@email.com</p>
                                     <p>Tel: 89482489</p>
                                 </div>
                             </div>
-                            <p class="show" id="clickme">Show all</p>
+                            <p class="show" id="clickme">Show all staff</p>
                             <div class="lineBreak"></div>
                         </div>
                         <div class="contacttoggle">
@@ -134,7 +135,7 @@
                                     </div>
                                     <div>
                                         <p>Email: alksdjflkasdlaks</p>
-                                        <p>Tel: 89482489</p>
+                                        <!--p>Tel: 89482489</p-->
                                     </div>
                                 </div>
                             </tal:defs>
@@ -143,18 +144,18 @@
                         <h2 class="contact-h2">Finance</h2>
                         <div class="contact-p" tal:define="n view/cpadHead">
                             <div class="contact-p-1">
-                                <div>
-                                    <h2>
-                                        <span tal:replace="n/pretty_title_or_id" />
-                                    </h2>
+                                <div class="contact-p-1-1">
                                     <div class="contact-position">Head</div>
+                                    <h3>
+                                        <span tal:replace="n/pretty_title_or_id" />
+                                    </h3>
                                 </div>
-                                <div>
-                                    <p>Email: alksdjflkasdlaks</p>
+                                <div class="contact-p-1-2">
+                                    <p>Email: valerie@email.com</p>
                                     <p>Tel: 89482489</p>
                                 </div>
                             </div>
-                            <p class="show" id="clickme">Show all</p>
+                            <p class="show" id="clickme">Show all staff</p>
                             <div class="lineBreak"></div>
                         </div>
                         <div class="contacttoggle">
@@ -170,7 +171,7 @@
                                     </div>
                                     <div>
                                         <p>Email: alksdjflkasdlaks</p>
-                                        <p>Tel: 89482489</p>
+                                        <!--p>Tel: 89482489</p-->
                                     </div>
                                 </div>
                             </tal:defs>
@@ -179,18 +180,18 @@
                         <h2 class="contact-h2">Information Technology</h2>
                         <div class="contact-p" tal:define="n view/cpadHead">
                             <div class="contact-p-1">
-                                <div>
-                                    <h2>
-                                        <span tal:replace="n/pretty_title_or_id" />
-                                    </h2>
+                                <div class="contact-p-1-1">
                                     <div class="contact-position">Head</div>
+                                    <h3>
+                                        <span tal:replace="n/pretty_title_or_id" />
+                                    </h3>
                                 </div>
-                                <div>
-                                    <p>Email: alksdjflkasdlaks</p>
+                                <div class="contact-p-1-2">
+                                    <p>Email: valerie@email.com</p>
                                     <p>Tel: 89482489</p>
                                 </div>
                             </div>
-                            <p class="show" id="clickme">Show all</p>
+                            <p class="show" id="clickme">Show all staff</p>
                             <div class="lineBreak"></div>
                         </div>
                         <div class="contacttoggle">
@@ -206,7 +207,7 @@
                                     </div>
                                     <div>
                                         <p>Email: alksdjflkasdlaks</p>
-                                        <p>Tel: 89482489</p>
+                                        <!--p>Tel: 89482489</p-->
                                     </div>
                                 </div>
                             </tal:defs>

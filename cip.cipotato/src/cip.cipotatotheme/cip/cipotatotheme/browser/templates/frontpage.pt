@@ -50,7 +50,7 @@
                             </li>
                         </ul>
                     </div>
-                    <br style='clear: both' />
+                    <br />
                 </div>
             </div>
 
@@ -81,7 +81,7 @@
                                 <span class="frontDate">
                                     <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                 </span>
-                                <p tal:content="m/Description" />
+                                <p style="margin-top:0.2em !important;" tal:content="m/Description" />
                             </tal:rep>
                         </div>
                     </tal:defs>
@@ -149,228 +149,55 @@
 
 <!-- _______________________ PUBLICATIONS __________________________________-->
 
-            <!--script type="text/javascript">
-                $().ready(function() {
-                    $('#coda-slider-1').codaSlider();
-                    $('#coda-slider-2').codaSlider({
-                        autoSlide: true,
-                        autoSlideInterval: 4000,
-                        autoSlideStopWhenClicked: true
+
+            <script type="text/javascript">
+                    $(document).ready(function(){
+                            $('#slider1').bxSlider({
+                                    infiniteLoop: false,
+                                    hideControlOnEnd: true
+                            });
                     });
-                    $('#coda-slider-3').codaSlider();
-                    $('#coda-slider-4').codaSlider();
-                                    $('#coda-slider-5').codaSlider({
-                                            dynamicArrows: false,
-                                            dynamicTabs: false
-                                    });
-                                    $('#coda-slider-6').codaSlider({
-                            crossLinking: false,
-                                            firstPanelToLoad: 3
-                                    });
-                                    $('#coda-slider-7').codaSlider({
-                                            autoHeightEaseDuration: 300,
-                                            autoHeightEaseFunction: "easeInOutExpo",
-                                            slideEaseDuration: 300,
-                                            slideEaseFunction: "easeInOutExpo"
-                                    });
-                                    $('#coda-slider-8').codaSlider({
-                                            autoHeightEaseDuration: 2500,
-                                            autoHeightEaseFunction: "easeInOutElastic",
-                                            slideEaseDuration: 2500,
-                                            slideEaseFunction: "easeInOutElastic"
-                                    });
-                    $('#coda-slider-9').codaSlider({
-                                            dynamicArrows: false
-                                    });
-                });
-             </script-->
+            </script>
 
             <div class="second-row">
                 <div class="third-column">
                     <img src="front-publications.jpg" class="front-publications" />
-                    <!--div class="coda-slider-wrapper cip-front-pub">
-                        <div class="coda-slider preload" id="coda-slider-1">
-                            <tal:defs define="n featured/queryCatalog">
-                                <div class="panel" tal:repeat="m n">
-                                    <div class="title" tal:define="item_url m/getURL;">
-                                        <img src="" alt="" 
-                                             tal:attributes="src python:item_url + '/image_thumb';
-                                                             class python:'cip-front-pubimg';" />
-                                    </div>
-                                    <div class="panel-wrapper" tal:define="item_object m/getObject;">
-                                        <p>
-                                            <tal:rep define="source item_object/getCategory">
-                                                <span class="frontDate">
-                                                    <span class="frontDate3" tal:content="source" />
-                                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                                </span>
-                                                <br />
-                                                <a href="#" tal:attributes="href m/getURL">
-                                                    <span tal:replace="m/pretty_title_or_id"/>
-                                                </a><br />
-                                            </tal:rep>
-                                        </p>
-                                    </div>
-                                </div>
-                            </tal:defs>
-                        </div>
-                    </div-->
 
-
-
-
-
-
-                    <style type="text/css">
-#wrapper {
-    width: 450px;
-    margin: 10px 25px;
-}
-
-#intro {
-    padding-bottom: 10px;
-}
-
-#slider {
-    width: 500px;
-    margin: 0 auto;
-    position: relative;
-    border: 1px solid #ccc;
-}
-
-.scroll {
-	overflow: hidden;
-	width: 500px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.scrollContainer {
-	position: relative;
-}
-
-.scrollContainer div.panel {
-    padding: 0 10px;
-    width: 220px;
-    height: 318px;
-}
-
-#left-shadow {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 12px;
-	bottom: 0;
-	background: url(leftshadow.png) repeat-y;
-}
-
-#right-shadow {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 12px;
-	bottom: 0;
-	background: url(rightshadow.png) repeat-y;
-}
-
-.inside {
-	padding: 0 10px;
-	border: 0px solid #999;
-}
-
-.inside img {
-    border: 1px solid #666666;
-    display: block;
-    margin: 0 7px 5px 0;
-    width: 80px;
-}
-
-.inside h2 {
-	font-weight: normal;
-	color: #111;
-	font-size: 16px;
-	margin: 0 0 8px 0;
-}
-
-.inside p {
-	font-size: 9px;
-	color: #ccc;
-}
-
-a {
-	color: #999;
-	text-decoration: none;
-	border-bottom: 1px dotted #ccc;
-}
-
-a:hover {
-	border-bottom: 1px solid #999;
-}
-
-.scrollButtons {
-    position: absolute;
-    top: 108px;
-    cursor: pointer;
-}
-
-.scrollButtons.left {
-    left: -22px;
-}
-
-.scrollButtons.right {
-    right: -22px;
-}
-
-.hide {
-    display: none;
-}
-
-</style>
-
+                    <div class="lineBreak"></div>
 
                     <div id="wrapper">
-                        <div id="slider">
-                            <img class="scrollButtons left" src="leftarrow.png">
-                                <div style="overflow: hidden;" class="scroll">
-                                    <div class="scrollContainer" tal:define="n featured/queryCatalog;">
-                                        <tal:defs tal:repeat="m n">
-                                            <div  class="panel" tal:define="s repeat/m/number;
-                                                                ids python:'panel_'+str(s)"
-                                                                tal:attributes="id ids">
-                                                <div class="inside">
-                                                    <div class="titles" tal:define="item_url m/getURL;">
-                                                        <img src="" alt=""
-                                                             tal:attributes="src python:item_url + '/image';
-                                                                             class python:'cip-front-pubimg';" />
-                                                        <div tal:define="item_object m/getObject;">
-                                                            <p>
-                                                                <tal:rep define="source item_object/getCategory">
-                                                                    <span class="frontDate">
-                                                                        <span class="frontDate3" tal:content="source" />
-                                                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                                                    </span>
-                                                                    <br />
-                                                                    <a href="#" tal:attributes="href m/getURL">
-                                                                        <span tal:replace="m/pretty_title_or_id"/>
-                                                                    </a><br />
-                                                                </tal:rep>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </tal:defs>
+                        <ul id="slider1" tal:define="n featured/queryCatalog;">
+                            <tal:defs tal:repeat="m n">
+                                <li tal:define="s repeat/m/number;">
+                                    <div class="featuredPub" tal:define="item_url m/getURL;
+                                                                         pubi m/getPubcode;">
+                                        <img src="" alt=""
+                                             tal:attributes="src python:'/cipotato/resources/publications/images/'+pubi+'-jpg/image_thumb';
+                                                             class python:'cip-front-pubimg';" />
+                                        <div tal:define="item_object m/getObject;">
+                                            <p>
+                                                <tal:rep define="source item_object/getCategory">
+                                                    <span class="frontDate">
+                                                        <span class="frontDate3" tal:content="source" />
+                                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" tal:attributes="href m/getURL">
+                                                        <span tal:replace="m/pretty_title_or_id"/>
+                                                    </a><br />
+                                                </tal:rep>
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div id="left-shadow"></div>
-                                    <div id="right-shadow"></div>
-                                </div>
-                            <img class="scrollButtons right" src="rightarrow.png">
-                        </div>
+                                </li>
+                            </tal:defs>
+                        </ul>
                     </div>
+
                 </div>
                 <div class="forth-column">
                     <img src="front-papatube.jpg" class="front-papatube" />
-                    <!--img src="front-newsletter.jpg" class="front-newsletter" /-->
+                    <img src="front-newsletter.jpg" class="front-newsletter" />
                 </div>
             </div>
         </metal:main>

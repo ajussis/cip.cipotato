@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="contact-p-1-2">
                                     <p>Email: valerie@email.com</p>
-                                    <p>Tel: 89482489</p>
+                                    <!--p>Tel: 89482489</p-->
                                 </div>
                             </div>
                             <p class="show" id="clickme">Show all staff</p>
@@ -53,15 +53,15 @@
                             <tal:defs define="n view/cpad">
                                 <div class="contact-p-1" tal:repeat="m n">
                                     <div>
-                                        <h2 class="contact-lower">
+                                        <div class="contact-position" tal:content="m/getPosition" />
+                                        <h3>
                                             <a href="#" tal:attributes="href m/getURL">
                                                 <span tal:replace="m/pretty_title_or_id"/>
                                             </a>
-                                        </h2>
-                                        <div class="contact-position-lower" tal:content="m/getPosition" />
+                                        </h3>
                                     </div>
-                                    <div>
-                                        <p>Email: alksdjflkasdlaks</p>
+                                    <div class="contact-p-1-2">
+                                        <p>Email: email@email.com</p>
                                         <!--p>Tel: 89482489</p-->
                                     </div>
                                 </div>

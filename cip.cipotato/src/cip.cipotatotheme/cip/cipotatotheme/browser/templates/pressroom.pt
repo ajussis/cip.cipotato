@@ -19,31 +19,40 @@
                                 Gwinner, Valerie
                             </span>
                             <br />
-                            <span>
-                                Head CPAD
+                            <span class="media_contact_head">
+                                Head CPAD<br />
                             </span>
-                        </div>
-                        <div class="media_contact_info">
-                            <span>v.gwinner@cgiar.org</span>
-                            <br />
-                            <span>Tel: 3496017</span>
+                            <span class="media_contact_info">
+                                v.gwinner@cgiar.org<br />
+                                Tel: 3496017
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="media_abouts">
-                    <h3 class="media_about_title">About CIP</h3>
+                    <h3 class="media_about_title">Brief facts</h3>
                     <div class="media_about">
-                        <div class="media_contact_name">
+                        <div class="media_brief_name">
                             <span class="media_contact_name_name">
                                 Anderson, Pamela K.
                             </span>
                             <br />
-                            <span>
+                            <span class="media_contact_head">
                                 Director General CIP
                             </span>
                         </div>
-                        <div class="media_contact_info">
-                            <span>PO Box 1558<br />Lima 12, Peru</span>
+                        <div class="media_brief_name2">
+                            <span class="media_contact_name_name">
+                                International Potato Center
+                            </span>
+                            <br />
+                            <span class="media_contact_head">
+                                Funded in 1971.
+                            </span>
+                            <br />
+                            <span class="media_contact_head">
+                                PO Box 1558, Lima 12, Peru
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -52,8 +61,8 @@
             <div class="lineBreak"></div>
 
             <div class="cip-news-press">
-                <img src="news-from-cip-title.jpg" class="news-from-cip"/>
-
+                <!--img src="news-from-cip-title.jpg" class="news-from-cip"/-->
+                <h1>Latest news</h1>
                 <tal:defs define="n cipnews/queryCatalog;
                                   n python:n[:2]">
                     <div class="cip-news-p" tal:repeat="m n">
@@ -75,7 +84,7 @@
                             <span class="frontDate">
                                 <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                             </span>
-                            <p tal:content="m/Description" />
+                            <p style="margin-top:0.2em !important;" tal:content="m/Description" />
                         </tal:rep>
                     </div>
                 </tal:defs>

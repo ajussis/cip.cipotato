@@ -20,7 +20,7 @@ width:839px;
     height: 62px;
     margin: 30px 20px 0;
     position: relative;
-    width: 963px;
+    width: 960px;
 }
 .discussion {
 margin-left:20px;
@@ -83,7 +83,7 @@ display:none;
     padding: 17px 10px;
     position: static;
     text-align: center;
-    width: 208px;
+    width: 206px;
     z-index: 200;
 }
 
@@ -108,7 +108,7 @@ padding:17px 10px;
 /*position:relative;*/
 position:static;
 text-align:center;
-width:207px;
+width:206px;
 z-index:200;
 font-size:16px;
 }
@@ -140,7 +140,7 @@ margin:-23px 0 0 20px;
 overflow:hidden;
 padding:0 0 10px;
 position:relative;
-width:963px;
+width:960px;
 }
 
 .tabbed_content_static {

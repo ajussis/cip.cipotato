@@ -1004,7 +1004,7 @@ h1 {
     color: #F37D3F;
     font-size: 2.2em;
     font-weight: normal;
-    padding: 3px 8px;
+    padding: 3px 0;
 }
 h1.inlineEditable {
 padding:3px 8px;
@@ -2071,13 +2071,13 @@ width:660px;
     border-top: 3px solid #581A74;
     display: block;
     height: 71px;
-    padding: 5px;
-    width: 250px;
+    padding: 10px;
+    width: 240px;
 }
 
 .media_contact_title {
     font-size: 20px;
-    margin-bottom: -9px;
+    margin-bottom: -8px;
     text-align: right;
     width: 250px;
 }
@@ -2093,22 +2093,46 @@ margin-bottom:0 !important;
     margin-right: 4px;
     width: 245px;
 }
+
+.media_brief_name {
+    border-right: 0 none;
+    float: left;
+    margin-right: 4px;
+    width: 140px;
+}
+
+.media_brief_name2 {
+    border-right: 0 none;
+    float: left;
+    padding-left:10px;
+    margin-right: 4px;
+    width: 185px;
+    border-left: 1px solid #581A74;
+}
+
+
 .media_contact_info {
     float: left;
     width: 245px;
+    color:#581A74;
+}
+
+.media_contact_head {
+    margin-left:10px;
+    color: #9485A9;
 }
 
 .media_about_title {
     color: #FF6A0C;
     font-size: 20px;
-    margin-bottom: -9px;
+    margin-bottom: -8px;
     text-align: right;
-    width: 340px;
+    width: 355px;
 }
 
 .media_abouts {
     float: left;
-    width: 357px;
+    width: 368px;
 }
 .media_contacts {
     float: left;
@@ -2120,8 +2144,8 @@ margin-bottom:0 !important;
     border-top: 3px solid #FF6A0C;
     display: block;
     height: 71px;
-    padding: 5px;
-    width: 357px;
+    padding: 10px;
+    width: 346px;
 }
 
 .page_title {

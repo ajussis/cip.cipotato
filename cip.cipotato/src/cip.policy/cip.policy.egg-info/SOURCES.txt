@@ -14,12 +14,15 @@ cip.policy.egg-info/top_level.txt
 cip/policy/__init__.py
 cip/policy/anual_report.xml
 cip/policy/best_sellers.xml
+cip/policy/config.xml
+cip/policy/configs.xml
 cip/policy/configure.zcml
 cip/policy/persons.csv
 cip/policy/setuphandlers.py
 cip/policy/tests.py
 cip/policy/transmogrifier.cfg
 cip/policy/transmogrifier.py
+cip/policy/transmogrifier_1.cfg
 cip/policy/transmogrifier_1.py
 cip/policy/transmogrifierpublications.cfg
 cip/policy/transmogrifierpublications.py
@@ -32,6 +35,27 @@ cip/policy/browser/import_pub.py
 cip/policy/profiles/default/catalog.xml
 cip/policy/profiles/default/cip.policy-default.txt
 cip/policy/profiles/default/metadata.xml
+cip/policy/pubimport/Copy (2) of publications.xml
+cip/policy/pubimport/Copy (3) ULTIMO  publications.xml
+cip/policy/pubimport/Copy of publications.xml
+cip/policy/pubimport/anual_report.xml
+cip/policy/pubimport/best_sellers.xml
+cip/policy/pubimport/books.xml
+cip/policy/pubimport/brochures_fact_sheets.xml
+cip/policy/pubimport/bulletins.xml
+cip/policy/pubimport/catalog.xml
+cip/policy/pubimport/mtp.xml
+cip/policy/pubimport/multimedia.xml
+cip/policy/pubimport/newsletters.xml
+cip/policy/pubimport/posters.xml
+cip/policy/pubimport/press_articles.xml
+cip/policy/pubimport/publications.xml
+cip/policy/pubimport/research_guides.xml
+cip/policy/pubimport/souvenirs.xml
+cip/policy/pubimport/studies_reports.xml
+cip/policy/pubimport/test.xml
+cip/policy/pubimport/training.xml
+cip/policy/pubimport/workingpapers.xml
 cip/policy/xmltests/bea.py
 cip/policy/xmltests/config.new.xml
 cip/policy/xmltests/config.xml

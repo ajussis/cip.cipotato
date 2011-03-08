@@ -36,6 +36,7 @@ def add_catalog_indexes(context, logger=None):
               ('getEmail', 'FieldIndex'),
               ('getTel', 'FieldIndex'),
               ('getHead', 'FieldIndex'),
+              ('getPubcode', 'FieldIndex'),
               )
     indexables = []
     for name, meta_type in wanted:
@@ -45,6 +46,7 @@ def add_catalog_indexes(context, logger=None):
             logger.info("Added %s for field %s.", meta_type, name)
     if len(indexables) > 0:
         logger.info("Indexing new indexes %s.", ', '.join(indexables))
+#        import pdb; pdb.set_trace()
         catalog.manage_reindexIndex(ids=indexables)
 
 

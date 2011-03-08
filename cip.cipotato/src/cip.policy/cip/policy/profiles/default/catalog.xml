@@ -7,4 +7,5 @@
   <column value="getTel"/>
   <column value="getHead"/>
   <column value="getPosition"/>
+  <column value="getPubcode"/>
 </object>

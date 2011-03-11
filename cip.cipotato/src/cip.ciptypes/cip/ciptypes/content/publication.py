@@ -6,7 +6,7 @@ from zope.interface import implements
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
-from plone.app.blob.field import BlobField, ImageField
+from plone.app.blob.field import BlobField
 
 # -*- Message Factory Imported Here -*-
 from cip.ciptypes import ciptypesMessageFactory as _
@@ -89,10 +89,11 @@ PublicationSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
     ),
 
 
-    atapi.ImageField(
-        'image',
+    atapi.StringField(
+        'pubimage',
         storage=atapi.AnnotationStorage(),
-        widget=atapi.ImageWidget(
+        searchable=1,
+        widget=atapi.StringWidget(
             label=_(u"Image"),
             description=_(u"Image"),
         ),
@@ -219,7 +220,7 @@ PublicationSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
     ),
 
 
-    
+
 ))
 
 # Set storage on fields copied from ATContentTypeSchema, making sure
@@ -242,7 +243,45 @@ class Publication(base.ATCTContent):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    author = atapi.ATFieldProperty('author')
 
+    pub_abstract = atapi.ATFieldProperty('pub_abstract')
+
+    pub_salenote = atapi.ATFieldProperty('pub_salenote')
+
+    pubstock = atapi.ATFieldProperty('pubstock')
+
+    pub_earthprint = atapi.ATFieldProperty('pub_earthprint')
+
+    pubcode = atapi.ATFieldProperty('pubcode')
+
+    pdf = atapi.ATFieldProperty('pdf')
+
+    pubimage = atapi.ATFieldProperty('pubimage')
+
+    link = atapi.ATFieldProperty('link')
+
+    price = atapi.ATFieldProperty('price')
+
+    pages = atapi.ATFieldProperty('pages')
+
+    issn = atapi.ATFieldProperty('issn')
+
+    isbn = atapi.ATFieldProperty('isbn')
+
+    publisher = atapi.ATFieldProperty('publisher')
+
+    imprint = atapi.ATFieldProperty('imprint')
+
+    division = atapi.ATFieldProperty('division')
+
+    category = atapi.ATFieldProperty('category')
+
+    year = atapi.ATFieldProperty('year')
+
+    conference = atapi.ATFieldProperty('conference')
+
+    series = atapi.ATFieldProperty('series')
 
 
 

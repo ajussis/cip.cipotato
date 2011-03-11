@@ -52,7 +52,7 @@ class IPublication(Interface):
         description=_(u"PDF"),
     )
 #
-    image = schema.TextLine(
+    pubimage = schema.TextLine(
         title=_(u"Image"),
         required=False,
         description=_(u"Image"),

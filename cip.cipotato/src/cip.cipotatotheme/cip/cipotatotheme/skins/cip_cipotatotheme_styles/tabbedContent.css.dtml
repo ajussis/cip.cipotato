@@ -94,6 +94,7 @@ color:white;
 }
 .tab_item a:hover {
 color:white !important;
+text-decoration: none;
 }
 
 

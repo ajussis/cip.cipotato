@@ -53,7 +53,6 @@ class PathSetter(object):
             categ = categ.replace(' ','-')
             categ = categ.replace('/-','')
             sys.setrecursionlimit(7000)
-            #import pdb; pdb.set_trace()
             item['_path'] = '/resources/publications/' + categ + '/' + item['id']
             item['_path'] = item['_path'].encode('ascii','ignore')
             print item
@@ -75,87 +74,69 @@ class PublicationSource(object):
         self.author = options.get('author', 'admin')
 
     def __iter__(self):
+
         """
-        divpubs = self.getallpubnumber()
-        divpubs = divpubs / 15
-        count = 1
-        lastcount = divpubs % 15
-        for i in range(1,15):
-        """
+        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/config.xml")
+        soup = BeautifulStoneSoup(xml)
+        allPubs = len(soup.findAll('publication'))-1
+        allFields = len(soup.contents[0].contents[1])-1
+        d = {}
+        list = []
+        for count in range(1, allPubs,2):
+            for field in range(1, allFields, 2):
+                d[soup.contents[0].contents[count].contents[field].name] = soup.contents[0].contents[count].contents[field].string
+                list.append(d)
+
+        for record in list:"""
+
         for record in self.source():
+
             item = dict()
+
             item['_type'] = self.type
             item['creators'] = (self.author,)
-            item['title'] = str(record['title']).strip("<![CDATA[")[:-3]
-            item['author'] = str(record['author']).strip("<![CDATA[")[:-3]
-            item['series'] = str(record['series']).strip("<![CDATA[")[:-3]
+
+            # set dates
+            #item['creation_date'] = record['year']
+            #item['effectiveDate'] = record['year']
+
+            # set content fields
+            item['title'] = record['title']
+            #item['subject'] = (record['category'],)
+            item['author'] = record['author']
+            item['series'] = record['series']
+            #import pdb; pdb.set_trace()
             item['category'] = record['category']
-            item['conference'] = str(record['conference']).strip("<![CDATA[")[:-3]
+            item['conference'] = record['conference']
+            #import pdb; pdb.set_trace()
             if record.get('division',None) is not None:
                 item['division'] = record['division']
             item['year'] = record['year']
-            item['imprint'] = str(record['imprint']).strip("<![CDATA[")[:-3]
-            item['publisher'] = str(record['publisher']).strip("<![CDATA[")[:-3]
+            item['imprint'] = record['imprint']
+            item['publisher'] = record['publisher']
             item['isbn'] = record['isbn']
             item['issn'] = record['issn']
             item['pages'] = record['pages']
             item['price'] = record['price']
-            item['link'] = str(record['link']).strip("<![CDATA[")[:-3]
-            item['pubimage'] = record['image']
+            item['link'] = record['link']
+            #item['_image'] = self.image
             item['pdf'] = record['pdf']
             item['pubcode'] = record['pubcode']
-            item['pub_earthprint'] = str(record['pub_earthprint']).strip("<![CDATA[")[:-3]
+            item['pub_earthprint'] = record['pub_earthprint']
             item['pubstock'] = record['pubstock']
-            item['pub_salenote'] = str(record['pub_salenote']).strip("<![CDATA[")[:-3]
-            item['pub_abstract'] = str(record['pub_abstract']).strip("<![CDATA[")[:-3]
+            item['pub_salenote'] = record['pub_salenote']
+            item['pub_abstract'] = record['pub_abstract']
+            
+            # publish news item
             item['_transitions'] = ('publish',)
+
             yield item
 
         for item in self.previous:
             yield item
 
-    """
-    def getallpubnumber(self):
-        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/publications.xml")
-        soup = BeautifulStoneSoup(xml)
-        return len(soup("publication"))
-
-
-    def source(self,pubcount, pubend):
-        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/publications.xml")
-        lines = xml.readlines()
-        xml = '\n'.join(lines[1:])
-        soup = BeautifulStoneSoup(xml)
-        #allPubs = len(soup.findAll('publication'))
-
-        allFields = len(soup.contents[0].contents[1])-1
-        d = {}
-        list = []
-        """
-    """
-        1,50  1-51     (pubend*(pubcount-1)+1, pubend*pubcount+1)
-        2,50  51-101   (pubend*(pubcount-1)+1, pubend*pubcount+1)
-        3,50  101-151  (pubend*(pubcount-1)+1,
-        4,50  201-251  (pubend*(pubcount-1)+1,
-
-        1,51  1-51     (pubend*(pubcount-1)+1, pubend*pubcount+1)
-        2,51  51-101   (pubend*(pubcount-1)+1, pubend*pubcount+1)
-        3,51  101-151  (pubend*(pubcount-1)+1,
-        4,51  201-251  (pubend*(pubcount-1)+1,
-
-    """
-    """
-        #import pdb; pdb.set_trace()
-        if (pubend % 2 != 0):
-            pubend = pubend - 1
-        for count in range(pubend*(pubcount-1)+1, pubend*pubcount+1, 2):
-            for field in range(1, allFields, 2):
-                d[soup.contents[0].contents[count].contents[field].name] = soup.contents[0].contents[count].contents[field].string
-            yield d
-    """
-
     def source(self):
-        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/publications.xml")
+        xml = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/publications_1.xml")
         lines = xml.readlines()
         xml = '\n'.join(lines[1:])
         soup = BeautifulStoneSoup(xml)

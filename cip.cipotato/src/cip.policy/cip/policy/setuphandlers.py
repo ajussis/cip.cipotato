@@ -37,6 +37,8 @@ def add_catalog_indexes(context, logger=None):
               ('getTel', 'FieldIndex'),
               ('getHead', 'FieldIndex'),
               ('getPubcode', 'FieldIndex'),
+              ('getJobsdate', 'DateIndex'),
+              ('getUnit', 'FieldIndex'),
               )
     indexables = []
     for name, meta_type in wanted:

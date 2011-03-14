@@ -16,7 +16,7 @@ class IJobs(Interface):
         description=_(u"Add the full description of the job"),
     )
 #
-    date = schema.Date(
+    jobsdate = schema.Date(
         title=_(u"Date"),
         required=False,
         description=_(u"Ending date for applying"),

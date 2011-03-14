@@ -12,9 +12,52 @@ from Products.ATContentTypes.content import schemata
 from cip.ciptypes.interfaces import ICareer
 from cip.ciptypes.config import PROJECTNAME
 
+from cip.ciptypes import ciptypesMessageFactory as _
+
 CareerSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
+
+    atapi.TextField(
+        'body',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.RichWidget(
+            label=_(u"Job description"),
+            description=_(u"Add the full description of the job"),
+        ),
+    ),
+
+
+    atapi.DateTimeField(
+        'date',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.CalendarWidget(
+            label=_(u"Date"),
+            description=_(u"Ending date for applying"),
+        ),
+        validators=('isValidDate'),
+    ),
+
+
+    atapi.StringField(
+        'type',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Type of Vacancy"),
+            description=_(u"Type of Vacancy"),
+        ),
+    ),
+
+
+    atapi.StringField(
+        'unit',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Organizational unit"),
+            description=_(u"Add the code for organizational unit"),
+        ),
+    ),
+
 
 ))
 
@@ -38,5 +81,14 @@ class Career(base.ATCTContent):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    body = atapi.ATFieldProperty('body')
+
+    date = atapi.ATFieldProperty('date')
+
+    type = atapi.ATFieldProperty('type')
+
+    unit = atapi.ATFieldProperty('unit')
+
 
 atapi.registerType(Career, PROJECTNAME)

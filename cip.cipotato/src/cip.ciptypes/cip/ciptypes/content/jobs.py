@@ -28,7 +28,7 @@ JobsSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
 
     atapi.DateTimeField(
-        'date',
+        'jobsdate',
         storage=atapi.AnnotationStorage(),
         widget=atapi.CalendarWidget(
             label=_(u"Date"),
@@ -56,8 +56,7 @@ JobsSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
             description=_(u"Add the code for organizational unit"),
         ),
     ),
-
-
+    
 ))
 
 # Set storage on fields copied from ATContentTypeSchema, making sure
@@ -82,7 +81,7 @@ class Jobs(base.ATCTContent):
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
     body = atapi.ATFieldProperty('body')
 
-    date = atapi.ATFieldProperty('date')
+    jobsdate = atapi.ATFieldProperty('jobsdate')
 
     type = atapi.ATFieldProperty('type')
 

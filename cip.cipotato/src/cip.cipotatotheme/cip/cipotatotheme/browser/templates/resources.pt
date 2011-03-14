@@ -1,0 +1,81 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1>Resources</h1>
+
+            <div class="resources_column">
+                <div class="resources_menu">
+                    <div class="resources_menu_title">
+                        <h2>Library</h2>
+                    </div>
+                    <p>
+                        The CIP Library comprises print and online publications on potato, sweetpotato, and Andean roots and tubers from 1972 to present. Links to all CGIAR library resources.
+                    </p>
+                </div>
+                <div class="resources_menu">
+                    <div class="resources_menu_title">
+                        <h2>Capacity strengthening</h2>
+                    </div>
+                    <p>
+                        CIP’s Capacity Strengthening Department provides administrative, technical, and professional support for education and training to strengthen developing countries’ research capacities and to improve potato and sweetpotato livelihoods and food security.
+                    </p>
+                </div>
+                <div class="resources_menu">
+                    <div class="resources_menu_title">
+                        <h2>Ordering germplasm</h2>
+                    </div>
+                    <p>
+                        To order material, access the CIP germplasm ordering system. 
+                    </p>
+                    <ul>
+                        <li>If you’re a new user, see the how-to guide for steps.</li>
+                        <li>The Potato Catalog and Advanced Clones Catalog provide information about a subset of available varieties and clones.</li>
+                        <li>The germplasm distribution cycle estimates the amount of time it takes to distribute your order. You can view the status of your order online.</li>
+                        <li>FAQs about ordering</li>
+                        <li>Standard Material Transfer Agreement (SMTA) and other documents</li>
+                    </ul>
+                </div>
+            </div>
+ 
+            <div class="resources_column">
+                <div class="resources_menu">
+                    <div class="resources_menu_title">
+                        <h2>Publications</h2>
+                    </div>
+                    <p>
+                        CIP books, manuals, reports, working papers, and training materials on potato, sweetpotato, and Andean roots and tubers. Search by author, title, publication year, keyword, and language.
+                    </p>
+                </div>
+                <div class="resources_menu">
+                    <div class="resources_menu_title">
+                        <h2>Databases</h2>
+                    </div>
+                    <p>
+                        Information about RIU databases
+                    </p>
+                    <ul>
+                        <li>Germplasm</li>
+                        <li>Inter-genebank Potato Database</li>
+                        <li>Sweetpotato Gene Index</li>
+                        <li>Potato Genetic Identity Kit</li>
+                        <li>PotatoGENE</li>
+                        <li>System-wide Information Network for Genetic Resources (SINGER)</li>
+                        <li>DIVA-GIS</li>
+                        <li>GIS</li>
+                        <li>Insect Life Cycle Modeling (ILCYM)</li>
+                        <li>World Potato Atlas</li>
+                        <li>World Sweetpotato Atlas</li>
+                        <li>Wild Potato Species Atlas</li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </metal:main>
+    </metal:main_macro>
+</html>

@@ -1,0 +1,53 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1>Jobs & scholarships</h1>
+
+            <p>
+                On this page you can find current opportunities at CIP. 
+            </p>
+
+            <div class="jobs_column">
+                <div class="jobs_menu" tal:define="jobsense view/jobinfo">
+                    <div class="jobs_menu_title">
+                        <h2>Jobs</h2>
+                    </div>
+                    <ul>
+                        <li class="jobs_listing" tal:repeat="job jobsense">
+                            <tal:defs define="item_url job/getURL;
+                                              item_object job/getObject;">
+                                <a href="#" tal:attributes="href item_url">
+                                    <h3 tal:content="job/pretty_title_or_id"></h3>
+                                </a>
+                            </tal:defs>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+ 
+            <div class="jobs_column">
+                <div class="jobs_menu" tal:define="scholarsense view/scholarinfo">
+                    <div class="jobs_menu_title">
+                        <h2>Scholarships</h2>
+                    </div>
+                    <ul>
+                        <li class="jobs_listing" tal:repeat="job scholarsense">
+                            <tal:defs define="item_url job/getURL;
+                                              item_object job/getObject;">
+                                <a href="#" tal:attributes="href item_url">
+                                    <h3 tal:content="job/pretty_title_or_id"></h3>
+                                </a>
+                            </tal:defs>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </metal:main>
+    </metal:main_macro>
+</html>

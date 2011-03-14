@@ -92,6 +92,30 @@
 
   <browser:page
       for="*"
+      name="resourcesView"
+      template="templates/resources.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="jobsView"
+      class=".jobs.JobsView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:viewlet
+      name="plone.searchbox"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SearchBoxViewlet"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      for="*"
       name="researchmain"
       template="templates/researchmain.pt"
       layer=".interfaces.IThemeSpecific"

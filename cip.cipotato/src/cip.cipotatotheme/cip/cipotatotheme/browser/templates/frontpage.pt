@@ -24,7 +24,7 @@
                             <a href="sweetpotato">SWEETPOTATO</a>
                     </span>
                     <span class='tab_item cip-front4-tab'>
-                            <a href="roots-and-tubers">ANDEAN ROOTS AND TUBERS</a>
+                            <a href="roots-and-tubers">ANDEAN ROOTS & TUBERS</a>
                     </span>
                 </div>
                 <div class='slide_content'>
@@ -58,7 +58,7 @@
 
             <div class="first-column">
                 <div class="cip-news">
-                    <img src="news-from-cip-title.jpg" class="news-from-cip"/>
+                    <h1>News from CIP</h1>
 
                     <tal:defs define="n cipnews/queryCatalog;
                                       n python:n[:2]">
@@ -110,7 +110,7 @@
 
             <div class="second-column">
                 <div class="cip-in-the-news">
-                    <img src="cip-in-the-media.jpg" class="cip-in-the-media">
+                    <h1>CIP in the Media</h1>
                     <ul tal:define="n cipinthenews/queryCatalog">
                         <li class="cip-news-li" tal:repeat="m n">
                             <tal:defs2 define="item_object m/getObject;
@@ -161,7 +161,7 @@
 
             <div class="second-row">
                 <div class="third-column">
-                    <img src="front-publications.jpg" class="front-publications" />
+                    <h1>Publications</h1>
 
                     <div class="lineBreak"></div>
 

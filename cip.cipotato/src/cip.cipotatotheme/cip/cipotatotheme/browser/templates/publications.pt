@@ -4,21 +4,11 @@
                              disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="clatestpublications python: getattr(context, 'clatestpublications');
-                                c_newsletters python: getattr(context, 'c_newsletters');
-                                c_fact_sheets_leaflets python: getattr(context, 'c-fact-sheets-leaflets');
-                                c_brochure python: getattr(context, 'c-brochure');
-                                c_press_articles python:getattr(context, 'c-press-articles');
-                                c_posters python:getattr(context, 'c-posters');
-                                c_bulletins python:getattr(context, 'c-bulletins');
-                                c_working_papers python: getattr(context, 'c-working-papers');
-                                c_conference_abstracts_proceedings python: getattr(context, 'c-conference-abstracts-proceedings');
-                                c_books python: getattr(context, 'c-books');
-                                c_annual_reports python: getattr(context, 'c-annual-reports');
-                                c-plans-financial-reports python: getattr(context, 'c-plans-financial-reports');
-                                c-studies-reports python: getattr(context, 'c-studies-reports');
-                                allpubcats python:[c_newsletters, c_fact_sheets_leaflets,c_brochure,c_press_articles,c_posters,c_bulletins,c_working_papers,c_conference_abstracts_proceedings];
-                                allpubcats_add python:['newsletter', 'fact-sheets-leaflets','brochure','press-articles','posters','bulletins','working-papers','conference-abstracts-proceedings',''];
+                    tal:define="clatestpublications python: getattr(context, 'latest-publications');
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet',
+'press-articles','brochure','poster',
+'bulletins','cards','videos','booklet','working-paper','journal','book-series','book',
+'catalog','research-guide','manual','cd-rom','annual-report','medium-term-plan'];
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
             <h1>Publications</h1>
@@ -49,55 +39,64 @@
                     <li id="pubcat" class="pubcat_3">
                         <a href="">Press articles</a>
                     </li>
-                    <li id="pubcat" class="pubcat_3">
+                    <li id="pubcat" class="pubcat_4">
                         <a href="">Brochures</a>
                     </li>
-                    <li id="pubcat" class="pubcat_4">
+                    <li id="pubcat" class="pubcat_5">
                         <a href="">Posters</a>
                     </li>
                     <li id="pubcat" class="pubcat_6">
                         <a href="">Bulletins</a>
                     </li>
+                    <li id="pubcat" class="pubcat_7">
+                        <a href="">Cards</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_8">
+                        <a href="">Videos</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_9">
+                        <a href="">Booklets</a>
+                    </li>
                 </ul>
             </div>
             <div class="pub_links">
                 <ul>
-                    <li id="pubcat" class="pubcat_7">
+                    <li id="pubcat" class="pubcat_10">
                         <a href="">Working papers</a>
                     </li>
-                    <li id="pubcat" class="pubcat_8">
-                        <a href="">Conference papers</a>
+                    <li id="pubcat" class="pubcat_11">
+                        <a href="">Journals</a>
                     </li>
-                    <li id="pubcat" class="pubcat_8">
-                        <a href="">Studies & reports</a>
+                    <li id="pubcat" class="pubcat_12">
+                        <a href="">Book series</a>
                     </li>
-                    <li>
+                    <li id="pubcat" class="pubcat_13">
                         <a href="">Books</a>
                     </li>
-                </ul>
-            </div>
-            <div class="pub_links">
-                <ul>
-                    <li>
-                        <a href="">-----------------</a>
-                    </li>
-                    <li>
-                        <a href="">-----------------</a>
-                    </li>
-                    <li>
-                        <a href="">-----------------</a>
-                    </li>
-                    <li>
-                        <a href="">-----------------</a>
+                    <li id="pubcat" class="pubcat_14">
+                        <a href="">Catalogs</a>
                     </li>
                 </ul>
             </div>
             <div class="pub_links">
                 <ul>
-                    <li>
+                    <li id="pubcat" class="pubcat_15">
+                        <a href="">Manuals</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_16">
+                        <a href="">Training manuals</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_17">
+                        <a href="">CD-roms</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pub_links">
+                <ul>
+                    <li id="pubcat" class="pubcat_18">
                         <a href="">Annual reports</a>
                     </li>
-                    <li>
+                    <li id="pubcat" class="pubcat_19">
                         <a href="">Plans and financial reports</a>
                     </li>
                 </ul>
@@ -159,41 +158,6 @@
                     </tal:defs4>
                 </tal:defs3>
 
-
-
-                <!--tal:defs2 define="pubs allpubcats">
-                    <tal:defs3 repeat="pub pubs">
-                        <tal:defs4 tal:define="n pub/queryCatalog;">
-                            <div tal:define="pubnum repeat/pub/number;
-                                             classname python:'pubs_pubcat_'+str(pubnum)"
-                                 tal:attributes="class classname">
-                                <div class="pubs_title">
-                                    <h2 class="pub_titles">Latest <span tal:replace="pub/title" /></h2>
-                                    <h2 class="pub_titles" tal:define="u python:allpubcats_add[pubnum-1]"><a tal:attributes="href u">See all</a></h2>
-                                </div>
-                                <div class="lineBreak"></div>
-                                <div class="pub_listing" tal:repeat="m n">
-                                    <tal:rep define="tit m/pretty_title_or_id">
-                                        <div tal:define="item_url m/getURL;">
-                                            <img src="" alt=""
-                                                 tal:attributes="src python:item_url + '/image_thumb';
-                                                                 class python:'pub-img';" />
-                                        </div>
-                                        <b>
-                                            <a href="#" tal:attributes="href m/getURL">
-                                                <span tal:replace="m/pretty_title_or_id"/>
-                                            </a>
-                                        </b>
-                                        <span class="pub_date">
-                                            <span tal:content="python:toLocalizedTime(m.Date)" />
-                                        </span>
-                                        <p tal:content="m/Description" />
-                                    </tal:rep>
-                                </div>
-                            </div>
-                        </tal:defs4>
-                    </tal:defs3>
-                </tal:defs2-->
             </div>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>

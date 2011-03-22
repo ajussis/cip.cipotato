@@ -19,14 +19,13 @@
         permission="cmf.ManagePortal"
         />
 
-
-    <!-- Import News Items from a PHP site -->
     <browser:page
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         name="import_news"
-        class=".import_1.ImportView"
+        class=".import_news.ImportView"
         permission="cmf.ManagePortal"
         />
+
 
 
 </configure>

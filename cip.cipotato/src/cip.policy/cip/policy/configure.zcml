@@ -56,25 +56,25 @@
         />
 
 
-    <!--transmogrifier:registerConfig
-        name="News Items import"
+    <transmogrifier:registerConfig
+        name="News import"
         title="Import of News Items from a PHP site"
         description=""
-        configuration="transmogrifier_1.cfg"
+        configuration="transmogrifierNewsItems.cfg"
         />
 
     <utility
-        component=".transmogrifier_1.NewsItemSource"
-        name="niteoweb.transmogrifier.simpleusage.newsitemsource"
+        component=".transmogrifierNewsItems.NewsItemSource"
+        name="cip.policy.transmogrifierNewsItems.newsitemsource"
         />
     <utility
-        component=".transmogrifier_1.PathSetter"
-        name="niteoweb.transmogrifier.simpleusage.pathsetter"
+        component=".transmogrifierNewsItems.PathSetter"
+        name="cip.policy.transmogrifierNewsItems.pathsetter"
         />
     <utility
-        component=".transmogrifier_1.FormatSetter"
-        name="niteoweb.transmogrifier.simpleusage.formatsetter"
-        /-->
+        component=".transmogrifierNewsItems.FormatSetter"
+        name="cip.policy.transmogrifierNewsItems.formatsetter"
+        />
 
 
 

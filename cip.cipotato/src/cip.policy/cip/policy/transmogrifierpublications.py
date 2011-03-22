@@ -94,6 +94,8 @@ class PublicationSource(object):
             if record.get('division',None) is not None:
                 item['division'] = record['division']
             item['year'] = record['year']
+            item['creation_date'] = record['creation_date']
+            item['effectiveDate'] = record['creation_date']
             item['imprint'] = str(record['imprint']).strip("<![CDATA[")[:-3]
             item['publisher'] = str(record['publisher']).strip("<![CDATA[")[:-3]
             item['isbn'] = record['isbn']
@@ -163,8 +165,17 @@ class PublicationSource(object):
         allFields = len(soup.contents[0].contents[1])-1
         d = {}
         list = []
+        d = 1
+        m = 1
+        year
         #import pdb; pdb.set_trace()
         for count in range(1, allPubs,2):
             for field in range(1, allFields, 2):
+                if (soup.contents[0].contents[count].contents[field].name == 'year'):
+
+                    d["creation_date"] = d+'/'+m+'/'+year
+                    d = d+1
+                    m = m+1
+                    if d = 28
                 d[soup.contents[0].contents[count].contents[field].name] = soup.contents[0].contents[count].contents[field].string
             yield d

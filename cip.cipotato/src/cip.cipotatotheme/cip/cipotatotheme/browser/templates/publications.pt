@@ -5,10 +5,10 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="clatestpublications python: getattr(context, 'latest-publications');
-                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet',
-'press-articles','brochure','poster',
-'bulletins','cards','videos','booklet','working-paper','journal','book-series','book',
-'catalog','research-guide','manual','cd-rom','annual-report','medium-term-plan'];
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog','research-guide','manual','cd-rom','annual-report','medium-term-plan'];
+                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Brochures','Posters', 'Bulletins','Cards','Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','poster','booklet','working-paper','journal','book', 'catalog','manual','video','cd-rom','annual-report','medium-term-plan'];
+                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Posters', 'Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
             <h1>Publications</h1>
@@ -30,64 +30,49 @@
 
             <div class="pub_links">
                 <ul>
-                    <li id="pubcat" class="pubcat_1">
+                    <li id="pubcat" class="pubcat_1"><!-- This to include Newsletters and Bulletins-->
                         <a href="">Newsletters</a>
                     </li>
-                    <li id="pubcat" class="pubcat_2">
-                        <a href="">Factsheets and leaflets</a>
+                    <li id="pubcat" class="pubcat_2"><!-- This to include Factsheets and leaflets, and Brochures-->
+                        <a href="">Factsheets</a>
                     </li>
                     <li id="pubcat" class="pubcat_3">
                         <a href="">Press articles</a>
                     </li>
-                    <li id="pubcat" class="pubcat_4">
-                        <a href="">Brochures</a>
+                    <li id="pubcat" class="pubcat_4"><!-- This to include Posters and Cards-->
+                        <a href="">Posters & Cards</a>
                     </li>
                     <li id="pubcat" class="pubcat_5">
-                        <a href="">Posters</a>
-                    </li>
-                    <li id="pubcat" class="pubcat_6">
-                        <a href="">Bulletins</a>
-                    </li>
-                    <li id="pubcat" class="pubcat_7">
-                        <a href="">Cards</a>
-                    </li>
-                    <li id="pubcat" class="pubcat_8">
-                        <a href="">Videos</a>
-                    </li>
-                    <li id="pubcat" class="pubcat_9">
                         <a href="">Booklets</a>
                     </li>
                 </ul>
             </div>
             <div class="pub_links">
                 <ul>
-                    <li id="pubcat" class="pubcat_10">
-                        <a href="">Working papers</a>
+                    <li id="pubcat" class="pubcat_6"><!-- This to include Working Papers-->
+                        <a href="">Papers</a>
                     </li>
-                    <li id="pubcat" class="pubcat_11">
+                    <li id="pubcat" class="pubcat_7">
                         <a href="">Journals</a>
                     </li>
-                    <li id="pubcat" class="pubcat_12">
-                        <a href="">Book series</a>
-                    </li>
-                    <li id="pubcat" class="pubcat_13">
+                    <li id="pubcat" class="pubcat_8"><!-- This to include Book series-->
                         <a href="">Books</a>
                     </li>
-                    <li id="pubcat" class="pubcat_14">
+                    <li id="pubcat" class="pubcat_9">
                         <a href="">Catalogs</a>
                     </li>
                 </ul>
             </div>
             <div class="pub_links">
                 <ul>
-                    <li id="pubcat" class="pubcat_15">
-                        <a href="">Manuals</a>
+                    <li id="pubcat" class="pubcat_10"><!-- This to include Manuals and Training manuals-->
+                        <a href="">Manuals & papers</a>
                     </li>
-                    <li id="pubcat" class="pubcat_16">
-                        <a href="">Training manuals</a>
+                    <li id="pubcat" class="pubcat_11">
+                        <a href="">Slides & videos</a>
                     </li>
-                    <li id="pubcat" class="pubcat_17">
-                        <a href="">CD-roms</a>
+                    <li id="pubcat" class="pubcat_12">
+                        <a href="">CDs</a>
                     </li>
                 </ul>
             </div>
@@ -97,7 +82,7 @@
                         <a href="">Annual reports</a>
                     </li>
                     <li id="pubcat" class="pubcat_19">
-                        <a href="">Plans and financial reports</a>
+                        <a href="">Plans & financial reports</a>
                     </li>
                 </ul>
             </div>
@@ -128,9 +113,8 @@
                         <div tal:define="pubnum repeat/pub/number;
                                          classname python:'pubs_pubcat_'+str(pubnum)"
                              tal:attributes="class classname">
-                            <hr class="basicLine" />
                             <div class="pubs_title">
-                                <h2 class="pub_titles">Latest <!--span tal:replace="pub" /--></h2>
+                                <h2 class="pub_titles">Latest <span tal:replace="pub" /></h2>
                                 <h2 class="pub_titles2" tal:define="u pub"><a tal:attributes="href u">See all</a></h2>
                             </div>
                             <div class="lineBreak"></div>
@@ -165,6 +149,7 @@
             $(document).ready(function() {
                 $('.pubs_pubcat_latest').show();
                 $('[class^=pubs_pubcat_]').hide();
+                $('#portal-column-content').css('height', 500);
                 $('[id^=pubcat]').click(function() {
                     $('[class^=pubs_pubcat_]').hide();
                     var $this = $(this);

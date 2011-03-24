@@ -60,8 +60,23 @@
 
   <browser:page
       for="*"
+      name="publicationssub_view"
+      class=".publications.PublicationsSubView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
       name="frontpage"
       template="templates/frontpage.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="globalcontactsView"
+      template="templates/globalcontacts.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
@@ -70,6 +85,27 @@
       for="*"
       name="mainareas"
       template="templates/mainareas.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="csdView"
+      template="templates/csd.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="seminarsmainView"
+      class=".seminarsmain.SeminarsmainView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="organizationchartView"
+      template="templates/orgchart.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
@@ -89,7 +125,13 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
+  <browser:page
+      for="*"
+      name="andeanrootsView"
+      template="templates/andeanroots.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
   <browser:page
       for="*"
       name="resourcesView"
@@ -97,7 +139,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:page
       for="*"
       name="jobsView"
@@ -105,7 +146,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:viewlet
       name="plone.searchbox"
       manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
@@ -113,6 +153,20 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope2.View"
       />
+<browser:viewlet
+    name="plone.searchboxpub"
+    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+    class=".viewlets.SearchBoxPubViewlet"
+    layer=".interfaces.IThemeSpecific"
+    permission="zope2.View"
+/>
+<browser:viewlet
+    name="plone.searchboxstaff"
+    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+    class=".viewlets.SearchBoxPubViewlet"
+    layer=".interfaces.IThemeSpecific"
+    permission="zope2.View"
+/>
 
   <browser:page
       for="*"

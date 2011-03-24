@@ -1,0 +1,69 @@
+<div id="portal-searchboxpub"
+     i18n:domain="plone"
+     tal:define="navigation_root_url view/navigation_root_url;
+                 search_input_id view/search_input_id;
+                 url request/URL;
+                 ispub python:'publications' in url;
+                 this_url python:url[-12:];
+                 title context/Title;
+                 searchtitle python:'Search '+title">
+
+    <form tal:condition="python: ispub or (this_url == 'contactsView')" name="searchform" id="searchGadget_form"
+          action="search"
+          tal:attributes="action string:${navigation_root_url}/search;
+          id string:${search_input_id}_form">
+
+        <div class="LSBox">
+        <label class="hiddenStructure"
+               tal:attributes="for search_input_id"
+               i18n:translate="text_search">Search Site</label>
+
+        <input name="SearchableText"
+               type="text"
+               size="18"
+               value=""
+               title="Search"
+               accesskey="4"
+               tal:attributes="value request/form/SearchableText|nothing;
+                               id search_input_id;
+                               title searchtitle"
+               class="searchField inputLabel" />
+
+        <input class="searchButton"
+               type="submit"
+               value="Search"
+               i18n:attributes="value label_search;" />
+
+        <div class="searchSectionPub">
+            <input id="searchbox_currentfolder_only"
+                   class="noborder"
+                   type="checkbox"
+                   name="path"
+                   checked
+		   style="margin-top:1px; float:left;"
+                   tal:attributes="value view/folder_path"
+                   />
+	    <div style="float:left; margin:0 0 0 3px;">
+                <label for="searchbox_currentfolder_only"
+                       i18n:translate="label_searchbox_currentfolder_only"
+                       style="cursor: pointer">
+                    only in current section
+                </label>
+            </div>
+        </div>
+
+        <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
+        </div>
+    </form>
+
+    <div id="portal-advanced-search"
+         class="hiddenStructure">
+        <a href="#"
+           tal:attributes="href string:${navigation_root_url}/search_form"
+           i18n:translate="label_advanced_search"
+           accesskey="5">
+            Advanced Search&hellip;
+        </a>
+    </div>
+
+</div>

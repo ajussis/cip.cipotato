@@ -4,13 +4,10 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-
             <h1>Jobs & scholarships</h1>
-
             <p>
                 On this page you can find current opportunities at CIP. 
             </p>
-
             <div class="jobs_column">
                 <div class="jobs_menu" tal:define="jobsense view/jobinfo">
                     <div class="jobs_menu_title">
@@ -28,7 +25,6 @@
                     </ul>
                 </div>
             </div>
- 
             <div class="jobs_column">
                 <div class="jobs_menu" tal:define="scholarsense view/scholarinfo">
                     <div class="jobs_menu_title">
@@ -46,8 +42,6 @@
                     </ul>
                 </div>
             </div>
-
-
         </metal:main>
     </metal:main_macro>
 </html>

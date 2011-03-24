@@ -3,10 +3,7 @@
                  tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
                              disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
     <metal:main_macro define-macro="main">
-        <metal:main fill-slot="main"
-                    tal:define="cipnews python: getattr(context, 'cip-news');
-                                cipinthenews python:getattr(context, 'cip-in-the-news');
-                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <metal:main fill-slot="main">
 
             <h1 tal:content="context/Title" class="page_title" />
 
@@ -24,7 +21,7 @@
                         <a href="potato-in-lowlands">Potato in the lowlands of Asia</a>
                     </li>
                     <li class="research_link_potato">
-                        <a href="potato-in-temparate-asia">Potato in temperate Asia</a>
+                        <a href="potato-in-temparature-areas">Potato in temperate Asia</a>
                     </li>
                     <li class="research_link_sweetpotato">
                         <a href="sweetpotato-in-africa">Sweetpotato in Sub-Saharan Africa</a>

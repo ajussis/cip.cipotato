@@ -1,0 +1,192 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1 tal:content="context/Title" class="page_title" />
+
+
+
+
+
+<style type="text/css">
+
+			*{ padding:0px; margin:0px; }
+			body{ background:#D5DEE7; }
+			a{ color:#C8DCE5;}
+			h3{ margin: 10px 10px 0 10px; color:#FFF; font:18pt Arial, sans-serif; letter-spacing:-1px; font-weight: bold;  }
+
+.boxgrid {
+    background: none repeat scroll 0 0 #161613;
+    border: 2px solid #8399AF;
+    float: left;
+    height: 154px;
+    margin: -10px 10px 15px 0;
+    overflow: hidden;
+    position: relative;
+    width: 183px;
+}
+				.boxgrid img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					border: 0;
+				}
+				.boxgrid p{
+					padding: 0 10px;
+					color:#afafaf;
+					font-weight:bold;
+					font:10pt "Lucida Grande", Arial, sans-serif;
+				}
+
+			.boxcaption{
+				float: left;
+				position: absolute;
+				background: #000;
+                                opacity:0.5;
+				height: 100px;
+				width: 100%;
+				opacity: .8;
+				/* For IE 5-7 */
+				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+				/* For IE 8 */
+				-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+ 			}
+ 				.captionfull .boxcaption {
+ 					top: 260px;
+ 					left: 0;
+ 				}
+ 				.caption .boxcaption {
+ 					top: 220;
+ 					left: 0;
+ 				}
+
+			h3 a{}
+.boxcaption p a {
+color:white !important;
+font-size:11px;
+}
+.roots_cell {
+float:left;
+width:210px;
+}
+.roots_all {
+float:left;
+width:630px;
+}
+
+		</style>
+
+
+<script type="text/javascript">
+			$(document).ready(function(){
+				//To switch directions up/down and left/right just place a "-" in front of the top/left attribute
+				//Vertical Sliding
+				$('.boxgrid.slidedown').hover(function(){
+					$(".cover", this).stop().animate({top:'-60px'},{queue:false,duration:300});
+				}, function() {
+					$(".cover", this).stop().animate({top:'0px'},{queue:false,duration:300});
+				});
+				//Horizontal Sliding
+				$('.boxgrid.slideright').hover(function(){
+					$(".cover", this).stop().animate({left:'325px'},{queue:false,duration:300});
+				}, function() {
+					$(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300});
+				});
+				//Diagnal Sliding
+				$('.boxgrid.thecombo').hover(function(){
+					$(".cover", this).stop().animate({top:'260px', left:'325px'},{queue:false,duration:300});
+				}, function() {
+					$(".cover", this).stop().animate({top:'0px', left:'0px'},{queue:false,duration:300});
+				});
+				//Partial Sliding (Only show some of background)
+				$('.boxgrid.peek').hover(function(){
+					$(".cover", this).stop().animate({top:'90px'},{queue:false,duration:160});
+				}, function() {
+					$(".cover", this).stop().animate({top:'0px'},{queue:false,duration:160});
+				});
+				//Full Caption Sliding (Hidden to Visible)
+				$('.boxgrid.captionfull').hover(function(){
+					$(".cover", this).stop().animate({top:'110px'},{queue:false,duration:160});
+				}, function() {
+					$(".cover", this).stop().animate({top:'170px'},{queue:false,duration:160});
+				});
+				//Caption Sliding (Partially Hidden to Visible)
+				$('.boxgrid.caption').hover(function(){
+					$(".cover", this).stop().animate({top:'160px'},{queue:false,duration:160});
+				}, function() {
+					$(".cover", this).stop().animate({top:'220px'},{queue:false,duration:160});
+				});
+			});
+		</script>
+
+
+            <div id="content-core">
+                <div>
+                    <tal:defs define="rats_text nocall:here/roots-and-tubers-text">
+                        <tal:replace content="structure rats_text/getText" />
+                    </tal:defs>
+                </div>
+
+                <div class="roots_all">
+                    <div class="roots_cell">
+                        <a href="maca"><h2>Maca</h2></a>
+                        <div class="boxgrid captionfull">
+                                <img src="maca.jpg"/>
+                                <div class="cover boxcaption">
+                                        <p><a href="maca">Andean viagra</a></p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="roots_cell">
+                        <a href="yacon"><h2>Yacon</h2></a>
+                        <div class="boxgrid captionfull">
+                                <img src="yacon.jpg"/>
+                                <div class="cover boxcaption">
+                                        <p><a href="yacon">boon for dieters and diabetics</a></p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="roots_cell">
+                        <a href="ahipa"><h2>Ahipa</h2></a>
+                        <div class="boxgrid captionfull">
+                                <img src="ahipa.jpg"/>
+                                <div class="cover boxcaption">
+                                        <p><a href="ahipa">nutrient rich crop for a hungry world</a></p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="roots_cell">
+                        <a href="oca-ulluco-mashua"><h2>Ulluco, Oca & Mashua</h2></a>
+                        <div class="boxgrid captionfull">
+                                <img src="olluco-oca-mashua.jpg"/>
+                                <div class="cover boxcaption">
+                                        <p><a href="oca-ulluco-mashua">traditional food security staples</a></p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="roots_cell">
+                        <a href="arracacha"><h2>Arracacha</h2></a>
+                        <div class="boxgrid captionfull">
+                                <img src="arracacha.jpg"/>
+                                <div class="cover boxcaption">
+                                        <p><a href="arracacha">high value cash crop for poor farmers</a></p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="roots_cell">
+                        <a href="mauca-achira"><h2>Achira</h2></a>
+                        <div class="boxgrid captionfull">
+                                <img src="achira.jpg"/>
+                                <div class="cover boxcaption">
+                                        <p><a href="mauka-achira">read more</a></p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </metal:main>
+    </metal:main_macro>
+</html>

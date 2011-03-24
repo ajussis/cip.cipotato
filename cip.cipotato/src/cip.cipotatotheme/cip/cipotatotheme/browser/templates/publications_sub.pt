@@ -1,0 +1,48 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="clatestpublications python: getattr(context, 'latest-publications');
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog','research-guide','manual','cd-rom','annual-report','medium-term-plan'];
+                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Brochures','Posters', 'Bulletins','Cards','Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1 tal:content="context/Title" class="page_title" />
+
+            <div class="lineBreak"></div>
+
+            <!-- Latest of all publications -->
+
+            <div tal:define="path python:'/'.join(here.getPhysicalPath());
+                             pubs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Publication');">
+
+                <div style="margin-top:15px;">
+                    <div class="pubrow" tal:repeat="obj pubs">
+                        <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
+                                               sub_url obj/getURL|obj/absolute_url;
+                                               item_created obj/CreationDate;
+                                               ">
+                            <tal:defs define="pc obj/getPubcode">
+                                <div tal:condition="python:view.ImageExist(pc)">
+                                    <img src="" alt=""
+                                         tal:attributes="src python:'../images/' + pc + '-jpg/image_thumb';
+                                                         class python:'pub-img';" />
+                                </div>
+                            </tal:defs>
+                            
+                            <a href="#"
+                                style="font-size:13px; font-weight:bold; margin-left:4px;"
+                                tal:content="sub_title"
+                                tal:attributes="href sub_url" /><br />
+                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                        </tal:defs2>
+                        <div class="visualClear"></div>
+                    </div>
+                </div>
+
+            </div>
+        </metal:main>
+    </metal:main_macro>
+</html>

@@ -165,7 +165,7 @@
 
                     <div class="lineBreak"></div>
 
-                    <div id="wrapper">
+                    <!--div id="wrapper">
                         <ul id="slider1" tal:define="n featured/queryCatalog;">
                             <tal:defs tal:repeat="m n">
                                 <li tal:define="s repeat/m/number;">
@@ -192,7 +192,7 @@
                                 </li>
                             </tal:defs>
                         </ul>
-                    </div>
+                    </div-->
 
                 </div>
                 <div class="forth-column">

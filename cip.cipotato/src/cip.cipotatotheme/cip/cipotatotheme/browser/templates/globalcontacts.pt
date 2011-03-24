@@ -1,0 +1,166 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <div id="map" style="width: 650px; height: 320px"></div>
+            <form action="#">
+              Latin America: <input type="checkbox" id="area1box" onclick="boxclick(this,'area1')" /> &nbsp;&nbsp;
+              Africa: <input type="checkbox" id="area2box" onclick="boxclick(this,'area2')" /> &nbsp;&nbsp;
+              Asia: <input type="checkbox" id="area3box" onclick="boxclick(this,'area3')" /><br />
+              Europe: <input type="checkbox" id="area4box" onclick="boxclick(this,'area4')" /><br />
+            </form>
+            <div class="side_bar" id="side_bar1"></div>
+            <div class="side_bar" id="side_bar2"></div>
+            <div class="side_bar" id="side_bar3"></div>
+            <div class="side_bar" id="side_bar4"></div>
+
+
+            <script type="text/javascript">
+            //<![CDATA[
+
+            if (GBrowserIsCompatible()) {
+              var gmarkers = [];
+              var gicons = [];
+
+              var baseIcon = new GIcon(G_DEFAULT_ICON);
+              baseIcon.image = "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png";
+
+              baseIcon.iconAnchor = new GPoint(9,34);
+              baseIcon.iconSize = new GSize(20,34);
+              baseIcon.infoWindowAnchor = new GPoint(9,2);
+
+
+              gicons["area1"] = new GIcon(baseIcon,baseIcon.image);
+              gicons["area2"] = new GIcon(baseIcon,baseIcon.image);
+              gicons["area3"] = new GIcon(baseIcon,baseIcon.image);
+              gicons["area4"] = new GIcon(baseIcon,baseIcon.image);
+
+              // A function to create the marker and set up the event window
+              function createMarker(point,name,html,category) {
+                var marker = new GMarker(point,gicons[category]);
+                // === Store the category and name info as a marker properties ===
+                marker.mycategory = category;
+                marker.myname = name;
+                GEvent.addListener(marker, "click", function() {
+                  marker.openInfoWindowHtml(html);
+                });
+                gmarkers.push(marker);
+                return marker;
+              }
+
+              // == shows all markers of a particular category, and ensures the checkbox is checked ==
+              function show(category) {
+                for (var i=0; i<gmarkers.length; i++) {
+                  if (gmarkers[i].mycategory == category) {
+                    gmarkers[i].show();
+                  }
+                }
+                // == check the checkbox ==
+                document.getElementById(category+"box").checked = true;
+              }
+
+              // == hides all markers of a particular category, and ensures the checkbox is cleared ==
+              function hide(category) {
+                for (var i=0; i<gmarkers.length; i++) {
+                  if (gmarkers[i].mycategory == category) {
+                    gmarkers[i].hide();
+                  }
+                }
+                // == clear the checkbox ==
+                document.getElementById(category+"box").checked = false;
+                // == close the info window, in case its open on a marker that we just hid
+                map.closeInfoWindow();
+              }
+
+              // == a checkbox has been clicked ==
+              function boxclick(box,category) {
+                if (box.checked) {
+                  show(category);
+                } else {
+                  hide(category);
+                }
+                // == rebuild the side bar
+                makeSidebar();
+              }
+
+              function myclick(i) {
+                GEvent.trigger(gmarkers[i],"click");
+              }
+
+
+              // == rebuilds the sidebar to match the markers currently displayed ==
+              function makeSidebar() {
+                var html1 = "";
+                var html2 = "";
+                var html3 = "";
+                var html4 = "";
+                for (var i=0; i<gmarkers.length; i++) {
+                  if (!gmarkers[i].isHidden()) {
+                    if (gmarkers[i].mycategory == 'area1') {
+                        html1 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                    }
+                    else if (gmarkers[i].mycategory == 'area2') {
+                        html2 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                    }
+                    else if (gmarkers[i].mycategory == 'area3') {
+                        html3 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                    }
+                    else if (gmarkers[i].mycategory == 'area4') {
+                        html4 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                    }
+                  }
+                }
+                document.getElementById("side_bar1").innerHTML = html1;
+                document.getElementById("side_bar2").innerHTML = html2;
+                document.getElementById("side_bar3").innerHTML = html3;
+                document.getElementById("side_bar4").innerHTML = html4;
+              }
+
+
+              // create the map
+              var map = new GMap2(document.getElementById("map"));
+              map.addControl(new GLargeMapControl());
+              map.addControl(new GMapTypeControl());
+              map.setCenter(new GLatLng(-3.86425,23.55469), 2);
+
+
+              // Read the data
+              GDownloadUrl("categories.xml", function(doc) {
+                var xmlDoc = GXml.parse(doc);
+                var markers = xmlDoc.documentElement.getElementsByTagName("marker");
+                for (var i = 0; i < markers.length; i++) {
+                  // obtain the attribues of each marker
+                  var lat = parseFloat(markers[i].getAttribute("lat"));
+                  var lng = parseFloat(markers[i].getAttribute("lng"));
+                  var point = new GLatLng(lat,lng);
+                  var address = markers[i].getAttribute("address");
+                  var name = markers[i].getAttribute("name");
+                  var html = "<b>"+name+"<\/b><p>"+address;
+                  var category = markers[i].getAttribute("category");
+                  // create the marker
+                  var marker = createMarker(point,name,html,category);
+                  map.addOverlay(marker);
+                }
+
+                // == show or hide the categories initially ==
+                show("area1");
+                show("area2");
+                show("area3");
+                show("area4");
+                // == create the initial sidebar ==
+                makeSidebar();
+              });
+            }
+
+            else {
+              alert("Sorry, the Google Maps API is not compatible with this browser");
+            }
+
+            //]]>
+            </script>
+        </metal:main>
+    </metal:main_macro>
+</html>

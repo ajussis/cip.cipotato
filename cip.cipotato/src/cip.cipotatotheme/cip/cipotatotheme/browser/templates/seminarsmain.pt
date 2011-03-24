@@ -1,0 +1,38 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <div id="content-core">
+                <h1 tal:content="context/Title"></h1>
+
+                <div class="csd_intro">
+                    <tal:defs define="res_text nocall:here/seminars-introduction">
+                        <p tal:content="structure res_text/getText" />
+                    </tal:defs>
+                </div>
+
+
+                <h2>Next seminars</h2>
+
+                <div class="seminarblock" tal:define="seminars view/seminars">
+                    <h2>Latest seminars</h2>
+                    <ul>
+                        <li class="jobs_listing" tal:repeat="sem seminars">
+                            <tal:defs define="item_url sem/getURL;
+                                              item_object sem/getObject;">
+                                <a href="#" tal:attributes="href item_url">
+                                    <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                </a>
+                            </tal:defs>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

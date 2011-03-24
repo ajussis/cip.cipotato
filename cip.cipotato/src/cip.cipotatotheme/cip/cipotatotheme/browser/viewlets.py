@@ -11,6 +11,9 @@ from plone.app.layout.globals.interfaces import IViewView
 from zope.interface import implements, alsoProvides
 
 
+#testing searchboxes
+from plone.app.layout.viewlets.common import SearchBoxViewlet
+
 # Sample code for a basic viewlet (In order to use it, you'll have to):
 # - Un-comment the following useable piece of code (viewlet python class).
 # - Rename the viewlet template file ('browser/viewlet.pt') and edit the
@@ -156,3 +159,10 @@ class SearchBoxViewlet(ViewletBase):
 
         folder = context_state.folder()
         self.folder_path = '/'.join(folder.getPhysicalPath())
+
+
+
+#testing searchboxes
+class SearchBoxPubViewlet(SearchBoxViewlet):
+    render = ViewPageTemplateFile("templates/searchboxpub.pt")
+    

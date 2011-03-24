@@ -57,9 +57,82 @@
    <element value="Publication"/>
    <element value="Seminar"/>
    <element value="TempFolder"/>
+   <element value="FormSelectionField"/>
+   <element value="FormMultiSelectionField"/>
+   <element value="FormLabelField"/>
+   <element value="FormDateField"/>
+   <element value="FormLinesField"/>
+   <element value="FormIntegerField"/>
+   <element value="FormBooleanField"/>
+   <element value="FormPasswordField"/>
+   <element value="FormFixedPointField"/>
+   <element value="FormStringField"/>
+   <element value="FormTextField"/>
+   <element value="FormRichTextField"/>
+   <element value="FormRichLabelField"/>
+   <element value="FormFileField"/>
+   <element value="FormLikertField"/>
+   <element value="FormSaveDataAdapter"/>
+   <element value="FormMailerAdapter"/>
+   <element value="FormCustomScriptAdapter"/>
+   <element value="FormThanksPage"/>
+   <element value="FieldsetFolder"/>
+   <element value="FormCaptchaField"/>
   </property>
   <property name="enable_wf_state_filtering" type="boolean">False</property>
   <property name="wf_states_to_show" type="lines"/>
+ </object>
+ <object name="ploneformgen_properties" meta_type="Plone Property Sheet">
+  <property name="title">PloneFormGen properties</property>
+  <property name="permissions_used" type="lines">
+   <element value="PloneFormGen: Add Content"/>
+   <element value="PloneFormGen: Add Mailers"/>
+   <element value="PloneFormGen: Add Data Savers"/>
+   <element value="PloneFormGen: Add Custom Scripts"/>
+   <element value="PloneFormGen: Edit TALES Fields"/>
+   <element value="PloneFormGen: Edit Python Fields"/>
+   <element value="PloneFormGen: Edit Advanced Fields"/>
+   <element value="PloneFormGen: Edit Mail Addresses"/>
+   <element value="PloneFormGen: Edit Encryption Specs"/>
+   <element value="PloneFormGen: Download Saved Input"/>
+  </property>
+  <property name="mail_cc_recipients" type="lines"/>
+  <property name="mail_bcc_recipients" type="lines"/>
+  <property name="mail_xinfo_headers" type="lines">
+   <element value="HTTP_X_FORWARDED_FOR"/>
+   <element value="REMOTE_ADDR"/>
+   <element value="PATH_INFO"/>
+  </property>
+  <property name="mail_add_headers" type="lines"/>
+  <property name="mail_template"
+     type="text">&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+   
+     &lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;
+   
+     &lt;body&gt;
+       &lt;p tal:content="here/getBody_pre | nothing" /&gt;
+       &lt;dl&gt;
+           &lt;tal:block repeat="field options/wrappedFields | nothing"&gt;
+               &lt;dt tal:content="field/fgField/widget/label" /&gt;
+               &lt;dd tal:content="structure python:field.htmlValue(request)" /&gt;
+           &lt;/tal:block&gt;
+       &lt;/dl&gt;
+       &lt;p tal:content="here/getBody_post | nothing" /&gt;
+       &lt;pre tal:content="here/getBody_footer | nothing" /&gt;
+     &lt;/body&gt;
+   &lt;/html&gt;</property>
+  <property name="mail_body_type" type="string">html</property>
+  <property name="mail_recipient_email" type="string"></property>
+  <property name="mail_recipient_name" type="string"></property>
+  <property name="csv_delimiter" type="string">,</property>
+ </object>
+ <object name="quickupload_properties" meta_type="Plone Property Sheet">
+  <property name="title">Quick Upload properties</property>
+  <property name="use_flashupload" type="boolean">False</property>
+  <property name="auto_upload" type="boolean">False</property>
+  <property name="fill_titles" type="boolean">True</property>
+  <property name="size_limit" type="int">0</property>
+  <property name="sim_upload_limit" type="int">2</property>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="title">Site wide properties</property>
@@ -96,6 +169,8 @@
   <property name="ellipsis" type="string">...</property>
   <property name="typesLinkToFolderContentsInFC" type="lines">
    <element value="Folder"/>
+   <element value="FormFolder"/>
+   <element value="FieldsetFolder"/>
   </property>
   <property name="visible_ids" type="boolean">False</property>
   <property name="exposeDCMetaTags" type="boolean">False</property>
@@ -117,6 +192,27 @@
    <element value="ATCurrentAuthorCriterion"/>
    <element value="ATPathCriterion"/>
    <element value="ATRelativePathCriterion"/>
+   <element value="FormSelectionField"/>
+   <element value="FormMultiSelectionField"/>
+   <element value="FormLabelField"/>
+   <element value="FormDateField"/>
+   <element value="FormLinesField"/>
+   <element value="FormIntegerField"/>
+   <element value="FormBooleanField"/>
+   <element value="FormPasswordField"/>
+   <element value="FormFixedPointField"/>
+   <element value="FormStringField"/>
+   <element value="FormTextField"/>
+   <element value="FormRichTextField"/>
+   <element value="FormRichLabelField"/>
+   <element value="FormFileField"/>
+   <element value="FormLikertField"/>
+   <element value="FormSaveDataAdapter"/>
+   <element value="FormMailerAdapter"/>
+   <element value="FormCustomScriptAdapter"/>
+   <element value="FormThanksPage"/>
+   <element value="FieldsetFolder"/>
+   <element value="FormCaptchaField"/>
   </property>
   <property name="search_review_state_for_anon"
      type="boolean">False</property>
@@ -144,6 +240,7 @@
   <property name="enable_livesearch" type="boolean">True</property>
   <property name="default_page_types" type="lines">
    <element value="Topic"/>
+   <element value="FormFolder"/>
   </property>
   <property name="use_folder_contents" type="lines"/>
   <property name="forbidden_contenttypes" type="lines">
@@ -176,6 +273,10 @@
    <element value="email"/>
    <element value="password"/>
    <element value="mail_me"/>
+  </property>
+  <property name="use_folder_tabs" type="lines">
+   <element value="FormFolder"/>
+   <element value="FieldsetFolder"/>
   </property>
  </object>
 </object>

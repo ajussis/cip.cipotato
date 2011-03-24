@@ -89,6 +89,21 @@
     rel="stylesheet" rendering="import"/>
  <stylesheet title="" applyPrefix="False" authenticated="False"
     cacheable="True" compression="safe" conditionalcomment="" cookable="True"
+    enabled="1" expression="not: portal/portal_membership/isAnonymousUser"
+    id="multilanguagefields.css" media="all" rel="stylesheet"
+    rendering="import"/>
+ <stylesheet title="" applyPrefix="False" authenticated="False"
+    cacheable="True" compression="safe" conditionalcomment="" cookable="True"
+    enabled="True" expression=""
+    id="++resource++quickupload_static/uploadify.css" media=""
+    rel="stylesheet" rendering="import"/>
+ <stylesheet title="" applyPrefix="False" authenticated="False"
+    cacheable="True" compression="safe" conditionalcomment="" cookable="True"
+    enabled="True" expression=""
+    id="++resource++quickupload_static/fileuploader.css" media=""
+    rel="stylesheet" rendering="import"/>
+ <stylesheet title="" applyPrefix="False" authenticated="False"
+    cacheable="True" compression="safe" conditionalcomment="" cookable="True"
     enabled="1" expression="" id="ploneCustom.css" media="all"
     rel="stylesheet" rendering="link"/>
 </object>

@@ -145,4 +145,27 @@
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="carrosel.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="False" expression=""
+    id="slider.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True"
+    expression="python: not here.restrictedTraverse('@@plone_portal_state').anonymous()"
+    id="translator.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True"
+    expression="python: not here.restrictedTraverse('@@plone_portal_state').anonymous()"
+    id="validation_helper.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="on" expression=""
+    id="++resource++quickupload_static/swfobject.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="on" expression=""
+    id="++resource++quickupload_static/jquery.uploadify.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="on" expression=""
+    id="++resource++quickupload_static/fileuploader.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="on" expression=""
+    id="++resource++quickupload_static/helpers.js" inline="False"/>
 </object>

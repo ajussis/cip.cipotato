@@ -19,23 +19,6 @@
    </property>
    <property name="visible">False</property>
   </object>
-
-<!-- MULTI UPLOAD -->
-  <object name="upload" meta_type="CMF Action" i18n:domain="collective.uploadify">
-   <property name="title" i18n:translate="">Upload</property>
-   <property name="description" i18n:translate="">Batch upload files.</property>
-   <property name="url_expr">
-     string:${plone_context_state/canonical_object_url}/@@upload
-   </property>
-   <property name="icon_expr"></property>
-   <property name="available_expr">
-     python:plone_context_state.is_folderish() or plone_context_state.is_default_page()
-   </property>
-   <property name="permissions">
-    <element value="Add portal content"/>
-   </property>
-   <property name="visible">True</property>
-  </object>
   <object name="print" meta_type="CMF Action" i18n:domain="plone">
    <property name="title" i18n:translate="">Print this</property>
    <property name="description" i18n:translate=""></property>
@@ -72,6 +55,22 @@
    <property name="available_expr">object/externalEditorEnabled</property>
    <property name="permissions">
     <element value="Modify portal content"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="upload" meta_type="CMF Action"
+     i18n:domain="collective.uploadify">
+   <property name="title" i18n:translate="">Upload</property>
+   <property name="description"
+      i18n:translate="">Batch upload files.</property>
+   <property name="url_expr">
+    string:${plone_context_state/canonical_object_url}/@@upload</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">
+    python:plone_context_state.is_folderish() or plone_context_state.is_default_page()</property>
+   <property name="permissions">
+    <element value="Add portal content"/>
    </property>
    <property name="visible">True</property>
   </object>
@@ -357,6 +356,34 @@
    <property name="available_expr"></property>
    <property name="permissions">
     <element value="Modify portal content"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="export" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">Export</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:${object_url}/@@export-form-folder</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property
+      name="available_expr">python:object.meta_type in ('FormFolder')</property>
+   <property name="permissions">
+    <element value="Manage portal"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="import" meta_type="CMF Action" i18n:domain="plone">
+   <property name="title" i18n:translate="">Import</property>
+   <property name="description" i18n:translate=""></property>
+   <property
+      name="url_expr">string:${object_url}/@@import-form-folder</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property
+      name="available_expr">python:object.meta_type in ('FormFolder')</property>
+   <property name="permissions">
+    <element value="Manage portal"/>
    </property>
    <property name="visible">True</property>
   </object>

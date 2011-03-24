@@ -1,17 +1,22 @@
 <?xml version="1.0"?>
 <portlets>
- <portletmanager name="plone.dashboard2"
+ <portletmanager name="plone.dashboard4"
     type="plone.app.portlets.interfaces.IDashboard"/>
  <portletmanager name="plone.rightcolumn"
     type="plone.app.portlets.interfaces.IRightColumn"/>
- <portletmanager name="plone.leftcolumn"
-    type="plone.app.portlets.interfaces.ILeftColumn"/>
- <portletmanager name="plone.dashboard3"
-    type="plone.app.portlets.interfaces.IDashboard"/>
- <portletmanager name="plone.dashboard4"
-    type="plone.app.portlets.interfaces.IDashboard"/>
  <portletmanager name="plone.dashboard1"
     type="plone.app.portlets.interfaces.IDashboard"/>
+ <portletmanager name="plone.leftcolumn"
+    type="plone.app.portlets.interfaces.ILeftColumn"/>
+ <portletmanager name="plone.dashboard2"
+    type="plone.app.portlets.interfaces.IDashboard"/>
+ <portletmanager name="plone.dashboard3"
+    type="plone.app.portlets.interfaces.IDashboard"/>
+ <portlet title="Events" addview="portlets.Events"
+    description="A portlet which can render a listing of recent events">
+  <for interface="plone.app.portlets.interfaces.IColumn"/>
+  <for interface="plone.app.portlets.interfaces.IDashboard"/>
+ </portlet>
  <portlet title="Login" addview="portlets.Login"
     description="A portlet which can render a log-in box">
   <for interface="plone.app.portlets.interfaces.IColumn"/>
@@ -60,11 +65,9 @@
     description="A portlet which can render a navigation tree">
   <for interface="plone.app.portlets.interfaces.IColumn"/>
  </portlet>
- <portlet title="Events" addview="portlets.Events"
-    description="A portlet which can render a listing of recent events">
-  <for interface="plone.app.portlets.interfaces.IColumn"/>
-  <for interface="plone.app.portlets.interfaces.IDashboard"/>
- </portlet>
+ <portlet title="Quick Upload Portlet"
+    addview="collective.quickupload.QuickUploadPortlet"
+    description="Portlet displaying a quick and multiple upload form"/>
  <assignment name="news" category="context" key="/"
     manager="plone.rightcolumn" type="portlets.News" visible="False">
   <property name="count">5</property>

@@ -58,19 +58,85 @@
   <type portal_type="ATPortalTypeCriterion">
    <catalog value="portal_catalog"/>
   </type>
+  <type portal_type="FGLikertField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FieldsetFolder">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGSelectionField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGMultiSelectField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGRichLabelField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGLabelField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGTextField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGDateField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGRichTextField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FormSaveDataAdapter">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FormThanksPage">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGLinesField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGBooleanField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGPasswordField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FormCustomScriptAdapter">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FormMailerAdapter">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FormFolder">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGFileField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGCaptchaField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGFixedPointField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGIntegerField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="FGStringField">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="Person">
+   <catalog value="portal_catalog"/>
+  </type>
+  <type portal_type="Jobs">
+   <catalog value="portal_catalog"/>
+  </type>
   <type portal_type="FAQ">
    <catalog value="portal_catalog"/>
   </type>
   <type portal_type="Jobholder">
    <catalog value="portal_catalog"/>
   </type>
-  <type portal_type="Publication">
-   <catalog value="portal_catalog"/>
-  </type>
   <type portal_type="PersonnelContainer">
-   <catalog value="portal_catalog"/>
-  </type>
-  <type portal_type="Gallery">
    <catalog value="portal_catalog"/>
   </type>
   <type portal_type="Seminar">
@@ -79,16 +145,16 @@
   <type portal_type="Career">
    <catalog value="portal_catalog"/>
   </type>
-  <type portal_type="CIPintheNews">
+  <type portal_type="Publication">
    <catalog value="portal_catalog"/>
   </type>
-  <type portal_type="Jobs">
+  <type portal_type="CIPintheNews">
    <catalog value="portal_catalog"/>
   </type>
   <type portal_type="Pubholder">
    <catalog value="portal_catalog"/>
   </type>
-  <type portal_type="Person">
+  <type portal_type="Gallery">
    <catalog value="portal_catalog"/>
   </type>
   <type portal_type="ATBlob">

@@ -5,6 +5,7 @@
  <required tool_id="caching_policy_manager" class="Products.CMFCore.CachingPolicyManager.CachingPolicyManager"/>
  <required tool_id="content_type_registry" class="Products.CMFCore.ContentTypeRegistry.ContentTypeRegistry"/>
  <required tool_id="error_log" class="Products.SiteErrorLog.SiteErrorLog.SiteErrorLog"/>
+ <required tool_id="formgen_tool" class="Products.PloneFormGen.tools.formGenTool.FormGenTool"/>
  <required tool_id="mimetypes_registry" class="Products.MimetypesRegistry.MimeTypesRegistry.MimeTypesRegistry"/>
  <required tool_id="plone_utils" class="Products.CMFPlone.PloneTool.PloneTool"/>
  <required tool_id="portal_actionicons" class="Products.CMFPlone.ActionIconsTool.ActionIconsTool"/>

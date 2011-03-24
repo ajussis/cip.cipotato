@@ -91,7 +91,7 @@ margin:<dtml-var "(122-_[logoName].height)/2">px 0 0 <dtml-var "(259-_[logoName]
 #portal-globalnav li {
     border-right: 1px solid black;
     float: left;
-    margin: 3px -1px 3px 10px;
+    margin: 3px -1px 3px 20px;
 }
 #portal-globalnav li.lastItem {
 border-right:0;
@@ -126,7 +126,7 @@ z-index:1000;
 .globalSectionsLevel1 {
     background: none repeat scroll 0 0 #FFFFFF;
     color: black !important;
-    margin: 0 0 0 -10px;
+    margin: 0 0 0 -20px;
 }
 #portal-globalnav .globalSectionsLevel1 li {
     border-right: 0 none;
@@ -189,9 +189,7 @@ left:-9999px;
 position:absolute;
 }
 
-#content-core {
-    padding: 0 30px 0 15px;
-}
+
 /*---------- PORTAL PERSONAL TOOLS ----------*/
 
 #portal-searchbox {
@@ -203,6 +201,26 @@ position:absolute;
     text-align: left;
 }
 
+#portal-searchboxpub {
+    clear: right;
+    float: right;
+    font-size: 80%;
+    margin: 92px 225px 0 !important;
+    position: absolute;
+    text-align: left;
+}
+
+.searchSectionPub {
+display:none;
+}
+
+.pubrow {
+width:65%;
+}
+
+
+
+
 #portal-personaltools-wrapper {
     background-color: transparent;
     float: right;
@@ -212,6 +230,27 @@ position:absolute;
     position: relative;
     width: 76px;
 }
+dl#document-toc dd {
+    margin: 0 0 1em 0;
+}
+dl#document-toc ol {
+    margin-left: 1em;
+}
+
+#map {
+
+}
+
+#side_bar {
+
+}
+.side_bar {
+width:15%;
+float:left;
+margin:10px;
+}
+
+
 #portal-personaltools {
 background:none;
 border:0 none;
@@ -766,6 +805,7 @@ padding-left:0px !important;
 #edit-bar {
 font-size:10px !important;
 margin-right:25px;
+
 }
 
 .contact-h2 {
@@ -1189,6 +1229,18 @@ margin-left:-100%;
 div.position-3:4 {
     margin-left: -29.875% !important;
 }
+
+div.width-3\3a 4 { width:    70.75%; }
+
+.image-right {
+    clear: both;
+    float: right;
+    margin: 0 0 1em 2em;
+}
+.buttonslides {
+margin-left:20px;
+}
+
 .frontpageBox {
 float:left;
 margin-bottom:10px;
@@ -1223,6 +1275,10 @@ border:0;
 margin-bottom:0.1em;
 font-size:1.9em !important;
 margin-top:0 !important;
+}
+
+p.text img {
+margin-right:10px;
 }
 
 .titleLine1 {
@@ -1274,19 +1330,32 @@ float:left;
 .lineBreak {
 clear:both;
 }
-#content {
-/*    border-right: 1px solid #C8B9BE;  */
-    border-right:none;
-    margin: 0 3em 2em 1.4em !important;
+
+#content-core {
+    padding: 0 30px 0 15px;
+    width: 600px;
+    padding-right:1em;
+}
+#content-core a {
+text-decoration:underline;
+color:blue;
 }
 
+#content {
+    border-right: 1px solid #C8B9BE;
+    margin: 0 0 0 1.4em !important;
+    padding-right: 1em;
+    text-align: justify;
+}
+
+
 #tabnav li {
-    float:left;
     color: #F37D3F;
-    font-size: 1.7em;
-    font-weight: normal;
-    padding: 0px 8px;
-    margin-right:0;
+    float: left;
+    font-size: 19px;
+    font-weight: bold;
+    margin-right: 0;
+    padding: 3px 22px;
 }
 .tab1-c {
     float: left;
@@ -1386,10 +1455,12 @@ margin-top:-11px !important;
 }
 
 .contact-p-1 div {
-margin-top:0.2em;
+margin-top:0em;
 margin-bottom:0em;
 }
-
+.contact-p-1 h3 {
+margin-bottom:0;
+}
 
 .tabs-selected {
 background:none repeat scroll 0 0 #ffe3d4;
@@ -1402,11 +1473,14 @@ background:none repeat scroll 0 0 #ffe3d4;
     height: 35px;
 }
 ul#tabnav li {
-    border-right: 1px solid #8F46A2;
+    border-right: 0px solid #8F46A2;
     display: block !important;
     margin-left: 0 !important;
 }
-
+#tabnav li a:hover {
+text-decoration:underline;
+color:#581A74 !important;
+}
 .frontDateProject {
 color:grey;
 font-size:0.7em;
@@ -2053,6 +2127,27 @@ dl.portalMessage {
     z-index: 3;
 }
 
+.section-sweetpotato div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-camote.jpg") repeat scroll 0 0 transparent;
+    height: 279px;
+}
+.section-sweetpotato #portal-header {
+    background: url("cip_header.gif") repeat scroll 10px 10px transparent;
+    height: 121px;
+    position: relative;
+    z-index: 3;
+}
+
+.section-roots-and-tubers div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-rtas.jpg") repeat scroll 0 0 transparent;
+    height: 279px;
+}
+.section-roots-and-tubers #portal-header {
+    background: url("cip_header.gif") repeat scroll 10px 10px transparent;
+    height: 121px;
+    position: relative;
+    z-index: 3;
+}
 .template-frontpage div#portal-header {
 background-color:white;
 }
@@ -2068,14 +2163,16 @@ margin-left:10px;
     background: none repeat scroll 0 0 #F8E3F0;
     margin-top: 11px;
     padding: 3px 0 3px 10px;
-    width: 95%;
+    width: 100%;
 }
 
 .resources_menu_title h2 {
 margin-bottom:0px;
 }
+
+
 .resources_column {
-    margin: 20px 20px 20px 0;
+    margin: 20px 30px 20px 0;
     width: 41%;
     float:left;
 }
@@ -2110,17 +2207,21 @@ margin-top:10px;
 }
 
 .pub_menu_item {
-font-size:19px;
-color:#500f67;
-display:block;
-float:left;
-width:217px;
-font-weight:bold;
+    color: #500F67;
+    display: block;
+    float: left;
+    font-size: 19px;
+    font-weight: bold;
+    margin-left: 16px;
+    width: 195px;
 }
 .pub_links {
-float:left;
-width:200px;
-padding:10px;
+    border-right: 1px solid #EC006E;
+    float: left;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding: 0 0 0 10px;
+    width: 200px;
 }
 .pub_links li {
 color:#500f67;
@@ -2131,7 +2232,7 @@ margin-left:20px;
 .pub_listing {
     float: left;
     margin: 20px;
-    width: 34%;
+    width: 41%;
 }
 
 .media_info {
@@ -2292,16 +2393,17 @@ clear:both;
 }
 
 .pub_titles {
-    border-right: 2px solid #500F67;
     float: left;
     margin: 0 10px;
     padding: 0 40px 0 0;
 }
 
 .pub_titles2 {
+    background: none repeat scroll 0 0 #F8E3F0;
     float: left;
+    font-size: 16px;
     margin: 0 10px;
-    padding: 0 40px 0 0;
+    padding: 3px 7px;
 }
 
 .pub-img {
@@ -2457,12 +2559,12 @@ display:block !important;
 }
 
 .portletNavigationTree {
-    border-left: 1px solid #C8B9BE;
-    margin-top: 2em !important;
+/*    border-left: 1px solid #C8B9BE; */
+    margin-top: 2.5em !important;
     padding-left: 23px;
 }
 .tab_item_static a:hover {
-text-decoration:none;
+text-decoration:underline;
 color:white !important;
 }
 

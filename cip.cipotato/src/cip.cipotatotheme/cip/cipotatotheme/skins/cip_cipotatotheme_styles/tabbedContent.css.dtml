@@ -111,7 +111,7 @@ position:static;
 text-align:center;
 width:206px;
 z-index:200;
-font-size:16px;
+font-size:19px;
 }
 
 .cip-front1-tab:hover {
@@ -142,6 +142,10 @@ overflow:hidden;
 padding:0 0 10px;
 position:relative;
 width:960px;
+}
+
+li.hasChildrens a:hover {
+text-decoration:underline !important;
 }
 
 .tabbed_content_static {

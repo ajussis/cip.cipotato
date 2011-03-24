@@ -45,15 +45,18 @@
         <meta name="viewport" content="width=device-width; initial-scale=0.6666; maximum-scale=1.0; minimum-scale=0.6666" />
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>
+            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;" type="text/javascript"></script>
+
+
 </head>
 
-<body tal:define="isRTL portal_state/is_rtl;
+<body onunload="GUnload()" tal:define="isRTL portal_state/is_rtl;
                   sl python:plone_view.have_portlets('plone.leftcolumn', view);
                   sr python:plone_view.have_portlets('plone.rightcolumn', view);
                   body_class python:plone_view.bodyClass(template, view);
-                  sunburst_view python:context.restrictedTraverse('@@sunburstview')"
-    tal:attributes="class body_class;
-                    dir python:isRTL and 'rtl' or 'ltr'">
+                  sunburst_view python:context.restrictedTraverse('@@sunburstview');"
+      tal:attributes="class body_class;
+                      dir python:isRTL and 'rtl' or 'ltr'">
 
 <div id="visual-portal-wrapper">
 

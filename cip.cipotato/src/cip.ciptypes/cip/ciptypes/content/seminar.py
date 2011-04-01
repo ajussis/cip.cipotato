@@ -2,10 +2,13 @@
 """
 
 from zope.interface import implements
+from AccessControl import ClassSecurityInfo
 
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from plone.app.blob.field import BlobField, ImageField
+from Products.CMFCore.permissions import View
 
 # -*- Message Factory Imported Here -*-
 from cip.ciptypes import ciptypesMessageFactory as _
@@ -17,40 +20,55 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
 
-    atapi.StringField(
-        'audio',
+    atapi.DateTimeField(
+        'seminardate',
         storage=atapi.AnnotationStorage(),
-        widget=atapi.StringWidget(
+        required=1,
+        widget=atapi.CalendarWidget(
+            label=_(u"Date of seminar"),
+            description=_(u"Add the date when the seminar is being held"),
+        ),
+        validators=('isValidDate'),
+    ),
+
+    atapi.ImageField(
+        'image',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.ImageWidget(
+            label=_(u"Seminar image"),
+            description=_(u"Add a representative image of the seminar"),
+        ),
+    ),
+
+    BlobField(
+        'audio',
+        widget=atapi.FileWidget(
             label=_(u"Audio"),
             description=_(u"Audio"),
         ),
     ),
 
-
-    atapi.StringField(
+    BlobField(
         'presentation',
-        storage=atapi.AnnotationStorage(),
-        widget=atapi.StringWidget(
+        widget=atapi.FileWidget(
             label=_(u"Presentation"),
             description=_(u"Presentation"),
         ),
     ),
 
 
-    atapi.StringField(
+    BlobField(
         'abstract',
-        storage=atapi.AnnotationStorage(),
-        widget=atapi.StringWidget(
+        widget=atapi.FileWidget(
             label=_(u"Abstract"),
             description=_(u"Abstract"),
         ),
     ),
 
 
-    atapi.StringField(
+    BlobField(
         'biography',
-        storage=atapi.AnnotationStorage(),
-        widget=atapi.StringWidget(
+        widget=atapi.FileWidget(
             label=_(u"Biography"),
             description=_(u"Biography"),
         ),
@@ -85,21 +103,17 @@ schemata.finalizeATCTSchema(
 class Seminar(folder.ATFolder):
     """A content type for the seminars to include videos, flash, documents anaudio"""
     implements(ISeminar)
-
+    
     meta_type = "Seminar"
     schema = SeminarSchema
+
+    image = atapi.ATFieldProperty('image')
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
-    audio = atapi.ATFieldProperty('audio')
-
-    presentation = atapi.ATFieldProperty('presentation')
-
-    abstract = atapi.ATFieldProperty('abstract')
-
-    biography = atapi.ATFieldProperty('biography')
+    seminardate = atapi.ATFieldProperty('seminardate')
 
     speaker = atapi.ATFieldProperty('speaker')
 

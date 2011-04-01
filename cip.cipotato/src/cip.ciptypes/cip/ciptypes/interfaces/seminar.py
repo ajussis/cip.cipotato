@@ -10,6 +10,18 @@ class ISeminar(Interface):
     """A content type for the seminars to include videos, flash, documents anaudio"""
 
     # -*- schema definition goes here -*-
+    seminardate = schema.Date(
+        title=_(u"Date of seminar"),
+        required=False,
+        description=_(u"Add the date when the seminar is being held"),
+    )
+#
+    profileimage = schema.Bytes(
+        title=_(u"Seminar image"),
+        required=False,
+        description=_(u"Add a representative image of the seminar"),
+    )
+#
     audio = schema.TextLine(
         title=_(u"Audio"),
         required=False,

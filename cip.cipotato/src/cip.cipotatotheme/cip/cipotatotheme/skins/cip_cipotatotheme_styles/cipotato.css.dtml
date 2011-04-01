@@ -23,8 +23,8 @@ width:960px;
 margin:0;
 }
 #portal-header {
-    background: url("cip_header_main.png") repeat scroll 10px 10px white;
-    height: 104px;
+    background: url("cip_header_main2.png") repeat scroll 10px 5px white;
+    height: 96px;
     position: relative;
     z-index: 3;
 }
@@ -82,7 +82,7 @@ margin:<dtml-var "(122-_[logoName].height)/2">px 0 0 <dtml-var "(259-_[logoName]
     line-height: 13px;
     list-style-image: none;
     list-style-type: none;
-    margin-top: 102px;
+    margin-top: 98px;
     overflow: visible;
     padding: 6px 0 4px 1em;
     z-index: 1;
@@ -196,7 +196,7 @@ position:absolute;
     clear: right;
     float: right;
     font-size: 80%;
-    margin: 43px 15px 0 !important;
+    margin: 26px 15px 0 !important;
     position: inherit;
     text-align: left;
 }
@@ -205,7 +205,7 @@ position:absolute;
     clear: right;
     float: right;
     font-size: 80%;
-    margin: 92px 225px 0 !important;
+    margin: 98px 225px 0 !important;
     position: absolute;
     text-align: left;
 }
@@ -217,10 +217,41 @@ display:none;
 .pubrow {
 width:65%;
 }
-
-
-
-
+ul.sem_info li {
+list-style:none;
+float:left;
+margin-left:0 !important;
+margin-bottom:10px;
+}
+.sem_listing h3 {
+margin-top:0 !important;
+}
+.sem_listing img {
+margin-top:3px;
+}
+.videotogc {
+text-decoration:underline;
+color:#581A75;
+}
+.videotogc:hover {
+text-decoration:underline;
+color:#EC006E;
+}
+.sem_listing {
+list-style:none;
+margin-left:0 !important;
+clear:both;
+padding-bottom:10px;
+border-bottom: 1px dotted black;
+display:inline-block !important;
+}
+.sem_listing img {
+float:left;
+margin-right:10px;
+}
+.seminarblock {
+clear:both;
+}
 #portal-personaltools-wrapper {
     background-color: transparent;
     float: right;
@@ -329,6 +360,7 @@ z-index:250 !important;
     font-size: 66%;
     margin-bottom: 0.4em;
     margin-left: 18px;
+    margin-top: 7px;
 }
 
 #portal-breadcrumbs a {
@@ -354,26 +386,60 @@ border-right: 2px solid #e69bc4;
 .second-row {
     border-top: 1px solid #976F89;
     float: left;
-    margin-top: 2em;
+    margin-top: 1em;
     padding-top: 16px;
-    width: 97%;
+    width: 99%;
 }
 .third-column {
-width: 64%;
-float: left;
-border-right: 0px solid #e69bc4;
+    border-right: 0 solid #E69BC4;
+    float: left;
+    margin-top: -10px;
+    width: 57%;
 }
 .forth-column {
     float: left;
-    padding: 0 0 0 35px;
+    padding: 0;
     text-align: left;
-    width: 32%;
+    width: 43%;
 }
 .front-papatube {
-width:186px;
+    border-right: 1px solid #E69BC4;
+    float: left;
+    margin-right: 0 !important;
+    margin-top: 5px;
+    padding-left: 31px;
 }
+.front-papatube img {
+    margin: 20px 20px 0 0;
+}
+img.front-social-blocks {
+}
+
+
 .front-newsletter {
-width:234px;
+float:left;
+}
+.front-newsletter img {
+    margin: 20px 0 0 10px;
+}
+
+.front-csd {
+    float: left;
+    margin-right: 0 !important;
+    border-right: 1px solid #E69BC4;
+    border-left: 1px solid #E69BC4;
+}
+.front-csd img {
+    margin: 13px 10px 0 0;
+}
+.front-crp img {
+    margin: 15px 5px 0 0;
+}
+.front-germplasm {
+    float: left;
+}
+.front-germplasm img {
+    margin: 18px 0 0 10px;
 }
 
 
@@ -384,32 +450,34 @@ width:234px;
 float:left;
 margin-top:-15px;
 }
-
+.cip-in-the-news h1 {
+margin-bottom:10px !important;
+}
 
 /********************************************/
 /*---------- FRONT TABS --------------------*/
 
 .cip-front1 {
-background-image:url("cip-front1.jpg");
+background-image:url("cip-front1-2.jpg");
 height:224px;
 width:960px !important;
 }
 
 
 .cip-front2 {
-    background-image: url("cip-front2.jpg");
+    background-image: url("cip-front2-2.jpg");
     background-position: 0 -76px;
     height: 224px;
     width: 960px !important;
 }
 .cip-front3 {
-    background-image: url("cip-front3.jpg");
+    background-image: url("cip-front3-2.jpg");
     background-position: 0 -75px;
     height: 224px;
     width: 963px !important;
 }
 .cip-front4 {
-background-image:url("cip-front4.jpg");
+background-image:url("cip-front4-2.jpg");
 height:224px;
 width:960px !important;
 }
@@ -429,21 +497,25 @@ background-color:#ff6a0c;
     width: 262px !important;
 }
 .cip-front1-img {
+    margin-top:53px;
     float: left;
     margin-left: 0px;
 }
 .cip-front2-img {
     float: left;
     height: 15px;
+    margin-top:53px;
     margin-left: 226px;
     width: 736px;
 }
 .cip-front3-img {
+    margin-top:53px;
     float: left;
     margin-left: 452px;
 }
 .cip-front4-img {
     float: right;
+    margin-top:53px;
     margin-right: -16px;
 }
 
@@ -457,8 +529,8 @@ text-align:center;
 #portal-columns {
     background: none repeat scroll 0 0 white;
     clear: both;
-    padding-bottom: 0;
-    padding-top: 7px;
+    padding-bottom: 10px;
+    padding-top: 0;
 }
 #portal-column-content #content-wrapper {
 color:#000;
@@ -1363,10 +1435,15 @@ color:blue;
     padding-top:12px;
 }
 .frontDate {
-color:grey;
-font-size:0.7em;
-margin:0;
-text-transform:capitalize;
+    color: grey;
+    font-size: 0.7em;
+    margin: 0 0 0 10px;
+    text-transform: capitalize;
+}
+.frontpdf a {
+color:#EC006E !important;
+font-weight:bold;
+margin-top:20px;
 }
 .contact-details {
 color:grey;
@@ -1497,9 +1574,10 @@ margin:0;
 text-transform:capitalize;
 }
 .frontDate2 {
-padding-right:10px;
-padding-left:5px;
-}
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 10px;
+}}
 .contact-position {
     font-size: 11px !important;
     padding-left: 0;
@@ -1514,6 +1592,7 @@ font-style:normal !important;
 font-weight:bold;
 padding-left:0px;
 padding-right:6px;
+font-size:13px;
 }
 .frontP {
 margin-bottom:0 !important;
@@ -1881,7 +1960,9 @@ float:left;
 margin-right:4%;
 margin-top:-15px;
 }
-
+.cip-news h1 {
+    padding-bottom: 10px !important;
+}
 .cip-news-press {
 margin-right:4%;
 margin-top:15px;
@@ -1924,8 +2005,7 @@ margin-left:0 !important;
     display: block;
     float: left;
     font-size: 17px;
-    height: 30px;
-    margin: 0 0 106px;
+    margin: 0 0 10px;
     padding: 12px 0 5px 5px;
     text-align: left;
     width: 100%;
@@ -2137,7 +2217,14 @@ dl.portalMessage {
     position: relative;
     z-index: 3;
 }
-
+.section-capacity-strengthening div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-csd.jpg") repeat scroll 0 79px transparent;
+    height: 303px;
+}
+.section-sub-saharan-africa div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-ssa.jpg") repeat scroll 0 79px transparent;
+    height: 303px;
+}
 .section-roots-and-tubers div#visual-portal-wrapper div#portal-top {
     background: url("2nd-rtas.jpg") repeat scroll 0 0 transparent;
     height: 279px;
@@ -2435,6 +2522,7 @@ color: #581A74;
     background: url("rightarrow.png") no-repeat scroll 0 0 transparent;
     float: right;
     height: 78px;
+    margin-right: 10px;
     position: relative;
     text-indent: -999999px;
     top: -75px;
@@ -2535,7 +2623,10 @@ color: #581A74;
 }
 
 .featuredPub {
-    margin: 0 62px 0 35px;
+   margin: 0 62px 0 35px;
+}
+.featuredPub b.title {
+   font-size:1.3em;
 }
 
 .cip-front-pubimg {
@@ -2573,7 +2664,7 @@ margin-left:0px !important;
 }
 
 .cip-news-p a {
-size:110%;
+    font-size: 1.5em;
 }
 
 
@@ -2602,5 +2693,152 @@ input.searchButton {
     margin-right: 15px;
     width: 19px;
 }
+
+
+
+
+
+
+#content ul {
+    list-style-type: disc;
+    margin-left: 0;
+}
+cipotato.css (line 563)
+#content ul {
+    list-style-type: disc;
+    margin-left: 2em;
+}
+public.css (line 536)
+#content ul, #content ol {
+}
+public.css (line 475)
+
+
+
+
+
+
+
+
+
+
+
+
+.cip-front-social #nav-shadow {
+    list-style: none outside none;
+    margin: 0 auto 0;
+    min-height: 180px;
+    padding: 0 0 0 0;
+    text-align: center;
+    width: 382px;
+}
+
+.cip-front-social #nav-shadow li {
+    float: left;
+    height: 142px;
+    margin-left: 0 !important;
+    margin-right: 15px;
+    position: relative;
+    width: 45px;
+}
+
+.cip-front-social #nav-shadow a, #nav-shadow a:visited, #nav-shadow a, #nav-shadow a:hover {
+    border: 0 none;
+    display: block;
+    height: 144px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 59px;
+    z-index: 2;
+}
+
+
+
+
+
+.forth-column #nav-shadow {
+    list-style: none outside none;
+    margin: 0 auto;
+    min-height: 160px;
+    padding: 0;
+    text-align: center;
+    width: 366px;
+}
+
+.forth-column #nav-shadow li {
+    float: left;
+    height: 104px;
+    margin-left: 0 !important;
+    margin-right: 0;
+    position: relative;
+}
+.forth-column #nav-shadow a, #nav-shadow a:visited, #nav-shadow a, #nav-shadow a:hover {
+    background: url("../images/icons.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    display: block;
+    height: 120px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 150px;
+    z-index: 2;
+}
+
+.forth-column #nav-shadow a.firsticon, #nav-shadow a.firsticon:visited, #nav-shadow a.firsticon, #nav-shadow a.firsticon:hover {
+    background: url("../images/icons.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    display: block;
+    height: 120px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 120px;
+    z-index: 2;
+}
+
+		/* Button Colors */
+
+		#nav-shadow li.button-color-1 a {
+			background-position: -3px -3px;
+			}
+
+		#nav-shadow li.button-color-2 a {
+			background-position: -92px -3px;
+			}
+
+		#nav-shadow li.button-color-3 a {
+			background-position: -181px -3px;
+			}
+
+		#nav-shadow li.button-color-4 a {
+			background-position: -270px -3px;
+			}
+
+		/* Button Shadow */
+
+		#nav-shadow li img.shadow {
+			margin: 0 auto;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			}
+			
+
+.boardmembers img {
+width:10px;
+style="float:left;
+margin:10px;
+}
+.boardmembers div {
+margin-left:20px;
+border-bottom: 1px dotted;
+margin-bottom: 10px;
+padding-bottom: 10px;
+margin-right:30px;
+}
+
+
 /* </dtml-with> */
 

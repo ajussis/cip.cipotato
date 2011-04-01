@@ -104,12 +104,32 @@
       />
   <browser:page
       for="*"
+      name="seminarsarchiveView"
+      class=".seminarsarchive.SeminarsarchiveView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="organizationchartView"
       template="templates/orgchart.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
+  <browser:page
+      for="*"
+      name="boardView"
+      template="templates/board.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="germplasmdistView"
+      template="templates/germplasmdist.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
   <browser:page
       for="*"
       name="contactsView"

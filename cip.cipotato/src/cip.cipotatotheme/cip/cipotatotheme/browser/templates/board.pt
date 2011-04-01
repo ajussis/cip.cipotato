@@ -1,0 +1,36 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="cipnews python: getattr(context, 'cipnews');
+                                cipinthenews python:getattr(context, 'cipinthenews');
+                                featured python:getattr(context, 'featured');
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+            <script src="jquery.ui.accordion.js"></script>
+            <script>
+                $(function() {
+                        $( "#accordion" ).accordion();
+                });
+            </script>
+
+            <h1 tal:content="context/Title" class="page_title" />
+
+            <div id="accordion" class="boardmembers" tal:define="path python:'/'.join(here.getPhysicalPath());
+                                            members python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Document');">
+                <tal:reps repeat="item members">
+                    <h2>
+                        <img src="cip-icon.gif" />
+                        <a href="#">
+                            <span tal:replace="item/Title"/>
+                        </a>
+                    </h2>
+                    <div tal:define="item_object item/getObject;">
+                        <span tal:replace="structure item_object/getText" />
+                    </div>
+                </tal:reps>
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

@@ -9,12 +9,115 @@
                                 featured python:getattr(context, 'featured');
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
-            <div class='tabbed_content'>
+
+<style type="text/css">
+div#tmpSlideshow {
+    height: 281px;
+    margin: 11px;
+    padding: 20px 0 0;
+    position: relative;
+    width: 755px;
+}
+div.tmpSlide {
+    background-position: 0 0;
+    display: none;
+    height: 300px;
+    left: -29px;
+    position: absolute;
+    top: -10px;
+    width: 960px !important;
+}
+.cip-front2-img {
+    float: left;
+    height: 15px;
+    margin-left: 226px;
+    margin-top: 53px;
+    width: 736px;
+}
+.cip-front1-img {
+    margin-top: 53px;
+}
+.cip-front3-img {
+    margin-top: 53px;
+}
+.cip-front4-img {
+    float: right;
+    margin-right: 0;
+    margin-top: 53px;
+}
+div#tmpSlideshowControls {
+    z-index: 5;
+}
+div.tmpSlideshowControl {
+    cursor: pointer;
+}
+div.tmpSlideshowControl span {
+}
+div.tmpSlideshowControlOn {
+}
+div.tmpSlideshowControlActive {
+    opacity: 0.8;
+}
+div.tmpSlideCopy {
+    position: absolute;
+    left: 565px;
+    top: 20px;
+    width: 170px;
+}
+div#tmpSlideshow h4 {
+    color: #b90f23;
+    text-transform: uppercase;
+    font: 14px Arial, sans-serif;
+    margin: 10px 0;
+}
+div.tmpSlideCopy p {
+    font: 11px Arial, sans-serif;
+    line-height: 1.75em;
+}
+.tabs {
+    background: none repeat scroll 0 0 transparent;
+    height: 53px;
+    margin: -30px -29px 0;
+    position: relative;
+    width: 960px;
+}
+</style>
+
+            <div id='tmpSlideshow'>
+                <div id='tmpSlideshowControls' class='tabs'>
+                    <div class='tmpSlideshowControl tab_item cip-front1-tab' id='tmpSlideshowControl-1'>
+                            <a href="genebank">GENEBANK</a>
+                    </div>
+                    <div class='tmpSlideshowControl tab_item cip-front2-tab' id='tmpSlideshowControl-2'>
+                            <a href="potato">POTATO</a>
+                    </div>
+                    <div class='tmpSlideshowControl tab_item cip-front3-tab' id='tmpSlideshowControl-3'>
+                            <a href="sweetpotato">SWEETPOTATO</a>
+                    </div>
+                    <div class='tmpSlideshowControl tab_item cip-front4-tab' id='tmpSlideshowControl-4'>
+                            <a href="roots-and-tubers">ANDEAN ROOTS & TUBERS</a>
+                    </div>
+                </div>
+                <div id='tmpSlide-1' class='tmpSlide cip-front1 thisnow'>
+                    <img class="cip-front1-img" src="bargene.png" />
+                </div>
+                <div id='tmpSlide-2' class='tmpSlide cip-front2'>
+                    <img class="cip-front2-img" src="barpotato.png" />
+                </div>
+                <div id='tmpSlide-3' class='tmpSlide cip-front3'>
+                    <img class="cip-front3-img" src="barsweet.png" />
+                </div>
+                <div id='tmpSlide-4' class='tmpSlide cip-front4'>
+                        <img class="cip-front4-img" src="barrtas.png" />
+                </div>
+            </div>
+
+            <!--div class='tabbed_content'>
                 <div class='tabs'>
                     <div class='moving_bg'>
                             &nbsp;
                     </div>
-                    <span class='tab_item_static tab_item cip-front1-tab'>
+                    <span class='tab_item cip-front1-tab'>
                             <a href="genebank">GENEBANK</a>
                     </span>
                     <span class='tab_item cip-front2-tab'>
@@ -52,7 +155,7 @@
                     </div>
                     <br />
                 </div>
-            </div>
+            </div-->
 
             <div class="lineBreak"></div>
 
@@ -136,12 +239,15 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="cip-front-social">
-                    <img src="front-facebook.jpg" class="front-social-blocks" />
-                    <img src="front-flickr.jpg" class="front-social-blocks" />
-                    <img src="front-slideshare.jpg" class="front-social-blocks" />
-                    <img src="front-yammer.jpg" class="front-social-blocks" />
-                    <img src="front-youtube.jpg" class="front-social-blocks" />
+                    <ul id="nav-shadow">
+                        <li class="button-color-1"><a href="#" title="CIP in Facebook"><img src="front-facebook.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-2"><a href="#" title="CIP in Flickr"><img src="front-flickr.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-3"><a href="#" title="CIP in Slideshare"><img src="front-slideshare.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-4"><a href="#" title="CIP blogs"><img src="front-blogs.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-5"><a href="#" title="CIP in Youtube"><img src="front-youtube.jpg" class="front-social-blocks" /></a></li>
+                    </ul><!-- end shadow navigation -->
                 </div>
             </div>
 
@@ -165,7 +271,7 @@
 
                     <div class="lineBreak"></div>
 
-                    <!--div id="wrapper">
+                    <div id="wrapper">
                         <ul id="slider1" tal:define="n featured/queryCatalog;">
                             <tal:defs tal:repeat="m n">
                                 <li tal:define="s repeat/m/number;">
@@ -175,30 +281,49 @@
                                              tal:attributes="src python:'/cipotato/resources/publications/images/'+pubi+'-jpg/image_thumb';
                                                              class python:'cip-front-pubimg';" />
                                         <div tal:define="item_object m/getObject;">
-                                            <p>
-                                                <tal:rep define="source item_object/getCategory">
-                                                    <span class="frontDate">
-                                                        <span class="frontDate3" tal:content="source" />
-                                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                                    </span>
-                                                    <br />
+                                            <tal:rep define="source item_object/getCategory;
+                                                             series item_object/getSeries;">
+                                                <b class="title">
                                                     <a href="#" tal:attributes="href m/getURL">
                                                         <span tal:replace="m/pretty_title_or_id"/>
-                                                    </a><br />
-                                                </tal:rep>
-                                            </p>
+                                                    </a>
+                                                </b>
+                                                <p class="frontDate">
+                                                    <span class="frontDate3" tal:content="source" />
+                                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                                    <br />
+                                                    <span class="frontDate3" tal:content="series"/>
+                                                </p>
+                                                <p class="frontpdf" tal:define="pubcode m/getPubcode;
+                                                                                url python:'publications/pdf/'+pubcode+'/at_download/'">
+                                                    <a href="#" tal:attributes="href url">Download pdf</a>
+                                                </p>
+                                            </tal:rep>
                                         </div>
                                     </div>
                                 </li>
                             </tal:defs>
                         </ul>
-                    </div-->
+                    </div>
 
                 </div>
                 <div class="forth-column">
-                    <img src="front-papatube.jpg" class="front-papatube" />
-                    <img src="front-newsletter.jpg" class="front-newsletter" />
+                    <ul id="nav-shadow">
+                        <li class="front-crp"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-cpr.gif" /></a></li>
+                        <li class="front-csd"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-csd-2.gif" /></a></li>
+                        <li class="front-germplasm"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-getgermplasm-2.gif" /></a></li>
+                        <li class="front-papatube"><a href="#" title="CIP"><img src="front-papatube.jpg" /></a></li>
+                        <li class="front-newsletter"><a href="#" title="CIP"><img src="front-newsletter.jpg" /></a></li>
+                    </ul>
                 </div>
+                <!--div class="forth-column">
+                    <ul id="nav-shadow">
+                        <li class="front-csd"><a href="#" title="CIP"><img src="front-csd.gif" /></a></li>
+                        <li class="front-germplasm"><a href="#" title="CIP"><img src="front-getgermplasm.gif" /></a></li>
+                        <li class="front-papatube"><a href="#" title="CIP"><img src="front-papatube.jpg" /></a></li>
+                        <li class="front-newsletter"><a href="#" title="CIP"><img src="front-newsletter.jpg" /></a></li>
+                    </ul>
+                </div-->
             </div>
         </metal:main>
     </metal:main_macro>

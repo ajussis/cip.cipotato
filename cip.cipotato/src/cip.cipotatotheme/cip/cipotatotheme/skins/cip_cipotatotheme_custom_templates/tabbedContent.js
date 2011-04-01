@@ -1,5 +1,5 @@
 //tab effects
-
+/*
 var TabbedContent = {
 	init: function() {	
 		$(".tab_item").mouseover(function() {
@@ -32,5 +32,61 @@ var TabbedContent = {
 }
 
 $(document).ready(function() {
-	TabbedContent.init();
+//	TabbedContent.init();
+
+
+
+
+});*/
+
+
+
+
+
+var $$ = $.fn;
+
+$$.extend({
+  SplitID : function()
+  {
+    return this.attr('id').split('-').pop();
+  },
+
+  Slideshow : {
+    Ready : function()
+    {
+       
+       $('div.tmpSlideshowControl')
+        .hover(
+          function() {
+            $(this).addClass('tmpSlideshowControlOn');
+          }
+          ,
+          function() {
+            $(this).removeClass('tmpSlideshowControlOn');
+          }
+        )
+        .mouseover(
+          function() {
+            tmpSlided = $('div#tmpSlide-' + $(this).SplitID());
+            if (!($(tmpSlided).hasClass('thisnow'))) {
+                $('div.tmpSlide').fadeOut();
+                $('div.tmpSlide').removeClass('thisnow');
+            };
+
+            $('div.tmpSlideshowControl').removeClass('tmpSlideshowControlActive');
+            $(tmpSlided).addClass('thisnow');
+            $('div#tmpSlide-' + $(this).SplitID()).fadeIn();
+            $(this).addClass('tmpSlideshowControlActive');
+          }
+        );
+    },
+
+  }
 });
+
+$(document).ready(
+  function() {
+    $('div#tmpSlide-2').fadeIn();
+    $$.Slideshow.Ready();
+  }
+);

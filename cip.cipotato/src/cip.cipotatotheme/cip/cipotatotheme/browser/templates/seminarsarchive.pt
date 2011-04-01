@@ -1,0 +1,92 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                years python:['2008','2009','2010','2011']">
+
+            <div id="content-core">
+                <h1 tal:content="context/Title"></h1>
+
+                <!--div class="csd_intro">
+                    <tal:defs define="res_text nocall:here/seminars-introduction">
+                        <p tal:content="structure res_text/getText" />
+                    </tal:defs>
+                </div-->
+                <script src="http://code.jquery.com/jquery-1.5.js"></script>
+                <style type="text/css">
+                    .semvideo {display:none;}
+                </style>
+                <tal:years repeat="year years">
+                    <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(year)">
+                        <h2>Latest seminars - <span tal:replace="year" /></h2>
+                        <ul>
+                            <li class="sem_listing" tal:repeat="sem seminars">
+                                <tal:num define="s repeat/sem/number">
+                                    <tal:defs define="item_url sem/getURL;
+                                                      item_object sem/getObject;
+                                                      img_thumb python:item_url+'/image_thumb';
+                                                      sem_date python:item_object.getSeminardate();
+                                                      abs python:item_url+'/at_download/abstract';
+                                                      vid python:item_url+'/at_download/audio';
+                                                      bio python:item_url+'/at_download/biography';
+                                                      pre python:item_url+'/at_download/presentation';">
+                                        <img src="#" tal:attributes="src img_thumb" />
+                                        <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                        <ul class="sem_info">
+                                            <li>
+                                                <tal:date replace="sem_date" />
+                                            </li>
+                                            <li>
+                                                <a href="#" tal:attributes="href bio">Biography (pdf)</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" tal:attributes="href abs">Abstract (pdf)</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" tal:attributes="href pre">Presentation (ppt)</a>
+                                            </li>
+                                            <li tal:define="videotog python:'videotog-'+year+str(s)">
+                                                <span id="#" class="videotogc" tal:attributes="id videotog">Video</span>
+                                            </li>
+                                        </ul>
+                                        <div tal:define="vidc python:'video_videotog-'+year+str(s)" tal:attributes="id vidc">
+                                            <a class="autoFlowPlayer" href="http://localhost:8080/cipotato/resources/capacity-strengthening/seminars/seminars-archive/copy_of_taxonomic-changes-in-wild-and-cultivated-potatoes-over-the-last-25-years-implications-for-the-use-of-genetic-resources/video"></a>
+                                        </div>
+                                    </tal:defs>
+                                </tal:num>
+                            </li>
+                        </ul>
+                    </div>
+                </tal:years>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('[id^=video_videotog-]').hide();
+                    $('#portal-column-content').css('height', 1500);
+                    $('[id^=videotog-]').click(function() {
+                        $('[id^=video_videotog-]').hide();
+                        var $this = $(this);
+                        var x = $this.attr("id");
+                        $('#video_'+x).show();
+                        return false;
+                    });
+                });
+            </script>
+
+            <!--script type="text/javascript">
+
+
+
+            $("#videotog").click(function(){
+                $("div.video1").slideToggle("slow");
+                return false;
+              });
+            </script>
+            <body-->
+
+        </metal:main>
+    </metal:main_macro>
+</html>

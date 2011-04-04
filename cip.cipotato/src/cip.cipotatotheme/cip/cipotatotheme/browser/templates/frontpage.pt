@@ -247,9 +247,10 @@ div.tmpSlideCopy p {
                 <div class="cip-front-social">
                     <ul id="nav-shadow">
                         <li class="button-color-1"><a href="#" title="CIP in Facebook"><img src="front-facebook.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-1"><a href="#" title="CIP in Twitter"><img src="front-twitter.jpg" class="front-social-blocks" /></a></li>
                         <li class="button-color-2"><a href="#" title="CIP in Flickr"><img src="front-flickr.jpg" class="front-social-blocks" /></a></li>
                         <li class="button-color-3"><a href="#" title="CIP in Slideshare"><img src="front-slideshare.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-4"><a href="#" title="CIP blogs"><img src="front-blogs.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-4"><a href="#" title="CIP blogs"><img src="front-cipblogs.jpg" class="front-social-blocks" /></a></li>
                         <li class="button-color-5"><a href="#" title="CIP in Youtube"><img src="front-youtube.jpg" class="front-social-blocks" /></a></li>
                     </ul><!-- end shadow navigation -->
                 </div>
@@ -314,7 +315,7 @@ div.tmpSlideCopy p {
                 <div class="forth-column">
                     <ul id="nav-shadow">
                         <li class="front-crp"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-cpr.gif" /></a></li>
-                        <li class="front-csd"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-csd-2.gif" /></a></li>
+                        <li class="front-csd"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-csd-2.png" /></a></li>
                         <li class="front-germplasm"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-getgermplasm-2.gif" /></a></li>
                         <li class="front-papatube"><a href="#" title="CIP"><img src="front-papatube.jpg" /></a></li>
                         <li class="front-newsletter"><a href="#" title="CIP"><img src="front-newsletter.jpg" /></a></li>

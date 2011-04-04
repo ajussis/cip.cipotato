@@ -186,28 +186,34 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope2.View"
       />
-<browser:viewlet
-    name="plone.searchboxpub"
-    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-    class=".viewlets.SearchBoxPubViewlet"
-    layer=".interfaces.IThemeSpecific"
-    permission="zope2.View"
-/>
-<browser:viewlet
-    name="plone.searchboxstaff"
-    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-    class=".viewlets.SearchBoxPubViewlet"
-    layer=".interfaces.IThemeSpecific"
-    permission="zope2.View"
-/>
-
+  <browser:viewlet
+     name="plone.searchboxpub"
+     manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+     class=".viewlets.SearchBoxPubViewlet"
+     layer=".interfaces.IThemeSpecific"
+     permission="zope2.View"
+     />
+  <browser:viewlet
+     name="plone.searchboxstaff"
+     manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+     class=".viewlets.SearchBoxPubViewlet"
+     layer=".interfaces.IThemeSpecific"
+     permission="zope2.View"
+     />
+  <browser:viewlet
+     name="plone.belowcontentbody.relateditems"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+     class=".viewlets.ContentRelatedItems"
+     layer=".interfaces.IThemeSpecific"
+     permission="zope2.View"
+     />
   <browser:page
-      for="*"
-      name="researchmain"
-      template="templates/researchmain.pt"
-      layer=".interfaces.IThemeSpecific"
-      permission="zope.Public"
-      />
+     for="*"
+     name="researchmain"
+     template="templates/researchmain.pt"
+     layer=".interfaces.IThemeSpecific"
+     permission="zope.Public"
+     />
 
   <browser:page
       for="*"

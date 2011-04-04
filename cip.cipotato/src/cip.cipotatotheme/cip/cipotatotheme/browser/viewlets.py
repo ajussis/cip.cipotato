@@ -9,6 +9,7 @@ from urllib import unquote
 from plone.app.layout.viewlets import common
 from plone.app.layout.globals.interfaces import IViewView
 from zope.interface import implements, alsoProvides
+from Products.CMFPlone.utils import base_hasattr
 
 
 #testing searchboxes
@@ -165,4 +166,27 @@ class SearchBoxViewlet(ViewletBase):
 #testing searchboxes
 class SearchBoxPubViewlet(SearchBoxViewlet):
     render = ViewPageTemplateFile("templates/searchboxpub.pt")
-    
+
+
+class ContentRelatedItems(ViewletBase):
+
+    index = ViewPageTemplateFile("templates/document_relateditems.pt")
+
+    def related_items(self):
+        context = aq_inner(self.context)
+        res = ()
+        if base_hasattr(context, 'getRawRelatedItems'):
+            catalog = getToolByName(context, 'portal_catalog')
+            related = context.getRawRelatedItems()
+            if not related:
+                return ()
+            brains = catalog(UID=related)
+            if brains:
+                # build a position dict by iterating over the items once
+                positions = dict([(v, i) for (i, v) in enumerate(related)])
+                # We need to keep the ordering intact
+                res = list(brains)
+                def _key(brain):
+                    return positions.get(brain.UID, -1)
+                res.sort(key=_key)
+        return res

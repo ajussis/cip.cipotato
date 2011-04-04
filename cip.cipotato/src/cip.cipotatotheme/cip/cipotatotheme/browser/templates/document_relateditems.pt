@@ -1,0 +1,68 @@
+<tal:defs tal:define="images python: 'images' in context.aq_inner.aq_parent.objectIds();">
+    <div tal:condition="images">
+     	<script type="text/javascript" src="easySlider1.7.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#slider").easySlider({
+				auto: true,
+				continuous: true,
+				numeric: true
+			});
+		});
+	</script>
+
+        <div tal:define="path python:'/'.join(here.getPhysicalPath());
+                                    path python:path.rsplit('/',1)[0]+'/images';
+                                    images python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Image');">
+            <div id="slider">
+                <ul>
+                    <li tal:repeat="img images">
+                        <tal:def define="title img/pretty_title_or_id;
+                                         sub_url img/getURL|img/absolute_url;">
+                            <img src="#" tal:attributes="src sub_url" />
+                        </tal:def>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</tal:defs>
+
+<div class="relatedItems"
+     i18n:domain="plone"
+     tal:define="related view/related_items"
+     tal:condition="related">
+    <div class="visualClear" id="clear-space-before-relatedItemBox"><!-- --></div>
+    <dl id="relatedItemBox"
+              tal:define="ploneview nocall:context/@@plone;
+                          normalizeString nocall:ploneview/normalizeString;
+                          tools nocall:context/@@plone_tools;
+                          wf_tool tools/workflow;
+                          getInfoFor python:wf_tool.getInfoFor;
+                          site_properties context/portal_properties/site_properties;
+                          use_view_action site_properties/typesUseViewActionInListings|python:();">
+        <dt i18n:translate="label_related_items">Related content</dt>
+        <tal:related repeat="item related">
+            <dd tal:define="
+                    desc                item/Description;
+                    item_icon           python:ploneview.getIcon(item);
+                    item_type           item/portal_type;
+                    item_type_class     python:'contenttype-' + normalizeString(item_type);
+                    item_wf_state       item/review_state|python: getInfoFor(item, 'review_state', '');
+                    item_wf_state_class python: 'state-' + normalizeString(item_wf_state);
+                    item_url            item/getURL|item/absolute_url;
+                    item_url            python:(item_type in use_view_action) and item_url+'/view' or item_url">
+                <span tal:attributes="class item_type_class">
+                    <img tal:replace="structure item_icon/html_tag" />
+                    <a href="" class=""
+                       tal:attributes="href  item_url;
+                                       title desc;
+                                       class string:$item_wf_state_class"
+                       tal:content="item/pretty_title_or_id">
+                        Related Item
+                    </a>
+                </span>
+            </dd>
+        </tal:related>
+    </dl>
+</div>

@@ -51,6 +51,10 @@ div#tmpSlideshowControls {
 div.tmpSlideshowControl {
     cursor: pointer;
 }
+div.tmpSlideshowControl:hover {
+    cursor: pointer;
+    opacity:0.6;
+}
 div.tmpSlideshowControl span {
 }
 div.tmpSlideshowControlOn {

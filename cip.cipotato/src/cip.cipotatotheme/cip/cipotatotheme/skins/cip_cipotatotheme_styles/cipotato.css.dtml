@@ -215,7 +215,51 @@ display:none;
 }
 
 .pubrow {
-width:65%;
+    border-bottom: 1px dotted black;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    margin-left: 15px;
+    width: 65%;
+}
+.pubrow_title {
+    float: left;
+    font-weight: normal;
+    margin-bottom: 10px;
+    width:550px;
+}
+.pubrow_info {
+width:500px;
+float:left;
+clear:both;
+margin-left:24px;
+}
+.pubrow_info_one {
+width:800px;
+float:left;
+clear:both;
+margin-left:24px;
+}
+.pubrow_info_one2 {
+    float: left;
+    margin-left: 15px;
+    width: 459px;
+}
+.pubrow_info_one2 p {
+margin-bottom:0.2em !important;
+margin-top:0.2em !important;
+}
+
+.pubrow h2 img {
+    float: left;
+    margin-right: 8px;
+    margin-top: 7px;
+    width: 17px;
+}
+.pub-img2 {
+    border: 1px solid black;
+    box-shadow: 3px 3px grey;
+    float: left;
+    margin: 0 11px 8px 0;
 }
 ul.sem_info li {
 list-style:none;
@@ -501,6 +545,18 @@ background-color:#ff6a0c;
     float: left;
     margin-left: 0px;
 }
+.partnership_column {
+width:99%;
+}
+.partnertext {
+    float: left;
+    margin: 0 50px 0 10px;
+    width: 390px;
+}
+.partnericons {
+width:450px;
+float:left;
+}
 .cip-front2-img {
     float: left;
     height: 15px;
@@ -601,6 +657,15 @@ color:#DB214C !important;
 #content ul {
 list-style-type:disc;
 margin-left:0;
+}
+.discussion h2 {
+    border-bottom: 0 none;
+    border-top: 0 solid #F1F1F1;
+    color: #500F67;
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-top: 0.25em;
+    padding: 2px 0 0;
 }
 
 div.pane-container div.pane {
@@ -2840,5 +2905,124 @@ margin-right:30px;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .graphic, #prevBtn, #nextBtn, #slider1prev, #slider1next{
+            margin:0;
+            padding:0;
+            display:block;
+            overflow:hidden;
+            text-indent:-8000px;
+            }
+    /* // image replacement */
+
+	#container{
+		margin:0 auto;
+		position:relative;
+		text-align:left;
+		width:650px;
+		background:#fff;
+		margin-bottom:2em;
+		}
+	#header{
+		height:80px;
+		line-height:80px;
+		background:#5DC9E1;
+		color:#fff;
+		}
+	#content{
+		position:relative;
+		}
+
+/* Easy Slider */
+
+
+	#slider ul, #slider li,
+	#slider2 ul, #slider2 li{
+		margin:0;
+		padding:0;
+		list-style:none;
+		}
+	#slider2{margin-top:1em;}
+	#slider li, #slider2 li{
+		/*
+			define width and height of list item (slide)
+			entire slider area will adjust according to the parameters provided here
+		*/
+		width:650px;
+		height:290px;
+		overflow:hidden;
+                margin-left:6px !important;
+		}
+	#prevBtn, #nextBtn,
+	#slider1next, #slider1prev{
+		display:block;
+		width:30px;
+		height:77px;
+		position:absolute;
+		left:-30px;
+		top:71px;
+		z-index:1000;
+		}
+	#nextBtn, #slider1next{
+		left:650px;
+		}
+	#prevBtn a, #nextBtn a,
+	#slider1next a, #slider1prev a{
+		display:block;
+		position:relative;
+		width:30px;
+		height:77px;
+		background:url(../images/btn_prev.gif) no-repeat 0 0;
+		}
+	#nextBtn a, #slider1next a{
+		background:url(../images/btn_next.gif) no-repeat 0 0;
+		}
+
+	/* numeric controls */
+
+	ol#controls{
+		margin:1em 0;
+		padding:0;
+		height:28px;
+                margin-left:10px !important;
+		}
+	ol#controls li{
+		margin:0 10px 0 0 !important;
+		padding:0;
+		float:left;
+		list-style:none;
+		height:28px;
+		line-height:28px;
+		}
+	ol#controls li a{
+		float:left;
+		height:28px;
+		line-height:28px;
+		border:1px solid #ccc;
+		background:#fff;
+		color:white;
+		padding:0 10px;
+		text-decoration:none;
+		}
+	ol#controls li.current a{
+		background:#EC006E;
+		color:#fff;
+		}
+	ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+
+/* // Easy Slider */
 /* </dtml-with> */
 

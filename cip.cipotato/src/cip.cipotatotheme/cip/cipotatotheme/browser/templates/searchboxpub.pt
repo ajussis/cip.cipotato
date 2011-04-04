@@ -4,11 +4,11 @@
                  search_input_id view/search_input_id;
                  url request/URL;
                  ispub python:'publications' in url;
+                 urlsplit python:url.split('/')[-1];
                  this_url python:url[-12:];
                  title context/Title;
                  searchtitle python:'Search '+title">
-
-    <form tal:condition="python: ispub or (this_url == 'contactsView')" name="searchform" id="searchGadget_form"
+    <form tal:condition="python: ispub and urlsplit != 'publicationsone_view' or (this_url == 'contactsView')" name="searchform" id="searchGadget_form"
           action="search"
           tal:attributes="action string:${navigation_root_url}/search;
           id string:${search_input_id}_form">

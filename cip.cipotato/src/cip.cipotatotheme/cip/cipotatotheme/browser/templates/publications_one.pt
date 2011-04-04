@@ -1,0 +1,83 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1 tal:content="context/Title" class="page_title" />
+
+            <div class="lineBreak"></div>
+
+            <div style="margin-top:15px;">
+                <tal:defs2 tal:define="sub_title context/pretty_title_or_id;
+                                       sub_url context/getURL|context/absolute_url;
+                                       item_created context/CreationDate;">
+                    <tal:defs define="pc context/getPubcode;
+                                      source context/getCategory;
+                                      series context/getSeries;
+                                      abstract context/pub_abstract;
+                                      price context/price;
+                                      issn context/issn;
+                                      publisher context/publisher;
+                                      division context/division;
+                                      conference context/conference;
+                                      url python:'publications/pdf/'+pc+'/at_download/';">
+                        <div class="pubrow_info_one">
+                            <tal:testimg condition="python:view.ImageExist(pc)">
+                                <a href="#" tal:attributes="href url">
+                                    <img src="" alt=""
+                                         tal:attributes="src python:'../images/' + pc + '-jpg/image_thumb';
+                                                         class python:'pub-img2';" />
+                                </a>
+                            </tal:testimg>
+                            <div class="pubrow_info_one2">
+                                <p>
+                                    <b>Publication date:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
+                                </p>
+                                <p tal:condition="python:abstract != ''">
+                                    <b>Abstract:</b> <span tal:replace="abstract"/>
+                                </p>
+                                <p tal:condition="python:source != ''">
+                                    <span class="frontDate3" tal:content="source" />
+                                </p>
+                                <p tal:condition="python:series != ''">
+                                    <b>Series:</b> <span tal:replace="series" />
+                                </p>
+                                <p tal:condition="python:abstract != ''">
+                                    <b>Abstract:</b> <span tal:replace="abstract"/>
+                                </p>
+                                <p tal:condition="python:price != '0'">
+                                    <b>Price:</b> <span tal:replace="price"/>
+                                </p>
+                                <p tal:condition="python:price == '0'">
+                                    <b>Publication is free</b>
+                                </p>
+                                <p>
+                                    <b>Pages:</b> <span tal:replace="context/pages"/>
+                                </p>
+                                <p tal:condition="python:issn != ''">
+                                    <b>ISSN:</b> <span tal:replace="issn"/>
+                                </p>
+                                <p tal:condition="python:publisher != ''">
+                                    <b>Publisher:</b> <span tal:replace="publisher"/>
+                                </p>
+                                <p tal:condition="python:division != ''">
+                                    <b>Division:</b> <span tal:replace="division"/>
+                                </p>
+                                <p tal:condition="python:conference != ' '">
+                                    <b>Conference:</b> <span tal:replace="conference"/>
+                                </p>
+                                <p class="frontpdf">
+                                    <a href="#" tal:attributes="href url">Download pdf</a>
+                                </p>
+                            </div>
+                         </div>
+                    </tal:defs>
+                </tal:defs2>
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

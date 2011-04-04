@@ -16,9 +16,9 @@
  <property name="filter_content_types">False</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">True</property>
- <property name="default_view">base_view</property>
+ <property name="default_view">publicationsone_view</property>
  <property name="view_methods">
-  <element value="base_view"/>
+  <element value="publicationsone_view"/>
  </property>
  <property name="default_view_fallback">False</property>
  <alias from="(Default)" to="(dynamic view)"/>

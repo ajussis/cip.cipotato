@@ -4,10 +4,7 @@
                              disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="clatestpublications python: getattr(context, 'latest-publications');
-                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog','research-guide','manual','cd-rom','annual-report','medium-term-plan'];
-                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Brochures','Posters', 'Bulletins','Cards','Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
-                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
             <h1 tal:content="context/Title" class="page_title" />
 
@@ -23,24 +20,38 @@
                         <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
                                                sub_url obj/getURL|obj/absolute_url;
                                                item_created obj/CreationDate;
+                                               item_object obj/getObject;
                                                ">
-                            <tal:defs define="pc obj/getPubcode">
-                                <div tal:condition="python:view.ImageExist(pc)">
-                                    <img src="" alt=""
-                                         tal:attributes="src python:'../images/' + pc + '-jpg/image_thumb';
-                                                         class python:'pub-img';" />
-                                </div>
+                            <tal:defs define="pc obj/getPubcode;
+                                              source item_object/getCategory;
+                                              series item_object/getSeries;">
+                                <h2>
+                                    <img src="cip-icon.gif" />
+                                    <a href="#"
+                                        class="pubrow_title"
+                                        tal:content="sub_title"
+                                        tal:attributes="href sub_url" />
+                                </h2>
+                                <div class="pubrow_info">
+                                    <tal:testimg condition="python:view.ImageExist(pc)">
+                                        <img src="" alt=""
+                                             tal:attributes="src python:'../images/' + pc + '-jpg/image_thumb';
+                                                             class python:'pub-img2';" />
+                                    </tal:testimg>
+                                        <span class="frontDate3" tal:content="source" />
+                                        <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                        <br />
+                                        <span class="frontDate3" tal:content="series"/>
+                                        <p class="frontpdf" tal:define="url python:'publications/pdf/'+pc+'/at_download/'">
+                                            <a href="#" tal:attributes="href url">Download pdf</a>
+                                        </p>
+                                 </div>
                             </tal:defs>
-                            
-                            <a href="#"
-                                style="font-size:13px; font-weight:bold; margin-left:4px;"
-                                tal:content="sub_title"
-                                tal:attributes="href sub_url" /><br />
-                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
                         </tal:defs2>
                         <div class="visualClear"></div>
                     </div>
                 </div>
+
 
             </div>
         </metal:main>

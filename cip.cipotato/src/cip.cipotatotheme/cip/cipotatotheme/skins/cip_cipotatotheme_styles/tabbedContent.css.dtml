@@ -116,20 +116,17 @@ font-size:19px;
 
 .cip-front1-tab:hover {
 background-color:#fd3291;
-opacity:0.6;
 }
 .cip-front2-tab:hover {
     background-color: #b062c4;
-opacity:0.6;
 }
 .cip-front3-tab:hover {
     background-color: #ff8f4b;
-opacity:0.6;
 }
 .cip-front4-tab:hover {
     background-color: #c91360;
-opacity:0.6;
 }
+
 /*.tabbed_content .slide_content {
 	overflow: hidden;
 	background-color: #000000;

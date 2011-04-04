@@ -57,11 +57,17 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:page
       for="*"
       name="publicationssub_view"
       class=".publications.PublicationsSubView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="publicationsone_view"
+      class=".publications.PublicationsOneView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
@@ -85,6 +91,13 @@
       for="*"
       name="mainareas"
       template="templates/mainareas.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="partnershipsView"
+      template="templates/partnerships.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />

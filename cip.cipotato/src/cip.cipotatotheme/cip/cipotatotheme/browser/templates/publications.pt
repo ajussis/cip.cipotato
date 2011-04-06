@@ -5,7 +5,9 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="clatestpublications python: getattr(context, 'latest-publications');
-                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog','research-guide','manual','cd-rom','annual-report','medium-term-plan'];
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles',
+'brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog',
+'research-guide','manual','cd-rom','annual-report','medium-term-plan'];
                                 allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Brochures','Posters', 'Bulletins','Cards','Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
                                 allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','poster','booklet','working-paper','journal','book', 'catalog','manual','video','cd-rom','annual-report','medium-term-plan'];
                                 allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Posters', 'Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];

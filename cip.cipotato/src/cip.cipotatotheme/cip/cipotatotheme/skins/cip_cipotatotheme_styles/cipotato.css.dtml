@@ -23,7 +23,7 @@ width:960px;
 margin:0;
 }
 #portal-header {
-    background: url("cip_header3.png") repeat scroll 10px 5px white;
+    background: url("cip_header3.png") no-repeat scroll 10px 5px white;
     height: 96px;
     position: relative;
     z-index: 3;
@@ -2905,7 +2905,7 @@ margin-right:30px;
 
 #content .pullquote {
     clear: right;
-    color: #444444;
+    color: #6C6767;
     float: right;
     font-size: 1.6em;
     font-weight: bold;

@@ -24,7 +24,7 @@ margin:0;
 }
 #portal-header {
     background: url("cip_header3.png") no-repeat scroll 10px 5px white;
-    height: 96px;
+    height: 94px;
     position: relative;
     z-index: 3;
 }
@@ -2283,8 +2283,8 @@ dl.portalMessage {
     z-index: 3;
 }
 .section-capacity-strengthening div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-csd.jpg") repeat scroll 0 79px transparent;
-    height: 303px;
+    background: url("2nd-csd.jpg") repeat scroll 0 72px transparent;
+    height: 294px;
 }
 .section-sub-saharan-africa div#visual-portal-wrapper div#portal-top {
     background: url("2nd-ssa.jpg") repeat scroll 0 79px transparent;

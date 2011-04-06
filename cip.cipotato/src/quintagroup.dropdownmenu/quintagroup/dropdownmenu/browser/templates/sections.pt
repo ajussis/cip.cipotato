@@ -1,13 +1,13 @@
 <tal:tabs tal:condition="view/portal_tabs"
-          i18n:domain="plone">
+          i18n:domain="plone"
+          tal:define="object_title context/@@plone_context_state/object_title;">
     <ul id="portal-globalnav">
         <li tal:replace="structure view/createMenu">
             DropDown Menu
         </li>
     </ul>
     <div class='tabbed_content_static' 
-         tal:define="object_title context/@@plone_context_state/object_title;
-                     url request/URL;
+         tal:define="url request/URL;
                      gen python:'/genebank' in url;
                      pot python:'/potato' in url;
                      swe python:'/sweetpotato' in url;
@@ -38,4 +38,167 @@
             <img tal:condition="art" class="cip-front4-img" src="barrtas.png" style="margin-right:3px;" />
         </div-->
     </div>
+
+    <tal:block tal:condition="python:object_title == 'International Potato Center'">
+
+        <style type="text/css">
+div#tmpSlideshow {
+    height: 281px;
+    margin: 23px 11px;
+    padding: 20px 0 0;
+    position: relative;
+    width: 755px;
+}
+ div.tmpSlide {
+    background-position: 0 0;
+    display: none;
+    height: 300px;
+    margin-left: -11px;
+    position: absolute;
+    top: -10px;
+    width: 960px !important;
+}
+.cip-front2-img {
+    float: left;
+    height: 10px;
+    margin-left: 226px;
+    margin-top: 54px;
+    width: 736px;
+}
+            .cip-front1-img {
+    height: 10px;
+                margin-top: 54px;
+            }
+            .cip-front3-img {
+    height: 10px;
+                margin-top: 54px;
+            }
+            .cip-front4-img {
+                float: right;
+    height: 10px;
+                margin-right: 0;
+                margin-top: 54px;
+            }
+            div#tmpSlideshowControls {
+                z-index: 5;
+            }
+            div.tmpSlideshowControl {
+                cursor: pointer;
+            }
+            div.tmpSlideshowControl:hover {
+                cursor: pointer;
+                opacity:0.6;
+            }
+            div.tmpSlideshowControl span {
+            }
+            div.tmpSlideshowControlOn {
+            }
+            div.tmpSlideshowControlActive {
+                opacity: 0.8;
+            }
+            div.tmpSlideCopy {
+                position: absolute;
+                left: 565px;
+                top: 20px;
+                width: 170px;
+            }
+            div#tmpSlideshow h4 {
+                color: #b90f23;
+                text-transform: uppercase;
+                font: 14px Arial, sans-serif;
+                margin: 10px 0;
+            }
+            div.tmpSlideCopy p {
+                font: 11px Arial, sans-serif;
+                line-height: 1.75em;
+            }
+.tabs {
+    background: none repeat scroll 0 0 transparent;
+    height: 53px;
+    margin: -30px -11px 0;
+    position: relative;
+    width: 960px;
+}
+#portal-header {
+    height: 433px;
+    padding-bottom:10px;
+    background: none repeat no;
+}
+        </style>
+
+        <div id='tmpSlideshow'>
+            <div id='tmpSlideshowControls' class='tabs'>
+                <div class='tmpSlideshowControl tab_item cip-front1-tab' id='tmpSlideshowControl-1'>
+                        <a href="genebank">GENEBANK</a>
+                </div>
+                <div class='tmpSlideshowControl tab_item cip-front2-tab' id='tmpSlideshowControl-2'>
+                        <a href="potato">POTATO</a>
+                </div>
+                <div class='tmpSlideshowControl tab_item cip-front3-tab' id='tmpSlideshowControl-3'>
+                        <a href="sweetpotato">SWEETPOTATO</a>
+                </div>
+                <div class='tmpSlideshowControl tab_item cip-front4-tab' id='tmpSlideshowControl-4'>
+                        <a href="roots-and-tubers">ANDEAN ROOTS & TUBERS</a>
+                </div>
+            </div>
+            <div id='tmpSlide-1' class='tmpSlide cip-front1 thisnow'>
+                <img class="cip-front1-img" src="bargene.png" />
+            </div>
+            <div id='tmpSlide-2' class='tmpSlide cip-front2'>
+                <img class="cip-front2-img" src="barpotato.png" />
+            </div>
+            <div id='tmpSlide-3' class='tmpSlide cip-front3'>
+                <img class="cip-front3-img" src="barsweet.png" />
+            </div>
+            <div id='tmpSlide-4' class='tmpSlide cip-front4'>
+                    <img class="cip-front4-img" src="barrtas.png" />
+            </div>
+        </div>
+
+        <!--div class='tabbed_content'>
+            <div class='tabs'>
+                <div class='moving_bg'>
+                        &nbsp;
+                </div>
+                <span class='tab_item cip-front1-tab'>
+                        <a href="genebank">GENEBANK</a>
+                </span>
+                <span class='tab_item cip-front2-tab'>
+                        <a href="potato">POTATO</a>
+                </span>
+                <span class='tab_item cip-front3-tab'>
+                        <a href="sweetpotato">SWEETPOTATO</a>
+                </span>
+                <span class='tab_item cip-front4-tab'>
+                        <a href="roots-and-tubers">ANDEAN ROOTS & TUBERS</a>
+                </span>
+            </div>
+            <div class='slide_content'>
+                <div class='tabslider'>
+                    <ul class="cip-front1">
+                        <li>
+                            <img class="cip-front1-img" src="bargene.png" />
+                        </li>
+                    </ul>
+                    <ul class="cip-front2">
+                        <li>
+                            <img class="cip-front2-img" src="barpotato.png" />
+                        </li>
+                    </ul>
+                    <ul class="cip-front3">
+                        <li>
+                            <img class="cip-front3-img" src="barsweet.png" />
+                        </li>
+                    </ul>
+                    <ul class="cip-front4">
+                        <li>
+                            <img class="cip-front4-img" src="barrtas.png" />
+                        </li>
+                    </ul>
+                </div>
+                <br />
+            </div>
+        </div-->
+    </tal:block>
+
 </tal:tabs>

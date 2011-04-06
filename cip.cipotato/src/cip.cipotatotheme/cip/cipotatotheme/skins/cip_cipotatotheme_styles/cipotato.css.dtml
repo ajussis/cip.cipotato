@@ -24,7 +24,7 @@ margin:0;
 }
 #portal-header {
     background: url("cip_header3.png") no-repeat scroll 10px 5px white;
-    height: 94px;
+    height: 100px;
     position: relative;
     z-index: 3;
 }

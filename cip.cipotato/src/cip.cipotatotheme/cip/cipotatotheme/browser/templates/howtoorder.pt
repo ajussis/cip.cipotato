@@ -16,7 +16,7 @@
             <div id="content-core">
                 <p>First access the <a href="https://research.cip.cgiar.org/smta/search1.php">CIP Germplasm Ordering System</a></p>
 
-                <div id="accordion" class="boardmembers">
+                <div id="accordion">
                     <span tal:replace="structure item/getText" />
                 </div>
             </div>

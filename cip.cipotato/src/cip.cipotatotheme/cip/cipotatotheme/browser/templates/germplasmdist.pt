@@ -13,8 +13,13 @@
 
             <h1 tal:content="context/Title" class="page_title" />
 
-            <div id="accordion" class="boardmembers">
-                <span tal:replace="structure item/getText" />
+            <div id="content-core">
+                <p><span id="internal-source-marker_0.24917433480732143">In vitro germplasm is available for distribution. It is used in breeding programs in over 100 countries.</span><span></span></p>
+                <p><span>CIP’s in vitro genebank is the first to obtain International Standards Organization (ISO) 17025 accreditation for safe and secure germplasm movement.</span></p>
+
+                <div id="accordion" class="boardmembers">
+                    <span tal:replace="structure item/getText" />
+                </div>
             </div>
 
         </metal:main>

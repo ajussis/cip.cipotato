@@ -13,6 +13,11 @@
                 </tal:defs>
             </div>
 
+            <div class="csd-seminar-title">
+                <h1>Seminars</h1>
+                <h1>Archives</h1>
+                <img src="podcast.gif" />
+            </div>
 
             <!--div id="panes">
                 <div class="pubs_pubcat_latest" tal:define="n clatestpublications/queryCatalog;">

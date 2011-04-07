@@ -540,11 +540,52 @@ background-color:#ff6a0c;
     background-color: #9A0040;
     width: 262px !important;
 }
+.cip-front1-tab-trans {
+background-color:#ec006e;
+opacity:0.8;
+}
+.cip-front2-tab-trans {
+background-color:#8f46a2;
+opacity:0.8;
+}
+.cip-front3-tab-trans {
+background-color:#ff6a0c;
+opacity:0.8;
+}
+.cip-front4-tab-trans {
+background-color: #9A0040;
+width: 262px !important;
+opacity:0.8;
+}
+h2.ui-accordion-header {
+    background-image: url("rightarrow.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0 0 14px;
+    padding: 0;
+}
+h2.ui-accordion-header:hover {
+    background-image: url("rightarrow.png");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin: 0 0 14px;
+    padding: 0;
+    color:#EC006E;
+}
+
 .cip-front1-img {
     margin-top:53px;
     float: left;
     margin-left: 0px;
 }
+.cip-2nd-img1 {
+    margin-top: 0px;
+    float: left;
+    margin-left: 0px;
+}
+
 .partnership_column {
 width:99%;
 }
@@ -564,14 +605,31 @@ float:left;
     margin-left: 226px;
     width: 736px;
 }
+.cip-2nd-img2 {
+    float: left;
+    height: 15px;
+    margin-top:0px;
+    margin-left: 226px;
+    width: 736px;
+}
 .cip-front3-img {
     margin-top:53px;
+    float: left;
+    margin-left: 452px;
+}
+.cip-2nd-img3 {
+    margin-top:0px;
     float: left;
     margin-left: 452px;
 }
 .cip-front4-img {
     float: right;
     margin-top:53px;
+    margin-right: -16px;
+}
+.cip-2nd-img4 {
+    float: right;
+    margin-top:0px;
     margin-right: -16px;
 }
 
@@ -2720,7 +2778,7 @@ display:block !important;
     padding-left: 23px;
 }
 .tab_item_static a:hover {
-text-decoration:underline;
+text-decoration:none;
 color:white !important;
 }
 
@@ -2888,7 +2946,7 @@ public.css (line 475)
 			left: 0;
 			z-index: 1;
 			}
-			
+
 
 .boardmembers img {
     margin-bottom: 6px;

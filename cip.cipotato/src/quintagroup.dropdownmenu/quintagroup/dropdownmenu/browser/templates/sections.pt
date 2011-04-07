@@ -6,7 +6,7 @@
             DropDown Menu
         </li>
     </ul>
-    <div class='tabbed_content_static' 
+    <div  tal:condition="python:object_title != 'International Potato Center'" class='tabbed_content_static'
          tal:define="url request/URL;
                      gen python:'/genebank' in url;
                      pot python:'/potato' in url;
@@ -17,26 +17,38 @@
                      potato python:portal_url+'/potato/';
                      sweetpotato python:portal_url+'/sweetpotato/';
                      arts python:portal_url+'/roots-and-tubers/'">
-        <div class='tabs_static' tal:condition="python:object_title != 'International Potato Center'">
-            <span class='tab_item_static cip-front1-tab'>
+        <div class='tabs_static'>
+            <span tal:condition="gen" class='tab_item_static cip-front1-tab-trans'>
+                <a href="#" tal:attributes="href genebank">GENEBANK</a>
+            </span>
+            <span tal:condition="not: gen" class='tab_item_static cip-front1-tab'>
                     <a href="#" tal:attributes="href genebank">GENEBANK</a>
             </span>
-            <span class='tab_item_static cip-front2-tab'>
+            <span tal:condition="pot" class='tab_item_static cip-front2-tab-trans'>
                     <a href="#" tal:attributes="href potato">POTATO</a>
             </span>
-            <span class='tab_item_static cip-front3-tab'>
+            <span tal:condition="not: pot" class='tab_item_static cip-front2-tab'>
+                    <a href="#" tal:attributes="href potato">POTATO</a>
+            </span>
+            <span tal:condition="swe" class='tab_item_static cip-front3-tab-trans'>
                     <a href="#" tal:attributes="href sweetpotato">SWEETPOTATO</a>
             </span>
-            <span class='tab_item_static cip-front4-tab'>
+            <span tal:condition="not: swe" class='tab_item_static cip-front3-tab'>
+                    <a href="#" tal:attributes="href sweetpotato">SWEETPOTATO</a>
+            </span>
+            <span tal:condition="art" class='tab_item_static cip-front4-tab-trans'>
+                    <a href="#" tal:attributes="href arts">ANDEAN ROOTS & TUBERS</a>
+            </span>
+            <span tal:condition="not: art" class='tab_item_static cip-front4-tab'>
                     <a href="#" tal:attributes="href arts">ANDEAN ROOTS & TUBERS</a>
             </span>
         </div>
-        <!--div class="buttonslides">
-            <img tal:condition="gen" class="cip-front1-img" src="bargene.png" />
-            <img tal:condition="pot" class="cip-front2-img" src="barpotato.png" />
-            <img tal:condition="swe" class="cip-front3-img" src="barsweet.png" />
-            <img tal:condition="art" class="cip-front4-img" src="barrtas.png" style="margin-right:3px;" />
-        </div-->
+        <div class="buttonslides">
+            <img tal:condition="gen" class="cip-2nd-img1" src="bargene.png" />
+            <img tal:condition="pot" class="cip-2nd-img2" src="barpotato.png" />
+            <img tal:condition="swe" class="cip-2nd-img3" src="barsweet.png" />
+            <img tal:condition="art" class="cip-2nd-img4" src="barrtas.png" style="margin-right:3px;" />
+        </div>
     </div>
 
     <tal:block tal:condition="python:object_title == 'International Potato Center'">

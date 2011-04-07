@@ -145,6 +145,13 @@
       />
   <browser:page
       for="*"
+      name="howtoorderView"
+      template="templates/howtoorder.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="contactsView"
       class=".contacts.ContactsView"
       layer=".interfaces.IThemeSpecific"

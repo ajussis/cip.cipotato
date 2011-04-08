@@ -5,6 +5,7 @@ PROJECTNAME = 'cip.ciptypes'
 
 ADD_PERMISSIONS = {
     # -*- extra stuff goes here -*-
+    'SeminarYearFolder': 'cip.ciptypes: Add Seminar Year Folder',
     'Jobholder': 'cip.ciptypes: Add Jobholder',
     'Jobs': 'cip.ciptypes: Add Jobs',
     'Pubholder': 'cip.ciptypes: Add Pubholder',

@@ -1,4 +1,5 @@
 # -*- extra stuff goes here -*-
+from seminaryearfolder import ISeminarYearFolder
 from jobholder import IJobholder
 from jobs import IJobs
 from pubholder import IPubholder

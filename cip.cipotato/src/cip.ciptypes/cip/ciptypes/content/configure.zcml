@@ -6,6 +6,12 @@
   <!-- configure your content components here -->
   
   <!-- -*- extra stuff goes here -*- -->
+  <class class=".seminaryearfolder.SeminarYearFolder">
+    <require
+        permission="zope2.View"
+        interface="..interfaces.ISeminarYearFolder"
+        />
+  </class>
   <class class=".jobholder.Jobholder">
     <require
         permission="zope2.View"

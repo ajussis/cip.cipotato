@@ -2,6 +2,10 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
+    <permission name="cip.ciptypes: Add Seminar Year Folder" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
     <permission name="cip.ciptypes: Add Jobholder" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />

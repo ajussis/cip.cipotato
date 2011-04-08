@@ -20,6 +20,16 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
 
+    atapi.StringField(
+        'place',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Place"),
+            description=_(u"Where the seminar is held"),
+        ),
+    ),
+
+
     atapi.DateTimeField(
         'seminardate',
         storage=atapi.AnnotationStorage(),
@@ -34,7 +44,14 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.ImageField(
         'image',
         storage=atapi.AnnotationStorage(),
-        widget=atapi.ImageWidget(
+        sizes= {'preview' : (400, 400),
+                'mini'    : (200, 200),
+                'thumb'   : (128, 128),
+                'tile'    :  (64, 64),
+                'icon'    :  (32, 32),
+                'listing' :  (16, 16),
+          },
+          widget=atapi.ImageWidget(
             label=_(u"Seminar image"),
             description=_(u"Add a representative image of the seminar"),
         ),
@@ -113,6 +130,8 @@ class Seminar(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    place = atapi.ATFieldProperty('place')
+
     seminardate = atapi.ATFieldProperty('seminardate')
 
     speaker = atapi.ATFieldProperty('speaker')

@@ -110,6 +110,13 @@
       />
   <browser:page
       for="*"
+      name="seminaryearView"
+      class=".seminarsyear.SeminarsyearView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="seminarsmainView"
       class=".seminarsmain.SeminarsmainView"
       layer=".interfaces.IThemeSpecific"

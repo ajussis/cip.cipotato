@@ -18,8 +18,8 @@
                 <style type="text/css">
                     .semvideo {display:none;}
                 </style>
-                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(yearnow)">
-                    <h2>Latest seminars - <span tal:replace="yearnow" /></h2>
+                <div class="seminarblock" tal:define="seminars python:view.seminars()">
+                    <h2>All seminars in <span tal:replace="yearnow" /></h2>
                     <ul>
                         <li class="sem_listing" tal:repeat="sem seminars">
                             <tal:num define="s repeat/sem/number">
@@ -52,7 +52,7 @@
                                     <div class="sem_info">
                                         <tal:defs2 tal:define="videotog python:'videotog-'+yearnow+str(s)">
                                             <span style="cursor:pointer;" id="#" class="videotogc" tal:attributes="id videotog">Listen</span>
-                                        </tal:defs2> |
+                                        </tal:defs2> | 
                                             <a href="#" tal:attributes="href bio">Biography</a> |
                                             <a href="#" tal:attributes="href abs">Abstract</a> |
                                             <a href="#" tal:attributes="href pre">Presentation (ppt)</a>

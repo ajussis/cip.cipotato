@@ -23,6 +23,8 @@ class SeminarsarchiveView(BrowserView):
                 print resultsfinal
         return resultsfinal
 
+    def getYear(self):
+        return str(datetime.now())[:4]
 
 """        import pdb; pdb.set_trace()
         for i in results:

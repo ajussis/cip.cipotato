@@ -3,7 +3,9 @@
                  tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                yearnow python:view.getYear();
+                                years python:['2008','2009','2010','2011'];">
 
             <div id="content-core">
                 <h1 tal:content="context/Title"></h1>
@@ -13,25 +15,89 @@
                         <p tal:content="structure res_text/getText" />
                     </tal:defs>
                 </div>
-
-
-                <h2>Next seminars</h2>
-
-                <div class="seminarblock" tal:define="seminars view/seminars">
-                    <h2>Latest seminars</h2>
+                <script src="http://code.jquery.com/jquery-1.5.js"></script>
+                <style type="text/css">
+                    .semvideo {display:none;}
+                </style>
+                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(yearnow)">
+                    <div class="seminartitles">
+                        <h1>Latest seminars</h1>
                     <ul>
-                        <li class="jobs_listing" tal:repeat="sem seminars">
-                            <tal:defs define="item_url sem/getURL;
-                                              item_object sem/getObject;">
-                                <a href="#" tal:attributes="href item_url">
-                                    <h3 tal:content="sem/pretty_title_or_id"></h3>
-                                </a>
-                            </tal:defs>
+                        <li class="sem_listing" tal:repeat="sem seminars">
+                            <tal:num define="s repeat/sem/number">
+                                <tal:defs define="item_url sem/getURL;
+                                                  item_object sem/getObject;
+                                                  img_thumb python:item_url+'/image_thumb';
+                                                  sem_date python:item_object.getSeminardate();
+                                                  sem_speaker python:item_object.getSpeaker();
+                                                  abs python:item_url+'/at_download/abstract';
+                                                  vid python:item_url+'/at_download/audio';
+                                                  bio python:item_url+'/at_download/biography';
+                                                  pre python:item_url+'/at_download/presentation';
+                                                  canEdit python:checkPermission('Modify portal content', here);">
+                                    <div tal:define="vidc python:'video_videotog-'+yearnow+str(s)" tal:attributes="id vidc">
+                                        <a class="autoFlowPlayer semvidinfo" href="http://localhost:8080/cipotato/resources/capacity-strengthening/seminars/seminars-archive/copy_of_taxonomic-changes-in-wild-and-cultivated-potatoes-over-the-last-25-years-implications-for-the-use-of-genetic-resources/video"></a>
+                                    </div>
+                                    <img src="#" tal:attributes="src img_thumb" />
+                                    <span class="sem_date">
+                                        <tal:date replace="sem_date" />
+                                    </span>
+                                    <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
+                                    <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
+                                        <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                    </a>
+                                    <ul class="sem_info_speak">
+                                        <li>
+                                            <tal:date replace="sem_speaker" />
+                                        </li>
+                                    </ul>
+                                    <div class="sem_info">
+                                        <tal:defs2 tal:define="videotog python:'videotog-'+yearnow+str(s)">
+                                            <span style="cursor:pointer;" id="#" class="videotogc" tal:attributes="id videotog">Listen</span>
+                                        </tal:defs2> |
+                                            <a href="#" tal:attributes="href bio">Biography</a> |
+                                            <a href="#" tal:attributes="href abs">Abstract</a> |
+                                            <a href="#" tal:attributes="href pre">Presentation (ppt)</a>
+                                    </div>
+                                </tal:defs>
+                            </tal:num>
                         </li>
                     </ul>
                 </div>
-
             </div>
+            <div>
+                <h1>See all by year</h1>
+                <tal:reps repeat="year years">
+                    <a class="seminartitlelinks" href="#" tal:attributes="href year">
+                        <h2 tal:content="year" />
+                    </a>
+                </tal:reps>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $('[id^=video_videotog-]').hide();
+                    $('#portal-column-content').css('height', 1500);
+                    $('[id^=videotog-]').click(function() {
+                        $('[id^=video_videotog-]').hide();
+                        var $this = $(this);
+                        var x = $this.attr("id");
+                        $('#video_'+x).show();
+                        return false;
+                    });
+                });
+            </script>
+
+            <!--script type="text/javascript">
+
+
+
+            $("#videotog").click(function(){
+                $("div.video1").slideToggle("slow");
+                return false;
+              });
+            </script>
+            <body-->
 
         </metal:main>
     </metal:main_macro>

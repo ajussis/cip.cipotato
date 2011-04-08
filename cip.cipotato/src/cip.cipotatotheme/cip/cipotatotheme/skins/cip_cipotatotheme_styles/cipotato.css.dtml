@@ -261,6 +261,38 @@ margin-top:0.2em !important;
     float: left;
     margin: 0 11px 8px 0;
 }
+.sem_info_speak {
+    color: #EC006E;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 310px;
+}
+.sem_info_speak li {
+    margin-left: 0 !important;
+    display:block !important;
+    text-align:left;
+}
+.sem_info {
+    float: right;
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+.sem_info a {
+text-decoration:none !important;
+
+}
+.sem_date {
+color:#EC006E;
+font-weight:bold;
+}
+
+.semvidinfo {
+float:right;
+margin-left:15px;
+}
 ul.sem_info li {
 list-style:none;
 float:left;
@@ -268,26 +300,45 @@ margin-left:0 !important;
 margin-bottom:10px;
 }
 .sem_listing h3 {
-margin-top:0 !important;
+    margin-right: 15px;
+    margin-top: 0 !important;
+    margin-bottom:1.5em;
 }
 .sem_listing img {
 margin-top:3px;
 }
+.sem_listing h3:hover {
+margin-top:0 !important;
+}
 .videotogc {
-text-decoration:underline;
 color:#581A75;
 }
 .videotogc:hover {
 text-decoration:underline;
 color:#EC006E;
 }
+.seminartitlelinks {
+float:left;
+text-decoration:none !important;
+margin-right:20px;
+margin-top:20px;
+}
+.seminartitlelinks {
+color:#EC006E;
+}
+.seminartitlelinks h2:hover {
+color:#EC006E;
+}
 .sem_listing {
-list-style:none;
-margin-left:0 !important;
-clear:both;
-padding-bottom:10px;
-border-bottom: 1px dotted black;
-display:inline-block !important;
+    margin-top:15px;
+    -webkit-box-shadow: 3px 3px 3px 0 grey;
+    box-shadow: 3px 3px 3px 0 grey;
+    clear: both;
+    display: inline-block !important;
+    list-style: none outside none;
+    margin-left: 0 !important;
+    padding-bottom: 10px;
+    width: 630px;
 }
 .sem_listing img {
 float:left;
@@ -295,6 +346,7 @@ margin-right:10px;
 }
 .seminarblock {
 clear:both;
+margin-bottom:20px;
 }
 #portal-personaltools-wrapper {
     background-color: transparent;
@@ -1290,7 +1342,7 @@ h2 {
 }
 
 h3 {
-font-size:1.08em;
+font-size:1.2em;
 color:#581A74;
 }
 h4, h5, h6 {

@@ -22,7 +22,7 @@ class ISeminar(Interface):
         description=_(u"Add the date when the seminar is being held"),
     )
 #
-    profileimage = schema.Bytes(
+    image = schema.Bytes(
         title=_(u"Seminar image"),
         required=False,
         description=_(u"Add a representative image of the seminar"),

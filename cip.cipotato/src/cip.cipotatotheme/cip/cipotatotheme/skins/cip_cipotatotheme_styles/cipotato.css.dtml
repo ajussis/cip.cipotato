@@ -112,6 +112,7 @@ z-index:1000;
 #portal-globalnav .globalSectionsLevel1 .globalSectionsItem a:hover {
 border-bottom:1px solid #000000;
 color:#F37D3F !important;
+text-decoration:none !important;
 }
 #portal-globalnav .globalSectionsLevel1 .globalSectionsItem a {
 border-bottom:1px solid #000000;

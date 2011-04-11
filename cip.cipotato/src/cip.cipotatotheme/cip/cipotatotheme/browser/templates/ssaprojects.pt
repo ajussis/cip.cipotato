@@ -1,0 +1,26 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="item python: getattr(context, 'ssa-projects-text');">
+            <script src="jquery.ui.accordion.js"></script>
+            <script>
+                $(function() {
+                        $( "#accordion" ).accordion();
+                });
+            </script>
+
+            <h1 tal:content="context/Title" class="page_title" />
+
+            <div id="content-core">
+                <p>Here you can find some of the projects CIP has in Sub-Saharan Africa.</p>
+
+                <div id="accordion" class="boardmembers">
+                    <span tal:replace="structure item/getText" />
+                </div>
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

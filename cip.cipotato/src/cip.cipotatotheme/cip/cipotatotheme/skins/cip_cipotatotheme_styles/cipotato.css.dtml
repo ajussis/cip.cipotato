@@ -2448,11 +2448,11 @@ dl.portalMessage {
     height: 294px;
 }
 .section-sub-saharan-africa div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-ssa.jpg") repeat scroll 0 0 transparent;
+    background: url("2nd-ssa.jpg") repeat scroll 0 74px transparent;
     height: 298px;
 }
 .section-sasha-program div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-sasha.jpg") repeat scroll 0 74px transparent;
+    background: url("2nd-sasha.jpg") repeat scroll 0 0 transparent;
     height: 298px;
 }
 .section-roots-and-tubers div#visual-portal-wrapper div#portal-top {

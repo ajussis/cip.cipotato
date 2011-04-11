@@ -3,73 +3,102 @@
                  tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                yearnow python:view.getYear();">
 
-            <h1 tal:content="context/Title"></h1>
+            <div id="content-core">
+                <h1 tal:content="context/Title"></h1>
 
-            <div class="csd_intro">
-                <tal:defs define="res_text nocall:here/csd-introduction">
-                    <p tal:content="structure res_text/getText" />
-                </tal:defs>
+                <div class="csd_intro">
+                    <tal:defs define="res_text nocall:here/csd-introduction">
+                        <p tal:content="structure res_text/getText" />
+                    </tal:defs>
+                </div>
             </div>
 
             <div class="csd-seminar-title">
-                <h1>Seminars</h1>
-                <h1>Archives</h1>
-                <img src="podcast.gif" />
+                <h1>Next seminars</h1>
+                <a href="seminars">
+                    <h1 class="csd-seminar-title2">Archives</h1>
+                    <img src="podcast.gif" />
+                </a>
             </div>
 
-            <!--div id="panes">
-                <div class="pubs_pubcat_latest" tal:define="n clatestpublications/queryCatalog;">
-                    <div class="pub_listing" tal:repeat="m n">
-                        <tal:rep define="author m/Creator">
-                            <b>
-                                <a href="#" tal:attributes="href m/getURL">
-                                    <span tal:replace="m/pretty_title_or_id"/>
-                                </a>
-                            </b>
-                            <span class="pub_date">
-                                <span tal:content="python:toLocalizedTime(m.Date)" />
-                            </span>
-                            <p tal:content="m/Description" />
-                        </tal:rep>
+            <div class="seminar-csdmain">
+                <div>
+                </div>
+                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(1)">
+                    <div class="seminartitles">
+                        <ul>
+                            <li class="sem_listing_csd" tal:repeat="sem seminars">
+                                <tal:num define="s repeat/sem/number">
+                                    <tal:defs define="item_url sem/getURL;
+                                                      item_object sem/getObject;
+                                                      sem_date python:item_object.getSeminardate();
+                                                      sem_speaker python:item_object.getSpeaker();
+                                                      abs python:item_url+'/at_download/abstract';
+                                                      vid python:item_url+'/at_download/audio';
+                                                      bio python:item_url+'/at_download/biography';
+                                                      pre python:item_url+'/at_download/presentation';
+                                                      canEdit python:checkPermission('Modify portal content', here);">
+                                        <span class="sem_date">
+                                            <tal:date replace="sem_date" />
+                                        </span>
+                                        <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
+                                        <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
+                                            <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                        </a>
+                                        <ul class="sem_info_speak">
+                                            <li>
+                                                <tal:date replace="sem_speaker" />
+                                            </li>
+                                        </ul>
+                                    </tal:defs>
+                                </tal:num>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <tal:defs3 repeat="pub allpubcats_add">
-                    <tal:defs4 tal:define="pubs python:view.Pubs(pub)">
-                        <div tal:define="pubnum repeat/pub/number;
-                                         classname python:'pubs_pubcat_'+str(pubnum)"
-                             tal:attributes="class classname">
-                            <div class="pubs_title">
-                                <h2 class="pub_titles">Latest <span tal:replace="pub" /></h2>
-                                <h2 class="pub_titles2" tal:define="u pub"><a tal:attributes="href u">See all</a></h2>
-                            </div>
-                            <div class="lineBreak"></div>
-                            <div class="pub_listing" tal:repeat="m pubs">
-                                <tal:rep define="tit m/pretty_title_or_id">
-                                    <tal:defs define="pc m/getPubcode">
-                                        <div tal:condition="python:view.ImageExist(pc)">
-                                            <img src="" alt=""
-                                                 tal:attributes="src python:'images/' + pc + '-jpg/image_thumb';
-                                                                 class python:'pub-img';" />
-                                        </div>
-                                    </tal:defs>
-                                    <span class="pub_date">
-                                        <span tal:content="python:toLocalizedTime(m.Date)" /><br />
-                                    </span>
-                                    <b>
-                                        <a href="#" tal:attributes="href m/getURL">
-                                            <span tal:replace="tit"/>
-                                        </a>
-                                    </b>
-                                </tal:rep>
-                                <div class="lineBreak"></div>
-                            </div>
-                        </div>
-                    </tal:defs4>
-                </tal:defs3>
-            </div-->
+            </div>
 
+
+            <div class="seminar-csdmain">
+                <div>
+                </div>
+                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(0)">
+                    <h1>Latest seminars</h1>
+                    <div class="seminartitles">
+                        <ul>
+                            <li class="sem_listing_csd" tal:repeat="sem seminars">
+                                <tal:num define="s repeat/sem/number">
+                                    <tal:defs define="item_url sem/getURL;
+                                                      item_object sem/getObject;
+                                                      sem_date python:item_object.getSeminardate();
+                                                      sem_speaker python:item_object.getSpeaker();
+                                                      abs python:item_url+'/at_download/abstract';
+                                                      vid python:item_url+'/at_download/audio';
+                                                      bio python:item_url+'/at_download/biography';
+                                                      pre python:item_url+'/at_download/presentation';
+                                                      canEdit python:checkPermission('Modify portal content', here);">
+                                        <span class="sem_date">
+                                            <tal:date replace="sem_date" />
+                                        </span>
+                                        <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
+                                        <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
+                                            <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                        </a>
+                                        <ul class="sem_info_speak">
+                                            <li>
+                                                <tal:date replace="sem_speaker" />
+                                            </li>
+                                        </ul>
+                                    </tal:defs>
+                                </tal:num>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         </metal:main>
     </metal:main_macro>

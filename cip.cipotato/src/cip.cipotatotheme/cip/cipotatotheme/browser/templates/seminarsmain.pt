@@ -8,6 +8,7 @@
                                 years python:['2008','2009','2010','2011'];">
 
             <div id="content-core">
+ 
                 <h1 tal:content="context/Title"></h1>
 
                 <div class="csd_intro">
@@ -15,11 +16,43 @@
                         <p tal:content="structure res_text/getText" />
                     </tal:defs>
                 </div>
+                <div class="seminar-seminarsmain">
+                    <h1>Next</h1>
+                    <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(1)">
+                        <div class="seminartitles">
+                            <ul>
+                                <li class="sem_listing2" tal:repeat="sem seminars">
+                                    <tal:num define="s repeat/sem/number">
+                                        <tal:defs define="item_url sem/getURL;
+                                                          item_object sem/getObject;
+                                                          sem_date python:item_object.getSeminardate();
+                                                          sem_speaker python:item_object.getSpeaker();
+                                                          canEdit python:checkPermission('Modify portal content', here);">
+                                            <span class="sem_date">
+                                                <tal:date replace="sem_date" />
+                                            </span>
+                                            <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
+                                            <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
+                                                <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                            </a>
+                                            <ul class="sem_info_speak2">
+                                                <li>
+                                                    <tal:date replace="sem_speaker" />
+                                                </li>
+                                            </ul>
+                                        </tal:defs>
+                                    </tal:num>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <script src="http://code.jquery.com/jquery-1.5.js"></script>
                 <style type="text/css">
                     .semvideo {display:none;}
                 </style>
-                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(yearnow)">
+                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(0)">
                     <div class="seminartitles">
                         <h1>Latest seminars</h1>
                     <ul>
@@ -31,12 +64,12 @@
                                                   sem_date python:item_object.getSeminardate();
                                                   sem_speaker python:item_object.getSpeaker();
                                                   abs python:item_url+'/at_download/abstract';
-                                                  vid python:item_url+'/at_download/audio';
+                                                  vid python:item_url+'/at_download/video';
                                                   bio python:item_url+'/at_download/biography';
                                                   pre python:item_url+'/at_download/presentation';
                                                   canEdit python:checkPermission('Modify portal content', here);">
                                     <div tal:define="vidc python:'video_videotog-'+yearnow+str(s)" tal:attributes="id vidc">
-                                        <a class="autoFlowPlayer semvidinfo" href="http://localhost:8080/cipotato/resources/capacity-strengthening/seminars/seminars-archive/copy_of_taxonomic-changes-in-wild-and-cultivated-potatoes-over-the-last-25-years-implications-for-the-use-of-genetic-resources/video"></a>
+                                        <a class="autoFlowPlayer semvidinfo" href="#" tal:attributes="href vid"></a>
                                     </div>
                                     <img src="#" tal:attributes="src img_thumb" />
                                     <span class="sem_date">
@@ -87,17 +120,6 @@
                     });
                 });
             </script>
-
-            <!--script type="text/javascript">
-
-
-
-            $("#videotog").click(function(){
-                $("div.video1").slideToggle("slow");
-                return false;
-              });
-            </script>
-            <body-->
 
         </metal:main>
     </metal:main_macro>

@@ -104,28 +104,21 @@
   <browser:page
       for="*"
       name="csdView"
-      template="templates/csd.pt"
+      class=".viewlets.CsdView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
   <browser:page
       for="*"
       name="seminaryearView"
-      class=".seminarsyear.SeminarsyearView"
+      class=".viewlets.SeminarsyearView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
   <browser:page
       for="*"
       name="seminarsmainView"
-      class=".seminarsmain.SeminarsmainView"
-      layer=".interfaces.IThemeSpecific"
-      permission="zope.Public"
-      />
-  <browser:page
-      for="*"
-      name="seminarsarchiveView"
-      class=".seminarsarchive.SeminarsarchiveView"
+      class=".viewlets.SeminarsmainView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
@@ -147,6 +140,13 @@
       for="*"
       name="germplasmdistView"
       template="templates/germplasmdist.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="ssaprojectsView"
+      template="templates/ssaprojects.pt"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />

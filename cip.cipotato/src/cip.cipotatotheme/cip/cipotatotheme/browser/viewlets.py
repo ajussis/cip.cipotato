@@ -10,7 +10,9 @@ from plone.app.layout.viewlets import common
 from plone.app.layout.globals.interfaces import IViewView
 from zope.interface import implements, alsoProvides
 from Products.CMFPlone.utils import base_hasattr
-
+from datetime import datetime
+from Products.Five.browser import BrowserView
+import DateTime
 
 #testing searchboxes
 from plone.app.layout.viewlets.common import SearchBoxViewlet
@@ -190,3 +192,69 @@ class ContentRelatedItems(ViewletBase):
                     return positions.get(brain.UID, -1)
                 res.sort(key=_key)
         return res
+
+class SeminarsmainView(BrowserView):
+    """Default view of a Project Folder
+    """
+    __call__ = ViewPageTemplateFile('templates/seminarsmain.pt')
+
+    def getSeminarsyear(self,yesno):
+        yeardict = {}
+        resultsfinal = []
+        #import pdb; pdb.set_trace()
+        #datenow = (datetime.now()).isocalendar()
+        now = DateTime.DateTime()
+        #self.context.getPlace()
+        if (yesno == 1):
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
+        else:
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
+        #Date={"query": datenow, "range": "min"},
+        #getSeminardate="2011",
+        #p self.context.portal_catalog.searchResults ()
+        return results
+
+    def getYear(self):
+        return str(datetime.now())[:4]
+
+class SeminarsyearView(BrowserView):
+    """Default view of a Project Folder
+    """
+    __call__ = ViewPageTemplateFile('templates/seminarsyear.pt')
+
+    def getYear(self):
+        return (self.request.get('URL')).rsplit('/',2)[1]
+
+    def seminars(self):
+        #import pdb; pdb.set_trace()
+        url = '/'.join(self.context.getPhysicalPath())
+        results = self.context.portal_catalog.searchResults(path={'query':url}, portal_type="Seminar")
+        print results
+        return results
+
+class CsdView(BrowserView):
+    """Default view of the CSD main page
+    """
+    __call__ = ViewPageTemplateFile('templates/csd.pt')
+
+    def getSeminarsyear(self,yesno):
+        yeardict = {}
+        resultsfinal = []
+        #import pdb; pdb.set_trace()
+        #datenow = (datetime.now()).isocalendar()
+        now = DateTime.DateTime()
+        #self.context.getPlace()
+        if (yesno == 1):
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
+        else:
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
+        #Date={"query": datenow, "range": "min"},
+        #getSeminardate="2011", 
+        #p self.context.portal_catalog.searchResults ()
+        return results
+
+        #m = str(datenow[0])+'/'+str(datenow[1])+'/'+str(datenow[2])
+
+    def getYear(self):
+        return str(datetime.now())[:4]
+

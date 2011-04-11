@@ -268,7 +268,31 @@ margin-top:0.2em !important;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    width: 310px;
+    width: 290px;
+}
+.sem_info_speak2 {
+    color: #EC006E;
+    float: left;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.csd-seminar-title h1 {
+float:left;
+}
+.seminar-seminarsmain {
+}
+.csd_intro {
+}
+.csd-seminar-title img {
+margin-top:7px;
+}
+.csd-seminar-title2 {
+margin-left:185px;
+}
+.seminar-csdmain {
+width:400px;
 }
 .sem_info_speak li {
     margin-left: 0 !important;
@@ -304,6 +328,10 @@ margin-bottom:10px;
     margin-top: 0 !important;
     margin-bottom:1.5em;
 }
+.sem_listing2 h3 {
+    margin-right: 15px;
+    margin-top: 0 !important;
+}
 .sem_listing img {
 margin-top:3px;
 }
@@ -331,15 +359,38 @@ color:#EC006E;
 }
 .sem_listing {
     margin-top:15px;
-    -webkit-box-shadow: 3px 3px 3px 0 grey;
-    box-shadow: 3px 3px 3px 0 grey;
+    -webkit-box-shadow: 3px 3px 4px 2px grey;
+    box-shadow: 3px 3px 4px 2px grey;
     clear: both;
     display: inline-block !important;
     list-style: none outside none;
     margin-left: 0 !important;
-    padding-bottom: 10px;
-    width: 630px;
+    padding: 7px 5px;
+    width: 610px;
 }
+.sem_listing2 {
+    margin-top:15px;
+    -webkit-box-shadow: 3px 3px 4px 2px grey;
+    box-shadow: 3px 3px 4px 2px grey;
+    clear: both;
+    display: inline-block !important;
+    list-style: none outside none;
+    margin-left: 0 !important;
+    padding: 7px 5px;
+    width: 618px;
+}
+.sem_listing_csd {
+    margin-top:15px;
+    clear: both;
+    display: inline-block !important;
+    list-style: none outside none;
+    margin-left: 0 !important;
+    padding: 7px 5px;
+}
+.sem_listing_csd h3 {
+    margin-top:0;
+}
+
 .sem_listing img {
 float:left;
 margin-right:10px;
@@ -2397,8 +2448,8 @@ dl.portalMessage {
     height: 294px;
 }
 .section-sub-saharan-africa div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-ssa.jpg") repeat scroll 0 79px transparent;
-    height: 303px;
+    background: url("2nd-ssa.jpg") repeat scroll 0 74px transparent;
+    height: 298px;
 }
 .section-roots-and-tubers div#visual-portal-wrapper div#portal-top {
     background: url("2nd-rtas.jpg") repeat scroll 0 0 transparent;

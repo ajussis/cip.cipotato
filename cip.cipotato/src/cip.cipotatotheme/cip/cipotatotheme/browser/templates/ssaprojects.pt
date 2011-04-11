@@ -14,8 +14,6 @@
             <h1 tal:content="context/Title" class="page_title" />
 
             <div id="content-core">
-                <p>Here you can find some of the projects CIP has in Sub-Saharan Africa.</p>
-
                 <div id="accordion" class="boardmembers">
                     <span tal:replace="structure item/getText" />
                 </div>

@@ -150,15 +150,14 @@ li.globalSectionsItem a.globalSectionsFolderish {
     margin-bottom: 5px !important;
 }
 .globalSections {
-    background-image: url("menubackground.gif");
     border-color: grey;
     border-style: solid;
     border-width: 0 1px 1px;
     color: black;
     font-size: 90%;
+    opacity: 0.97;
     padding-bottom: 5px;
     z-index: 999;
-    opacity:0.95;
 }
 
 .globalSectionsLevel1 .globalSectionsItem {
@@ -1862,11 +1861,12 @@ display:block;
 }
 
 a:hover {
-    text-decoration:underline;
     color: #EC006E !important;
 }
 
-
+.portletStaticText {
+margin:20px;
+}
 /*------------------------------ICONS----------------------------*/
 
 .icons-on .contenttype-folder {
@@ -2448,7 +2448,11 @@ dl.portalMessage {
     height: 294px;
 }
 .section-sub-saharan-africa div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-ssa.jpg") repeat scroll 0 74px transparent;
+    background: url("2nd-ssa.jpg") repeat scroll 0 0 transparent;
+    height: 298px;
+}
+.section-sasha-program div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-sasha.jpg") repeat scroll 0 74px transparent;
     height: 298px;
 }
 .section-roots-and-tubers div#visual-portal-wrapper div#portal-top {

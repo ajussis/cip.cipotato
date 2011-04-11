@@ -65,6 +65,9 @@ $(document).ready(function() {
     if (pathname.search('capacity-strengthening')>0) {
         $("body").addClass("section-capacity-strengthening");
     };
+    if (pathname.search('sasha-program')>0) {
+        $("body").addClass("section-sasha-program");
+    };
 });
 </script>
 

@@ -60,6 +60,7 @@ div#tmpSlideshow {
     padding: 20px 0 0;
     position: relative;
     width: 755px;
+    z-index:0;
 }
  div.tmpSlide {
     background-position: 0 0;

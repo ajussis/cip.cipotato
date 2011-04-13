@@ -56,7 +56,7 @@
         <style type="text/css">
 div#tmpSlideshow {
     height: 281px;
-    margin: 23px 11px;
+    margin: 14px 11px;
     padding: 20px 0 0;
     position: relative;
     width: 755px;

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<action-icons>
+ <action-icon category="controlpanel" action_id="versioning" title="Versioning" priority="0" icon_expr="versioning.gif"/>
+ <action-icon category="object_buttons" action_id="xmlexport" title="Export" priority="0" icon_expr="++resource++gsxml.images/export_icon.png"/>
+ <action-icon category="object_buttons" action_id="xmlimport" title="Import" priority="0" icon_expr="++resource++gsxml.images/import_icon.png"/>
+ <action-icon category="controlpanel" action_id="PloneFormGen" title="PloneFormGen" priority="0" icon_expr="Form.gif"/>
+ <action-icon category="object_buttons" action_id="likebutton_enable" title="Show Like Button" priority="0" icon_expr="++resource++facebook_icon.png"/>
+ <action-icon category="object_buttons" action_id="likebutton_disable" title="Hide Like Button" priority="0" icon_expr="++resource++facebook_icon.png"/>
+ <action-icon category="controlpanel" action_id="fbconnect" title="Facebook Settings" priority="0" icon_expr="++resource++facebook_icon.png"/>
+</action-icons>

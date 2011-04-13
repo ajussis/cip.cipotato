@@ -22,12 +22,12 @@ def setupVarious(context):
         return
 
     # Add additional setup code here
-
+    
     portal = context.getSite()
 
     existing = portal.keys()
 
-    if 'cipnews' not in existing:
+    """if 'cipnews' not in existing:
         _createObjectByType('Topic', portal, id='cipnews', title='Latest News',
                             description='Show the latest news')
         theCollection = portal.cipnews
@@ -65,5 +65,5 @@ def setupVarious(context):
         theCriteria.setReversed('getId')
         type_crit = theCollection.addCriterion('Type','ATPortalTypeCriterion')
         type_crit.setValue(['Publication'])
-
-#    updateCatalog()
+    """
+    #    updateCatalog()

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<componentregistry>
+ <adapters>
+  <adapter name="MultilanguageBlobFileExtender"
+     factory="raptus.multilanguageplone.extender.file.BlobFileExtender"
+     for="plone.app.blob.interfaces.IATBlobFile"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageBlobImageExtender"
+     factory="raptus.multilanguageplone.extender.image.BlobImageExtender"
+     for="plone.app.blob.interfaces.IATBlobImage"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageDocumentExtender"
+     factory="raptus.multilanguageplone.extender.document.DocumentExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.document.ATDocument"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageEventExtender"
+     factory="raptus.multilanguageplone.extender.event.EventExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.event.ATEvent"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageFileExtender"
+     factory="raptus.multilanguageplone.extender.file.FileExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.file.ATFile"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageFolderExtender"
+     factory="raptus.multilanguageplone.extender.folder.FolderExtender"
+     for="zope.interface.declarations.plone.app.folder.folder.ATFolder"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageImageExtender"
+     factory="raptus.multilanguageplone.extender.image.ImageExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.image.ATImage"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageLinkExtender"
+     factory="raptus.multilanguageplone.extender.link.LinkExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.link.ATLink"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageNewsItemExtender"
+     factory="raptus.multilanguageplone.extender.newsitem.NewsItemExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.newsitem.ATNewsItem"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageTopicExtender"
+     factory="raptus.multilanguageplone.extender.topic.TopicExtender"
+     for="zope.interface.declarations.Products.ATContentTypes.content.topic.ATTopic"
+     provides="archetypes.schemaextender.interfaces.ISchemaExtender"/>
+  <adapter name="MultilanguageBlobFileModifier"
+     factory="raptus.multilanguageplone.extender.file.BlobFileModifier"
+     for="plone.app.blob.interfaces.IATBlobFile"
+     provides="archetypes.schemaextender.interfaces.ISchemaModifier"/>
+  <adapter name="MultilanguageBlobImageModifier"
+     factory="raptus.multilanguageplone.extender.image.BlobImageModifier"
+     for="plone.app.blob.interfaces.IATBlobImage"
+     provides="archetypes.schemaextender.interfaces.ISchemaModifier"/>
+  <adapter
+     factory="Solgema.PortletsManager.exportimport.SolgemaPortletAssignmentImportExportHandler"
+     for="zope.interface.Interface"
+     provides="plone.app.portlets.exportimport.interfaces.IPortletAssignmentExportImportHandler"/>
+  <adapter
+     factory="Solgema.PortletsManager.portlets.retriever.SolgemaPortletRetriever"
+     for="zope.interface.Interface
+           plone.portlets.interfaces.IPortletManager"
+     provides="plone.portlets.interfaces.IPortletRetriever"/>
+ </adapters>
+ <subscribers/>
+ <utilities>
+  <utility interface="Products.ATContentTypes.interfaces.interfaces.IATCTTool"
+     object="portal_atct"/>
+  <utility interface="Products.CMFActionIcons.interfaces.IActionIconsTool"
+     object="portal_actionicons"/>
+  <utility interface="Products.CMFCore.interfaces.IDiscussionTool"
+     object="portal_discussion"/>
+  <utility interface="Products.CMFCore.interfaces.IMetadataTool"
+     object="portal_metadata"/>
+  <utility interface="Products.CMFCore.interfaces.IPropertiesTool"
+     object="portal_properties"/>
+  <utility interface="Products.CMFCore.interfaces.ISiteRoot" object=""/>
+  <utility interface="Products.CMFCore.interfaces.ISyndicationTool"
+     object="portal_syndication"/>
+  <utility interface="Products.CMFCore.interfaces.IUndoTool"
+     object="portal_undo"/>
+  <utility interface="Products.CMFDiffTool.interfaces.IDiffTool"
+     object="portal_diff"/>
+  <utility interface="Products.CMFPlone.interfaces.interface.IInterfaceTool"
+     object="portal_interface"/>
+  <utility interface="Products.CMFPlone.interfaces.migration.IMigrationTool"
+     object="portal_migration"/>
+  <utility interface="Products.CMFPlone.interfaces.siteroot.IPloneSiteRoot"
+     object=""/>
+  <utility
+     interface="Products.CMFUid.interfaces.IUniqueIdAnnotationManagement"
+     object="portal_uidannotation"/>
+  <utility interface="Products.CMFUid.interfaces.IUniqueIdGenerator"
+     object="portal_uidgenerator"/>
+  <utility interface="Products.MailHost.interfaces.IMailHost"
+     object="MailHost"/>
+  <utility
+     interface="Products.MimetypesRegistry.interfaces.IMimetypesRegistryTool"
+     object="mimetypes_registry"/>
+  <utility
+     interface="Products.PortalTransforms.interfaces.IPortalTransformsTool"
+     object="portal_transforms"/>
+  <utility interface="Products.TinyMCE.interfaces.utility.ITinyMCE"
+     object="portal_tinymce"/>
+  <utility interface="five.customerize.interfaces.IViewTemplateContainer"
+     object="portal_view_customizations"/>
+  <utility interface="plone.app.i18n.locales.interfaces.IContentLanguages"
+     object="plone_app_content_languages"/>
+  <utility interface="plone.app.i18n.locales.interfaces.ICountries"
+     object="plone_app_countries"/>
+  <utility interface="plone.app.i18n.locales.interfaces.IMetadataLanguages"
+     object="plone_app_metadata_languages"/>
+  <utility factory="plone.app.redirector.storage.RedirectionStorage"
+     interface="plone.app.redirector.interfaces.IRedirectionStorage"/>
+  <utility factory="plone.app.viewletmanager.storage.ViewletSettingsStorage"
+     interface="plone.app.viewletmanager.interfaces.IViewletSettingsStorage"/>
+  <utility name="Solgema.PortletsManager"
+     factory="zope.interface.interface.InterfaceClass"
+     id="ISolgemaPortletsManagerLayer"
+     interface="plone.browserlayer.interfaces.ILocalBrowserLayerType"/>
+  <utility name="plone.app.z3cform"
+     factory="zope.interface.interface.InterfaceClass" id="IPloneFormLayer"
+     interface="plone.browserlayer.interfaces.ILocalBrowserLayerType"/>
+  <utility name="quintagroup.dropdownmenu"
+     factory="zope.interface.interface.InterfaceClass" id="IDropDownMenuLayer"
+     interface="plone.browserlayer.interfaces.ILocalBrowserLayerType"/>
+  <utility name="simplesocial"
+     factory="zope.interface.interface.InterfaceClass" id="IBrowserLayer"
+     interface="plone.browserlayer.interfaces.ILocalBrowserLayerType"/>
+  <utility factory="plone.contentrules.engine.storage.RuleStorage"
+     interface="plone.contentrules.engine.interfaces.IRuleStorage"/>
+  <utility factory="plone.keyring.keymanager.KeyManager"
+     interface="plone.keyring.interfaces.IKeyManager"/>
+  <utility interface="plone.registry.interfaces.IRegistry"
+     object="portal_registry"/>
+  <utility name="collective.flowplayer.interfaces.IFlowPlayerSite"
+     factory="zope.interface.interface.InterfaceClass" id="IFlowPlayerSite"
+     interface="zope.interface.interfaces.IInterface"/>
+  <utility factory="zope.ramcache.ram.RAMCache"
+     interface="zope.ramcache.interfaces.ram.IRAMCache"/>
+ </utilities>
+</componentregistry>

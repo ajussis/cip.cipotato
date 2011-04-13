@@ -11,12 +11,12 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:importStep
+  <!--genericsetup:importStep
       name="cip.cipotatotheme.various"
       title="Theme for CIPotato.org: miscellaneous import steps"
       description="Various import steps that are not handled by GS import/export handlers."
       handler="cip.cipotatotheme.setuphandlers.setupVarious">
     <depends name="skins"/>
-  </genericsetup:importStep>
+  </genericsetup:importStep-->
 
 </configure>

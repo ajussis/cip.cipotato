@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layers name="" meta_type="ComponentRegistry">
+ <layer name="plone.app.z3cform"
+    interface="plone.app.z3cform.interfaces.IPloneFormLayer"/>
+ <layer name="simplesocial"
+    interface="collective.simplesocial.browser.interfaces.IBrowserLayer"/>
+ <layer name="Solgema.PortletsManager"
+    interface="Solgema.PortletsManager.interfaces.ISolgemaPortletsManagerLayer"/>
+ <layer name="quintagroup.dropdownmenu"
+    interface="quintagroup.dropdownmenu.interfaces.IDropDownMenuLayer"/>
+</layers>

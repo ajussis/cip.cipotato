@@ -14,7 +14,8 @@ class SeminarsmainView(BrowserView):
         yeardict = {}
         resultsfinal = []
         #import pdb; pdb.set_trace()
-        results = self.context.portal_catalog.searchResults(path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="Date")[:2]
+        results = self.context.portal_catalog.searchResults(path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar")[:2]
+        #results = self.context.portal_catalog.searchResults(path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="Date")[:2]
         return results
         """        for i in results:
             yearobj = i.getObject().getSeminardate()

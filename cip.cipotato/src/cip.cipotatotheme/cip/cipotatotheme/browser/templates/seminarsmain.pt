@@ -25,11 +25,9 @@
                                     <tal:num define="s repeat/sem/number">
                                         <tal:defs define="item_url sem/getURL;
                                                           item_object sem/getObject;
-                                                          sem_date python:item_object.getSeminardate();
-                                                          sem_speaker python:item_object.getSpeaker();
                                                           canEdit python:checkPermission('Modify portal content', here);">
                                             <span class="sem_date">
-                                                <tal:date replace="sem_date" />
+                                                <tal:date replace="item_object/seminardate" />
                                             </span>
                                             <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
                                             <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
@@ -37,7 +35,7 @@
                                             </a>
                                             <ul class="sem_info_speak2">
                                                 <li>
-                                                    <tal:date replace="sem_speaker" />
+                                                    <tal:date replace="item_object/speaker" />
                                                 </li>
                                             </ul>
                                         </tal:defs>

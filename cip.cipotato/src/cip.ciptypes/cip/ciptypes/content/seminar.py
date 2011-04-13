@@ -9,6 +9,7 @@ from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from plone.app.blob.field import BlobField, ImageField
 from Products.CMFCore.permissions import View
+from AccessControl import ClassSecurityInfo
 
 # -*- Message Factory Imported Here -*-
 from cip.ciptypes import ciptypesMessageFactory as _
@@ -39,6 +40,7 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description=_(u"Add the date when the seminar is being held"),
         ),
         validators=('isValidDate'),
+        index="FieldIndex:schema",
     ),
 
     atapi.ImageField(
@@ -63,6 +65,8 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label=_(u"Audio"),
             description=_(u"Audio"),
         ),
+        index="FieldIndex:schema",
+        index_method="hasAudio",
     ),
 
     BlobField(
@@ -71,6 +75,8 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label=_(u"Presentation"),
             description=_(u"Presentation"),
         ),
+        index="FieldIndex:schema",
+        index_method="hasPresentation",
     ),
 
 
@@ -80,6 +86,8 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label=_(u"Abstract"),
             description=_(u"Abstract"),
         ),
+        index="FieldIndex:schema",
+        index_method="hasAbstract",
     ),
 
 
@@ -89,6 +97,8 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             label=_(u"Biography"),
             description=_(u"Biography"),
         ),
+        index="FieldIndex:schema",
+        index_method="hasBiography",
     ),
 
 
@@ -135,6 +145,45 @@ class Seminar(folder.ATFolder):
     seminardate = atapi.ATFieldProperty('seminardate')
 
     speaker = atapi.ATFieldProperty('speaker')
+
+    security = ClassSecurityInfo()
+    
+    security.declarePublic('hasAudio')
+    def hasAudio(self):
+        """This method returns true or false depending on whether the object has this field for the catalog"""
+
+        result = 0
+        if (len(self['audio']) != 0):
+            result = 1
+        return result
+
+    security.declarePublic('hasPresentation')
+    def hasPresentation(self):
+        """This method returns true or false depending on whether the object has this field for the catalog"""
+
+        result = 0
+        if (len(self['presentation']) != 0):
+            result = 1
+        return result
+
+    security.declarePublic('hasBiography')
+    def hasBiography(self):
+        """This method returns true or false depending on whether the object has this field for the catalog"""
+
+        result = 0
+        if (len(self['biography']) != 0):
+            result = 1
+        return result
+
+    security.declarePublic('hasAbstract')
+    def hasAbstract(self):
+        """This method returns true or false depending on whether the object has this field for the catalog"""
+
+        result = 0
+        if (len(self['abstract']) != 0):
+            result = 1
+        return result
+
 
 
 atapi.registerType(Seminar, PROJECTNAME)

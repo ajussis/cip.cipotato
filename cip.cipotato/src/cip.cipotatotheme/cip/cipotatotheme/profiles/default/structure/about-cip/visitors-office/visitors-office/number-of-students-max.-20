@@ -1,0 +1,45 @@
+id: number-of-students-max.-20
+title: Number of students (max. 20)
+description: 
+required: False
+fgTDefault: 
+fgTValidator: python:False
+fgTEnabled: 
+fgDefault: 
+fgVocabulary: 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  12
+  13
+  14
+  15
+  16
+  17
+  18
+  19
+  20
+fgTVocabulary: 
+fgFormat: select
+subject: 
+relatedItems: 
+location: 
+language: en
+effectiveDate: None
+expirationDate: None
+creation_date: 2011/03/08 00:49:42.363107 GMT-5
+modification_date: 2011/04/11 02:25:20.893012 UTC
+creators: admin
+contributors: 
+rights: 
+allowDiscussion: False
+excludeFromNav: False
+Content-Type: text/plain
+

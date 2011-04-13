@@ -1,0 +1,197 @@
+id: nutrition
+title: Nutrition
+description: 
+subject: 
+relatedItems: 
+location: 
+language: en
+effectiveDate: 2011/02/22 12:00:00 UTC
+expirationDate: None
+creation_date: 2011/02/22 07:57:40.714506 GMT-5
+modification_date: 2011/04/04 06:02:45.755532 UTC
+creators: admin
+contributors: 
+rights: 
+allowDiscussion: False
+excludeFromNav: False
+presentation: False
+tableContents: False
+Content-Type: text/html
+
+<p><span id="internal-source-marker_0.0050882757641375065">Potatoes are an excellent, low-fat source of carbohydrates, with one-fourth the calories of bread. Boiled, they have more protein than maize and nearly twice the calcium. An average serving of potatoes with the skin on provides about 10 percent of the recommended daily intake of fiber.</span><span></span></p>
+<p><span>Potato can have white, yellow, pink, red, purple, or even blue flesh. Yellow flesh is primarily due to the presence of carotenoids, and red, purple, and blue flesh, to anthocyanins. Both are antioxidants and believed to play an important role in preventing cancer and diseases related to ageing. The amount of micronutrients (vitamins and minerals) varies, depending on flesh color.</span><span></span></p>
+<p><span>Average micronutrient content of potato based on flesh color</span><span></span></p>
+<table class="grid listing">
+<colgroup><col width="223"></col><col width="131"></col><col width="135"></col><col width="135"></col></colgroup> 
+<tbody>
+<tr>
+<td><span></span><br /></td>
+<td>
+<p style="text-align: center; "><span>Cream flesh</span><span></span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>Yellow flesh</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>Purple flesh</span><span></span></p>
+</td>
+</tr>
+<tr>
+<td><span>Minerals</span><span></span></td>
+<td><span></span><br /></td>
+<td><span></span><br /></td>
+<td><span></span><br /></td>
+</tr>
+<tr>
+<td><span>Iron (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>0.4</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>0.41</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>0.4</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Zinc (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>0.3</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>0.34</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>0.3</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Calcium (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>4.8</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>5.37</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>2.4</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Potassium (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>443</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>461</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>422</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Phosphorus (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>50</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>52</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>44</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Antioxidants</span><span></span></td>
+<td><span></span><br /></td>
+<td><span></span><br /></td>
+<td><span></span><br /></td>
+</tr>
+<tr>
+<td><span>Vitamin C (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>16.6</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>18.6</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>12</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Total carotenoids (μg)</span></td>
+<td>
+<p style="text-align: center; "><span>228</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>784</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>—</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Lutein (μg)</span></td>
+<td>
+<p style="text-align: center; "><span>87</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>112</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>—</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Zeaxanthin (μg)</span></td>
+<td>
+<p style="text-align: center; "><span>13</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>590</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>—</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Beta-carotene (μg)</span></td>
+<td>
+<p style="text-align: center; "><span>16</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>8</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>—</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Total phenolic compounds (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>30</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>95</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>550</span></p>
+</td>
+</tr>
+<tr>
+<td><span>Total antocyanins (mg)</span></td>
+<td>
+<p style="text-align: center; "><span>—</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>—</span></p>
+</td>
+<td>
+<p style="text-align: center; "><span>200</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><br /><span>Per 100 grams of fresh-weight potato.</span><br /><span>Source: Quality and Nutrition Lab, CIP</span></p>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<zodb-groups title="">
+ <group group_id="Administrators" title="Administrators" description="">
+  <principal principal_id="lisa"/>
+ </group>
+ <group group_id="Reviewers" title="Reviewers" description="">
+ </group>
+</zodb-groups>

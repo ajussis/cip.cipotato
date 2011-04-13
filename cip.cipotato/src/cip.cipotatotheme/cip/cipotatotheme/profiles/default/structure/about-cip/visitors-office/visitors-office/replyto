@@ -1,0 +1,28 @@
+id: replyto
+title: Your E-Mail Address
+description: 
+required: True
+hidden: False
+fgTDefault: here/memberEmail
+fgTValidator: python:False
+fgTEnabled: 
+serverSide: False
+fgDefault: dynamically overridden
+fgmaxlength: 255
+fgsize: 30
+fgStringValidator: isEmail
+subject: 
+relatedItems: 
+location: 
+language: en
+effectiveDate: None
+expirationDate: None
+creation_date: 2011/03/08 00:40:14.644905 GMT-5
+modification_date: 2011/04/11 02:25:20.677486 UTC
+creators: admin
+contributors: 
+rights: 
+allowDiscussion: False
+excludeFromNav: False
+Content-Type: text/plain
+

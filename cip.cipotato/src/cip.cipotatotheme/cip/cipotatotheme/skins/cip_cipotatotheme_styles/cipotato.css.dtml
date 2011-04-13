@@ -395,6 +395,11 @@ color:#EC006E;
 float:left;
 margin-right:10px;
 }
+.sem_listing_csd img {
+float:left;
+margin-right:10px;
+}
+
 .seminarblock {
 clear:both;
 margin-bottom:20px;
@@ -596,6 +601,17 @@ float:left;
 .cip-in-the-news {
 float:left;
 margin-top:-15px;
+}
+.press-video-social {
+    float: left;
+    margin-left: 15px;
+    margin-top: -15px;
+    width: 310px;
+}
+.cip-in-the-news-press {
+float:left;
+margin-top:-15px;
+width:300px;
 }
 .cip-in-the-news h1 {
 margin-bottom:10px !important;
@@ -2193,17 +2209,27 @@ margin-top:-15px;
 .cip-news-press {
 margin-right:4%;
 margin-top:15px;
+margin-bottom:30px;
 }
-
+.press-media-ul {
+margin-top:10px;
+}
 #content li.cip-news-li {
 display:list-item;
 list-style:square;
 margin-left:28px;
 }
-
+.press-video {
+margin:10px 0;
+}
 p.cip-news-p {
 text-align:left;
 clear:both;
+}
+.cip-news-p-press {
+text-align:left;
+clear:both;
+margin-top:10px;
 }
 .cip-news-li {
 list-style:none;
@@ -2237,6 +2263,19 @@ margin-left:0 !important;
     text-align: left;
     width: 100%;
 }
+
+.press-cip-front-social {
+    color: white;
+    display: block;
+    float: left;
+    font-size: 17px;
+    margin: 0 -10px -15px;
+    padding: 12px 0 0 5px;
+    text-align: left;
+    width: 100%;
+}
+
+
 
 .front-social-blocks  {
 }
@@ -2889,16 +2928,18 @@ display:block !important;
 text-decoration:none;
 color:white !important;
 }
-
 #slider1 li {
 margin-left:0px !important;
 }
-
+.cip-news-p-press a {
+    font-size: 1.5em;
+}
+.cip-news-p-press p {
+text-align:justify;
+}
 .cip-news-p a {
     font-size: 1.5em;
 }
-
-
 .cip-front1 li {
 display:block;
 margin-left:0 !important;
@@ -2986,6 +3027,35 @@ public.css (line 475)
 
 
 
+.press-cip-front-social #nav-shadow {
+    list-style: none outside none;
+    margin: 0 auto 0;
+    min-height: 50px;
+    padding: 0 0 0 0;
+    text-align: center;
+    width: 382px;
+}
+
+.press-cip-front-social #nav-shadow li {
+    float: left;
+    height: 50px;
+    margin-left: 0 !important;
+    margin-right: 6px;
+    position: relative;
+    width: 45px;
+}
+.press-cip-front-social #nav-shadow a, #nav-shadow a:visited, #nav-shadow a, #nav-shadow a:hover {
+    border: 0 none;
+    display: block;
+    height: 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 59px;
+    z-index: 2;
+}
+
+
 
 .forth-column #nav-shadow {
     list-style: none outside none;
@@ -3011,8 +3081,15 @@ public.css (line 475)
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    width: 174px;
+/*    width: 174px;*/
     z-index: 2;
+}
+
+.front-papatube a {
+width:174px !important;
+}
+.front-newsletter a {
+width:174px !important;
 }
 
 .forth-column #nav-shadow a.firsticon, #nav-shadow a.firsticon:visited, #nav-shadow a.firsticon, #nav-shadow a.firsticon:hover {

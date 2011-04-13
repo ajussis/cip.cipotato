@@ -4,8 +4,7 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="cipnews python: getattr(context, 'cipnews');
-                                cipinthenews python:getattr(context, 'cipinthenews');
-                                featured python:getattr(context, 'featured');
+                                cipinthenews python:getattr(context, 'cipinthenews2');
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
             <h1 tal:content="context/Title" class="page_title" />
@@ -61,11 +60,10 @@
             <div class="lineBreak"></div>
 
             <div class="cip-news-press">
-                <!--img src="news-from-cip-title.jpg" class="news-from-cip"/-->
                 <h1>Latest news</h1>
                 <tal:defs define="n cipnews/queryCatalog;
                                   n python:n[:2]">
-                    <div class="cip-news-p" tal:repeat="m n">
+                    <div class="cip-news-p-press" tal:repeat="m n">
                         <a href="#"
                             tal:define="item_object m/getObject;
                                         item_url m/getURL;"
@@ -90,9 +88,9 @@
                 </tal:defs>
             </div>
 
-            <!--div class="cip-in-the-news">
-                <img src="cip-in-the-media.jpg" class="cip-in-the-media">
-                <ul tal:define="n cipinthenews/queryCatalog">
+            <div class="cip-in-the-news-press">
+                <h1>CIP in the media</h1>
+                <ul class="press-media-ul" tal:define="n cipinthenews/queryCatalog">
                     <li class="cip-news-li" tal:repeat="m n">
                         <tal:defs2 define="item_object m/getObject;
                                            item_url m/getURL;">
@@ -116,14 +114,65 @@
                         </tal:defs2>
                     </li>
                 </ul>
-                <div class="cip-front-social">
-                    <img src="front-facebook.jpg" class="front-social-blocks" />
-                    <img src="front-flickr.jpg" class="front-social-blocks" />
-                    <img src="front-slideshare.jpg" class="front-social-blocks" />
-                    <img src="front-yammer.jpg" class="front-social-blocks" />
-                    <img src="front-youtube.jpg" class="front-social-blocks" />
+            </div>
+            <div class="press-video-social">
+                <h1>Social media</h1>
+                <div class="press-video">
+                    <iframe title="YouTube video player" width="300" height="255" src="http://www.youtube.com/embed/RnqCrTaEYiU" frameborder="0" allowfullscreen></iframe>                </div>
+                <div class="press-cip-front-social">
+                    <ul id="nav-shadow">
+                        <li class="button-color-1"><a href="#" title="CIP in Facebook"><img src="br-front-facebook.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-2"><a href="#" title="CIP in Twitter"><img src="br-front-twitter.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-3"><a href="#" title="CIP in Flickr"><img src="br-front-flickr.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-4"><a href="#" title="CIP in Slideshare"><img src="br-front-slideshare.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-5"><a href="#" title="CIP blogs"><img src="br-front-cipblogs.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-6"><a href="#" title="CIP in Youtube"><img src="br-front-youtube.jpg" class="front-social-blocks" /></a></li>
+                    </ul>
                 </div>
-            </div-->
+            </div>
+
+            <div id="content-core">
+                <div>
+                </div>
+                <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(0)">
+                    <h1>Latest seminars</h1>
+                    <div class="seminartitles">
+                        <ul>
+                            <li class="sem_listing_csd" tal:repeat="sem seminars">
+                                <tal:num define="s repeat/sem/number">
+                                    <tal:defs define="item_url sem/getURL;
+                                                      item_object sem/getObject;
+                                                      img_thumb python:item_url+'/image_thumb';
+                                                      sem_date python:item_object.getSeminardate();
+                                                      sem_speaker python:item_object.getSpeaker();
+                                                      abs python:item_url+'/at_download/abstract';
+                                                      vid python:item_url+'/at_download/audio';
+                                                      bio python:item_url+'/at_download/biography';
+                                                      pre python:item_url+'/at_download/presentation';
+                                                      canEdit python:checkPermission('Modify portal content', here);">
+                                        <img src="#" tal:attributes="src img_thumb" />
+                                        <span class="sem_date">
+                                            <tal:date replace="sem_date" />
+                                        </span>
+                                        <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
+                                        <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
+                                            <h3 tal:content="sem/pretty_title_or_id"></h3>
+                                        </a>
+                                        <ul class="sem_info_speak2">
+                                            <li>
+                                                <tal:date replace="sem_speaker" />
+                                            </li>
+                                        </ul>
+                                    </tal:defs>
+                                </tal:num>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="../resources/capacity-strengthening/seminars/">
+                        <h2>See all...</h2>
+                    </a>
+                </div>
+            </div>
 
         </metal:main>
     </metal:main_macro>

@@ -258,3 +258,29 @@ class CsdView(BrowserView):
     def getYear(self):
         return str(datetime.now())[:4]
 
+class PressroomView(BrowserView):
+    """Default view of the CSD main page
+    """
+    __call__ = ViewPageTemplateFile('templates/pressroom.pt')
+
+    def getSeminarsyear(self,yesno):
+        yeardict = {}
+        resultsfinal = []
+        #import pdb; pdb.set_trace()
+        #datenow = (datetime.now()).isocalendar()
+        now = DateTime.DateTime()
+        #self.context.getPlace()
+        if (yesno == 1):
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
+        else:
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
+        #Date={"query": datenow, "range": "min"},
+        #getSeminardate="2011",
+        #p self.context.portal_catalog.searchResults ()
+        return results
+
+        #m = str(datenow[0])+'/'+str(datenow[1])+'/'+str(datenow[2])
+
+    def getYear(self):
+        return str(datetime.now())[:4]
+

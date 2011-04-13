@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<layers name="" meta_type="ComponentRegistry">
- <layer name="quintagroup.dropdownmenu"
-    interface="quintagroup.dropdownmenu.interfaces.IDropDownMenuLayer"/>
- <layer name="plone.app.z3cform"
-    interface="plone.app.z3cform.interfaces.IPloneFormLayer"/>
-</layers>

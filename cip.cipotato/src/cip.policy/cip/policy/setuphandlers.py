@@ -35,6 +35,7 @@ def add_catalog_indexes(context, logger=None):
               ('getPosition', 'FieldIndex'),
               ('getEmail', 'FieldIndex'),
               ('getTel', 'FieldIndex'),
+              ('getSeminardate', 'FieldIndex'),
               ('getHead', 'FieldIndex'),
               ('getPubcode', 'FieldIndex'),
               ('getJobsdate', 'DateIndex'),

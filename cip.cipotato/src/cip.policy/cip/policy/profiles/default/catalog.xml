@@ -96,6 +96,9 @@
  <index name="getSubsection" meta_type="FieldIndex">
   <indexed_attr value="getSubsection"/>
  </index>
+ <index name="getSeminardate" meta_type="FieldIndex">
+  <indexed_attr value="getSeminardate"/>
+ </index>
  <index name="getTel" meta_type="FieldIndex">
   <indexed_attr value="getTel"/>
  </index>
@@ -158,6 +161,7 @@
  <column value="getIcon"/>
  <column value="getId"/>
  <column value="getObjSize"/>
+ <column value="getSeminardate"/>
  <column value="getPosition"/>
  <column value="getRemoteUrl"/>
  <column value="getTel"/>

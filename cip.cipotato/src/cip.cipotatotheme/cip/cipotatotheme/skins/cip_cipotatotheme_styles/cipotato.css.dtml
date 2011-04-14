@@ -3142,14 +3142,15 @@ margin-right:30px;
 
 #content .pullquote {
     clear: right;
-    color: #6C6767;
+    color: #581A74;
     float: right;
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-weight: bold;
-    letter-spacing: -0.08em !important;
+    letter-spacing: 0.05em !important;
     line-height: 1.25em;
-    margin: 0 1em 0.5em;
-    width: 35%;
+    margin: 0 0 0.5em 1em;
+    text-align: right;
+    width: 29%;
 }
 
 

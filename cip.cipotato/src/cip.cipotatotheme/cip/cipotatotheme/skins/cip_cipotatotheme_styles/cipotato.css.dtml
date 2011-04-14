@@ -427,12 +427,6 @@ dl#document-toc ol {
 #side_bar {
 
 }
-.side_bar {
-width:15%;
-float:left;
-margin:10px;
-}
-
 
 #portal-personaltools {
 background:none;
@@ -3256,6 +3250,7 @@ margin-right:30px;
 		padding:0;
 		float:left;
 		list-style:none;
+
 		height:28px;
 		line-height:28px;
 		}
@@ -3274,6 +3269,27 @@ margin-right:30px;
 		color:#fff;
 		}
 	ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
+
+        #map {
+        width: 650px;
+        height: 320px;
+        }
+.side_bar {
+    float: left;
+    margin: 10px;
+    width: 150px;
+}
+.side_bar_main {
+width:700px;
+}
+.side_bar a {
+    border-bottom:1px solid grey !important;
+}
+.side_bar li {
+margin-left:10px !important;
+text-align:left;
+}
+
 
 /* // Easy Slider */
 /* </dtml-with> */

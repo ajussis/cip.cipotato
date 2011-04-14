@@ -1,12 +1,255 @@
 <html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
-                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main">
 
+            <style type="text/css">
+                table.org {
+                border-width: 0px;
+                border-spacing: ;
+                border-style: outset;
+                border-color: ;
+                border-collapse: separate;
+                background-color: white;
+                }
+                table.org th {
+                border-width: 0px;
+                padding: 4px;
+                border-style: inset;
+                border-color: gray;
+                background-color: rgb(244, 235, 245);
+                -moz-border-radius: ;
+                }
+                table.org td {
+                background-color: #F4EBF5;
+                border-color: white;
+                border-style: solid;
+                border-width: 0 10px;
+                padding: 4px 6px;
+                }
+                table.org tr.big {
+                border-bottom: 20px solid white;
+                }
+                table.org tr.small {
+                border-bottom: 10px solid white;
+                }
+                table.org span {
+                font-weight:bold;
+                font-size:14px;
+                }
+                td.org1 {
+                width:160px;
+                }
+                td.org2 {
+                width:170px;
+                }
+                td.org3 {
+                width:170px;
+                }
+                td.blank {
+                background-color:white !important;
+                }
+                tr.bordertop {
+                padding:0 !important;
+                border:0 !important;
+                }
+                tr.bordertop td {
+                padding:0 !important;
+                background: none repeat scroll 0 0 white !important;
+                border:0 !important;
+                }
+                hr.border {
+                background: none repeat scroll 0 0 #6C1A7D !important;
+                border: 0 none;
+                float: left;
+                height: 2px;
+                margin-left: 175px;
+                width: 467px;
+                }
+                hr.border2 {
+                background: none repeat scroll 0 0 #6C1A7D !important;
+                border: 0 none;
+                float: left;
+                height: 2px;
+                margin-left: 175px;
+                width: 213px;
+                }
+            </style>
 
+            <h1>Organizational chart</h1>
 
+            <table class="org">
+                <tr class="bordertop">
+                    <td colspan="5"><hr class="border" /></td>
+                </tr>
+                <tr class="big">
+                    <td class="org1">
+                        <span>Director General</span>
+                        <br />Pamela K. Anderson
+                    </td>
+                    <td colspan="2" class="org2">
+                        <span>Communications and Public Awareness Dept</span>
+                        <br />Head: Valerie Gwinner
+                    </td>
+                    <td colspan="2" class="org3">
+                        <span>External Relations</span>
+                        <br />Mariella Altet
+                    </td>
+                </tr>
+                <tr class="bordertop">
+                    <td colspan="5"><hr class="border2" /></td>
+                </tr>
+                <tr class="big">
+                    <td>
+                        <span>DDG for Strategy and Corporate Development</span>
+                        Carlos Alonso
+                    </td>
+                    <td colspan="2">
+                        <span>Human Resources Services</span>
+                        Head: Ulrica Martinius (as of July 1, 2011)
+                    </td>
+                </tr>
+                <tr class="bordertop">
+                    <td colspan="5"><hr class="border" /></td>
+                </tr>
+                <tr class="small">
+                    <td>
+                        <span>DDG for Research</span>
+                        Paolo Donini (as of July 1, 2011)
+                    </td>
+                    <td>
+                        <span>Research Divisions</span>
+                    </td>
+                    <td>
+                        <span>Partnership Programs</span>
+                    </td>
+                    <td>
+                        <span>Regional Offices</span>
+                    </td>
+                    <td>
+                        <span>Research Support</span>
+                    </td>
+                </tr>
+                <tr class="small">
+                    <td>
+                        <span>Executive Officer for Research</span>
+                        Philippe Monneveux
+                    </td>
+                    <td>
+                        <span>Genetic Resources</span>
+                        Leader: David Tay
+                    </td>
+                    <td>
+                        <span>VITAA</span>
+                        Coordinator: Esi Amouful
+                    </td>
+                    <td>
+                        <span>Sub-Saharan Africa (SSA)</span>
+                        Regional Leader: Dorvin Stockdale
+                    </td>
+                    <td>
+                        <span>Germplasm and Distribution Unit</span>
+                        Leader: Janny Van Been
+                    </td>
+                </tr>
+                <tr class="small">
+                    <td class="blank">
+                    </td>
+                    <td>
+                        <span>Genetic Enhancement</span>
+                        Leader: Merideth Bonierbale
+                    </td>
+                    <td>
+                        <span>Papa Andina</span>
+                        Coordinator: André Devaux
+                    </td>
+                    <td>
+                        <span>South, West and Central Asia (SWCA)</span>
+                        Regional Leader: Dindo Campilan
+                    </td>
+                    <td>
+                        <span>Applied Biotechnology Laboratory</span>
+                        Leader: Marc Ghislain
+                    </td>
+                </tr>
+                <tr class="small">
+                    <td class="blank">
+                    </td>
+                    <td>
+                        <span>Integrated Crop Management and Production Systems</span>
+                        Leader: Oscar Ortiz
+                    </td>
+                    <td>
+                        <span>UPWARD</span>
+                        Coordinator: Dindo Campilan
+                    </td>
+                    <td>
+                        <span>East, and Southeast Asia and the Pacific (ESEAP)</span>
+                        Regional Leader: Dindo Campilan
+                    </td>
+                    <td>
+                        <span>Research Informatics Unit</span>
+                        <br />Leader: Reinhard Simon
+                    </td>
+                </tr>
+                <tr class="small">
+                    <td class="blank">
+                    </td>
+                    <td>
+                        <span>Integrated Social and Health Sciences</span>
+                        Leader: Graham Thiele
+                    </td>
+                    <td>
+                        <span>CONDESAN</span>
+                        Coordinator: Miguel Saravia
+                    </td>
+                    <td class="blank">
+                    </td>
+                    <td>
+                        <span>Capacity Strengthening Dept</span>
+                    </td>
+                </tr>
+                <tr class="small">
+                    <td class="blank">
+                    </td>
+                    <td class="blank">
+                    </td>
+                    <td class="blank">
+                    </td>
+                    <td class="blank">
+                    </td>
+                    <td>
+                        <span>Library</span>
+                        Head: Cecilia Ferreyra
+                    </td>
+                </tr>
+                <tr class="bordertop">
+                    <td colspan="5"><hr class="border" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Director of Finance and Administration</span>
+                        Carlos Alonso
+                    </td>
+                    <td>
+                        <span>Finance</span>
+                        Head: Amalia Perochena
+                    </td>
+                    <td>
+                        <span>Grants & Contracts</span>
+                        Head: Michelle Rodrigo
+                    </td>
+                    <td>
+                        <span>Information Technology Unit</span>
+                        Head: Carlos Varela da Silva (as of May 1, 2011)
+                    </td>
+                    <td>
+                        <span>Administration</span>
+                        Head: Eduardo Ferreyra
+                    </td>
+                </tr>
+            </table>
         </metal:main>
     </metal:main_macro>
 </html>

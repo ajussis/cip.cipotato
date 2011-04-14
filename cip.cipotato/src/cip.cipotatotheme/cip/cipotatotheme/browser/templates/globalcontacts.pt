@@ -8,18 +8,19 @@
             <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;" type="text/javascript"></script>
 
 
-            <div id="map" style="width: 650px; height: 320px"></div>
+            <div id="map" class="contactmap"></div>
             <form action="#">
-                Latin America: <input type="checkbox" id="area1box" onclick="boxclick(this,'area1')" /> &nbsp;&nbsp;
-                Africa: <input type="checkbox" id="area2box" onclick="boxclick(this,'area2')" /> &nbsp;&nbsp;
-                Asia: <input type="checkbox" id="area3box" onclick="boxclick(this,'area3')" /><br />
-                Europe: <input type="checkbox" id="area4box" onclick="boxclick(this,'area4')" /><br />
+                <input type="hidden" id="area1box" onclick="boxclick(this,'area1')" />
+                <input type="hidden" id="area2box" onclick="boxclick(this,'area2')" />
+                <input type="hidden" id="area3box" onclick="boxclick(this,'area3')" />
+                <input type="hidden" id="area4box" onclick="boxclick(this,'area4')" />
             </form>
-            <div class="side_bar" id="side_bar1"></div>
-            <div class="side_bar" id="side_bar2"></div>
-            <div class="side_bar" id="side_bar3"></div>
-            <div class="side_bar" id="side_bar4"></div>
-
+            <div class="side_bar_main">
+                <div class="side_bar" id="side_bar1"></div>
+                <div class="side_bar" id="side_bar2"></div>
+                <div class="side_bar" id="side_bar3"></div>
+                <div class="side_bar" id="side_bar4"></div>
+            </div>
 
             <script type="text/javascript">
             //<![CDATA[
@@ -96,30 +97,30 @@
 
               // == rebuilds the sidebar to match the markers currently displayed ==
               function makeSidebar() {
-                var html1 = "";
-                var html2 = "";
-                var html3 = "";
-                var html4 = "";
+                var html1 = "<ul>";
+                var html2 = "<ul>";
+                var html3 = "<ul>";
+                var html4 = "<ul>";
                 for (var i=0; i<gmarkers.length; i++) {
                   if (!gmarkers[i].isHidden()) {
                     if (gmarkers[i].mycategory == 'area1') {
-                        html1 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html1 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                     else if (gmarkers[i].mycategory == 'area2') {
-                        html2 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html2 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                     else if (gmarkers[i].mycategory == 'area3') {
-                        html3 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html3 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                     else if (gmarkers[i].mycategory == 'area4') {
-                        html4 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html4 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                   }
                 }
-                document.getElementById("side_bar1").innerHTML = html1;
-                document.getElementById("side_bar2").innerHTML = html2;
-                document.getElementById("side_bar3").innerHTML = html3;
-                document.getElementById("side_bar4").innerHTML = html4;
+                document.getElementById("side_bar1").innerHTML = html1+"<\/ul>";
+                document.getElementById("side_bar2").innerHTML = html2+"<\/ul>";
+                document.getElementById("side_bar3").innerHTML = html3+"<\/ul>";
+                document.getElementById("side_bar4").innerHTML = html4+"<\/ul>";
               }
 
 
@@ -131,7 +132,7 @@
 
 
               // Read the data
-              GDownloadUrl("categories.xml", function(doc) {
+              GDownloadUrl("http://localhost:8080/cipotato/categories.xml", function(doc) {
                 var xmlDoc = GXml.parse(doc);
                 var markers = xmlDoc.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {

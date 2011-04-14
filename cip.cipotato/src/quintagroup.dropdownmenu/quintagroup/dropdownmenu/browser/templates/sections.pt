@@ -9,8 +9,8 @@
     <div  tal:condition="python:object_title != 'International Potato Center'" class='tabbed_content_static'
          tal:define="url request/URL;
                      gen python:'/genebank' in url;
-                     pot python:'/potato' in url;
-                     swe python:'/sweetpotato' in url;
+                     pot python:'/potato/' in url;
+                     swe python:'/sweetpotato/' in url;
                      art python:'/roots-and-tubers' in url;
                      portal_url context/portal_url;
                      genebank python:portal_url+'/genebank/';

@@ -267,7 +267,7 @@ class PressroomView(BrowserView):
         yeardict = {}
         resultsfinal = []
         #import pdb; pdb.set_trace()
-        #datenow = (datetime.now()).isocalendar()
+        #datenow =  (datetime.now()).isocalendar()
         now = DateTime.DateTime()
         #self.context.getPlace()
         if (yesno == 1):

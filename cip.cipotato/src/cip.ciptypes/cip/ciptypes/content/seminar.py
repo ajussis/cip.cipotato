@@ -40,7 +40,6 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description=_(u"Add the date when the seminar is being held"),
         ),
         validators=('isValidDate'),
-        index="FieldIndex:schema",
     ),
 
     atapi.ImageField(

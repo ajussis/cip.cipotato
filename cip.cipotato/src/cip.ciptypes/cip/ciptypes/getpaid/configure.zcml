@@ -1,0 +1,14 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:five="http://namespaces.zope.org/five">
+
+  <five:implements
+     class="..content.publication.Publication"
+     interface="Products.PloneGetPaid.interfaces.IBuyableMarker"
+     />
+  <adapter
+     for="..interfaces.publication.IPublication"
+     provides="getpaid.core.interfaces.IBuyableContent"
+     factory=".content.BuyableContentAdapter"
+     />
+</configure>

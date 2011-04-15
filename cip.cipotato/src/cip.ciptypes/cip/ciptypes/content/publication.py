@@ -14,6 +14,25 @@ from cip.ciptypes import ciptypesMessageFactory as _
 from cip.ciptypes.interfaces import IPublication
 from cip.ciptypes.config import PROJECTNAME
 
+# next ones and 3 classes from getpaid
+"""from Products.Archetypes.public import BaseContent,registerType
+from Products.PloneGetPaid.interfaces import IBuyableMarker
+from Products.PloneGetPaid.interfaces import IDonatableMarker
+from Products.PloneGetPaid.interfaces import IShippableMarker
+from zope.interface import implements
+
+class MyBuyable(BaseContent):
+   implements(IBuyableMarker)
+registerType(MyBuyable)
+
+class MyDonatable(BaseContent):
+   implements(IBuyableMarker)
+registerType(MyDonatable)
+
+class MyShippable(BaseContent):
+   implements(IBuyableMarker)
+registerType(MyShippable)"""
+
 PublicationSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-

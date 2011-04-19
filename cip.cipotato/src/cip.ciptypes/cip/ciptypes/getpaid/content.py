@@ -7,5 +7,9 @@ class BuyableContentAdapter(object):
 
     def __init__(self, context):
         self.context = context
-        self.price = float(context.getPrice())
+        price = context.getPrice()
+        if (price):
+            self.price = float(price)
+        else:
+            self.price = 0
         self.product_code = context.getPubcode()

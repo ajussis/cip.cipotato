@@ -35,6 +35,9 @@ cip/ciptypes/content/pubholder.py
 cip/ciptypes/content/publication.py
 cip/ciptypes/content/seminar.py
 cip/ciptypes/content/seminaryearfolder.py
+cip/ciptypes/getpaid/__init__.py
+cip/ciptypes/getpaid/configure.zcml
+cip/ciptypes/getpaid/content.py
 cip/ciptypes/interfaces/__init__.py
 cip/ciptypes/interfaces/career.py
 cip/ciptypes/interfaces/cipinthenews.py

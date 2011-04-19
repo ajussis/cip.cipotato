@@ -31,7 +31,7 @@
                             <tal:testimg condition="python:view.ImageExist(pc)">
                                 <a href="#" tal:attributes="href url">
                                     <img src="" alt=""
-                                         tal:attributes="src python:'../images2/' + pc + '-jpg/image_thumb';
+                                         tal:attributes="src python:'../images2/' + pc + '-jpg/image_mini';
                                                          class python:'pub-img2';" />
                                 </a>
                             </tal:testimg>

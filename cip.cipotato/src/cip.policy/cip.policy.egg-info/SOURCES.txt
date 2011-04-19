@@ -22,20 +22,27 @@ cip/policy/setuphandlers.py
 cip/policy/tests.py
 cip/policy/transmogrifier.cfg
 cip/policy/transmogrifier.py
+cip/policy/transmogrifierNewsItems.cfg
+cip/policy/transmogrifierNewsItems.py
 cip/policy/transmogrifier_1.cfg
 cip/policy/transmogrifier_1.py
 cip/policy/transmogrifierpublications.cfg
 cip/policy/transmogrifierpublications.py
+cip/policy/transmogrifierpublicationsTEST.py
 cip/policy/transmogrifierpublications_1.py
 cip/policy/xml2dict.py
+cip/policy/years.csv
 cip/policy/browser/__init__.py
 cip/policy/browser/configure.zcml
 cip/policy/browser/import.py
 cip/policy/browser/import_1.py
+cip/policy/browser/import_news.py
 cip/policy/browser/import_pub.py
 cip/policy/profiles/default/catalog.xml
 cip/policy/profiles/default/cip.policy-default.txt
 cip/policy/profiles/default/metadata.xml
+cip/policy/pubimport/CGInsideNewsCIP.xml
+cip/policy/pubimport/CGInsideNewsCIP2.xml
 cip/policy/pubimport/Copy (2) of publications.xml
 cip/policy/pubimport/Copy (3) ULTIMO  publications.xml
 cip/policy/pubimport/Copy of publications.xml
@@ -45,8 +52,11 @@ cip/policy/pubimport/books.xml
 cip/policy/pubimport/brochures_fact_sheets.xml
 cip/policy/pubimport/bulletins.xml
 cip/policy/pubimport/catalog.xml
+cip/policy/pubimport/dictw.py
+cip/policy/pubimport/justtesting.csv
 cip/policy/pubimport/mtp.xml
 cip/policy/pubimport/multimedia.xml
+cip/policy/pubimport/newhtml.html
 cip/policy/pubimport/newsletters.xml
 cip/policy/pubimport/posters.xml
 cip/policy/pubimport/press_articles.xml
@@ -58,11 +68,15 @@ cip/policy/pubimport/studies_reports.xml
 cip/policy/pubimport/test.xml
 cip/policy/pubimport/training.xml
 cip/policy/pubimport/workingpapers.xml
+cip/policy/pubimport/years.csv
+cip/policy/pubimport/years.csvb
 cip/policy/xmltests/bea.py
 cip/policy/xmltests/config.new.xml
 cip/policy/xmltests/config.xml
 cip/policy/xmltests/publications.xml
+cip/policy/xmltests/writingyears.py
 cip/policy/xmltests/xmlto.py
+cip/policy/xmltests/years.xml
 docs/HISTORY.txt
 docs/INSTALL.txt
 docs/LICENSE.GPL

@@ -87,30 +87,30 @@ class PublicationSource(object):
             item = dict()
             item['_type'] = self.type
             item['creators'] = (self.author,)
-            item['title'] = str(record['title']).strip("<![CDATA[")[:-3]
-            item['author'] = str(record['author']).strip("<![CDATA[")[:-3]
-            item['series'] = str(record['series']).strip("<![CDATA[")[:-3]
+            item['title'] = (str(record['title']).split("[")[2]).split("]")[0]
+            item['author'] = (str(record['author']).split("[")[2]).split("]")[0]
+            item['series'] = (str(record['series']).split("[")[2]).split("]")[0]
             item['category'] = record['category']
-            item['conference'] = str(record['conference']).strip("<![CDATA[")[:-3]
+            item['conference'] = (str(record['conference']).split("[")[2]).split("]")[0]
             if record.get('division',None) is not None:
                 item['division'] = record['division']
             item['year'] = record['year']
             item['creation_date'] = record['creation_date']
             item['effectiveDate'] = record['creation_date']
-            item['imprint'] = str(record['imprint']).strip("<![CDATA[")[:-3]
-            item['publisher'] = str(record['publisher']).strip("<![CDATA[")[:-3]
+            item['imprint'] = (str(record['imprint']).split("[")[2]).split("]")[0]
+            item['publisher'] = (str(record['publisher']).split("[")[2]).split("]")[0]
             item['isbn'] = record['isbn']
             item['issn'] = record['issn']
             item['pages'] = record['pages']
             item['price'] = record['price']
-            item['link'] = str(record['link']).strip("<![CDATA[")[:-3]
+            item['link'] = (str(record['link']).split("[")[2]).split("]")[0]
             item['pubimage'] = record['image']
             item['pdf'] = record['pdf']
             item['pubcode'] = record['pubcode']
-            item['pub_earthprint'] = str(record['pub_earthprint']).strip("<![CDATA[")[:-3]
+            item['pub_earthprint'] = (str(record['pub_earthprint']).split("[")[2]).split("]")[0]
             item['pubstock'] = record['pubstock']
-            item['pub_salenote'] = str(record['pub_salenote']).strip("<![CDATA[")[:-3]
-            item['pub_abstract'] = str(record['pub_abstract']).strip("<![CDATA[")[:-3]
+            item['pub_salenote'] = (str(record['pub_salenote']).split("[")[2]).split("]")[0]
+            item['pub_abstract'] = (str(record['pub_abstract']).split("[")[2]).split("]")[0]
             item['_transitions'] = ('publish',)
             yield item
 
@@ -169,19 +169,22 @@ class PublicationSource(object):
         list = []
         d = 1
         m = 1
+        pubcount = 1
         year = 1978
-        import pdb; pdb.set_trace()
-        for count in range(1, allPubs,2):
+        for count in range(1, allPubs*2,2):
             for field in range(1, allFields, 2):
                 if (soup.contents[0].contents[count].contents[field].name == 'year'):
                     years = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/years.csv", "rt").read()
                     yearstowrite = open("/home/ajussis/Develop/cip.cipotato/cip.cipotato/src/cip.policy/cip/policy/pubimport/years.csv", "w")
                     dd = {}
+                    import pdb; pdb.set_trace()
                     ms = years.split(',')
                     ms[-1] = ms[-1][:-2]
                     for i in ms:
                         dd[i[-4:]]=i.rsplit('/',1)[0]
                     yearstring = soup.contents[0].contents[count].contents[field].string
+                    if (yearstring is None):
+                        yearstring = "1995"
                     try:
                         yd = dd[yearstring]
                         d = int(yd.split('/')[0])+1
@@ -193,15 +196,17 @@ class PublicationSource(object):
                         m = m + 1
                     if (m > 11 and d > 26):
                         m = 1
-                    pubdict["creation_date"] = str(d)+'/'+str(m)+'/'+soup.contents[0].contents[count].contents[field].string
+                    pubdict["creation_date"] = str(d)+'/'+str(m)+'/'+yearstring
                     dd[yearstring] = str(d)+'/'+str(m)
                     ss = {}
                     try:
                         fieldnames = dd.keys()
                         for i in fieldnames:
-                            ss[i] = dd[i]+'/'+i
+                            if (i is not None):
+                                ss[i] = dd[i]+'/'+i
                         writer = csv.DictWriter(yearstowrite, fieldnames=fieldnames)
                         writer.writerow(ss)
+                        print ss
                     finally:
                         yearstowrite.close()
                 pubdict[soup.contents[0].contents[count].contents[field].name] = soup.contents[0].contents[count].contents[field].string

@@ -97,21 +97,23 @@
                            gen python:'about-cip/contact/' in url;">
 
             <div tal:condition="gen">
+
             <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;" type="text/javascript"></script>
 
 
             <div id="map" class="contactmap"></div>
-            <!--form action="#">
-                Latin America: <input type="checkbox" id="area1box" onclick="boxclick(this,'area1')" /> &nbsp;&nbsp;
-                Africa: <input type="checkbox" id="area2box" onclick="boxclick(this,'area2')" /> &nbsp;&nbsp;
-                Asia: <input type="checkbox" id="area3box" onclick="boxclick(this,'area3')" /><br />
-                Europe: <input type="checkbox" id="area4box" onclick="boxclick(this,'area4')" /><br />
-            </form-->
-            <div class="side_bar" id="side_bar1"></div>
-            <div class="side_bar" id="side_bar2"></div>
-            <div class="side_bar" id="side_bar3"></div>
-            <div class="side_bar" id="side_bar4"></div>
-
+            <form action="#">
+                <input type="hidden" id="area1box" onclick="boxclick(this,'area1')" />
+                <input type="hidden" id="area2box" onclick="boxclick(this,'area2')" />
+                <input type="hidden" id="area3box" onclick="boxclick(this,'area3')" />
+                <input type="hidden" id="area4box" onclick="boxclick(this,'area4')" />
+            </form>
+            <div class="side_bar_main">
+                <div class="side_bar" id="side_bar1"></div>
+                <div class="side_bar" id="side_bar2"></div>
+                <div class="side_bar" id="side_bar3"></div>
+                <div class="side_bar" id="side_bar4"></div>
+            </div>
 
             <script type="text/javascript">
             //<![CDATA[
@@ -188,30 +190,30 @@
 
               // == rebuilds the sidebar to match the markers currently displayed ==
               function makeSidebar() {
-                var html1 = "";
-                var html2 = "";
-                var html3 = "";
-                var html4 = "";
+                var html1 = "<ul>";
+                var html2 = "<ul>";
+                var html3 = "<ul>";
+                var html4 = "<ul>";
                 for (var i=0; i<gmarkers.length; i++) {
                   if (!gmarkers[i].isHidden()) {
                     if (gmarkers[i].mycategory == 'area1') {
-                        html1 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html1 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                     else if (gmarkers[i].mycategory == 'area2') {
-                        html2 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html2 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                     else if (gmarkers[i].mycategory == 'area3') {
-                        html3 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html3 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                     else if (gmarkers[i].mycategory == 'area4') {
-                        html4 += '<a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><br>';
+                        html4 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
                     }
                   }
                 }
-                document.getElementById("side_bar1").innerHTML = html1;
-                document.getElementById("side_bar2").innerHTML = html2;
-                document.getElementById("side_bar3").innerHTML = html3;
-                document.getElementById("side_bar4").innerHTML = html4;
+                document.getElementById("side_bar1").innerHTML = html1+"<\/ul>";
+                document.getElementById("side_bar2").innerHTML = html2+"<\/ul>";
+                document.getElementById("side_bar3").innerHTML = html3+"<\/ul>";
+                document.getElementById("side_bar4").innerHTML = html4+"<\/ul>";
               }
 
 
@@ -260,106 +262,106 @@
         </tal:block>
 
 
+        <div class="contactform">
+            <h1>Contact form</h1>
 
+            <p class="documentDescription"
+               tal:content="here/Description"
+               tal:condition="here/Description">
+                Description
+            </p>
 
+            <div tal:replace="structure provider:plone.abovecontentbody" />
 
+                    <p tal:replace="structure here/formPrologue | nothing" />
 
-        <p class="documentDescription"
-           tal:content="here/Description"
-           tal:condition="here/Description">
-            Description
-        </p>
+            <metal:use_body use-macro="body_macro" />
 
-        <div tal:replace="structure provider:plone.abovecontentbody" />
+                    <p tal:replace="structure here/formEpilogue | nothing" />
 
-    		<p tal:replace="structure here/formPrologue | nothing" />
-
-        <metal:use_body use-macro="body_macro" />
-
-    		<p tal:replace="structure here/formEpilogue | nothing" />
-
-        <table tal:condition="canModify" 
-               id="pfgActionEdit"
-               class="listing"
-               summary="Field listing"
-               style="display:none"
-               tal:define="liveAdapters here/getActionAdapter">
-            <thead>
-            <tr>
-                <th>Form Actions</th><th class="editHook">Enabled</th><th class="editHook">Delete</th><th class="editHook">Edit</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tal:block tal:repeat="row python:here.actionAdaptersDL().items()">
-                <tr tal:attributes="class python:test(repeat['row'].index % 2,'even','odd')">
-                    <td tal:content="python:row[1]" />
-                    <td class="editHook">
-                      <form action="#">
-                          <input type="checkbox" value="1"
-                              tal:attributes="checked python:test(row[0] in liveAdapters,'checked',None);
-                              id python:'cbaction-%s' % row[0];
-                              name python:'cbaction-%s' % row[0]" />
-                      </form>
-                    </td>
-                    <td class="editHook">
-                        <a href="#" 
-                           tal:attributes="href python:'%s/delete_confirmation' % row[0]"
-                           title="Delete Action"
-                           ><img src="delete_icon.gif" alt="Delete" /></a>
-                    </td>
-                    <td class="editHook">
-                        <a href="#" 
-                           tal:attributes="href python:'%s/edit' % row[0]"
-                           title="Edit Field"
-                           ><img src="edit.gif" alt="Edit" /></a>
-                    </td>                    
-                </tr>
-                </tal:block>
-            </tbody>
-        </table>
-
-        <table tal:condition="canModify" 
-               id="pfgThanksEdit"
-               class="listing"
-               summary="Field listing"
-               style="display:none"
-               tal:define="liveThanks here/thanksPage">
-            <thead>
+            <table tal:condition="canModify"
+                   id="pfgActionEdit"
+                   class="listing"
+                   summary="Field listing"
+                   style="display:none"
+                   tal:define="liveAdapters here/getActionAdapter">
+                <thead>
                 <tr>
-                    <th>Thanks Pages</th><th class="editHook">Enabled</th><th class="editHook">Delete</th><th class="editHook">Edit</th>
+                    <th>Form Actions</th><th class="editHook">Enabled</th><th class="editHook">Delete</th><th class="editHook">Edit</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tal:block tal:repeat="row python:here.thanksPageVocabulary().items()">
-                <tr tal:attributes="class python:test(repeat['row'].index % 2,'even','odd')">
-                    <td tal:content="python:row[1]" />
-                    <td class="editHook">
-                      <form action="#">
-                          <input type="radio" name="thanksRadio"
-                              tal:attributes="value python:row[0];
-                                checked python:test(row[0] == liveThanks, 'checked', None)" />
-                      </form>
-                    </td>
-                    <td class="editHook">
-                        <a href="#" tal:condition="python:row[0]"
-                           tal:attributes="href python:'%s/delete_confirmation' % row[0]"
-                           title="Delete Page"
-                           ><img src="delete_icon.gif" alt="Delete" /></a>
-                        <tal:block tal:condition="python:not row[0]">&nbsp;</tal:block>
-                    </td>
-                    <td class="editHook">
-                        <a href="#" tal:condition="python:row[0]"
-                           tal:attributes="href python:'%s/edit' % row[0]"
-                           title="Edit Page"
-                           ><img src="edit.gif" alt="Edit" /></a>
-                       <tal:block tal:condition="python:not row[0]">&nbsp;</tal:block>
-                    </td>                    
-                </tr>
-                </tal:block>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <tal:block tal:repeat="row python:here.actionAdaptersDL().items()">
+                    <tr tal:attributes="class python:test(repeat['row'].index % 2,'even','odd')">
+                        <td tal:content="python:row[1]" />
+                        <td class="editHook">
+                          <form action="#">
+                              <input type="checkbox" value="1"
+                                  tal:attributes="checked python:test(row[0] in liveAdapters,'checked',None);
+                                  id python:'cbaction-%s' % row[0];
+                                  name python:'cbaction-%s' % row[0]" />
+                          </form>
+                        </td>
+                        <td class="editHook">
+                            <a href="#"
+                               tal:attributes="href python:'%s/delete_confirmation' % row[0]"
+                               title="Delete Action"
+                               ><img src="delete_icon.gif" alt="Delete" /></a>
+                        </td>
+                        <td class="editHook">
+                            <a href="#"
+                               tal:attributes="href python:'%s/edit' % row[0]"
+                               title="Edit Field"
+                               ><img src="edit.gif" alt="Edit" /></a>
+                        </td>
+                    </tr>
+                    </tal:block>
+                </tbody>
+            </table>
 
-        <div tal:replace="structure provider:plone.belowcontentbody" tal:condition="canModify" />
+            <table tal:condition="canModify"
+                   id="pfgThanksEdit"
+                   class="listing"
+                   summary="Field listing"
+                   style="display:none"
+                   tal:define="liveThanks here/thanksPage">
+                <thead>
+                    <tr>
+                        <th>Thanks Pages</th><th class="editHook">Enabled</th><th class="editHook">Delete</th><th class="editHook">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tal:block tal:repeat="row python:here.thanksPageVocabulary().items()">
+                    <tr tal:attributes="class python:test(repeat['row'].index % 2,'even','odd')">
+                        <td tal:content="python:row[1]" />
+                        <td class="editHook">
+                          <form action="#">
+                              <input type="radio" name="thanksRadio"
+                                  tal:attributes="value python:row[0];
+                                    checked python:test(row[0] == liveThanks, 'checked', None)" />
+                          </form>
+                        </td>
+                        <td class="editHook">
+                            <a href="#" tal:condition="python:row[0]"
+                               tal:attributes="href python:'%s/delete_confirmation' % row[0]"
+                               title="Delete Page"
+                               ><img src="delete_icon.gif" alt="Delete" /></a>
+                            <tal:block tal:condition="python:not row[0]">&nbsp;</tal:block>
+                        </td>
+                        <td class="editHook">
+                            <a href="#" tal:condition="python:row[0]"
+                               tal:attributes="href python:'%s/edit' % row[0]"
+                               title="Edit Page"
+                               ><img src="edit.gif" alt="Edit" /></a>
+                           <tal:block tal:condition="python:not row[0]">&nbsp;</tal:block>
+                        </td>
+                    </tr>
+                    </tal:block>
+                </tbody>
+            </table>
+
+            <div tal:replace="structure provider:plone.belowcontentbody" tal:condition="canModify" />
+        </div>
 
       </metal:main>
     </metal:fill>

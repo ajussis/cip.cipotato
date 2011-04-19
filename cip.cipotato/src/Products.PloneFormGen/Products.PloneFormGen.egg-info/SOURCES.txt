@@ -1,7 +1,9 @@
 MANIFEST.in
+PKG-INFO
 README.txt
 bootstrap.py
 buildout.cfg
+setup.cfg
 setup.py
 test-plone-3.3.x.cfg
 test-plone-4.0.x.cfg

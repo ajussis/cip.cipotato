@@ -1,0 +1,15 @@
+README.txt
+setup.py
+src/getpaid/__init__.py
+src/getpaid.emailcheckout.egg-info/PKG-INFO
+src/getpaid.emailcheckout.egg-info/SOURCES.txt
+src/getpaid.emailcheckout.egg-info/dependency_links.txt
+src/getpaid.emailcheckout.egg-info/namespace_packages.txt
+src/getpaid.emailcheckout.egg-info/not-zip-safe
+src/getpaid.emailcheckout.egg-info/requires.txt
+src/getpaid.emailcheckout.egg-info/top_level.txt
+src/getpaid/emailcheckout/__init__.py
+src/getpaid/emailcheckout/checkout.py
+src/getpaid/emailcheckout/interfaces.py
+src/getpaid/emailcheckout/options.py
+src/getpaid/emailcheckout/processor.py

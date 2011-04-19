@@ -13,7 +13,7 @@
             <!-- Latest of all publications -->
 
             <div tal:define="path python:'/'.join(here.getPhysicalPath());
-                             pubs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Publication');">
+                             pubs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Publication', sort_on='Date', sort_order='reverse');">
 
                 <div style="margin-top:15px;">
                     <div class="pubrow" tal:repeat="obj pubs">
@@ -35,7 +35,7 @@
                                 <div class="pubrow_info">
                                     <tal:testimg condition="python:view.ImageExist(pc)">
                                         <img src="" alt=""
-                                             tal:attributes="src python:'../images/' + pc + '-jpg/image_thumb';
+                                             tal:attributes="src python:'../images2/' + pc + '-jpg/image_thumb';
                                                              class python:'pub-img2';" />
                                     </tal:testimg>
                                         <span class="frontDate3" tal:content="source" />

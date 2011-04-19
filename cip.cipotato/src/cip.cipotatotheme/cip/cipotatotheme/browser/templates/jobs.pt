@@ -26,19 +26,12 @@
                 </div>
             </div>
             <div class="jobs_column">
-                <div class="jobs_menu" tal:define="scholarsense view/scholarinfo">
+                <div class="jobs_menu" tal:define="scholarsense nocall:here/scholtext">
                     <div class="jobs_menu_title">
                         <h2>Scholarships</h2>
                     </div>
                     <ul>
-                        <li class="jobs_listing" tal:repeat="job scholarsense">
-                            <tal:defs define="item_url job/getURL;
-                                              item_object job/getObject;">
-                                <a href="#" tal:attributes="href item_url">
-                                    <h3 tal:content="job/pretty_title_or_id"></h3>
-                                </a>
-                            </tal:defs>
-                        </li>
+                        <p tal:content="structure scholarsense/getText" />
                     </ul>
                 </div>
             </div>

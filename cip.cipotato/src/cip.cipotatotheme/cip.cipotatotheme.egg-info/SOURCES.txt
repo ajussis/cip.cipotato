@@ -57,6 +57,7 @@ cip/cipotatotheme/browser/templates/pressroomgallery.pt
 cip/cipotatotheme/browser/templates/pressroomvideos.pt
 cip/cipotatotheme/browser/templates/projectlocations.pt
 cip/cipotatotheme/browser/templates/publications.pt
+cip/cipotatotheme/browser/templates/publicationsORIG.pt
 cip/cipotatotheme/browser/templates/publications_one.pt
 cip/cipotatotheme/browser/templates/publications_sub.pt
 cip/cipotatotheme/browser/templates/researchmain.pt
@@ -68,6 +69,13 @@ cip/cipotatotheme/browser/templates/seminarsarchive.pt
 cip/cipotatotheme/browser/templates/seminarsmain.pt
 cip/cipotatotheme/browser/templates/seminarsyear.pt
 cip/cipotatotheme/browser/templates/ssaprojects.pt
+cip/cipotatotheme/getpaid/__init__.py
+cip/cipotatotheme/getpaid/checkout.py
+cip/cipotatotheme/getpaid/configure.zcml
+cip/cipotatotheme/getpaid/interfaces.py
+cip/cipotatotheme/getpaid/options.py
+cip/cipotatotheme/getpaid/overrides.zcml
+cip/cipotatotheme/getpaid/processor.py
 cip/cipotatotheme/locales/README.txt
 cip/cipotatotheme/profiles/default/actionicons.xml
 cip/cipotatotheme/profiles/default/actions.xml

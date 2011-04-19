@@ -7,6 +7,7 @@
 
   <five:registerPackage package="." initialize=".initialize" />
   <include package=".browser" />
+  <!--include package=".getpaid" /-->
   <include file="skins.zcml" />
   <include file="profiles.zcml" />
   <i18n:registerTranslations directory="locales" />

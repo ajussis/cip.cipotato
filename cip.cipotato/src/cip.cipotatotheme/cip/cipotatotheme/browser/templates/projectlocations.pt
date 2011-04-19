@@ -16,7 +16,9 @@
 
             <h1>CIP project locations</h1>
 
-            <iframe width="630" height="440" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ongoing-research.cgiar.org/embed-map/?mapCenter=(0, 0)&mapZoom=2&mapWidth=640&mapHeight=480&cg_centers_filter=cg_centers,Centro Internacional de la Papa"></iframe>
+            <div class="projectmap">
+                <iframe width="630" height="440" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ongoing-research.cgiar.org/embed-map/?mapCenter=(0, 0)&mapZoom=2&mapWidth=640&mapHeight=480&cg_centers_filter=cg_centers,Centro Internacional de la Papa"></iframe>
+            </div>
 
         </metal:main>
     </metal:main_macro>

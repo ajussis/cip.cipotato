@@ -1,7 +1,6 @@
 <html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
-                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
@@ -19,20 +18,27 @@
                                       series context/getSeries;
                                       abstract context/pub_abstract;
                                       price context/price;
-                                      issn context/issn;
-                                      publisher context/publisher;
+                                      issn python:context.getIssn();
+                                      isbn python:context.getIsbn();
+                                      publisher python:context.getPublisher();
                                       division context/division;
+                                      year python:context.getYear();
+                                      category python:context.getCategory();
                                       conference context/conference;
+                                      pages python:context.getPages();
                                       url python:'publications/pdf/'+pc+'/at_download/';">
                         <div class="pubrow_info_one">
                             <tal:testimg condition="python:view.ImageExist(pc)">
                                 <a href="#" tal:attributes="href url">
                                     <img src="" alt=""
-                                         tal:attributes="src python:'../images/' + pc + '-jpg/image_thumb';
+                                         tal:attributes="src python:'../images2/' + pc + '-jpg/image_thumb';
                                                          class python:'pub-img2';" />
                                 </a>
                             </tal:testimg>
                             <div class="pubrow_info_one2">
+                                <p>
+                                    <b>Author:</b> <span tal:replace="context/author" />
+                                </p>
                                 <p>
                                     <b>Publication date:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
                                 </p>
@@ -54,13 +60,13 @@
                                 <p tal:condition="python:price == '0'">
                                     <b>Publication is free</b>
                                 </p>
-                                <p>
-                                    <b>Pages:</b> <span tal:replace="context/pages"/>
+                                <p tal:condition="python:pages is not None">
+                                    <b>Pages:</b> <span tal:replace="pages"/>
                                 </p>
-                                <p tal:condition="python:issn != ''">
+                                <p tal:condition="python:issn is not None">
                                     <b>ISSN:</b> <span tal:replace="issn"/>
                                 </p>
-                                <p tal:condition="python:publisher != ''">
+                                <p tal:condition="python:publisher is not None">
                                     <b>Publisher:</b> <span tal:replace="publisher"/>
                                 </p>
                                 <p tal:condition="python:division != ''">

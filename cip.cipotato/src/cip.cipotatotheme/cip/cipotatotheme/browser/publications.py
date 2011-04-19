@@ -13,7 +13,7 @@ class PublicationsView(BrowserView):
     def Pubs(self, address):
 #        import pdb; pdb.set_trace()
         pubpath = (self.context.portal_url.getPortalPath()+'/resources/publications/'+address)
-        return self.context.portal_catalog.searchResults(path = {"query": (pubpath)},portal_type="Publication", sort_on="Date", sort_order="reverse")[:2]
+        return self.context.portal_catalog.searchResults(path = {"query": (pubpath)},portal_type="Publication", sort_on="Date", sort_order="reverse")[:1]
 
     def ImageExist(self, img_id):
 #        import pdb; pdb.set_trace()

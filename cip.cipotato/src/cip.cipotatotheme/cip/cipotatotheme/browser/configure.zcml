@@ -86,6 +86,13 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
+  <browser:page
+      for="*"
+      name="careerView"
+      template="templates/career.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
 
   <browser:page
       for="*"

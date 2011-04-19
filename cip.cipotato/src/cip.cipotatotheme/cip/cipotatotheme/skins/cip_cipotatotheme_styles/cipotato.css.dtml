@@ -779,6 +779,7 @@ overflow:hidden;
 margin:0 1px 0 0;
 padding:0;
 overflow:hidden;
+padding-top:2.5em;
 }
 
 .documentEditable {
@@ -831,14 +832,24 @@ margin-left:0;
 }
 .discussion h2 {
     border-bottom: 0 none;
-    border-top: 0 solid #F1F1F1;
+    border-top: 1px solid #F1F1F1;
     color: #500F67;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: normal;
     margin-top: 0.25em;
-    padding: 2px 0 0;
+    padding: 10px 0 0;
 }
-
+h1, h2 {
+    letter-spacing: 0 !important;
+}
+.projectmap {
+margin-top:10px;
+}
+.discussion {
+    clear: both;
+    margin-left: 20px;
+    padding: 20px 0 10px;
+}
 div.pane-container div.pane {
 background-color:#FFFFFF;
 border-color:-moz-use-text-color #999999 #999999;
@@ -875,6 +886,10 @@ text-align:center;
 text-transform:none;
 border-bottom:2px solid #91247f;
 font-size:15px;
+}
+
+#parent-fieldname-text {
+margin-top:0.8em;
 }
 
 .portletHeaderMember {
@@ -1449,10 +1464,14 @@ border-color:#85ADDE;
 .image-inline {
 border: 0;
 }
-.image-right
-.tileItem {
+.image-right {
 border-top: 0;
 height: auto !important;
+border:0 !important;
+}
+.jobs_menu ul {
+margin: 0 20px 0 0;
+text-align:left;
 }
 .tileHeadline {
 margin-top:0;
@@ -2557,6 +2576,12 @@ width:97%;
 margin-top:10px;
 }
 
+.pub_menu2 {
+padding:10px;
+float:left;
+width:92%;
+margin-top:10px;
+}
 .pub_menu_item {
     color: #500F67;
     display: block;
@@ -2565,6 +2590,24 @@ margin-top:10px;
     font-weight: bold;
     margin-left: 16px;
     width: 195px;
+}
+.pub_menu_item2 {
+    color: #500F67;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    width: 165px;
+}
+.pub_menu_item2 img {
+margin:0 15px 15px;
+padding-right:35px;
+border-right:1px solid #500F67;
+}
+.pub_menu_item2 h3 {
+    background: none repeat scroll 0 0 #F8E3F0;
+    margin: 0 0 10px;
+    padding: 2px 0 0 10px;
 }
 .pub_links {
     border-right: 1px solid #EC006E;
@@ -2915,7 +2958,7 @@ display:block !important;
 
 .portletNavigationTree {
 /*    border-left: 1px solid #C8B9BE; */
-    margin-top: 2.5em !important;
+    margin-top: 1em !important;
     padding-left: 23px;
 }
 .tab_item_static a:hover {
@@ -3282,6 +3325,10 @@ margin-right:30px;
 }
 .side_bar_main {
 width:700px;
+float:left;
+}
+.contactform {
+float:left;
 }
 .side_bar a {
     border-bottom:1px solid grey !important;

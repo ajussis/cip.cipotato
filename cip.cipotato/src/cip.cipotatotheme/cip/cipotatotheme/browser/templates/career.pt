@@ -1,0 +1,16 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="define="body python:context.getBody;">
+
+            <h1 tal:content="context/Title" class="page_title" />
+
+            <div tal:content="body">
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

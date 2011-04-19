@@ -132,7 +132,7 @@
                                     <div class="featuredPub" tal:define="item_url m/getURL;
                                                                          pubi m/getPubcode;">
                                         <img src="" alt=""
-                                             tal:attributes="src python:'/cipotato/resources/publications/images/'+pubi+'-jpg/image_thumb';
+                                             tal:attributes="src python:'/cipotato/resources/publications/images2/'+pubi+'-jpg/image_thumb';
                                                              class python:'cip-front-pubimg';" />
                                         <div tal:define="item_object m/getObject;">
                                             <tal:rep define="source item_object/getCategory;

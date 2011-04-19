@@ -1,0 +1,167 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="clatestpublications python: getattr(context, 'latest-publications');
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles',
+'brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog',
+'research-guide','manual','cd-rom','annual-report','medium-term-plan'];
+                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Brochures','Posters', 'Bulletins','Cards','Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
+                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','poster','booklet','working-paper','journal','book', 'catalog','manual','video','cd-rom','annual-report','medium-term-plan'];
+                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Posters', 'Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
+                                toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1>Publications</h1>
+
+            <div class="pub_menu">
+                <div class="pub_menu_item">
+                    General
+                </div>
+                <div class="pub_menu_item">
+                    Research
+                </div>
+                <div class="pub_menu_item">
+                    Training
+                </div>
+                <div class="pub_menu_item">
+                    Organization
+                </div>
+            </div>
+
+            <div class="pub_links">
+                <ul>
+                    <li id="pubcat" class="pubcat_1"><!-- This to include Newsletters and Bulletins-->
+                        <a href="">Newsletters</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_2"><!-- This to include Factsheets and leaflets, and Brochures-->
+                        <a href="">Factsheets</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_3">
+                        <a href="">Press articles</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_4"><!-- This to include Posters and Cards-->
+                        <a href="">Posters & Cards</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_5">
+                        <a href="">Booklets</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pub_links">
+                <ul>
+                    <li id="pubcat" class="pubcat_6"><!-- This to include Working Papers-->
+                        <a href="">Papers</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_7">
+                        <a href="">Journals</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_8"><!-- This to include Book series-->
+                        <a href="">Books</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_9">
+                        <a href="">Catalogs</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pub_links">
+                <ul>
+                    <li id="pubcat" class="pubcat_10"><!-- This to include Manuals and Training manuals-->
+                        <a href="">Manuals & papers</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_11">
+                        <a href="">Slides & videos</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_12">
+                        <a href="">CDs</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pub_links">
+                <ul>
+                    <li id="pubcat" class="pubcat_18">
+                        <a href="">Annual reports</a>
+                    </li>
+                    <li id="pubcat" class="pubcat_19">
+                        <a href="">Plans & financial reports</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="lineBreak"></div>
+
+            <!-- Latest of all publications -->
+
+            <div id="panes">
+                <div class="pubs_pubcat_latest" tal:define="n clatestpublications/queryCatalog;">
+                    <div class="pub_listing" tal:repeat="m n">
+                        <tal:rep define="author m/Creator">
+                            <!--div class="pub_img" tal:content="m/getURL" /-->
+                            <b>
+                                <a href="#" tal:attributes="href m/getURL">
+                                    <span tal:replace="m/pretty_title_or_id"/>
+                                </a>
+                            </b>
+                            <span class="pub_date">
+                                <span tal:content="python:toLocalizedTime(m.Date)" />
+                            </span>
+                            <p tal:content="m/Description" />
+                        </tal:rep>
+                    </div>
+                </div>
+                <tal:defs3 repeat="pub allpubcats_add">
+                    <tal:defs4 tal:define="pubs python:view.Pubs(pub)">
+                        <div tal:define="pubnum repeat/pub/number;
+                                         classname python:'pubs_pubcat_'+str(pubnum)"
+                             tal:attributes="class classname">
+                            <div class="pubs_title">
+                                <h2 class="pub_titles">Latest <span tal:replace="pub" /></h2>
+                                <h2 class="pub_titles2" tal:define="u pub"><a tal:attributes="href u">See all</a></h2>
+                            </div>
+                            <div class="lineBreak"></div>
+                            <div class="pub_listing" tal:repeat="m pubs">
+                                <tal:rep define="tit m/pretty_title_or_id">
+                                    <tal:defs define="pc m/getPubcode">
+                                        <div tal:condition="python:view.ImageExist(pc)">
+                                            <img src="" alt=""
+                                                 tal:attributes="src python:'images/' + pc + '-jpg/image_thumb';
+                                                                 class python:'pub-img';" />
+                                        </div>
+                                    </tal:defs>
+                                    <span class="pub_date">
+                                        <span tal:content="python:toLocalizedTime(m.Date)" /><br />
+                                    </span>
+                                    <b>
+                                        <a href="#" tal:attributes="href m/getURL">
+                                            <span tal:replace="tit"/>
+                                        </a>
+                                    </b>
+                                </tal:rep>
+                                <div class="lineBreak"></div>
+                            </div>
+                        </div>
+                    </tal:defs4>
+                </tal:defs3>
+
+            </div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.pubs_pubcat_latest').show();
+                $('[class^=pubs_pubcat_]').hide();
+                $('#portal-column-content').css('height', 500);
+                $('[id^=pubcat]').click(function() {
+                    $('[class^=pubs_pubcat_]').hide();
+                    var $this = $(this);
+                    var x = $this.attr("className");
+                    $('.pubs_' + x).toggle('slow');
+                    return false;
+                });
+            });
+        </script>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

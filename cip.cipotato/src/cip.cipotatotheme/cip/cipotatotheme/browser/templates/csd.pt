@@ -28,7 +28,12 @@
                 <div>
                 </div>
                 <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(1)">
-                    <div class="seminartitles">
+                    <div class="seminartitles" tal:condition="not: seminars">
+                        <p>
+                            <i>There are no upcoming seminars published at this moment.</i>
+                        </p>
+                    </div>
+                    <div class="seminartitles" tal:condition="seminars">
                         <ul>
                             <li class="sem_listing_csd" tal:repeat="sem seminars">
                                 <tal:num define="s repeat/sem/number">

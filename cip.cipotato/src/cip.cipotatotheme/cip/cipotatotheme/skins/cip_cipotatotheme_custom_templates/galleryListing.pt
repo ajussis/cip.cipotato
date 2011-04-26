@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+    <metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <body>
+        <div metal:fill-slot="main">
+            <metal:main-macro define-macro="main">
+                <h1 tal:content="context/Title"/>
+                <tal:foldercontents define="folderContents python:here.getFolderContents();">
+                    <tal:listing condition="folderContents">
+                        <tal:block tal:repeat="item folderContents">
+                            <div tal:define="item_url item/getURL|item/absolute_url;
+                                             item_id item/getId|item/id;
+                                             item_title_or_id item/pretty_title_or_id;
+                                             item_object item/getObject;">
+                                <div>
+                                    <h2 class="gallerytopic" tal:content="item_title_or_id"></h2>
+                                    <tal:imageblock tal:define="folderContents3 python:item_object.getFolderContents(contentFilter = {'sort_on' : 'Date', 'sort_order' : 'reverse' }, batch=True);">
+                                        <tal:repimageblock tal:repeat="obj folderContents3">
+                                            <tal:defs2 define="sub_title obj/pretty_title_or_id;
+                                                               sub_url obj/getURL;
+                                                               sub_id obj/getId|item/id;
+                                                               path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
+                                                               brains python:context.portal_catalog(path={'query' : path, 'depth' : 3})[:1];">
+                                                <tal:conds>
+                                                    <div class="galleryblock" tal:define="image python:item_id + '/' + sub_id + '/' + brains[0].id + '/image_thumb'">
+                                                        <a href="#" tal:attributes="href sub_url">
+                                                            <img src="#" tal:attributes="src image" />
+                                                        </a>
+                                                        <a href="#" tal:content="sub_title"
+                                                                    tal:attributes="href sub_url" />
+                                                    </div>
+                                                </tal:conds>
+                                            </tal:defs2>
+                                        </tal:repimageblock>
+                                    </tal:imageblock>
+                                </div>
+                                <div class="visualClear"></div>
+                            </div>
+                        </tal:block>
+                    </tal:listing>
+                </tal:foldercontents>
+
+            </metal:main-macro>
+        </div>
+    </body>
+</html>

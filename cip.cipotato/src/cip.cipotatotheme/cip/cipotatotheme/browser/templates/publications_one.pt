@@ -5,6 +5,13 @@
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
+            <script>
+                $(document).ready(function() {
+                    var head = $("head");
+                    head.append("joujou");
+                }
+            </script>
+
             <h1 tal:content="context/Title" class="page_title" />
 
             <div class="lineBreak"></div>

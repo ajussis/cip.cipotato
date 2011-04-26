@@ -15,52 +15,39 @@
             <div class="first-column">
                 <div class="cip-news">
                     <h1>News from CIP</h1>
-
                     <tal:defs define="n cipnews/queryCatalog;
                                       n python:n[:2]">
-                        <div class="cip-news-p" tal:repeat="m n">
-                            <a href="#"
-                                tal:define="item_object m/getObject;
-                                            item_url m/getURL;"
-                                tal:condition="exists:item_object/image_thumb"
-                                tal:attributes="href python:item_url+'/view', item_url">
-                                <img src="" alt=""
-                                     tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
-                            </a>
-                            <tal:rep define="pType m/portal_type;
-                                             author m/Creator">
-                                <b>
-                                    <a href="#" tal:attributes="href m/getURL">
-                                        <span tal:replace="m/pretty_title_or_id"/>
-                                    </a>
-                                </b>
+                        <div id="news-item" class="cip-news-p" tal:repeat="m n">
+                            <div class="cip-news-div-img">
+                                <a href="#"
+                                    tal:define="item_object m/getObject;
+                                                item_url m/getURL;"
+                                    tal:condition="exists:item_object/image_thumb"
+                                    tal:attributes="href python:item_url+'/view', item_url">
+                                    <img src="" alt=""
+                                         tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
+
+                                </a>
                                 <span class="frontDate">
                                     <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                 </span>
-                                <p style="margin-top:0.2em !important;" tal:content="m/Description" />
-                            </tal:rep>
+                            </div>
+                            <div class="cip-news-desc">
+                                <tal:rep define="pType m/portal_type;
+                                                 author m/Creator">
+                                    <b>
+                                        <a href="#" tal:attributes="href m/getURL">
+                                            <span tal:replace="m/pretty_title_or_id"/>
+                                        </a>
+                                    </b>
+                                    <p style="margin-top:0.2em !important;" tal:content="m/Description" />
+                                </tal:rep>
+                            </div>
                         </div>
                     </tal:defs>
-                    <!--tal:defs define="n cipnews/queryCatalog;
-                                      n python:n[1:3]">
-                        <div class="cip-news-p" tal:repeat="m n">
-                            <ul class="cip-news-ul">
-                                <li class="cip-news-li">
-                                    <tal:rep define="pType m/portal_type;
-                                                     author m/Creator">
-                                        <b>
-                                            <a href="#" tal:attributes="href m/getURL">
-                                                <span tal:replace="m/pretty_title_or_id"/>
-                                            </a>
-                                        </b>
-                                        <span class="frontDate">
-                                            <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                        </span>
-                                    </tal:rep>
-                                </li>
-                            </ul>
-                        </div>
-                    </tal:defs-->
+                    <script>
+                        $("div#news-item:first").addClass("cip-news-p-first");
+                    </script>
                 </div>
             </div>
 

@@ -79,7 +79,7 @@ $$.extend({
             $(this).addClass('tmpSlideshowControlActive');
           }
         );
-    },
+    }
 
   }
 });

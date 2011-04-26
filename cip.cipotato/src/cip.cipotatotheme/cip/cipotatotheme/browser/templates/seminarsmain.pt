@@ -65,7 +65,7 @@
                                                   item_object sem/getObject;
                                                   img_thumb python:item_url+'/image_thumb';
                                                   abs python:item_url+'/at_download/abstract';
-                                                  vid python:item_url+'/at_download/video';
+                                                  vid python:item_url+'/at_download/audio';
                                                   bio python:item_url+'/at_download/biography';
                                                   pre python:item_url+'/at_download/presentation';
                                                   canEdit python:checkPermission('Modify portal content', here);">
@@ -84,16 +84,28 @@
                                         <li>
                                             <tal:date replace="item_object/speaker" />
                                         </li>
+                                        <li>
+                                            <tal:date replace="item_object/speakerinstitution" />
+                                        </li>
                                     </ul>
                                     <div class="sem_info">
-                                        <tal:defs2 tal:define="videotog python:'videotog-'+yearnow+str(s)">
-                                            <span style="cursor:pointer;" id="#" class="videotogc" tal:attributes="id videotog">Listen</span>
-                                        </tal:defs2> |
+                                        <tal:defs2 condition="item_object/hasAudio" tal:define="videotog python:'videotog-'+yearnow+str(s)">
+                                            <span style="cursor:pointer;" id="#" class="videotogc" tal:attributes="id videotog">Listen</span> |
+                                        </tal:defs2>
+                                        <tal:check condition="item_object/hasBiography">
                                             <a href="#" tal:attributes="href bio">Biography</a> |
+                                        </tal:check>
+                                        <tal:check condition="item_object/hasAbstract">
                                             <a href="#" tal:attributes="href abs">Abstract</a> |
-                                            <tal:check condition="item_object/hasPresentation">
-                                                <a href="#" tal:attributes="href pre">Presentation (ppt)</a>
-                                            </tal:check>
+                                        </tal:check>
+                                        <tal:check condition="item_object/hasPresentation">
+                                            <a href="#" tal:attributes="href pre">Presentation (ppt)</a>
+                                        </tal:check>
+                                        <tal:check condition="item_object/hasPresentationurl">
+                                            <tal:jes define="preurl item_object/getPresentationurl">
+                                                <a href="#" tal:attributes="href preurl">Presentation (external)</a>
+                                            </tal:jes>
+                                        </tal:check>
                                     </div>
                                 </tal:defs>
                             </tal:num>

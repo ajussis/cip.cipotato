@@ -164,6 +164,18 @@ class SearchBoxViewlet(ViewletBase):
         self.folder_path = '/'.join(folder.getPhysicalPath())
 
 
+class GalleryView(BrowserView):
+    __call__ = ViewPageTemplateFile('templates/galleryview.pt')
+
+    def getGalleries(self):
+        results = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general")}, sort_order="ascending", portal_type="Gallery")
+        #import pdb;pdb.set_trace()
+        return results
+
+    def getEventGalleries(self):
+        results = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/events")}, sort_order="ascending", portal_type="Gallery")
+        return results
+
 
 #testing searchboxes
 class SearchBoxPubViewlet(SearchBoxViewlet):
@@ -201,17 +213,11 @@ class SeminarsmainView(BrowserView):
     def getSeminarsyear(self,yesno):
         yeardict = {}
         resultsfinal = []
-        #import pdb; pdb.set_trace()
-        #datenow = (datetime.now()).isocalendar()
         now = DateTime.DateTime()
-        #self.context.getPlace()
         if (yesno == 1):
-            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : (self.context.portal_url.getPortalPath()+"/resources/seminars/")}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
         else:
-            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
-        #Date={"query": datenow, "range": "min"},
-        #getSeminardate="2011",
-        #p self.context.portal_catalog.searchResults ()
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : (self.context.portal_url.getPortalPath()+"/resources/seminars/")}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
         return results
 
     def getYear(self):
@@ -226,10 +232,8 @@ class SeminarsyearView(BrowserView):
         return (self.request.get('URL')).rsplit('/',2)[1]
 
     def seminars(self):
-        #import pdb; pdb.set_trace()
-        url = '/'.join(self.context.getPhysicalPath())
-        results = self.context.portal_catalog.searchResults(path={'query':url}, portal_type="Seminar")
-        print results
+        now = DateTime.DateTime()
+        results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : ('/'.join(self.context.getPhysicalPath()))}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")
         return results
 
 class CsdView(BrowserView):
@@ -245,9 +249,9 @@ class CsdView(BrowserView):
         now = DateTime.DateTime()
         #self.context.getPlace()
         if (yesno == 1):
-            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "min"}}, path={"query" : (context.portal_url.getPortalPath()+"/resources/seminars/")}, portal_type="Seminar", sort_on="getSeminardate", sort_order="ascending")
         else:
-            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : "/cipotato/resources/capacity-strengthening/seminars/"}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
+            results = self.context.portal_catalog.searchResults({"getSeminardate":{"query": now, "range": "max"}}, path={"query" : (context.portal_url.getPortalPath()+"/resources/seminars/")}, portal_type="Seminar", sort_on="getSeminardate", sort_order="descending")[:2]
         #Date={"query": datenow, "range": "min"},
         #getSeminardate="2011", 
         #p self.context.portal_catalog.searchResults ()

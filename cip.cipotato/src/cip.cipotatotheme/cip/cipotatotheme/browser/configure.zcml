@@ -71,7 +71,13 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
+  <browser:page
+      for="*"
+      name="galleryView"
+      class=".viewlets.GalleryView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
   <browser:page
       for="*"
       name="frontpage"

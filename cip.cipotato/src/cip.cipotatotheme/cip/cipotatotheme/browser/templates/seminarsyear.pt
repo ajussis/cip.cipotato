@@ -26,19 +26,17 @@
                                 <tal:defs define="item_url sem/getURL;
                                                   item_object sem/getObject;
                                                   img_thumb python:item_url+'/image_thumb';
-                                                  sem_date python:item_object.getSeminardate();
-                                                  sem_speaker python:item_object.getSpeaker();
                                                   abs python:item_url+'/at_download/abstract';
-                                                  vid python:item_url+'/at_download/audio';
+                                                  vid python:item_url+'/at_download/audio/view';
                                                   bio python:item_url+'/at_download/biography';
                                                   pre python:item_url+'/at_download/presentation';
                                                   canEdit python:checkPermission('Modify portal content', here);">
                                     <div tal:define="vidc python:'video_videotog-'+yearnow+str(s)" tal:attributes="id vidc">
-                                        <a class="autoFlowPlayer semvidinfo" href="http://localhost:8080/cipotato/resources/capacity-strengthening/seminars/seminars-archive/copy_of_taxonomic-changes-in-wild-and-cultivated-potatoes-over-the-last-25-years-implications-for-the-use-of-genetic-resources/video"></a>
+                                        <a class="autoFlowPlayer semvidinfo" href="#" tal:attributes="href vid"></a>
                                     </div>
                                     <img src="#" tal:attributes="src img_thumb" />
                                     <span class="sem_date">
-                                        <tal:date replace="sem_date" />
+                                        <tal:date replace="item_object/seminardate" />
                                     </span>
                                     <h3 tal:condition="not: canEdit" tal:content="sem/pretty_title_or_id"></h3>
                                     <a tal:condition="canEdit" href="#" tal:attributes="href item_url">
@@ -46,16 +44,30 @@
                                     </a>
                                     <ul class="sem_info_speak">
                                         <li>
-                                            <tal:date replace="sem_speaker" />
+                                            <tal:date replace="item_object/speaker" />
+                                        </li>
+                                        <li>
+                                            <tal:date replace="item_object/speakerinstitution" />
                                         </li>
                                     </ul>
                                     <div class="sem_info">
-                                        <tal:defs2 tal:define="videotog python:'videotog-'+yearnow+str(s)">
-                                            <span style="cursor:pointer;" id="#" class="videotogc" tal:attributes="id videotog">Listen</span>
-                                        </tal:defs2> | 
+                                        <tal:defs2 condition="item_object/hasAudio" tal:define="videotog python:'videotog-'+yearnow+str(s)">
+                                            <span style="cursor:pointer;" id="#" class="videotogc" tal:attributes="id videotog">Listen</span> |
+                                        </tal:defs2>
+                                        <tal:check condition="item_object/hasBiography">
                                             <a href="#" tal:attributes="href bio">Biography</a> |
+                                        </tal:check>
+                                        <tal:check condition="item_object/hasAbstract">
                                             <a href="#" tal:attributes="href abs">Abstract</a> |
+                                        </tal:check>
+                                        <tal:check condition="item_object/hasPresentation">
                                             <a href="#" tal:attributes="href pre">Presentation (ppt)</a>
+                                        </tal:check>
+                                        <tal:check condition="item_object/hasPresentationurl">
+                                            <tal:jes define="preurl item_object/getPresentationurl">
+                                                <a href="#" tal:attributes="href preurl">Presentation (external)</a>
+                                            </tal:jes>
+                                        </tal:check>
                                     </div>
                                 </tal:defs>
                             </tal:num>

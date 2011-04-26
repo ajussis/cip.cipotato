@@ -21,6 +21,25 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     # -*- Your Archetypes field definitions here ... -*-
 
+
+    atapi.StringField(
+        'speaker',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Speaker"),
+            description=_(u"Speaker"),
+        ),
+    ),
+
+    atapi.StringField(
+        'speakerinstitution',
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Speaker's organization"),
+            description=_(u"Add the organization the speaker's from"),
+        ),
+    ),
+
     atapi.StringField(
         'place',
         storage=atapi.AnnotationStorage(),
@@ -78,6 +97,15 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         index_method="hasPresentation",
     ),
 
+    atapi.StringField(
+        'presentationurl',
+        validators = ('isURL',),
+        storage=atapi.AnnotationStorage(),
+        widget=atapi.StringWidget(
+            label=_(u"Presentation's URL"),
+            description=_(u"In case the presentation is hosted for example in Google Docs, add the url here"),
+        ),
+    ),
 
     BlobField(
         'abstract',
@@ -98,16 +126,6 @@ SeminarSchema = folder.ATFolderSchema.copy() + atapi.Schema((
         ),
         index="FieldIndex:schema",
         index_method="hasBiography",
-    ),
-
-
-    atapi.StringField(
-        'speaker',
-        storage=atapi.AnnotationStorage(),
-        widget=atapi.StringWidget(
-            label=_(u"Speaker"),
-            description=_(u"Speaker"),
-        ),
     ),
 
 
@@ -139,6 +157,10 @@ class Seminar(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
+    presentationurl = atapi.ATFieldProperty('presentationurl')
+
+    speakerinstitution = atapi.ATFieldProperty('speakerinstitution')
+
     place = atapi.ATFieldProperty('place')
 
     seminardate = atapi.ATFieldProperty('seminardate')
@@ -183,6 +205,14 @@ class Seminar(folder.ATFolder):
             result = 1
         return result
 
+    security.declarePublic('hasPresentationurl')
+    def hasPresentationurl(self):
+        """This method returns true or false depending on whether the object has this field for the catalog"""
+
+        result = 0
+        if (len(self['presentationurl']) != 0):
+            result = 1
+        return result
 
 
 atapi.registerType(Seminar, PROJECTNAME)

@@ -13,11 +13,12 @@
   <property name="global_allow">True</property>
   <property name="filter_content_types">False</property>
   <property name="allow_discussion">True</property>
-  <property name="default_view">base_view</property>
+  <property name="default_view">galleryview</property>
   <property name="view_methods">
-    <element value="base_view" />
+    <element value="galleryview" />
   </property>
   <property name="allowed_content_types">
+      <element value="File" />
       <element value="Image" />
   </property>
   <alias from="(Default)" to="(dynamic view)" />

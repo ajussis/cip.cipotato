@@ -10,6 +10,18 @@ class ISeminar(Interface):
     """A content type for the seminars to include videos, flash, documents anaudio"""
 
     # -*- schema definition goes here -*-
+    presentationurl = schema.TextLine(
+        title=_(u"Presentation's URL"),
+        required=False,
+        description=_(u"In case the presentation is hosted for example in Google Docs, add the url here"),
+    )
+#
+    speakerinstitution = schema.TextLine(
+        title=_(u"Speaker's organization"),
+        required=False,
+        description=_(u"Add the organization the speaker's from"),
+    )
+#
     place = schema.TextLine(
         title=_(u"Place"),
         required=False,

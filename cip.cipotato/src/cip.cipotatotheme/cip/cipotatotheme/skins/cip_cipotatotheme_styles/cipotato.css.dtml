@@ -2717,7 +2717,7 @@ margin-bottom:0 !important;
     border-right: 0 none;
     float: left;
     margin-right: 4px;
-    width: 140px;
+    width: 180px;
 }
 
 .media_brief_name2 {
@@ -2725,7 +2725,7 @@ margin-bottom:0 !important;
     float: left;
     padding-left:10px;
     margin-right: 4px;
-    width: 185px;
+    width: 140px;
     border-left: 1px solid #581A74;
 }
 

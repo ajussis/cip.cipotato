@@ -2250,9 +2250,11 @@ margin-top:-15px;
     padding-bottom: 10px !important;
 }
 .cip-news-press {
-margin-right:4%;
-margin-top:15px;
-margin-bottom:30px;
+    border-bottom: 1px solid #C8B9BE;
+    margin-bottom: 20px;
+    margin-right: 4%;
+    margin-top: 15px;
+    padding-bottom: 40px;
 }
 
 .press-media-ul {

@@ -23,7 +23,6 @@
                             </span>
                             <span class="media_contact_info">
                                 v.gwinner@cgiar.org<br />
-                                Tel: 3496017
                             </span>
                         </div>
                     </div>
@@ -33,24 +32,19 @@
                     <div class="media_about">
                         <div class="media_brief_name">
                             <span class="media_contact_name_name">
+                                PO Box 1558, Lima 12, Peru
+                            </span>
+                            <br />
+                            <span class="media_contact_head">
+                            </span>
+                        </div>
+                        <div class="media_brief_name2">
+                            <span class="media_contact_name_name">
                                 Anderson, Pamela K.
                             </span>
                             <br />
                             <span class="media_contact_head">
                                 Director General CIP
-                            </span>
-                        </div>
-                        <div class="media_brief_name2">
-                            <span class="media_contact_name_name">
-                                International Potato Center
-                            </span>
-                            <br />
-                            <span class="media_contact_head">
-                                Funded in 1971.
-                            </span>
-                            <br />
-                            <span class="media_contact_head">
-                                PO Box 1558, Lima 12, Peru
                             </span>
                         </div>
                     </div>
@@ -88,6 +82,8 @@
                 </tal:defs>
             </div>
 
+            <div class="lineBreak"></div>
+
             <div class="cip-in-the-news-press">
                 <h1>CIP in the media</h1>
                 <ul class="press-media-ul" tal:define="n cipinthenews/queryCatalog">
@@ -115,6 +111,7 @@
                     </li>
                 </ul>
             </div>
+
             <div class="press-video-social">
                 <h1>Social media</h1>
                 <div class="press-video">
@@ -131,7 +128,7 @@
                 </div>
             </div>
 
-            <div id="content-core">
+            <!--div id="content-core">
                 <div>
                 </div>
                 <div class="seminarblock" tal:define="seminars python:view.getSeminarsyear(0)">
@@ -172,7 +169,7 @@
                         <h2>See all...</h2>
                     </a>
                 </div>
-            </div>
+            </div-->
 
         </metal:main>
     </metal:main_macro>

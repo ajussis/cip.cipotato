@@ -259,6 +259,10 @@ margin-top:0.2em !important;
     padding: 3px 0 3px 10px;
     width: 617px;
 }
+.iconholder {
+float:left;
+width:120px;
+}
 .pubrow h2 img {
     float: left;
     margin-right: 8px;
@@ -551,7 +555,7 @@ border-right: 2px solid #e69bc4;
     float: left;
     margin-top: 1em;
     padding-top: 16px;
-    width: 99%;
+    width: 100%;
 }
 .third-column {
     border-right: 0 solid #E69BC4;
@@ -560,11 +564,19 @@ border-right: 2px solid #e69bc4;
     width: 57%;
 }
 .forth-column {
-    float: left;
+    float: right;
     padding: 0;
     text-align: left;
-    width: 43%;
+    width: 40%;
 }
+.iconholder2 {
+    border-bottom: 1px dotted grey;
+    margin-top:100px;
+    float: left;
+    top: 55px;
+    width: 352px;
+}
+
 .front-papatube {
     border-right: 1px solid #E69BC4;
     float: left;

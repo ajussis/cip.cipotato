@@ -1,4 +1,4 @@
-<tal:defs tal:define="images python: 'images' in context.aq_inner.aq_parent.objectIds();">
+<!--tal:defs tal:define="images python: 'images' in context.aq_inner.aq_parent.objectIds();">
     <div tal:condition="images">
      	<script type="text/javascript" src="easySlider1.7.js"></script>
 	<script type="text/javascript">
@@ -11,7 +11,12 @@
 		});
 	</script>
 
-        <div tal:define="path python:'/'.join(here.getPhysicalPath());
+        <style>
+        .folderimages {
+        top:0;
+        }
+        </style>
+        <div class="folderimages" tal:define="path python:'/'.join(here.getPhysicalPath());
                                     path python:path.rsplit('/',1)[0]+'/images';
                                     images python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Image');">
             <div id="slider">
@@ -26,7 +31,7 @@
             </div>
         </div>
     </div>
-</tal:defs>
+</tal:defs-->
 
 <div class="relatedItems"
      i18n:domain="plone"

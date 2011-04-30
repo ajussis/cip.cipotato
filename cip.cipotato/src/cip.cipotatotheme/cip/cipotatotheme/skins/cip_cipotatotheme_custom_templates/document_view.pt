@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+
+
+
+<metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+
+        <tal:defs tal:define="images python: 'images' in context.aq_inner.aq_parent.objectIds();
+                              images2 python: 'images2' in context.aq_inner.aq_parent.objectIds();">
+            <div tal:condition="python:images or images2">
+
+                <div tal:condition="images2" class="floatimgright">
+                    <script type="text/javascript" src="easySlider1.7-2.js"></script>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                    $("#slider2").easySlider({
+                                            auto: true,
+                                            continuous: true,
+                                            numeric: true
+                                    });
+                            });
+                    </script>
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            var i = 0;
+                            $('ul').find('li').each(function(){
+                                if(i<6){
+                                    i++;
+                                }
+                                else{
+                                    i = 1;
+                                }
+                                var korkeus = $(this).find("div.slidertext").height();
+                                $(this).find("div.slidertext").css("bottom",korkeus+40);
+                            });
+                        });
+
+                    </script>
+
+                    <metal:field use-macro="python:context.widget('text', mode='view')">
+                        Body text
+                    </metal:field>
+
+                    <style>
+                    .folderimages2 {
+                    float:right;
+                    width:240px;
+                    float:right;
+                    margin:0 0 0px 15px;
+                    }
+                    .floatimgright {
+                    float:left;
+                    }
+                    #slider2 {
+                    width:250px !important;
+                    }
+                    </style>
+                    <div class="folderimages2" tal:define="path python:'/'.join(here.getPhysicalPath());
+                                                path python:path.rsplit('/',1)[0]+'/images2';
+                                                images python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Image');">
+                        <div id="slider2">
+                            <ul>
+                                <li tal:repeat="img images">
+                                    <tal:def define="title img/pretty_title_or_id;
+                                                     sub_url img/getURL|img/absolute_url;">
+                                        <div style="height:400px;">
+                                            <img src="#" tal:attributes="src sub_url" alt=""/>
+                                        </div>
+                                        <div class="slidertext">
+                                            <p tal:content="title" />
+                                        </div>
+                                    </tal:def>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('div.folderimages2').prependTo('#parent-fieldname-text');
+                        });
+
+                    </script>
+                    
+                </div>
+
+                <div tal:condition="images">
+
+                    <metal:field use-macro="python:context.widget('text', mode='view')">
+                        Body text
+                    </metal:field>
+
+                    <script type="text/javascript" src="easySlider1.7.js"></script>
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                    $("#slider").easySlider({
+                                            auto: true,
+                                            continuous: true,
+                                            numeric: true
+                                    });
+                            });
+                    </script>
+
+                    <style>
+                    .folderimages {
+                    float:right;
+                    width:200px; float:right
+                    margin:0 0 10px 10px;
+                    }
+                    .floatimgright {
+                    float:left;
+                    }
+                    </style>
+                    <div class="folderimages" tal:define="path python:'/'.join(here.getPhysicalPath());
+                                                path python:path.rsplit('/',1)[0]+'/images';
+                                                images python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Image');">
+                        <div id="slider">
+                            <ul>
+                                <li tal:repeat="img images">
+                                    <tal:def define="title img/pretty_title_or_id;
+                                                     sub_url img/getURL|img/absolute_url;">
+                                        <img src="#" tal:attributes="src sub_url" />
+                                    </tal:def>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tal:defs>
+    </metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

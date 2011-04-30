@@ -1,0 +1,139 @@
+<markers>
+ <marker name="CIP Headquarters" address="Avenida La Molina 1895, La Molina, Apartado Postal 1558, Lima, Peru" lng="-76.94429" lat="-12.07659" category="area1"/>
+ <marker name="Andean Potato Project (Papa Andina)" address="Avenida La Molina 1895, La Molina, Apartado Postal 1558, Lima, Peru" lng="-76.94429" lat="-12.07659" category="area1" />
+ <marker name="SSA Regional Office" address="SSA Regional Office c/o ILRI
+P.O. Box 25171, Nairobi 00603, Kenya
+Courier address:
+c/o ILRI Campus
+Old Naivasha Road, Uthiru, Nairobi, Kenya
+Tel: +254 20 422 3601
+Fax: +254 20 422 3001 / 3600
+Email: cip-nbo@cgiar.org
+" lng="36.72219" lat="-1.26882" category="area2"/>
+ <marker name="Ghana" address="Liaison Office Ghana c/o CSIR - Crop Research Institute
+P.O. Box 3785, Fumesua, Kumasi, Ghana
+Email: e.carey@cgiar.org
+" lng="-1.62197" lat="6.68712" category="area2"/>
+ <marker name="Uganda
+" address="Liaison Office Uganda Naguru Hill, Katalima Road, Plot 106
+P.O. Box 22274, Kampala, Uganda
+Tel: +256 414 286 209
+Fax: +256 414 286 947
+" lng="32.57399" lat="0.31491" category="area2"/>
+ <marker name="Mozambique
+" address="Liaison Office - Mozambique c/o Instituto de Investigação Agraria
+de Mozambique (IIAM)
+Avenida das FPLM 2698
+Box 2100, Maputo, Mozambique
+Tel / fax: +258 21 461 610
+Email: m.andrade@cgiar.org
+" lng="32.58511" lat="-25.96777" category="area2"/>
+ <marker name="Malawi
+" address="Liaison Office - Malawi Chitedze Research Station, SARRNET Building
+P.O. Box 30258, Lilongwe 3, Malawi
+Tel: +265 1 707 014
+Fax: +265 1 707 026
+Email: p.demo@cgiar.org
+
+" lng="33.76644" lat="-13.98781" category="area2"/>
+ <marker name="Republica de Angola
+" address="Liaison Office - Republica de Angola
+Centro Internacional da Batata (CIP)
+Rua Coluna do Sul Casa no 2 Bairro Cidade Alta Huambo Republica de Angola
+Tel: +244 9141 36087
+Fax: +244 2412 22687
+Email: b.kowalski@cgiar.org
+" lng="15.73333" lat="-12.76667" category="area2"/>
+ <marker name="Benin
+" address="Liaison Office - Benin c/o IITA/Africa Rice
+B.P. 08 tri-postal 0932
+Cotonou, Benin
+Tel: +229 21 350 188, ext. 260
+Fax: +229 21 350 556
+Email: k.hell@cgiar.org
+" lng="2.42550" lat="6.36250" category="area2"/>
+ <marker name="Ethiopia
+" address="Liaison Office - Ethiopia
+c/o ILRI - Ethiopia
+P.O. Box 5689, Addis Ababa
+Ethiopia
+Tel: +251 11 617 2291
+Fax: +251 11 617 2001
+Email: s.schulz@cgiar.org
+" lng="38.74680" lat="9.02274" category="area2"/>
+ <marker name="Regional Office
+SWCA
+" address="Regional Office
+CGIAR Centers Block, NASC Complex
+DPS Marg, Pusa Campus, New Delhi 110012, India
+Tel: +91 11 2584 0201 / 3734
+Fax: +91 11 2584 7481
+Email: cip-delhi@cgiar.org
+" lng="77.16387" lat="28.63526" category="area3"/>
+ <marker name="Orissa" address="Liaison Office in Orissa
+c/o RCCTCRI, Dumuduma
+Bhubaneswar-751019, Orissa, India
+Tel: +91 674 247 2244
+Fax: +91 674 247 0768
+Email: s.attaluri@cgiar.org
+" lng="84.27002" lat="20.23756" category="area3"/>
+ <marker name="Uzbekistan
+" address="Liaison Office Uzbekistan
+c/o ICARDA- PFU
+P.O.Box 4564, Tashkent 100 000, Uzbekistan
+Courier address:
+c/o ICARDA- PFU
+6, Osiyo Street, 100 000 Tashkent, Uzbekistan
+Tel: +998 71 237 1782
+Fax: +998 71 120 7125
+Email: c.carli@cgiar.org
+" lng="69.28615" lat="41.29214" category="area3"/>
+ <marker name="Nepal
+" address="Liaison Office Nepal
+c/o International Centre for Integrated
+Mountain Development
+G.P.O. Box 3226, Khumaltar, Kathmandu, Nepal
+Tel: +977 1 500 3222
+Fax: +977 1 500 3299 / 3277
+Tel. (ILRI switchboard): +251 11 617 2000
+Email: m.spordeler@cgiar.org
+" lng="85.32354" lat="27.64641" category="area3"/>
+ <marker name="Regional Office
+ESEAP" address="Regional Office
+c/o BALITSA
+Jl.Tangkuban Perahu no. 517
+P.O. Box 8404 Lembang-Bandung 40391, Indonesia
+Courier address:
+c/o BALITSA Jl.Tangkuban Perahu no. 517, Lembang
+Bandung, 40391, Indonesia
+Tel: +62 22 278 5591 / 5586
+Fax: +62 22 278 5549
+Email: cip-eseap@cgiar.org
+" lng="107.63526" lat="-6.81106" category="area4"/>
+ <marker name="Liaison Office China
+" address="China
+c/o The Chinese Academy of Agricultural Sciences
+Zhong Guan Cun South Street 12
+Beijing, People’s Republic of China
+ Tel: +0086 10 8210 5690
+Fax: +0086 10 8210 5690
+Email: cip-china@cgiar.org
+" lng="116.40741" lat="39.90421" category="area4"/>
+ <marker name="Vietnam
+" address="Liaison Office Vietnam
+Phong 215, Nha A,
+Vien Chan nuoi
+Thuy Phuong, Chem
+Tu Liem, Hanoi, Vietnam
+Tel: +84 4 741 0004
+Fax: +84 4 741 0003
+Email: tnguyen@cgiar.org
+" lng="105.85000" lat="21.03333" category="area4"/>
+ <marker name="UPWARD Network" address="UPWARD Network - Philippines
+c/o IRRI
+DAPO 7777, Metro Manila, Philippines
+Courier address:
+PCARRD Complex, Los Baños, Laguna 4030, Philippines
+Email: l.sister@cgiar.org
+" lng="121.24382" lat="14.17345" category="area4"/>
+</markers>

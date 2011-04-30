@@ -4,11 +4,8 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-
-            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;" type="text/javascript"></script>
-
-
             <div id="map" class="contactmap"></div>
+
             <form action="#">
                 <input type="hidden" id="area1box" onclick="boxclick(this,'area1')" />
                 <input type="hidden" id="area2box" onclick="boxclick(this,'area2')" />
@@ -21,6 +18,8 @@
                 <div class="side_bar" id="side_bar3"></div>
                 <div class="side_bar" id="side_bar4"></div>
             </div>
+
+            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;" type="text/javascript"></script>
 
             <script type="text/javascript">
             //<![CDATA[

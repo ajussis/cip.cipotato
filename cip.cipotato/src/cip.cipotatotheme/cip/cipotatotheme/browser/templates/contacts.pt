@@ -60,11 +60,11 @@
                                         <div class="contact-p-1" tal:repeat="m n">
                                             <div>
                                                 <div class="contact-position" tal:content="m/getPosition" />
-                                                <h3>
+                                                <h4>
                                                     <a href="#" tal:attributes="href m/getURL">
                                                         <span tal:replace="m/pretty_title_or_id"/>
                                                     </a>
-                                                </h3>
+                                                </h4>
                                             </div>
                                             <!--div class="contact-p-1-2">
                                                 <p>Email: email@email.com</p>

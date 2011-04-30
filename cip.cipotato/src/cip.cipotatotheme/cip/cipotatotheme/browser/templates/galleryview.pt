@@ -35,3 +35,19 @@
         </metal:main>
     </metal:main_macro>
 </html>
+
+
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+iptables -I INPUT -i eth0 -p tcp -m state --state NEW --dport 80 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+
+sudo /sbin/iptables-restore < /etc/sysconfig/iptables.test
+sudo sh -c '/sbin/iptables-save > /etc/sysconfig/iptables'
+sudo /etc/init.d/iptables restart
+sudo /sbin/iptables -nL
+sudo /sbin/iptables -L
+netstat -ant | grep LISTEN
+

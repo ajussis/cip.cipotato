@@ -158,6 +158,13 @@
       />
   <browser:page
       for="*"
+      name="tubertubeView"
+      template="templates/tubertube.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="ssaprojectsView"
       template="templates/ssaprojects.pt"
       layer=".interfaces.IThemeSpecific"

@@ -1,0 +1,126 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main">
+
+            <script type="text/javascript" src="jquery.youtubeplaylist.js"></script>
+            <script type="text/ecmascript">
+                $(function() {
+                        $("ul.demo1").ytplaylist();
+                        $("ul.demo2").ytplaylist({addThumbs:true, autoPlay: false, holderId: 'ytvideo2'});
+                });
+            </script>
+            <style type="text/css">
+#ytvideo, #ytvideo2 {
+    float: left;
+    margin: 0 0 10px 65px;
+}
+.yt_holder {
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #E3E3E3;
+    float: left;
+    margin: 20px -3px;
+    padding: 10px;
+    width: 595px;
+}
+
+ul.demo2 li {
+    background: none repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 180px;
+    list-style-type: none;
+    margin: 5px 8px !important;
+    padding: 2px;
+    width: 120px;
+}
+                ul.demo2 li img {
+                    width: 120px;
+                    float: left;
+                    margin-right: 5px;
+                    border: 1px solid #999;
+                }
+ul.demo2 li a {
+    color: #000000;
+    display: block;
+    font-family: georgia;
+    text-decoration: none !important;
+}
+                .currentvideo {
+                        background: #e6e6e6;
+                }
+                .tubertubeimg {
+                margin:10px;
+                }
+ul.demo2 {
+    border-top: 1px solid #C8B9BE;
+    float: left;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 6px;
+    padding: 10px 0 0;
+    width: 566px;
+}
+            </style>
+
+            <div id="content-core">
+
+                <img class="tubertubeimg" src="front-ttc.png" />
+
+                <div style="clear:both;"></div>
+
+                <div class="yt_holder">
+                    <div id="ytvideo2"></div>
+                    <ul class="demo2">
+                        <li><a href="http://www.youtube.com/watch?v=GgESqZaObAk">Potato Heads - Keepers of the Crop (2/2)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=B1tKFXobPy8">Potato Heads - Keepers of the Crop (1/2)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=V0MABOWed_E">Land Of Rice Eyes The Potato</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=RnqCrTaEYiU">Farmer Business School-Indonesia</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=WzYvZfPVOFk">40th Anniversary Celebration Message / Mensaje de Celebración por los 40 años del CIP </a></li>
+                        <li><a href="http://www.youtube.com/watch?v=RiuDab4YXHQ">Benefits of Aeroponic Potatoes over Maize</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=KoXeM-Hus2w">The orange revolution (Portuguese)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=DB34Tr-_BJo">The Orange Revolution. Orange fleshed sweetpotato in Mozambique</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=lArU38S_Zz8">Indigenous Knowledge of Plant Genetic Resources (4/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=HzqpJhxaMhM">Indigenous Knowledge of Plant Genetic Resources (3/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=5xDhfJSq5HI">Indigenous Knowledge of Plant Genetic Resources (2/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=JRolV1oSRdw">Indigenous Knowledge of Plant Genetic Resources (1/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=4C29NXMjWjE">Cumelly Potato (2/2) COPYRIGHT?</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=4C29NXMjWjE">Cumelly Potato (1/2)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=5SQiyPBBSx4">NCM ELISA KIT-detección Ralstonia solanacearum en papa (3/3)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=un3iWunzwls">NCM ELISA KIT-detección Ralstonia solanacearum en papa (2/3)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=HbQfVjt0LzU">NCM ELISA KIT-detección Ralstonia solanacearum en papa (1/3)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=BkiqVq3kJGI">Micropropagación. Cosecha del Mañana (1/2)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=o0_mI0hcGk4">Micropropagación. Cosecha del Mañana (1/2)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=4Em4whyXYRg">El Concepto de Manejo Integrado de Plagas (4/4) ????????????</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=4Em4whyXYRg">El Concepto de Manejo Integrado de Plagas (3/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=E6G7Gqv-PYA">El Concepto de Manejo Integrado de Plagas (2/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=kpdhOfVOjiI">El Concepto de Manejo Integrado de Plagas (1/4)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=Y_Q-46VIsBU">Curso: Almacenamiento Rustico de Semilla de Papa (8/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=F0CIULYAofk">Curso: Almacenamiento Rustico de Semilla de Papa (7/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=28mKQYw5_1w">Curso: Almacenamiento Rustico de Semilla de Papa (6/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=E6G7Gqv-PYA">Curso: Almacenamiento Rustico de Semilla de Papa (5/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=kpdhOfVOjiI">Curso: Almacenamiento Rustico de Semilla de Papa (4/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=biQUFeat7pQ">Curso: Almacenamiento Rustico de Semilla de Papa (3/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=xldMduXGMz0">Curso: Almacenamiento Rustico de Semilla de Papa (2/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=yM-qednz5_Q">Curso: Almacenamiento Rustico de Semilla de Papa (1/8)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=X0kfW7K1CiM">Documentacion tecnicas cruzamiento Programa de Mejoramiento (3/3)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=cGPNgqAvQi0">Documentacion tecnicas cruzamiento Programa de Mejoramiento (2/3)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=Yd-jI8eIOlI">Documentacion tecnicas cruzamiento Programa de Mejoramiento (1/3)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=QTkFBPqYxXg">Evaluacion de Progenies y Clones para resistencia a la infeccion por el virus</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=V_vDvN-gn70">Evaluacion de Clones Selectos para resistencia extrema a los virus</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=Bphw8MFrQ7w">Evaluacion de progenies para la resistencia extrema a los virus</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=biLF3_8eXDA">Propagacion del inoculo</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=TW7SNGpCLCM">Introducción Evaluación de Clones</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=2JSqf2jkdec">CIP at Mistura 2/2</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=kifozVP7Frw">CIP at Mistura 1/2</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=V0MABOWed_E">Land Of Rice Eyes The Potato</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=GgESqZaObAk">Potato Heads - Keepers of the Crop (2/2)</a></li>
+                        <li><a href="http://www.youtube.com/watch?v=B1tKFXobPy8">Potato Heads - Keepers of the Crop (1/2</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

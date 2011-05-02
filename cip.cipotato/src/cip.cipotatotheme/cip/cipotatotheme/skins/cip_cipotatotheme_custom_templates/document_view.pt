@@ -133,6 +133,14 @@
                     </div>
                 </div>
             </div>
+            <div tal:condition="python:not images and not images2">
+
+                <metal:field use-macro="python:context.widget('text', mode='view')">
+                    Body text
+                </metal:field>
+
+            </div>
+
         </tal:defs>
     </metal:content-core>
 </metal:content-core>

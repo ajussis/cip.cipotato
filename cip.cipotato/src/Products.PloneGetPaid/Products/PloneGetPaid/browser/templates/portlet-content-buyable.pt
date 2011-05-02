@@ -9,9 +9,9 @@
 
         <dt class="portletHeader">
             <span class="portletTopLeft"></span>
-        <span class="portletTopMiddle"
+        <!--span class="portletTopMiddle"
               i18n:translate="text_product_details">Product Details</span>
-            <span class="portletTopRight"></span>
+            <span class="portletTopRight"></span-->
         </dt>
 
         <dd class="portletItem odd">

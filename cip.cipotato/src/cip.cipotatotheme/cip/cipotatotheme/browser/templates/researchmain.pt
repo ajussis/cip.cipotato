@@ -30,15 +30,15 @@
                         <a href="sweetpotato-in-asia">Sweetpotato in Asia</a>
                     </li>
                     <li class="research_link_division">
-                        <a href="genetic-resources">Genetic resources</a>
+                        <a href="genetic-resources">Sustaining genetic resources</a>
                     </li>
                     <li class="research_link_division">
-                        <a href="genetic-enhancement-crop-improvement">Genetic enhancement & crop improvement</a>
+                        <a href="genetic-enhancement-crop-improvement">Accelerating genetic enhancement</a>
                     </li>
                     <li class="research_link_division">
-                        <a href="crop-management-production-systems">Crop management & production systems</a>
+                        <a href="crop-management-production-systems">Understanding complex systems</a>
                     </li>
-                    <li class="research_link_division">
+                    <li class="research_link_other">
                         <a href="social-health-sciences">Social & health sciences</a>
                     </li>
                     <li class="research_link_other">
@@ -46,6 +46,9 @@
                     </li>
                     <li class="research_link_other">
                         <a href="gender">Gender</a>
+                    </li>
+                    <li class="research_link_other">
+                        <a href="gender">CGIAR Research projects</a>
                     </li>
                 </ul>
             </div>

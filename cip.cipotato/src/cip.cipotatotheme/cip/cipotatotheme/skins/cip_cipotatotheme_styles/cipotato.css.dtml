@@ -3443,6 +3443,9 @@ float:left;
     margin-right: 15px;
     padding-top: 5px;
 }
+div.research_column2 ul li:hover {
+background:#fff0f0;
+}
 /* // Easy Slider */
 /* </dtml-with> */
 

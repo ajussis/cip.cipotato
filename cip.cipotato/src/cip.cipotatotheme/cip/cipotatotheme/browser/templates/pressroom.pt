@@ -55,7 +55,6 @@
             <div class="lineBreak"></div>
 
             <div class="cip-news-press">
-                <h1>Latest news</h1>
                 <tal:defs define="n cipnews/queryCatalog;
                                   n python:n[:2]">
                     <div class="cip-news-p-press" tal:repeat="m n">
@@ -81,9 +80,26 @@
                         </tal:rep>
                     </div>
                 </tal:defs>
+                <p class="morenews"><a href="press-releases">More news &raquo;</a></p>
             </div>
 
             <div class="lineBreak"></div>
+
+            <div class="press-video-social">
+                <h1>Social media</h1>
+                <div class="press-video">
+                    <iframe title="YouTube video player" width="300" height="255" src="http://www.youtube.com/embed/RnqCrTaEYiU" frameborder="0" allowfullscreen></iframe>                </div>
+                <div class="press-cip-front-social">
+                    <ul id="nav-shadow">
+                        <li class="button-color-1"><a href="#" title="CIP in Facebook"><img src="br-front-facebook.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-2"><a href="#" title="CIP in Twitter"><img src="br-front-twitter.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-3"><a href="#" title="CIP in Flickr"><img src="br-front-flickr.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-4"><a href="#" title="CIP in Slideshare"><img src="br-front-slideshare.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-5"><a href="#" title="CIP blogs"><img src="br-front-cipblogs.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-6"><a href="#" title="CIP in Youtube"><img src="br-front-youtube.jpg" class="front-social-blocks" /></a></li>
+                    </ul>
+                </div>
+            </div>
 
             <div class="cip-in-the-news-press">
                 <h1>CIP in the media</h1>
@@ -113,21 +129,6 @@
                 </ul>
             </div>
 
-            <div class="press-video-social">
-                <h1>Social media</h1>
-                <div class="press-video">
-                    <iframe title="YouTube video player" width="300" height="255" src="http://www.youtube.com/embed/RnqCrTaEYiU" frameborder="0" allowfullscreen></iframe>                </div>
-                <div class="press-cip-front-social">
-                    <ul id="nav-shadow">
-                        <li class="button-color-1"><a href="#" title="CIP in Facebook"><img src="br-front-facebook.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-2"><a href="#" title="CIP in Twitter"><img src="br-front-twitter.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-3"><a href="#" title="CIP in Flickr"><img src="br-front-flickr.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-4"><a href="#" title="CIP in Slideshare"><img src="br-front-slideshare.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-5"><a href="#" title="CIP blogs"><img src="br-front-cipblogs.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-6"><a href="#" title="CIP in Youtube"><img src="br-front-youtube.jpg" class="front-social-blocks" /></a></li>
-                    </ul>
-                </div>
-            </div>
 
             <!--div id="content-core">
                 <div>

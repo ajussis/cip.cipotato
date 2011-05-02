@@ -13,15 +13,15 @@
             <!-- Latest of all publications -->
 
             <div tal:define="path python:'/'.join(here.getPhysicalPath());
-                             pubs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Publication', sort_on='Date', sort_order='reverse');">
+                             pubs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Publication', sort_on='Date', sort_order='reverse')[:10];">
+
 
                 <div style="margin-top:15px;">
                     <div class="pubrow" tal:repeat="obj pubs">
                         <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
                                                sub_url obj/getURL|obj/absolute_url;
                                                item_created obj/CreationDate;
-                                               item_object obj/getObject;
-                                               ">
+                                               item_object obj/getObject;">
                             <tal:defs define="pc obj/getPubcode;
                                               source item_object/getCategory;
                                               series item_object/getSeries;">
@@ -51,7 +51,6 @@
                         <div class="visualClear"></div>
                     </div>
                 </div>
-
 
             </div>
         </metal:main>

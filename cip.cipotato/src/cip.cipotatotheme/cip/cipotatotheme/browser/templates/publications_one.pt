@@ -1,16 +1,9 @@
-<html metal:use-macro="here/main_template/macros/master">
+0<html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
                  tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-
-            <script>
-                $(document).ready(function() {
-                    var head = $("head");
-                    head.append("joujou");
-                }
-            </script>
 
             <h1 tal:content="context/Title" class="page_title" />
 
@@ -32,8 +25,10 @@
                                       year python:context.getYear();
                                       category python:context.getCategory();
                                       conference context/conference;
+                                      pubstock python:context.getPubstock();
                                       pages python:context.getPages();
-                                      url python:'publications/pdf/'+pc+'/at_download/';">
+                                      url context/@@plone_portal_state/navigation_root_url;
+                                      url python:url+'/publications/pdf/'+pc+'/at_download/';">
                         <div class="pubrow_info_one">
                             <tal:testimg condition="python:view.ImageExist(pc)">
                                 <a href="#" tal:attributes="href url">
@@ -42,6 +37,21 @@
                                                          class python:'pub-img2';" />
                                 </a>
                             </tal:testimg>
+                            <div id="istock" style="display:none"><h1 id="pubstock" tal:content="pubstock"></h1></div>
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    var number = $("div#istock").find("h1#pubstock").text();
+                                    if (number < 5) {
+                                        $("#portlet-cart").css("display","none");
+                                        $(".stockblock").append("Out of stock");
+                                    }
+                                    else {
+                                        $(".stockblock").append("Order on the right &raquo;");
+                                    }
+                                });
+                            </script>
+
+
                             <div class="pubrow_info_one2">
                                 <p>
                                     <b>Author:</b> <span tal:replace="context/author" />
@@ -85,6 +95,9 @@
                                 <p class="frontpdf">
                                     <a href="#" tal:attributes="href url">Download pdf</a>
                                 </p>
+                            </div>
+                            <div class="stockblock">
+
                             </div>
                          </div>
                     </tal:defs>

@@ -233,6 +233,19 @@ float:left;
 clear:both;
 margin-left:24px;
 }
+.morenews {
+float:right;
+}
+.stockblock {
+width:150px;
+float:left;
+border:1px solid grey;
+-moz-border-radius:0.5em;
+background:#EC006E;
+color:white;
+padding:5px;
+margin-left:10px;
+}
 .pubrow_info_one {
 width:800px;
 float:left;
@@ -242,7 +255,7 @@ margin-left:24px;
 .pubrow_info_one2 {
     float: left;
     margin-left: 15px;
-    width: 425px;
+    width: 290px;
 }
 .pubrow_info_one2 p {
 margin-bottom:0.2em !important;
@@ -441,13 +454,6 @@ dl#document-toc ol {
     margin-left: 1em;
 }
 
-#map {
-
-}
-
-#side_bar {
-
-}
 
 #portal-personaltools {
 background:none;
@@ -635,9 +641,10 @@ margin-top:-15px;
     width: 310px;
 }
 .cip-in-the-news-press {
-float:left;
-margin-top:-15px;
-width:300px;
+    float: left;
+    margin-left: 15px;
+    margin-top: -15px;
+    width: 300px;
 }
 .cip-in-the-news h1 {
 margin-bottom:10px !important;
@@ -2260,7 +2267,7 @@ margin-top:-15px;
     border-bottom: 1px solid #C8B9BE;
     margin-bottom: 20px;
     margin-right: 4%;
-    margin-top: 15px;
+    margin-top: 20px;
     padding-bottom: 40px;
 }
 
@@ -3320,6 +3327,9 @@ margin-right:30px;
 		overflow:hidden;
                 margin-left:0px !important;
 		}
+.gmnoprint h3 {
+margin-top:0px !important;
+}
 div.slidertext {
     background: none repeat scroll 0 0 black;
     color: white;
@@ -3395,17 +3405,23 @@ ol#controls li a {
 	ol#controls li a:focus, #prevBtn a:focus, #nextBtn a:focus{outline:none;}
 
         #map {
-        width: 650px;
+        width: 648px;
         height: 320px;
         }
+.resources_menu_title a:hover{
+text-decoration:underline !important;
+}
 .side_bar {
     float: left;
-    margin: 10px;
-    width: 150px;
+    margin: 10px 7px 15px 2px;
+    width: 156px;
 }
 .side_bar_main {
-width:700px;
-float:left;
+    border-bottom: 1px solid #C8B9BE;
+    float: left;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 700px;
 }
 .contactform {
 float:left;
@@ -3414,11 +3430,19 @@ float:left;
     border-bottom:1px solid grey !important;
 }
 .side_bar li {
-margin-left:10px !important;
-text-align:left;
+    border-bottom: 1px solid #C8B9BE;
+    list-style: none outside none;
+    margin-left: 0 !important;
+    text-align: left;
 }
 
-
+#content .documentDescription, #content #description {
+    color: #666666;
+    font: bold 1.25em "Helvetica Neue",Arial,FreeSans,sans-serif;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 5px;
+}
 /* // Easy Slider */
 /* </dtml-with> */
 

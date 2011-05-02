@@ -16,13 +16,21 @@
                     <p>
                         The CIP Library comprises print and online publications on potato, sweetpotato, and Andean roots and tubers from 1972 to present. Links to all CGIAR library resources.
                     </p>
+                    <p>
+                        <a href="library">Go to library &raquo; </a>
+                    </p>
                 </div>
                 <div class="resources_menu">
                     <div class="resources_menu_title">
-                        <a href="capacity-strengthening"><h2>Capacity strengthening</h2></a>
+                        <a href="capacity-strengthening"><h2>Seminars</h2></a>
                     </div>
                     <p>
-                        CIP’s Capacity Strengthening Department provides administrative, technical, and professional support for education and training to strengthen developing countries’ research capacities and to improve potato and sweetpotato livelihoods and food security.
+                        The CIP seminars are a platform for debating new ideas; testing theories and methodologies;
+                        discussing project ideas or activities; and reporting on new research in an informal setting
+                        allowing feedback from colleagues on pre-publication or published results.
+                    </p>
+                    <p>
+                        <a href="seminars">Go to seminars &raquo; </a>
                     </p>
                 </div>
                 <div class="resources_menu">
@@ -30,10 +38,10 @@
                         <a href="ordering-germplasm"><h2>Ordering germplasm</h2></a>
                     </div>
                     <p>
-                        To order material, access the CIP germplasm ordering system. 
+                        To order material, <a href="https://research.cip.cgiar.org/smta/search1.php">access the CIP germplasm ordering system</a>.
                     </p>
                     <ul>
-                        <li>If you’re a new user, see the how-to guide for steps.</li>
+                        <li>If you’re a new user, see the <a href="../genebank/germplasm-distribution/how-to-order-online2">how-to guide for steps</a>.</li>
                         <li>The Potato Catalog and Advanced Clones Catalog provide information about a subset of available varieties and clones.</li>
                         <li>The germplasm distribution cycle estimates the amount of time it takes to distribute your order. You can view the status of your order online.</li>
                         <li>FAQs about ordering</li>
@@ -49,6 +57,9 @@
                     </div>
                     <p>
                         CIP books, manuals, reports, working papers, and training materials on potato, sweetpotato, and Andean roots and tubers. Search by author, title, publication year, keyword, and language.
+                    </p>
+                    <p>
+                        <a href="publications">Go to publications &raquo; </a>
                     </p>
                 </div>
                 <div class="resources_menu">

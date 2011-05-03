@@ -2633,7 +2633,11 @@ margin-bottom:0px;
     width: 46%;
     float:left;
 }
-
+.jobs_column2 {
+    margin: 0 20px 20px 0;
+    width: 96%;
+    float:left;
+}
 .pub_menu {
 background:#f8e3f0;
 padding:10px;
@@ -3176,7 +3180,7 @@ public.css (line 475)
     background: url("../images/icons.png") no-repeat scroll 0 0 transparent;
     border: 0 none;
     display: block;
-    height: 120px;
+    height: 160px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -3446,6 +3450,25 @@ float:left;
 div.research_column2 ul li:hover {
 background:#fff0f0;
 }
+
+.fb_edge_widget_with_comment {
+    float: left;
+    margin: 10px 0 0 32px;
+    position: relative;
+}
+.joboneinfo p {
+float:left;
+}
+.joboneinfo {
+background-color:#FFF0F0;
+float:left;
+width:97%;
+clear:both;
+margin:10px 0;
+padding:0 10px;
+}
+
+
 /* // Easy Slider */
 /* </dtml-with> */
 

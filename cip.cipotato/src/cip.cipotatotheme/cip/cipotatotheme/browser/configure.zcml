@@ -212,6 +212,13 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
+  <browser:page
+      for="*"
+      name="jobsopenView"
+      class=".jobs.JobsOpenView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
   <browser:viewlet
       name="plone.searchbox"
       manager="plone.app.layout.viewlets.interfaces.IPortalHeader"

@@ -4,17 +4,17 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-            <h1>Jobs & scholarships</h1>
+            <h1>Jobs</h1>
             <p>
                 On this page you can find current opportunities at CIP. 
             </p>
-            <div class="jobs_column">
+            <div class="jobs_column2">
                 <div class="jobs_menu" tal:define="jobsense view/jobinfo">
                     <div class="jobs_menu_title">
-                        <h2>Jobs</h2>
+                        <h2>Open positions</h2>
                     </div>
                     <ul>
-                        <li class="jobs_listing" tal:repeat="job jobsense">
+                        <li style="clear:both" class="jobs_listing" tal:repeat="job jobsense">
                             <tal:defs define="item_url job/getURL;
                                               item_object job/getObject;
                                               date item_object/getJobdate;">
@@ -24,16 +24,6 @@
                                 Apply by: <span style="" tal:content="python:toLocalizedTime(date,long_format=0)" />
                             </tal:defs>
                         </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="jobs_column">
-                <div class="jobs_menu" tal:define="scholarsense nocall:here/scholtext">
-                    <div class="jobs_menu_title">
-                        <h2>Scholarships</h2>
-                    </div>
-                    <ul>
-                        <p tal:content="structure scholarsense/getText" />
                     </ul>
                 </div>
             </div>

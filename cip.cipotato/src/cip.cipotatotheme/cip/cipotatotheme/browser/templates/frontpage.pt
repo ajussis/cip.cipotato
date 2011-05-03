@@ -82,12 +82,12 @@
 
                 <div class="cip-front-social">
                     <ul id="nav-shadow">
-                        <li class="button-color-1"><a href="#" title="CIP in Facebook"><img src="front-facebook.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-2"><a href="#" title="CIP in Twitter"><img src="front-twitter.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-3"><a href="#" title="CIP in Flickr"><img src="front-flickr.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-4"><a href="#" title="CIP in Slideshare"><img src="front-slideshare.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-5"><a href="#" title="CIP blogs"><img src="front-cipblogs.jpg" class="front-social-blocks" /></a></li>
-                        <li class="button-color-6"><a href="#" title="CIP in Youtube"><img src="front-youtube.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-1"><a href="https://www.facebook.com/pages/International-Potato-Center/114295425254770" title="CIP in Facebook"><img src="front-facebook.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-2"><a href="http://twitter.com/#!/cipotato" title="Go to CIP in Twitter"><img src="front-twitter.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-3"><a href="http://www.flickr.com/photos/cipotato_photos" title="Go to CIP in Flickr"><img src="front-flickr.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-4"><a href="http://www.slideshare.net/cipcsd" title="Go to CIP in Slideshare"><img src="front-slideshare.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-5"><a href="media/blogs" title="Go to CIP blogs"><img src="front-cipblogs.jpg" class="front-social-blocks" /></a></li>
+                        <li class="button-color-6"><a href="http://www.youtube.com/user/cipotato1" title="Go to CIP in Youtube"><img src="front-youtube.jpg" class="front-social-blocks" /></a></li>
                     </ul><!-- end shadow navigation -->
                 </div>
             </div>

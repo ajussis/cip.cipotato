@@ -52,7 +52,6 @@
                     .folderimages2 {
                     float:right;
                     width:240px;
-                    float:right;
                     margin:0 0 0px 15px;
                     }
                     .floatimgright {
@@ -109,8 +108,8 @@
 
                     <style>
                     .folderimages {
-                    float:right;
-                    width:200px; float:right
+                    float:left;
+                    width:200px; 
                     margin:0 0 10px 10px;
                     }
                     .floatimgright {

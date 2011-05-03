@@ -176,7 +176,6 @@ class GalleryView(BrowserView):
         results = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/events")}, sort_order="ascending", portal_type="Gallery")
         return results
 
-
 #testing searchboxes
 class SearchBoxPubViewlet(SearchBoxViewlet):
     render = ViewPageTemplateFile("templates/searchboxpub.pt")

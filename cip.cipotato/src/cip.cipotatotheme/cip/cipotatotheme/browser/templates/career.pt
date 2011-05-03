@@ -1,15 +1,20 @@
 <html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
-                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
-                    tal:define="define="body python:context.getBody;">
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                date context/getJobdate">
 
             <h1 tal:content="context/Title" class="page_title" />
 
-            <div tal:content="body">
+            <div class="joboneinfo">
+                <p><b>Last date: </b><tal:joo tal:replace="python:toLocalizedTime(date,long_format=0)"/>&nbsp; | &nbsp;&nbsp;</p>
+                <p> <b> Unit: </b><tal:joo replace="context/getUnit"/> &nbsp;| &nbsp;&nbsp;</p>
+                <p> <b> Type: </b><tal:joo replace="context/getType"/></p> 
             </div>
+
+            <div tal:replace="structure here/getBody" />
 
         </metal:main>
     </metal:main_macro>

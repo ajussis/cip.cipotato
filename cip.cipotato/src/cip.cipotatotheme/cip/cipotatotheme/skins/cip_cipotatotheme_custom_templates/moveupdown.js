@@ -25,8 +25,8 @@ http://www.adrianpelletier.com
 		    $(this).stop().animate({ marginTop: "-10px" }, 200);
 		    $(this).parent().find("span").stop().animate({ marginTop: "18px", opacity: 0.25 }, 200);
 		},function(){
-		    $(this).stop().animate({ marginTop: "0px" }, 300);
-		    $(this).parent().find("span").stop().animate({ marginTop: "1px", opacity: 1 }, 300);
+		    $(this).stop().animate({ marginTop: "-10px" }, 300);
+		    $(this).parent().find("span").stop().animate({ marginTop: "18px", opacity: 1 }, 300);
 		});
 
 	/* =Shadow Nav
@@ -37,12 +37,12 @@ http://www.adrianpelletier.com
 
 		$("#nav-shadow li").hover(function() {
 			var e = this;
-                        $(e).find("a").stop().animate({ marginTop: "-14px" }, 250, function() {
-		    	$(e).find("a").animate({ marginTop: "3px" }, 250);
+                        $(e).find("a").stop().animate({ marginTop: "-10px" }, 250, function() {
+		    	$(e).find("a").animate({ marginTop: "0px" }, 250);
 		    });
 		},function(){
 			var e = this;
-                        $(e).find("a").stop().animate({ marginTop: "-4px" }, 250, function() {
+                        $(e).find("a").stop().animate({ marginTop: "0px" }, 250, function() {
 		    	$(e).find("a").animate({ marginTop: "0px" }, 250);
 		    });
 		});

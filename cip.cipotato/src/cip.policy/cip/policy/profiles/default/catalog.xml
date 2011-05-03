@@ -99,6 +99,9 @@
  <index name="getSeminardate" meta_type="FieldIndex">
   <indexed_attr value="getSeminardate"/>
  </index>
+ <index name="getJobdate" meta_type="FieldIndex">
+  <indexed_attr value="getSeminardate"/>
+ </index>
  <index name="getTel" meta_type="FieldIndex">
   <indexed_attr value="getTel"/>
  </index>

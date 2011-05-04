@@ -27,9 +27,10 @@
                                                                sub_url obj/getURL;
                                                                sub_id obj/getId|item/id;
                                                                path python:'/'.join(here.getPhysicalPath()) + '/' + item_id + '/' + sub_id;
-                                                               brains python:context.portal_catalog(path={'query' : path, 'depth' : 3})[:1];">
+                                                               brains python:context.portal_catalog(path={'query' : path, 'depth' : 3})[:1];
+                                                               imgid python:brains[0].id">
                                                 <tal:conds>
-                                                    <div class="galleryblock" tal:define="image python:item_id + '/' + sub_id + '/' + brains[0].id + '/image_thumb'">
+                                                    <div class="galleryblock" tal:define="image python:item_id + '/' + sub_id + '/first/image_thumb'">
                                                         <a href="#" tal:attributes="href sub_url">
                                                             <img src="#" tal:attributes="src image" />
                                                         </a>

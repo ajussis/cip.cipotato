@@ -1,4 +1,4 @@
-0<html metal:use-macro="here/main_template/macros/master">
+<html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
                  tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">

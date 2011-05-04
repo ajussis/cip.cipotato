@@ -75,7 +75,6 @@ margin:<dtml-var "(122-_[logoName].height)/2">px 0 0 <dtml-var "(259-_[logoName]
 /*---------- GLOBAL NAVIGATION ----------*/
 #portal-globalnav {
     background-color: white;
-    background-image: url("action.jpg");
     background-position: right center;
     background-repeat: no-repeat;
     border-top: medium none;
@@ -3177,7 +3176,6 @@ public.css (line 475)
     position: relative;
 }
 .forth-column #nav-shadow a, #nav-shadow a:visited, #nav-shadow a, #nav-shadow a:hover {
-    background: url("../images/icons.png") no-repeat scroll 0 0 transparent;
     border: 0 none;
     display: block;
     height: 160px;

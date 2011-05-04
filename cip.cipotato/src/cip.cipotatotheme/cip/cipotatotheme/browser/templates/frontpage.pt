@@ -148,23 +148,7 @@
                     </div>
 
                 </div>
-                <!--div class="forth-column">
-                    <ul id="nav-shadow">
-                        <li class="front-crp"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-cpr.gif" /></a></li>
-                        <li class="front-csd"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-csd-2.png" /></a></li>
-                        <li class="front-germplasm"><a href="#" class="firsticon" title="CIP"><img width="90" src="front-getgermplasm-2.gif" /></a></li>
-                        <li class="front-papatube"><a href="#" title="CIP"><img src="front-papatube.jpg" /></a></li>
-                        <li class="front-newsletter"><a href="#" title="CIP"><img src="front-newsletter.jpg" /></a></li>
-                    </ul>
-                </div-->
-                <!--div class="forth-column">
-                    <ul id="nav-shadow">
-                        <li class="front-csd"><a href="#" title="CIP"><img src="front-csd.gif" /></a></li>
-                        <li class="front-germplasm"><a href="#" title="CIP"><img src="front-getgermplasm.gif" /></a></li>
-                        <li class="front-papatube"><a href="#" title="CIP"><img src="front-papatube.jpg" /></a></li>
-                        <li class="front-newsletter"><a href="#" title="CIP"><img src="front-newsletter.jpg" /></a></li>
-                    </ul>
-                </div-->
+
                 <script type='text/javascript'>
                     $(document).ready(function(){
                         $("img.a").hover(function() {$(this).stop().animate({"opacity": "0"}, "normal");},function() {$(this).stop().animate({"opacity": "1"}, "normal");});

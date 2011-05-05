@@ -20,6 +20,7 @@ CareerSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
     atapi.TextField(
         'body',
+        default_output_type = 'text/x-html-safe',
         storage=atapi.AnnotationStorage(),
         widget=atapi.RichWidget(
             label=_(u"Job description"),
@@ -29,7 +30,7 @@ CareerSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
 
 
     atapi.DateTimeField(
-        'date',
+        'jobdate',
         storage=atapi.AnnotationStorage(),
         widget=atapi.CalendarWidget(
             label=_(u"Date"),
@@ -84,7 +85,7 @@ class Career(base.ATCTContent):
     # -*- Your ATSchema to Python Property Bridges Here ... -*-
     body = atapi.ATFieldProperty('body')
 
-    date = atapi.ATFieldProperty('date')
+    jobdate = atapi.ATFieldProperty('jobdate')
 
     type = atapi.ATFieldProperty('type')
 

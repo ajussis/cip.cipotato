@@ -177,29 +177,29 @@
                 <div class="forth-column">
                     <div class="iconholder">
                         <div class="fadehover">
-                            <img src="front-fs.png" alt="" class="a" />
+                            <a href="about-cip/jobs/scholarships/""><img src="front-fs.png" alt="" class="a" /></a>
                             <img src="front-fsc.png" alt="" class="b" />
                         </div>
                         <div class="fadehover">
-                            <img src="front-crp.png" alt="" class="c" />
+                            <a href="/research/cgiar-research-projects"><img src="front-crp.png" alt="" class="c" /></a>
                             <img src="front-crpc.png" alt="" class="d" />
                         </div>
                         <div class="fadehover">
-                            <img src="front-gg.png" alt="" class="e" />
+                            <a href="genebank/germplasm-distribution"><img src="front-gg.png" alt="" class="e" /></a>
                             <img src="front-ggc.png" alt="" class="f" />
                         </div>
                     </div>
                     <div class="iconholder2">
                         <div class="fadehover">
-                            <img src="front-tt.png" alt="" class="g" />
+                            <a href="press-room/papatube"><img src="front-tt.png" alt="" class="g" /></a>
                             <img src="front-ttc.png" alt="" class="h" />
                         </div>
                         <div class="fadehover">
-                            <img src="front-cs.png" alt="" class="i" />
+                            <a href="resources/seminars"><img src="front-cs.png" alt="" class="i" /></a>
                             <img src="front-csc.png" alt="" class="j" />
                         </div>
                         <div class="fadehover">
-                            <img src="front-nws.png" alt="" class="k" />
+                            <a href="resources/publications/cip-newsletter"><img src="front-nws.png" alt="" class="k" /></a>
                             <img src="front-nwsc.png" alt="" class="l" />
                         </div>
                     </div>

@@ -5,7 +5,7 @@
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
-            <h1 tal:content="context/Title" class="page_title" />
+            <h2 class="puboneh2" tal:content="context/Title" />
 
             <div class="lineBreak"></div>
 
@@ -43,14 +43,15 @@
                                     var number = $("div#istock").find("h1#pubstock").text();
                                     if (number < 5) {
                                         $("#portlet-cart").css("display","none");
-                                        $(".stockblock").append("Out of stock");
+                                        $(".stockblocknot").append("Out of stock");
                                     }
                                     else {
-                                        $(".stockblock").append("Order on the right &raquo;");
+                                        $(".stockblocknot").css("display","none");
+                                        $("dl#portlet-cart .portletItem").css("display","none");
+                                        $("dl#portlet-cart").appendTo(".stockblock");
                                     }
                                 });
                             </script>
-
 
                             <div class="pubrow_info_one2">
                                 <p>
@@ -96,8 +97,10 @@
                                     <a href="#" tal:attributes="href url">Download pdf</a>
                                 </p>
                             </div>
+                            <div class="stockblocknot">
+                            </div>
                             <div class="stockblock">
-
+                            <h3>Order</h3>
                             </div>
                          </div>
                     </tal:defs>

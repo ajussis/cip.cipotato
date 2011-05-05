@@ -1,7 +1,6 @@
 <html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
-                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                             disable_column_two python:request.set('disable_plone.rightcolumn',2);" />
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
@@ -12,46 +11,67 @@
 
             <!-- Latest of all publications -->
 
-            <div tal:define="path python:'/'.join(here.getPhysicalPath());
-                             pubs python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Publication', sort_on='Date', sort_order='reverse')[:10];">
+            <div class="pubscontent">
+                <tal:listing define="batch view/contents">
+                    <tal:block tal:repeat="item batch">
+                        <div class="pubrow tileItem visualIEFloatFix vevent"
+                             tal:define="item_url item/getURL|item/absolute_url;
+                                         item_id item/getId|item/id;
+                                         item_title_or_id item/pretty_title_or_id;
+                                         item_description item/Description;
+                                         item_type item/portal_type;
+                                         item_type_title item/Type;
+                                         item_modified item/ModificationDate;
+                                         item_created item/CreationDate;
+                                         item_wf_state        item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
+                                         item_creator item/Creator;
+                                         item_start item/start/ISO|item/StartDate|nothing;
+                                         item_end item/end/ISO|item/EndDate|nothing;
+                                         item_object item/getObject;
+                                         pc item/getPubcode;
+                                         source item_object/getAuthor;
+                                         series item_object/getSeries;
+                                         pubstock python:item_object.getPubstock();">
 
-
-                <div style="margin-top:15px;">
-                    <div class="pubrow" tal:repeat="obj pubs">
-                        <tal:defs2 tal:define="sub_title obj/pretty_title_or_id;
-                                               sub_url obj/getURL|obj/absolute_url;
-                                               item_created obj/CreationDate;
-                                               item_object obj/getObject;">
-                            <tal:defs define="pc obj/getPubcode;
-                                              source item_object/getCategory;
-                                              series item_object/getSeries;">
-                                <h2>
-                                    <img src="cip-icon.gif" />
+                            <div class="pubrow_info">
+                                <tal:testimg condition="python:view.ImageExist(pc)">
+                                    <img src="" alt=""
+                                         tal:attributes="src python:'../images2/' + pc + '-jpg/image_thumb';
+                                                         class python:'pub-img2';" />
+                                </tal:testimg>
+                                <h3 class="pubsubh3"
+                                    metal:define-macro="listitem">
                                     <a href="#"
-                                        class="pubrow_title"
-                                        tal:content="sub_title"
-                                        tal:attributes="href sub_url" />
-                                </h2>
-                                <div class="pubrow_info">
-                                    <tal:testimg condition="python:view.ImageExist(pc)">
-                                        <img src="" alt=""
-                                             tal:attributes="src python:'../images2/' + pc + '-jpg/image_thumb';
-                                                             class python:'pub-img2';" />
-                                    </tal:testimg>
-                                        <span class="frontDate3" tal:content="source" />
-                                        <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
-                                        <br />
-                                        <span class="frontDate3" tal:content="series"/>
-                                        <p class="frontpdf" tal:define="url python:'publications/pdf/'+pc+'/at_download/'">
-                                            <a href="#" tal:attributes="href url">Download pdf</a>
-                                        </p>
-                                 </div>
-                            </tal:defs>
-                        </tal:defs2>
-                        <div class="visualClear"></div>
-                    </div>
-                </div>
+                                       class="summary url"
+                                       tal:attributes="href item_url"
+                                       tal:content="item_title_or_id">
+                                        Item Title
+                                    </a>
+                                </h3>
 
+                                <span tal:content="source" />
+                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
+                                <br />
+                                <span class="frontDate3" tal:content="series"/>
+                                <p class="frontpdf" tal:define="url python:'publications/pdf/'+pc+'/at_download/'">
+                                    <a href="#" tal:attributes="href url">Download pdf &raquo;</a> |
+                                    <a href="#" tal:condition="python:int(pubstock) > 4" tal:attributes="href url">Order &raquo;</a>
+                                    <span tal:condition="python:int(pubstock) < 5">Out of stock</span>
+                                </p>
+
+                                <div class="visualClear"><!-- --></div>
+
+                            </div>
+
+                        </div>
+                    </tal:block>
+
+                    <div class="visualClear"><!-- --></div>
+
+                    <!-- Navigation -->
+                    <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+                </tal:listing>
             </div>
         </metal:main>
     </metal:main_macro>

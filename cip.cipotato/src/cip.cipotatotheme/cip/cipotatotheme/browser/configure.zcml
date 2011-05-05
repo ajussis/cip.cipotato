@@ -57,13 +57,23 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-  <browser:page
+  <!--browser:page
       for="*"
       name="publicationssub_view"
       class=".publications.PublicationsSubView"
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
+      /-->
+  <browser:page
+      for="*"
+      name="publicationssub_view"
+      class=".publications.PublicationsSubView"
+      template="templates/publications_sub.pt"
+      allowed_interface=".publications.IPublicationsSubView"
+      permission="zope2.View"
       />
+
+
   <browser:page
       for="*"
       name="publicationsone_view"

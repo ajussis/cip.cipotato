@@ -14,7 +14,6 @@
 <style type="text/css">
 
 			*{ padding:0px; margin:0px; }
-			body{ background:#D5DEE7; }
 			a{ color:#C8DCE5;}
 			h3{ margin: 10px 10px 0 10px; color:#FFF; font:18pt Arial, sans-serif; letter-spacing:-1px; font-weight: bold;  }
 

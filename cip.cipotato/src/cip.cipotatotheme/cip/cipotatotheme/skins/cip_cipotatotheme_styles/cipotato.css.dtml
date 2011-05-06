@@ -7,7 +7,10 @@ background-color:#eee;
 font-family: .Arial Narrow., sans-serif;
 background-image:url(bg-barra1.jpg);
 }
-
+body .section-roots-and-tubers {
+    background-color: #EEEEEE;
+    background-image: url("bg-barra1.jpg");
+}
 #visual-portal-wrapper {
 background-color:#FFFFFF;
 margin-left:auto !important;
@@ -680,26 +683,26 @@ margin-bottom:10px !important;
 /*---------- FRONT TABS --------------------*/
 
 .cip-front1 {
-background-image:url("cip-front1-2.jpg");
+background-image:url("cip-front1-3.jpg");
 height:224px;
 width:960px !important;
 }
 
 
 .cip-front2 {
-    background-image: url("cip-front2-2.jpg");
+    background-image: url("cip-front2-3.jpg");
     background-position: 0 -76px;
     height: 224px;
     width: 960px !important;
 }
 .cip-front3 {
-    background-image: url("cip-front3-2.jpg");
+    background-image: url("cip-front3-3.jpg");
     background-position: 0 -75px;
     height: 224px;
     width: 963px !important;
 }
 .cip-front4 {
-background-image:url("cip-front4-2.jpg");
+background-image:url("cip-front4-3.jpg");
 height:224px;
 width:960px !important;
 }
@@ -2557,8 +2560,8 @@ dl.portalMessage {
 
 
 .section-genebank div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-genebank.jpg") repeat scroll 0 0 transparent;
-    height: 279px;
+    background: url("2nd-genebank2.jpg") repeat scroll 0 0 transparent;
+    height: 275px;
 }
 .section-genebank #portal-header {
     background: url("cip_header3.png") repeat scroll 9px 0 transparent;
@@ -2568,8 +2571,8 @@ dl.portalMessage {
 }
 
 .section-potato div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-papas.jpg") repeat scroll 0 0 transparent;
-    height: 279px;
+    background: url("2nd-papas2.jpg") repeat scroll 0 0 transparent;
+    height: 275px;
 }
 .section-potato #portal-header {
     background: url("cip_header3.png") repeat scroll 9px 0 transparent;
@@ -2579,8 +2582,8 @@ dl.portalMessage {
 }
 
 .section-sweetpotato div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-camote.jpg") repeat scroll 0 0 transparent;
-    height: 279px;
+    background: url("2nd-camote2.jpg") repeat scroll 0 0 transparent;
+    height: 275px;
 }
 .section-sweetpotato #portal-header {
     background: url("cip_header3.png") repeat scroll 9px 0 transparent;
@@ -2601,8 +2604,8 @@ dl.portalMessage {
     height: 298px;
 }
 .section-roots-and-tubers div#visual-portal-wrapper div#portal-top {
-    background: url("2nd-rtas.jpg") repeat scroll 0 0 transparent;
-    height: 279px;
+    background: url("2nd-rtas2.jpg") repeat scroll 0 0 transparent;
+    height: 275px;
 }
 .section-roots-and-tubers #portal-header {
     background: url("cip_header3.png") repeat scroll 9px 0 transparent;

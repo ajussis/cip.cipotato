@@ -248,6 +248,10 @@ color:white;
 padding:5px;
 margin-left:10px;
 }
+.contactmap {
+clear:both;
+position:relative;
+}
 .stockblock {
     float: left;
     margin-left: 0;
@@ -3690,6 +3694,29 @@ width:560px;
 	padding-bottom: 7px;
 }
 
+.contact_basicinfo {
+width:100%;
+}
+
+.contact_basicinfo1 {
+    float: left;
+    position: relative;
+    width: 48%;
+    margin-bottom:10px;
+    border-right:1px solid #C8B9BE;
+    padding-right:5px;
+    margin-right:20px;
+}
+.contact_basicinfo2 {
+    float: left;
+    position: relative;
+    width: 48%;
+    margin-bottom:10px;
+}
+
+.contact_basicinfo1 p {
+margin-left:10px;
+}
 /* // Easy Slider */
 /* </dtml-with> */
 

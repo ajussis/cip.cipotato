@@ -98,6 +98,26 @@
 
             <div tal:condition="gen">
 
+            <div class="contact_basicinfo">
+                <div class="contact_basicinfo1">
+                    <h3>CIP Headquarters Lima</h3>
+                    <p><b>Tel. </b> +511 3496017<br />
+                        <b>Email. </b>info@cgiar.org<br />
+                        <b>Address. </b>Avenida La Molina 1895, La Molina<br />
+                        Apartado Postal 1558, Lima, Peru
+                    </p>
+                </div>
+                <div class="contact_basicinfo2">
+                    <h3>Media contact</h3>
+                    <p>Valerie Gwinner<br />
+                        <b>Email. </b>v.gwinner@cgiar.org
+                    </p>
+                    <p>
+                        <a href="contact-info">Questions about this site?</a>
+                    </p>
+                </div>
+            </div>
+
             <script type="text/javascript">
             $(document).ready(function() {
                 $("div.side_bar_main").find(".side_bar").each(function(){
@@ -108,8 +128,7 @@
             </script>
 
             <div id="map" class="contactmap"></div>
-            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;" type="text/javascript"></script>
-
+            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false&amp;key=ABQIAAAAB2_0mmrf69ZBletOgabykRSXQbsDShJute_U0k4BLUFHpr3AARQkoMv695L4fEZGbcGXbZtR0Phx7w" type="text/javascript"></script>
 
             <form action="#">
                 <input type="hidden" id="area1box" onclick="boxclick(this,'area1')" />
@@ -269,11 +288,12 @@
             //]]>
             </script>
             </div>
+            <h1 style="float:left; margin-bottom:15px !important;">Contact us directly</h1>
+
         </tal:block>
 
 
         <div class="contactform">
-            <h1>Contact form</h1>
 
             <p class="documentDescription"
                tal:content="here/Description"

@@ -42,9 +42,8 @@
                     </p>
                     <ul>
                         <li>If you’re a new user, see the <a href="../genebank/germplasm-distribution/how-to-order-online2">how-to guide for steps</a>.</li>
-                        <li>The Potato Catalog and Advanced Clones Catalog provide information about a subset of available varieties and clones.</li>
+                        <li><a href="http://www.cipotato.org/resources/publications/cd-rom/catalogue-of-potato-varieties-and-advanced-clones">The Potato Catalog and Advanced Clones Catalog</a> provide information about a subset of available varieties and clones.</li>
                         <li>The germplasm distribution cycle estimates the amount of time it takes to distribute your order. You can view the status of your order online.</li>
-                        <li>FAQs about ordering</li>
                         <li>Standard Material Transfer Agreement (SMTA) and other documents</li>
                     </ul>
                 </div>
@@ -67,21 +66,21 @@
                         <a href="databases"><h2>Databases</h2></a>
                     </div>
                     <p>
-                        Information about RIU databases
+                        Links to databases developed by Research Informatics Unit of CIP:
                     </p>
                     <ul>
-                        <li>Germplasm</li>
-                        <li>Inter-genebank Potato Database</li>
-                        <li>Sweetpotato Gene Index</li>
-                        <li>Potato Genetic Identity Kit</li>
-                        <li>PotatoGENE</li>
-                        <li>System-wide Information Network for Genetic Resources (SINGER)</li>
-                        <li>DIVA-GIS</li>
-                        <li>GIS</li>
-                        <li>Insect Life Cycle Modeling (ILCYM)</li>
-                        <li>World Potato Atlas</li>
-                        <li>World Sweetpotato Atlas</li>
-                        <li>Wild Potato Species Atlas</li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/cpx/Germplasm+Passport+and+Evaluation+Data+Search">Germplasm</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/IPD/Home">Inter-genebank Potato Database</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/SPGI">Sweetpotato Gene Index</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/IPD/SSR+Marker">Potato Genetic Identity Kit</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/potatogene">PotatoGENE</a></li>
+                        <li><a href="http://singer.cgiar.org/index.jsp">System-wide Information Network for Genetic Resources</a> (SINGER)</li>
+                        <li><a href="https://research.cip.cgiar.org/gis/index.php">GIS</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/divagis">DIVA-GIS</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/ilcym/Home">Insect Life Cycle Modeling</a> (ILCYM)</li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/wpa/Home">World Potato Atlas</a></li>
+                        <li><a href="https://research.cip.cgiar.org/confluence/display/wsa/Home">World Sweetpotato Atlas</a></li>
+                        <li><a href="https://research.cip.cgiar.org/genebankdb/modules/wpsa_old/">Wild Potato Species Atlas</a></li>
                     </ul>
                 </div>
             </div>

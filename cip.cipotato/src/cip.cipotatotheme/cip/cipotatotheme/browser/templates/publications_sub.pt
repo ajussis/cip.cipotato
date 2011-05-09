@@ -40,7 +40,7 @@
                                 <span class="frontDate3" tal:content="series"/>
                                 <p class="frontpdf" tal:define="url python:here.portal_url.getPortalPath()+'/publications/pdf/'+pc+'.pdf'">
                                     <a href="#" tal:attributes="href url">Download pdf &raquo;</a> |
-                                    <a href="#" tal:condition="python:int(pubstock) > 4" tal:attributes="href url">Order &raquo;</a>
+                                    <a href="#" tal:condition="python:int(pubstock) > 4" tal:attributes="href item_url">Order &raquo;</a>
                                     <span tal:condition="python:int(pubstock) < 5">Out of stock</span>
                                 </p>
                                 <div class="visualClear"></div>

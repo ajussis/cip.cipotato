@@ -66,47 +66,27 @@ class PublicationsSubView(BrowserView):
 
     def query(self, start, limit, contentFilter):
         """ Make catalog query for the folder listing.
-
         @param start: First index to query
-
         @param limit: maximum number of items in the batch
-
         @param contentFilter: portal_catalog filtering dictionary with index -> value pairs.
-
         @return: Products.CMFPlone.PloneBatch.Batch object
         """
-
-        # Batch size
         b_size = limit
-
-        # Batch start index, zero based
         b_start = start
 
-        # We use different query method, depending on
-        # whether we do listing for topic or folder
-        if IATTopic.providedBy(self.context):
-            # ATTopic like content
-            # Call Products.ATContentTypes.content.topic.ATTopic.queryCatalog() method
-            # This method handles b_start internally and
-            # grabs it from HTTPRequest object
-            return self.context.queryCatalog(contentFilter, batch=True, b_size=b_size)
-        else:
-            # Folder or Large Folder like content
-            # Call CMFPlone(/skins/plone_scripts/getFolderContents Python script
-            # This method handles b_start parametr internally and grabs it from the request object
-            contentFilter['sort_order'] = "descending"
-            return self.context.getFolderContents(contentFilter, batch=True, b_size=b_size)
+        contentFilter['sort_order'] = "descending"
+        contentFilter['sort_on'] = "Date"
+        return self.context.getFolderContents(contentFilter, batch=True, b_size=b_size)
 
     def __call__(self):
         """ Render the content item listing.
         """
-        limit = 10
+        limit = 5
         filter = { "portal_type" : "Publication" }
         # Read the first index of the selected batch parameter as HTTP GET request query parameter
         start = self.request.get("b_start", 0)
         # Perform portal_catalog query
         self.contents = self.query(start, limit, filter)
-        # Return the rendered template (productcardsummaryview.pt), with content listing information filled in
         return self.index()
 
 
@@ -128,3 +108,11 @@ class PublicationsOneView(BrowserView):
             return img_id
         else:
             return 0
+
+    def PdfExist(self, pc):
+        #import pdb;pdb.set_trace()
+        result = self.context.portal_catalog.searchResults(path={"query":self.context.portal_url.getPortalPath()+"/publications/pdf/"+str(pc)+".pdf"})
+        if not result:
+            return 0
+        else:
+            return 1

@@ -6,30 +6,16 @@
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
             <h1 tal:content="context/Title" class="page_title" />
-
             <div class="lineBreak"></div>
-
-            <!-- Latest of all publications -->
-
             <div class="pubscontent">
                 <tal:listing define="batch view/contents">
                     <tal:block tal:repeat="item batch">
                         <div class="pubrow tileItem visualIEFloatFix vevent"
                              tal:define="item_url item/getURL|item/absolute_url;
-                                         item_id item/getId|item/id;
                                          item_title_or_id item/pretty_title_or_id;
-                                         item_description item/Description;
-                                         item_type item/portal_type;
-                                         item_type_title item/Type;
-                                         item_modified item/ModificationDate;
                                          item_created item/CreationDate;
-                                         item_wf_state        item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
-                                         item_creator item/Creator;
-                                         item_start item/start/ISO|item/StartDate|nothing;
-                                         item_end item/end/ISO|item/EndDate|nothing;
                                          item_object item/getObject;
                                          pc item/getPubcode;
-                                         source item_object/getAuthor;
                                          series item_object/getSeries;
                                          pubstock python:item_object.getPubstock();">
 
@@ -49,26 +35,20 @@
                                     </a>
                                 </h3>
 
-                                <span tal:content="source" />
                                 <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
                                 <br />
                                 <span class="frontDate3" tal:content="series"/>
-                                <p class="frontpdf" tal:define="url python:'publications/pdf/'+pc+'/at_download/'">
+                                <p class="frontpdf" tal:define="url python:here.portal_url.getPortalPath()+'/publications/pdf/'+pc+'.pdf'">
                                     <a href="#" tal:attributes="href url">Download pdf &raquo;</a> |
                                     <a href="#" tal:condition="python:int(pubstock) > 4" tal:attributes="href url">Order &raquo;</a>
                                     <span tal:condition="python:int(pubstock) < 5">Out of stock</span>
                                 </p>
-
-                                <div class="visualClear"><!-- --></div>
-
+                                <div class="visualClear"></div>
                             </div>
-
                         </div>
                     </tal:block>
 
-                    <div class="visualClear"><!-- --></div>
-
-                    <!-- Navigation -->
+                    <div class="visualClear"></div>
                     <div metal:use-macro="here/batch_macros/macros/navigation" />
 
                 </tal:listing>

@@ -13,21 +13,13 @@
             <div class="lineBreak"></div>
 
             <div class="first-column">
-                <div class="cip-news">
+                <div tal:define="n cipnews/queryCatalog;" class="cip-news">
                     <h1>News from CIP</h1>
-                    <tal:defs define="n cipnews/queryCatalog;
-                                      n python:n[:2]">
-                        <div id="news-item" class="cip-news-p" tal:repeat="m n">
+                    <div id="news-item" class="cip-news-p" tal:repeat="m n">
+                        <tal:defining define="item_object m/getObject;">
                             <div class="cip-news-div-img">
-                                <a href="#"
-                                    tal:define="item_object m/getObject;
-                                                item_url m/getURL;"
-                                    tal:condition="exists:item_object/image_thumb"
-                                    tal:attributes="href python:item_url+'/view', item_url">
-                                    <img src="" alt=""
-                                         tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
-
-                                </a>
+                                <img src="" alt=""
+                                     tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
                                 <span class="frontDate">
                                     <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
                                 </span>
@@ -43,8 +35,8 @@
                                     <p style="margin-top:0.2em !important;" tal:content="m/Description" />
                                 </tal:rep>
                             </div>
-                        </div>
-                    </tal:defs>
+                        </tal:defining>
+                    </div>
                     <script>
                         $("div#news-item:first").addClass("cip-news-p-first");
                     </script>
@@ -57,24 +49,17 @@
                     <ul tal:define="n cipinthenews/queryCatalog">
                         <li class="cip-news-li" tal:repeat="m n">
                             <tal:defs2 define="item_object m/getObject;
-                                               item_url m/getURL;">
-                                <a href="#"
-                                    tal:condition="exists:item_object/image_thumb"
-                                    tal:attributes="href python:item_url+'/view', item_url">
-                                    <img src="" alt=""
-                                         tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
-                                </a>
-                                <tal:rep define="source item_object/getMediasource">
-                                    <b>
-                                        <a href="#" tal:attributes="href m/getURL">
-                                            <span tal:replace="m/pretty_title_or_id"/>
-                                        </a><br />
-                                    </b>
-                                    <span class="frontDate">
-                                        <span class="frontDate3" tal:content="source" />
-                                        <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                    </span>
-                                </tal:rep>
+                                               item_url m/getURL;
+                                               source item_object/getMediasource;">
+                                <b>
+                                    <a href="#" tal:attributes="href m/getURL">
+                                        <span tal:replace="m/pretty_title_or_id"/>
+                                    </a><br />
+                                </b>
+                                <span class="frontDate">
+                                    <span class="frontDate3" tal:content="source" />
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                </span>
                             </tal:defs2>
                         </li>
                     </ul>

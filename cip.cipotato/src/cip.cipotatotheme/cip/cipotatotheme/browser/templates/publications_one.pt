@@ -10,14 +10,13 @@
             <div class="lineBreak"></div>
 
             <div style="margin-top:15px;">
-                <tal:defs2 tal:define="sub_title context/pretty_title_or_id;
-                                       sub_url context/getURL|context/absolute_url;
-                                       item_created context/CreationDate;">
-                    <tal:defs define="pc context/getPubcode;
+                <tal:defs tal:define="sub_title context/pretty_title_or_id;
+                                      sub_url context/getURL|context/absolute_url;
+                                      item_created context/CreationDate;
+                                      pc context/getPubcode;
                                       source context/getCategory;
                                       series context/getSeries;
                                       abstract context/pub_abstract;
-                                      price context/price;
                                       issn python:context.getIssn();
                                       isbn python:context.getIsbn();
                                       publisher python:context.getPublisher();
@@ -26,85 +25,86 @@
                                       category python:context.getCategory();
                                       conference context/conference;
                                       pubstock python:context.getPubstock();
+                                      price python:context.getPrice();
                                       pages python:context.getPages();
                                       url context/@@plone_portal_state/navigation_root_url;
-                                      url python:url+'/publications/pdf/'+pc+'/at_download/';">
-                        <div class="pubrow_info_one">
-                            <tal:testimg condition="python:view.ImageExist(pc)">
-                                <a href="#" tal:attributes="href url">
-                                    <img src="" alt=""
-                                         tal:attributes="src python:'../images2/' + pc + '-jpg/image_mini';
-                                                         class python:'pub-img2';" />
-                                </a>
-                            </tal:testimg>
-                            <div id="istock" style="display:none"><h1 id="pubstock" tal:content="pubstock"></h1></div>
-                            <script type="text/javascript">
-                                $(document).ready(function() {
-                                    var number = $("div#istock").find("h1#pubstock").text();
-                                    if (number < 5) {
-                                        $("#portlet-cart").css("display","none");
-                                        $(".stockblocknot").append("Out of stock");
-                                    }
-                                    else {
-                                        $(".stockblocknot").css("display","none");
-                                        $("dl#portlet-cart .portletItem").css("display","none");
-                                        $("dl#portlet-cart").appendTo(".stockblock");
-                                    }
-                                });
-                            </script>
+                                      url python:url+'/publications/pdf/'+pc+'.pdf';">
+                    <div class="pubrow_info_one">
+                        <tal:testimg condition="python:view.ImageExist(pc)">
+                            <a href="#" tal:attributes="href url">
+                                <img src="" alt=""
+                                     tal:attributes="src python:'../images2/' + pc + '-jpg/image_mini';
+                                                     class python:'pub-img2';" />
+                            </a>
+                        </tal:testimg>
+                        <div id="istock" style="display:none"><h1 id="pubstock" tal:content="pubstock"></h1></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var number = $("div#istock").find("h1#pubstock").text();
+                                if (number < 5) {
+                                    $("#portlet-cart").css("display","none");
+                                    $(".stockblocknot").append("Out of stock");
+                                    $(".stockblock").css("display","none");
+                                }
+                                else {
+                                    $(".stockblocknot").css("display","none");
+                                    $("dl#portlet-cart .portletItem").css("display","none");
+                                    $("dl#portlet-cart").appendTo(".stockblock");
+                                }
+                            });
+                        </script>
 
-                            <div class="pubrow_info_one2">
-                                <p>
-                                    <b>Author:</b> <span tal:replace="context/author" />
-                                </p>
-                                <p>
-                                    <b>Publication date:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
-                                </p>
-                                <p tal:condition="python:abstract != ''">
-                                    <b>Abstract:</b> <span tal:replace="abstract"/>
-                                </p>
-                                <p tal:condition="python:source != ''">
-                                    <span class="frontDate3" tal:content="source" />
-                                </p>
-                                <p tal:condition="python:series != ''">
-                                    <b>Series:</b> <span tal:replace="series" />
-                                </p>
-                                <p tal:condition="python:abstract != ''">
-                                    <b>Abstract:</b> <span tal:replace="abstract"/>
-                                </p>
-                                <p tal:condition="python:price != '0'">
-                                    <b>Price:</b> <span tal:replace="price"/>
-                                </p>
-                                <p tal:condition="python:price == '0'">
-                                    <b>Publication is free</b>
-                                </p>
-                                <p tal:condition="python:pages is not None">
-                                    <b>Pages:</b> <span tal:replace="pages"/>
-                                </p>
-                                <p tal:condition="python:issn is not None">
-                                    <b>ISSN:</b> <span tal:replace="issn"/>
-                                </p>
-                                <p tal:condition="python:publisher is not None">
-                                    <b>Publisher:</b> <span tal:replace="publisher"/>
-                                </p>
-                                <p tal:condition="python:division != ''">
-                                    <b>Division:</b> <span tal:replace="division"/>
-                                </p>
-                                <p tal:condition="python:conference != ' '">
-                                    <b>Conference:</b> <span tal:replace="conference"/>
-                                </p>
-                                <p class="frontpdf">
-                                    <a href="#" tal:attributes="href url">Download pdf</a>
-                                </p>
-                            </div>
-                            <div class="stockblocknot">
-                            </div>
-                            <div class="stockblock">
-                            <h3>Order</h3>
-                            </div>
-                         </div>
-                    </tal:defs>
-                </tal:defs2>
+                        <div class="pubrow_info_one2">
+                            <p>
+                                <b>Author:</b> <span tal:replace="context/author" />
+                            </p>
+                            <p>
+                                <b>Publication date:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
+                            </p>
+                            <p tal:condition="python:abstract != ''">
+                                <b>Abstract:</b> <span tal:replace="abstract"/>
+                            </p>
+                            <p tal:condition="python:source != ''">
+                                <span class="frontDate3" tal:content="source" />
+                            </p>
+                            <p tal:condition="python:series != ''">
+                                <b>Series:</b> <span tal:replace="series" />
+                            </p>
+                            <p tal:condition="exists:item_object/getPrice()">
+                                <b>Price:</b> <span tal:replace="price"/>
+                            </p>
+                            <p tal:condition="python:price == '0'">
+                                <b>Publication is free</b>
+                            </p>
+                            <p tal:condition="python:pages is not None">
+                                <b>Pages:</b> <span tal:replace="pages"/>
+                            </p>
+                            <p tal:condition="python:issn is not None">
+                                <b>ISSN:</b> <span tal:replace="issn"/>
+                            </p>
+                            <p tal:condition="python:publisher is not None">
+                                <b>Publisher:</b> <span tal:replace="publisher"/>
+                            </p>
+                            <p tal:condition="python:division != ''">
+                                <b>Division:</b> <span tal:replace="division"/>
+                            </p>
+                            <p tal:condition="python:conference != ' '">
+                                <b>Conference:</b> <span tal:replace="conference"/>
+                            </p>
+                            <p class="frontpdf" tal:condition="python:view.PdfExist(pc)">
+                                <a href="#" tal:attributes="href url">Download pdf</a>
+                            </p>
+                            <p class="frontpdf" tal:condition="not: python:view.PdfExist(pc)">
+                                <i>PDF not available</i>
+                            </p>
+                        </div>
+                        <div class="stockblocknot">
+                        </div>
+                        <div class="stockblock">
+                        <h3>Order</h3>
+                        </div>
+                     </div>
+                </tal:defs>
             </div>
 
         </metal:main>

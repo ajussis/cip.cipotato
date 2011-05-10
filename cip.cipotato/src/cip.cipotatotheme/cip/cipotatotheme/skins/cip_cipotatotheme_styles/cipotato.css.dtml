@@ -1762,8 +1762,11 @@ color:blue;
 .frontDate {
     color: grey;
     font-size: 0.7em;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 10px !important;
     text-transform: capitalize;
+}
+p.frontpdf {
+margin:5px 0 !important;
 }
 .frontpdf a {
 color:#EC006E !important;

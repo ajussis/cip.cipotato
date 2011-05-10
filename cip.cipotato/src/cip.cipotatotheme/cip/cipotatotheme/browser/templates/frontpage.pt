@@ -49,16 +49,17 @@
                     <ul tal:define="n cipinthenews/queryCatalog">
                         <li class="cip-news-li" tal:repeat="m n">
                             <tal:defs2 define="item_object m/getObject;
-                                               item_url m/getURL;
-                                               source item_object/getMediasource;">
+                                               source item_object/getMediasource;
+                                               pubdate item_object/getPubdate;
+                                               newsurl item_object/getNewsurl;">
                                 <b>
-                                    <a href="#" tal:attributes="href m/getURL">
+                                    <a href="#" target="_blank" tal:attributes="href newsurl">
                                         <span tal:replace="m/pretty_title_or_id"/>
                                     </a><br />
                                 </b>
                                 <span class="frontDate">
                                     <span class="frontDate3" tal:content="source" />
-                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
+                                    <span class="frontDate2" tal:content="python:toLocalizedTime(pubdate)" />
                                 </span>
                             </tal:defs2>
                         </li>
@@ -121,7 +122,7 @@
                                                     <span class="frontDate3" tal:content="series"/>
                                                 </p>
                                                 <p class="frontpdf" tal:define="pubcode m/getPubcode;
-                                                                                url python:'publications/pdf/'+pubcode+'/at_download/'">
+                                                                                url python:'publications/pdf/'+pubcode+'.pdf'">
                                                     <a href="#" tal:attributes="href url">Download pdf</a>
                                                 </p>
                                             </tal:rep>

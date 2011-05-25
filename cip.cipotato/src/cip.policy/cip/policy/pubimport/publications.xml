@@ -1,27 +1,210 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <list>
-   <publication>
-  <author><![CDATA[CIP CPAD]]></author>
-  <title><![CDATA[Nuestro valores]]></title>
+ <publication>
+  <author><![CDATA[Maldonado, Luis. (CIP); Ordinola, M. (CIP); Manrique, Kurt; Fonseca, Cristina, CIP; Mario Sevilla, ONG CAPAC Peru; Oscar Delgado, ONG CAPAC Peru]]></author>
+  <title><![CDATA[Estudio de caso: Evaluación de impacto de la intervención del proyecto INCOPA/CAPAC en Andahuaylas]]></title>
   <series><![CDATA[]]></series>
   <conference><![CDATA[]]></conference>
   <year>2011</year>
-  <category>Poster</category>
+  <category>Book</category>
   <division></division>
   <imprint><![CDATA[]]></imprint>
   <publisher><![CDATA[International Potato Center]]></publisher>
+  <isbn>978-92-9060-401-3</isbn>
+  <issn></issn>
+  <pages>84</pages>
+  <price></price>
+  <link><![CDATA[]]></link>
+  <image>005726.jpg</image>
+  <pdf>005726.pdf</pdf>
+  <PubCode>005726</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>200</PubStock>
+  <Pub_SaleNote><![CDATA[Hecho el Depósito Legal en la Biblioteca Nacional del Perú No 2011-06042]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[Fano, H; Ordinola, M. (CIP); Velasco, Claudio]]></author>
+  <title><![CDATA[Agregando valor a las papas nativas en el Perú: Un análisis desde el enfoque de sistemas de innovación]]></title>
+  <series><![CDATA[]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Book</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[International Potato Center]]></publisher>
+  <isbn>978-92-9060-400-6</isbn>
+  <issn></issn>
+  <pages>97</pages>
+  <price></price>
+  <link><![CDATA[]]></link>
+  <image>005727.jpg</image>
+  <pdf>005727.pdf</pdf>
+  <PubCode>005727</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>5</PubStock>
+  <Pub_SaleNote><![CDATA[solo version electronica]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Resultados: El boom de las papas nativas]]></title>
+  <series><![CDATA[Innovacion para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Centro Internacional de la Papa]]></publisher>
   <isbn></isbn>
   <issn></issn>
-  <pages>1</pages>
-  <price>3.00</price>
+  <pages>2</pages>
+  <price>0</price>
   <link><![CDATA[]]></link>
-  <image>005714.jpg</image>
-  <pdf></pdf>
-  <PubCode>005714</PubCode>
+  <image>005729.jpg</image>
+  <pdf>005729.pdf</pdf>
+  <PubCode>005729</PubCode>
   <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
-  <PubStock>50</PubStock>
+  <PubStock>500</PubStock>
   <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
   <Pub_Abstract><![CDATA[]]></Pub_Abstract>
  </publication>
-
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Enfoque participativo de cadenas productivas (EPCP)]]></title>
+  <series><![CDATA[Innovacion para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Centro Internacional de la Papa]]></publisher>
+  <isbn></isbn>
+  <issn></issn>
+  <pages>2</pages>
+  <price>0</price>
+  <link><![CDATA[]]></link>
+  <image>005730.jpg</image>
+  <pdf>005730.pdf</pdf>
+  <PubCode>005730</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>500</PubStock>
+  <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Plataformas de actores]]></title>
+  <series><![CDATA[Innovacion para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Centro Internacional de la Papa]]></publisher>
+  <isbn></isbn>
+  <issn></issn>
+  <pages>2</pages>
+  <price>0</price>
+  <link><![CDATA[]]></link>
+  <image>005731.jpg</image>
+  <pdf>005731.pdf</pdf>
+  <PubCode>005731</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>500</PubStock>
+  <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Incidencia publica y politica]]></title>
+  <series><![CDATA[Innovacion para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Centro Internacional de la Papa]]></publisher>
+  <isbn></isbn>
+  <issn></issn>
+  <pages>2</pages>
+  <price>0</price>
+  <link><![CDATA[]]></link>
+  <image>005732.jpg</image>
+  <pdf>005732.pdf</pdf>
+  <PubCode>005732</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>500</PubStock>
+  <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Responsabilidad social empresarial en la cadena de valor de la papa]]></title>
+  <series><![CDATA[Innovacion para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Centro Internacional de la Papa]]></publisher>
+  <isbn></isbn>
+  <issn></issn>
+  <pages>2</pages>
+  <price>0</price>
+  <link><![CDATA[]]></link>
+  <image>005733.jpg</image>
+  <pdf>005733.pdf</pdf>
+  <PubCode>005733</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>500</PubStock>
+  <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Innovaciones tecnologicas para el desarrollo sostenible]]></title>
+  <series><![CDATA[Innovacion para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Cnetro  Internacional de la Papa]]></publisher>
+  <isbn></isbn>
+  <issn></issn>
+  <pages>2</pages>
+  <price>0</price>
+  <link><![CDATA[]]></link>
+  <image>005734.jpg</image>
+  <pdf>005734.pdf</pdf>
+  <PubCode>005734</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>500</PubStock>
+  <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
+ <publication>
+  <author><![CDATA[PAPA ANDINA]]></author>
+  <title><![CDATA[Evaluacion horizontal: aprendizaje entre pares]]></title>
+  <series><![CDATA[Innovaciones para el desarrollo]]></series>
+  <conference><![CDATA[]]></conference>
+  <year>2011</year>
+  <category>Fact sheets / flyer / leaflet</category>
+  <division></division>
+  <imprint><![CDATA[]]></imprint>
+  <publisher><![CDATA[Centro Internacional de la Papa]]></publisher>
+  <isbn></isbn>
+  <issn></issn>
+  <pages>2</pages>
+  <price>0</price>
+  <link><![CDATA[]]></link>
+  <image>005735.jpg</image>
+  <pdf>005735.pdf</pdf>
+  <PubCode>005735</PubCode>
+  <Pub_EarthPrint><![CDATA[]]></Pub_EarthPrint>
+  <PubStock>500</PubStock>
+  <Pub_SaleNote><![CDATA[]]></Pub_SaleNote>
+  <Pub_Abstract><![CDATA[]]></Pub_Abstract>
+ </publication>
 </list>

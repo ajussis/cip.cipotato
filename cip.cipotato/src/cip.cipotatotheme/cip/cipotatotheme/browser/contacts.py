@@ -10,13 +10,17 @@ class ContactsView(BrowserView):
     """
     __call__ = ViewPageTemplateFile('templates/contacts.pt')
 
-    def cpad(self):
-        results = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection="CPAD")
+    def cpad(self,subsection):
+        results = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection=subsection)
         return results
 
-    def cpadHead(self):
-        result = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection="CPAD", getHead=1)
-        return result[0]
+    def cpadHead(self,subsection):
+        #import pdb; pdb.set_trace()
+        result = self.context.portal_catalog.searchResults(portal_type="Person", getSubsection=subsection, getHead=1)
+        if (result):
+            return result[0]
+        else:
+            return 0
 
     def dg(self):
         """

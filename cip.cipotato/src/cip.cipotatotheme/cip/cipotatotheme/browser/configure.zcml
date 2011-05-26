@@ -104,6 +104,20 @@
       />
   <browser:page
       for="*"
+      name="quitoView"
+      template="templates/quito.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
+      name="inthenewsView"
+      template="templates/inthenews.pt"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="careerView"
       template="templates/career.pt"
       layer=".interfaces.IThemeSpecific"

@@ -1,0 +1,97 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h2 class="puboneh2" tal:content="context/Title" />
+
+            <div class="lineBreak"></div>
+
+            <div style="margin-top:15px;">
+                <tal:defs tal:define="sub_title context/pretty_title_or_id;
+                                      newsurl python:context.getNewsurl();
+                                      pubdate python:context.getPubdate();
+                                      mediasource python:context.getMediasource();">
+                    <div class="pubrow_info_one">
+                        <tal:testimg condition="python:view.ImageExist(pc)">
+                            <a href="#" tal:attributes="href url">
+                                <img src="" alt=""
+                                     tal:attributes="src python:'../images2/' + pc + '-jpg/image_mini';
+                                                     class python:'pub-img2';" />
+                            </a>
+                        </tal:testimg>
+                        <div id="istock" style="display:none"><h1 id="pubstock" tal:content="pubstock"></h1></div>
+                        <script type="text/javascript">
+                            $(document).ready(function() {
+                                var number = $("div#istock").find("h1#pubstock").text();
+                                if (number < 5) {
+                                    $("#portlet-cart").css("display","none");
+                                    $(".stockblocknot").append("Out of stock");
+                                    $(".stockblock").css("display","none");
+                                }
+                                else {
+                                    $(".stockblocknot").css("display","none");
+                                    $("dl#portlet-cart .portletItem").css("display","none");
+                                    $("dl#portlet-cart").appendTo(".stockblock");
+                                }
+                            });
+                        </script>
+
+                        <div class="pubrow_info_one2">
+                            <p>
+                                <b>Author:</b> <span tal:replace="context/author" />
+                            </p>
+                            <p>
+                                <b>Publication date:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
+                            </p>
+                            <p tal:condition="python:abstract != ''">
+                                <b>Abstract:</b> <span tal:replace="abstract"/>
+                            </p>
+                            <p tal:condition="python:source != ''">
+                                <span class="frontDate3" tal:content="source" />
+                            </p>
+                            <p tal:condition="python:series != ''">
+                                <b>Series:</b> <span tal:replace="series" />
+                            </p>
+                            <p tal:condition="exists:item_object/getPrice()">
+                                <b>Price:</b> <span tal:replace="price"/>
+                            </p>
+                            <p tal:condition="python:price == '0'">
+                                <b>Publication is free</b>
+                            </p>
+                            <p tal:condition="python:pages is not None">
+                                <b>Pages:</b> <span tal:replace="pages"/>
+                            </p>
+                            <p tal:condition="python:issn is not None">
+                                <b>ISSN:</b> <span tal:replace="issn"/>
+                            </p>
+                            <p tal:condition="python:publisher is not None">
+                                <b>Publisher:</b> <span tal:replace="publisher"/>
+                            </p>
+                            <p tal:condition="python:division != ''">
+                                <b>Division:</b> <span tal:replace="division"/>
+                            </p>
+                            <p tal:condition="python:conference != ' '">
+                                <b>Conference:</b> <span tal:replace="conference"/>
+                            </p>
+                            <p class="frontpdf" tal:condition="python:view.PdfExist(pc)">
+                                <a href="#" tal:attributes="href url">Download pdf</a>
+                            </p>
+                            <p class="frontpdf" tal:condition="not: python:view.PdfExist(pc)">
+                                <i>PDF not available</i>
+                            </p>
+                        </div>
+                        <div class="stockblocknot">
+                        </div>
+                        <div class="stockblock">
+                        <h3>Order</h3>
+                        </div>
+                     </div>
+                </tal:defs>
+            </div>
+
+        </metal:main>
+    </metal:main_macro>
+</html>

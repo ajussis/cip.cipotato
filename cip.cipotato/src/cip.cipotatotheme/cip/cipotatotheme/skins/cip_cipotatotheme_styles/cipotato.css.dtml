@@ -1816,7 +1816,6 @@ color:#581A74;
 
 .contact-p-1 div {
     float: left;
-    width: 95%;
 }
 .contact-p .show {
     background: none repeat scroll 0 0 #EFE0EE;
@@ -2554,6 +2553,79 @@ dl.portalMessage {
     margin: 1em 2em 0 0;
 }
 
+.quito_1column {
+width:100%;
+margin-top:5px;
+}
+.quito_1column h3 {
+color:#d8662a;
+margin-top:0;
+}
+
+.quito_1column1 {
+width:270px;
+float:left;
+border-right:2px solid #c3a0b6;
+padding-right:10px;
+margin-right:10px;
+}
+.quito_1column2 {
+width:153px;
+float:left;
+border-right:2px solid #c3a0b6;
+padding-right:10px;
+margin-right:10px;
+}
+.quito_1column3 {
+width:170px;
+float:left;
+}
+.quito_1column3 ul li {
+    color: #581A74;
+    display: list-item;
+    list-style: square outside none;
+    margin-left:20px !important;
+    margin-bottom:10px !important;
+}
+.quito_1column3 ul {
+}
+
+
+.quito_1column1-title {
+background-color:#ffeeea;
+padding:3px;
+margin-bottom:3px;
+}
+div.quito_1column1-title:hover {
+background-color:#f7e5f1;
+}
+.quito_1column1-title a {
+font-weight:bold;
+font-size:14px;
+}
+.quito_2column {
+width:100%;
+margin-top:5px;
+clear:both;
+display:block;
+height:110px;
+}
+.quito_2column1-img {
+border-right:2px solid #c3a0b6;
+padding-right:10px;
+margin-right:10px;
+float:left;
+margin-top:20px;
+height:100px;
+}
+.quito_2column1-img2 {
+float:left;
+margin-top:10px;
+
+}
+
+
+
 .tabbed_content {
     background-color: transparent;
     height: 321px;
@@ -2561,7 +2633,10 @@ dl.portalMessage {
     width: 839px;
 }
 
-
+.section-region-quito div#visual-portal-wrapper div#portal-top {
+    background: url("2nd-quito.jpg") repeat scroll 0 75px transparent;
+    height: 295px;
+}
 .section-genebank div#visual-portal-wrapper div#portal-top {
     background: url("2nd-genebank2.jpg") repeat scroll 0 0 transparent;
     height: 275px;
@@ -2845,7 +2920,11 @@ display:none;
     padding: 2px 2px 2px 5px;
     font-weight:bold;
 }
-
+.searchResults dd {
+    border-bottom: 1px dotted grey;
+    margin: 0 0 1em 2em;
+    padding-bottom: 10px;
+}
 .research_link_potato {
 border-left:5px solid #8F46A2;
 border-bottom:1px dotted #8F46A2;

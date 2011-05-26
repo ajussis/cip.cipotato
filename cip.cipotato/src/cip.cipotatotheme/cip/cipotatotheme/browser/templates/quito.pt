@@ -1,0 +1,69 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+
+            <h1 tal:content="context/Title" />
+
+            <div class="quito_1column">
+                <div class="quito_1column1">
+                    <div class="quito_1column1-title">
+                        <a href="library">1 Congreso Ecuatoriano de la Papa</a>
+                    </div>
+                    <div class="quito_1column1-title">
+                        <a href="library">2 Congreso Ecuatoriano de la Papa</a>
+                    </div>
+                    <div class="quito_1column1-title">
+                        <a href="library">3 Congreso Ecuatoriano de la Papa</a>
+                    </div>
+                    <div class="quito_1column1-title">
+                        <a href="library">4 Congreso Ecuatoriano de la Papa</a>
+                    </div>
+                    <div class="quito_1column1-title">
+                        <a href="library">PapaNat 2010</a>
+                    </div>
+                    <div class="quito_1column1-title">
+                        <a href="library">Año Internacional de la Papa 2008</a>
+                    </div>
+                </div>
+                <div class="quito_1column2">
+                    <h3>Personal CIP-Quito</h3>
+                    <img src="personal-cip-quito-image" width="150" />
+                </div>
+                <div class="quito_1column3">
+                    <h3>Noticias</h3>
+                    <ul>
+                        <li>
+                            Test title of a local news
+                        </li>
+                        <li>
+                            Another test title of a local news
+                        </li>
+                        <li>
+                            Another test title of a local news
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="quito_2column">
+                <div class="quito_2column1-img">
+                    <img src="cip-partner-paramo.gif" width="135" style="margin-top:30px;" />
+                </div>
+                <div class="quito_2column1-img">
+                    <img src="cip-partner-condesan.gif" width="110" />
+                </div>
+                <div class="quito_2column1-img">
+                    <img src="cip-partner-papandina.gif" width="115" />
+                </div>
+                <div class="quito_2column1-img">
+                    <img src="cip-partner-inia.gif" style="margin-top:20px" />
+                </div>
+                <div class="quito_2column1-img2">
+                    <img src="cip-partner-redepapa.gif" width="100" style="margin-top:40px" />
+                </div>
+            </div>
+        </metal:main>
+    </metal:main_macro>
+</html>

@@ -3810,6 +3810,10 @@ margin-left:10px;
     margin-bottom: 0;
     padding: 0.25em 1.5em;
 }
+.extralinks {
+margin-left: -20px ! important;
+font-size: 80%;
+}
 /* // Easy Slider */
 /* </dtml-with> */
 

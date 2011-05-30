@@ -2,6 +2,7 @@
      i18n:domain="plone"
      tal:define="navigation_root_url view/navigation_root_url;
                  search_input_id view/search_input_id;">
+
     <form name="searchform" id="searchGadget_form" 
           action="search"
           tal:attributes="action string:${navigation_root_url}/search;
@@ -28,7 +29,16 @@
                value="Search"
                i18n:attributes="value label_search;" />
 
-        <div class="searchSection">
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var pathname = window.location.pathname;
+                if (pathname == '/') {
+                $('#hidefrontsearch').css('display', 'none');
+                }
+            });
+        </script>
+
+        <div class="searchSection" id="hidefrontsearch">
             <input id="searchbox_currentfolder_only"
                    class="noborder"
                    type="checkbox"
@@ -44,7 +54,6 @@
                 </label>
             </div>
         </div>
-
         <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
         </div>
     </form>

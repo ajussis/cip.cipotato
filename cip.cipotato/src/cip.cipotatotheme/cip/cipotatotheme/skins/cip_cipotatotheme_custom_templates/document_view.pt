@@ -11,8 +11,98 @@
     <metal:content-core define-macro="content-core">
 
         <tal:defs tal:define="images python: 'images' in context.aq_inner.aq_parent.objectIds();
-                              images2 python: 'images2' in context.aq_inner.aq_parent.objectIds();">
-            <div tal:condition="python:images or images2">
+                              images2 python: 'images2' in context.aq_inner.aq_parent.objectIds();
+                              images3 python: 'images3' in context.aq_inner.aq_parent.objectIds();">
+            <div tal:condition="python:images or images2 or images3">
+
+                <div tal:condition="images3" class="floatimgright">
+                    <script type="text/javascript">
+                            $(document).ready(function(){
+                                    $('#slider1').bxSlider({
+                                            infiniteLoop: false,
+                                            hideControlOnEnd: true
+                                    });
+                            });
+                    </script>
+
+                    <style>
+.folderimages3 {
+    float: right;
+    height: 250px;
+    margin: 0 0 0 25px;
+    width: 235px;
+}
+div.slidertext {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 10px;
+    color: #581A74;
+    font-weight: bold;
+    margin-top: 14px;
+    opacity: 0.8;
+    padding: 8px 0;
+    position: relative;
+    text-align: left;
+    width: 223px;
+    z-index: 4;
+}
+                    .floatimgright {
+                    float:left;
+                    }
+                    #slider2 {
+                    width:250px !important;
+                    }
+                    #wrapper {
+                    width:240px;
+                    }
+.bx-next {
+    background: url("rightarrow.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    height: 78px;
+    margin-right: 0;
+    position: relative;
+    text-indent: -999999px;
+    top: -149px;
+    width: 14px;
+    z-index: 999;
+}
+.bx-prev {
+    background: url("leftarrow.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 53px;
+    left: -22px;
+    position: relative;
+    text-indent: -999999px;
+    top: -151px;
+    width: 18px;
+    z-index: 999;
+}
+
+                    </style>
+                    <div class="folderimages3" tal:define="path python:'/'.join(here.getPhysicalPath());
+                                                path python:path.rsplit('/',1)[0]+'/images3';
+                                                images python:context.portal_catalog(path={'query' : path, 'depth' : 1}, portal_type = 'Image');">
+                        <div id="wrapper">
+                            <ul id="slider1">
+                                <tal:defs tal:repeat="m images">
+                                    <li>
+                                        <div tal:define="sub_url m/getURL|m/absolute_url;
+                                                         title m/pretty_title_or_id;">
+                                            <div style="height:180px;">
+                                                <img src="#" tal:attributes="src sub_url" alt=""/>
+                                            </div>
+                                            <div class="slidertext">
+                                                <p tal:content="title" />
+                                            </div>
+                                        </div>
+                                    </li>
+                                </tal:defs>
+                            </ul>
+                        </div>
+                    </div>
+                    <metal:field use-macro="python:context.widget('text', mode='view')">
+                        Body text
+                    </metal:field>
+                </div>
 
                 <div tal:condition="images2" class="floatimgright">
                     <script type="text/javascript" src="easySlider1.7-2.js"></script>
@@ -130,7 +220,7 @@
                     </div>
                 </div>
             </div>
-            <div tal:condition="python:not images and not images2">
+            <div tal:condition="python:not images and not images2 and not images3">
 
                 <metal:field use-macro="python:context.widget('text', mode='view')">
                     Body text

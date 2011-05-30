@@ -9,13 +9,12 @@ from urllib import unquote
 from plone.app.layout.viewlets import common
 from plone.app.layout.globals.interfaces import IViewView
 from zope.interface import implements, alsoProvides
+from zope.viewlet.interfaces import IViewlet
 from Products.CMFPlone.utils import base_hasattr
 from datetime import datetime
 from Products.Five.browser import BrowserView
-import DateTime
-
-#testing searchboxes
 from plone.app.layout.viewlets.common import SearchBoxViewlet
+import DateTime
 
 # Sample code for a basic viewlet (In order to use it, you'll have to):
 # - Un-comment the following useable piece of code (viewlet python class).
@@ -287,3 +286,65 @@ class PressroomView(BrowserView):
     def getYear(self):
         return str(datetime.now())[:4]
 
+class LanguageSelector(BrowserView):
+    implements(IViewlet)
+    render = ViewPageTemplateFile('templates/languageselector.pt')
+
+    def __init__(self, context, request, view, manager):
+        super(LanguageSelector, self).__init__(context, request)
+        self.context = context
+        self.request = request
+        self.view = view
+        self.manager = manager
+
+    def update(self):
+        self.tool = getToolByName(self.context, 'portal_languages', None)
+
+    def available(self):
+        if self.tool is not None:
+            selector = self.tool.showSelector()
+            languages = len(self.tool.getSupportedLanguages()) > 1
+            return selector and languages
+        return False
+
+    def portal_url(self):
+        portal_tool = getToolByName(self.context, 'portal_url', None)
+        if portal_tool is not None:
+            return portal_tool.getPortalObject().absolute_url()
+        return None
+
+    def languages(self):
+        """Returns list of languages."""
+        if self.tool is None:
+            return []
+
+        bound = self.tool.getLanguageBindings()
+        current = bound[0]
+
+        def merge(lang, info):
+            info["code"]=lang
+            if lang == current:
+                info['selected'] = True
+            else:
+                info['selected'] = False
+            return info
+
+        languages = [merge(lang, info) for (lang,info) in
+                        self.tool.getAvailableLanguageInformation().items()
+                        if info["selected"]]
+
+        # sort supported languages by index in portal_languages tool
+        supported_langs = self.tool.getSupportedLanguages()
+        def index(info):
+            try:
+                return supported_langs.index(info["code"])
+            except ValueError:
+                return len(supported_langs)
+
+        return sorted(languages, key=index)
+
+    def showFlags(self):
+        """Do we use flags?."""
+        if self.tool is not None:
+            return self.tool.showFlags()
+        return False

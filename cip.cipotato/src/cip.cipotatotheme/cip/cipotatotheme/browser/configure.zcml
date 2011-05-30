@@ -38,7 +38,13 @@
       directory="images"
       layer=".interfaces.IThemeSpecific"
       />
-
+  <browser:viewlet
+      name="plone.app.i18n.locales.languageselector"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.LanguageSelector"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
   <!-- Resource directory for stylesheets
     See cip/cipotatotheme/browser/stylesheets/README.txt
     for more information about registering stylesheets as Zope 3 browser
@@ -49,7 +55,6 @@
       directory="stylesheets"
       layer=".interfaces.IThemeSpecific"
       />
-
   <browser:page
       for="*"
       name="publications_view"
@@ -72,8 +77,6 @@
       allowed_interface=".publications.IPublicationsSubView"
       permission="zope2.View"
       />
-
-
   <browser:page
       for="*"
       name="publicationsone_view"
@@ -123,7 +126,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:page
       for="*"
       name="mainareas"
@@ -278,7 +280,6 @@
      layer=".interfaces.IThemeSpecific"
      permission="zope.Public"
      />
-
   <browser:page
       for="*"
       name="aboutcip"
@@ -286,7 +287,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:page
       for="*"
       name="projectlocations"
@@ -294,7 +294,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:page
       for="*"
       name="pressroomgallery"
@@ -302,7 +301,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
   <browser:page
       for="*"
       name="pressroomvideos"
@@ -310,7 +308,6 @@
       layer=".interfaces.IThemeSpecific"
       permission="zope.Public"
       />
-
     <browser:viewlet
         name="plone.footer"
         for="*"
@@ -319,7 +316,6 @@
         layer=".interfaces.IThemeSpecific"
         permission="zope.Public"
         />
-
     <browser:viewlet
         name="plone.contentviews"
         manager="plone.app.layout.viewlets.interfaces.IContentViews"
@@ -327,7 +323,6 @@
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
         />
-
     <browser:viewlet
         name="plone.path_bar"
         manager="plone.app.layout.viewlets.interfaces.IAboveContent"
@@ -335,7 +330,6 @@
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
         />
-
     <browser:viewlet
         name="plone.contentactions"
         for="*"
@@ -345,5 +339,4 @@
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
         />
-
 </configure>

@@ -3722,7 +3722,6 @@ opacity:0.8;
 	position: relative;
 	width: 600px;
 }*/
-
 .tabbed_content .slide_content {
 background-color:transparent;
 height:260px;
@@ -3732,11 +3731,9 @@ padding:0 0 10px;
 position:relative;
 width:960px;
 }
-
 li.hasChildrens a:hover {
 text-decoration:underline !important;
 }
-
 .tabbed_content_static {
     background-color: transparent;
     height: 0px;
@@ -3746,12 +3743,10 @@ text-decoration:underline !important;
     position: relative;
     width: 983px;
 }
-
 .tabslider {
 margin:0px;
 width:5000px;
 }
-
 /*.tabslider ul {
 	float: left;
 	width: 560px;
@@ -3759,7 +3754,6 @@ width:5000px;
 	padding: 0px;
 	margin-right: 40px;
 }*/
-
 .tabslider ul {
 float:left;
 margin:0 0 0 -34px;
@@ -3770,19 +3764,15 @@ width:560px;
 	color: #ffffff;
 	text-decoration: none;
 }
-
 .tabslider ul a:hover {
 	color: #aaaaaa;
 }
-
 .tabslider ul li {
 	padding-bottom: 7px;
 }
-
 .contact_basicinfo {
 width:100%;
 }
-
 .contact_basicinfo1 {
     float: left;
     position: relative;
@@ -3798,9 +3788,27 @@ width:100%;
     width: 48%;
     margin-bottom:10px;
 }
-
 .contact_basicinfo1 p {
 margin-left:10px;
+}
+#portal-sitemap {
+    font-size: 120%;
+    font-weight: bold;
+    list-style: none outside none;
+    margin-left: 0;
+    margin-top: 20px;
+}
+#portal-sitemap > li {
+    border-bottom: 0.1em dotted #DDDDDD;
+    line-height: 1.8em;
+    margin-bottom: 0;
+    padding: 0.25em 0;
+}
+#portal-sitemap .navTreeLevel2, #portal-sitemap .navTreeLevel2 ul {
+    font-size: 85%;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding: 0.25em 1.5em;
 }
 /* // Easy Slider */
 /* </dtml-with> */

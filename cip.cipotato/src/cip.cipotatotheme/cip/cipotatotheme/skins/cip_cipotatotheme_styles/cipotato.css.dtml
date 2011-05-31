@@ -18,7 +18,13 @@ margin-right:auto !important;
 position:static;
 width:960px;
 }
-
+table.invisible {
+clear:both;
+}
+table.invisible tbody tr th {
+width:50%;
+font-weight:normal;
+}
 
 /*---------- PORTAL TOP ----------*/
 #portal-top {
@@ -105,6 +111,7 @@ border:0 none;
 text-decoration:none;
 z-index:1000;
 }
+
 #portal-globalnav .selected a, #portal-globalnav a:hover {
 background:transparent !important;
 color:#F37D3F !important;
@@ -1816,6 +1823,7 @@ color:#581A74;
 
 .contact-p-1 div {
     float: left;
+    width: 95%;
 }
 .contact-p .show {
     background: none repeat scroll 0 0 #EFE0EE;
@@ -2553,6 +2561,10 @@ dl.portalMessage {
     margin: 1em 2em 0 0;
 }
 
+
+
+
+
 .quito_1column {
 width:100%;
 margin-top:5px;
@@ -2623,6 +2635,72 @@ float:left;
 margin-top:10px;
 
 }
+
+
+.quito_1column {
+width:100%;
+margin-top:5px;
+}
+.quito_1column h3 {
+color:#d8662a;
+margin-top:0;
+}
+
+.quito_1column1 {
+width:270px;
+float:left;
+border-right:2px solid #c3a0b6;
+padding-right:10px;
+margin-right:10px;
+}
+.quito_1column2 {
+width:153px;
+float:left;
+border-right:2px solid #c3a0b6;
+padding-right:10px;
+margin-right:10px;
+}
+.quito_1column3 {
+width:170px;
+float:left;
+}
+.quito_1column3 ul li {
+    color: #581A74;
+    display: list-item;
+    list-style: square outside none;
+    margin-left:20px !important;
+    margin-bottom:10px !important;
+}
+.quito_1column3 ul {
+}
+.quito_1column1-title {
+background-color:#ffeeea;
+padding:3px;
+margin-bottom:3px;
+}
+div.quito_1column1-title:hover {
+background-color:#f7e5f1;
+}
+.quito_1column1-title a {
+font-weight:bold;
+font-size:14px;
+}
+.quito_2column {
+width:100%;
+margin-top:5px;
+clear:both;
+display:block;
+height:110px;
+}
+.quito_2column1-img {
+border-right:2px solid #c3a0b6;
+padding-right:10px;
+margin-right:10px;
+float:left;
+margin-top:20px;
+height:100px;
+}
+
 
 
 
@@ -3179,36 +3257,16 @@ input.searchButton {
     margin-right: 15px;
     width: 19px;
 }
-
-
-
-
-
-
 #content ul {
     list-style-type: disc;
     margin-left: 0;
 }
-cipotato.css (line 563)
 #content ul {
     list-style-type: disc;
     margin-left: 2em;
 }
-public.css (line 536)
 #content ul, #content ol {
 }
-public.css (line 475)
-
-
-
-
-
-
-
-
-
-
-
 
 .cip-front-social #nav-shadow {
     list-style: none outside none;
@@ -3237,10 +3295,6 @@ public.css (line 475)
     width: 59px;
     z-index: 2;
 }
-
-
-
-
 .press-cip-front-social #nav-shadow {
     list-style: none outside none;
     margin: 0 auto 0;
@@ -3268,8 +3322,6 @@ public.css (line 475)
     width: 59px;
     z-index: 2;
 }
-
-
 
 .forth-column #nav-shadow {
     list-style: none outside none;

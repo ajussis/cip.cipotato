@@ -29,6 +29,7 @@
         </a>
     </li>
     </tal:language>
-    <li style="border-right:none;"><a href="/sitemap">Sitemap</a></li>
+    <li><a href="/sitemap">Sitemap</a></li>
+    <li style="border-right:none;"><a href="http://feeds.feedburner.com/cipotato?format=xml">RSS</a></li>
 </ul>
 </tal:language>

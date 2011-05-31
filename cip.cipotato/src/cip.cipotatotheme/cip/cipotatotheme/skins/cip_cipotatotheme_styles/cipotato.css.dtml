@@ -2633,10 +2633,7 @@ height:100px;
 .quito_2column1-img2 {
 float:left;
 margin-top:10px;
-
 }
-
-
 .quito_1column {
 width:100%;
 margin-top:5px;
@@ -2645,7 +2642,6 @@ margin-top:5px;
 color:#d8662a;
 margin-top:0;
 }
-
 .quito_1column1 {
 width:270px;
 float:left;

@@ -102,15 +102,22 @@
                 <div class="contact_basicinfo1">
                     <h3>CIP Headquarters Lima</h3>
                     <p><b>Tel. </b> +511 3496017<br />
-                        <b>Email. </b>info@cgiar.org<br />
+                        <b>Email. </b> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#105;&#112;&#64;&#99;&#103;&#105;&#97;&#114;&#46;&#111;&#114;&#103;">Click to email CIP</a><br />
                         <b>Address. </b>Avenida La Molina 1895, La Molina<br />
                         Apartado Postal 1558, Lima, Peru
                     </p>
                 </div>
                 <div class="contact_basicinfo2">
-                    <h3>Media contact</h3>
-                    <p>Valerie Gwinner<br />
-                        <b>Email. </b>v.gwinner@cgiar.org
+                    <h3>Media contacts</h3>
+                    <p>
+                        <b>Jacqueline Becker</b>
+                        <b> - <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#46;&#98;&#101;&#99;&#107;&#101;&#114;&#64;&#99;&#103;&#105;&#97;&#114;&#46;&#111;&#114;&#103;">Email</a></b>
+                        <br /><i>Media specialist</i>
+                    </p>
+                    <p>
+                        <b>Valerie Gwinner</b>
+                        <b> - <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#118;&#46;&#103;&#119;&#105;&#110;&#110;&#101;&#114;&#64;&#99;&#103;&#105;&#97;&#114;&#46;&#111;&#114;&#103;">Email</a></b>
+                        <br /><i>Head of communications department</i>
                     </p>
                     <p>
                         <a href="contact-info">Questions about this site?</a>
@@ -128,7 +135,7 @@
             </script>
 
             <div id="map" class="contactmap"></div>
-            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false&amp;key=ABQIAAAAB2_0mmrf69ZBletOgabykRSXQbsDShJute_U0k4BLUFHpr3AARQkoMv695L4fEZGbcGXbZtR0Phx7w" type="text/javascript"></script>
+            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAB2_0mmrf69ZBletOgabykRSXQbsDShJute_U0k4BLUFHpr3AARQkoMv695L4fEZGbcGXbZtR0Phx7w" type="text/javascript"></script>
 
             <form action="#">
                 <input type="hidden" id="area1box" onclick="boxclick(this,'area1')" />
@@ -254,7 +261,7 @@
 
 
               // Read the data
-              GDownloadUrl("http://localhost:8080/cipotato/categories.xml", function(doc) {
+              GDownloadUrl("http://www.cipotato.org/categories.xml", function(doc) {
                 var xmlDoc = GXml.parse(doc);
                 var markers = xmlDoc.documentElement.getElementsByTagName("marker");
                 for (var i = 0; i < markers.length; i++) {

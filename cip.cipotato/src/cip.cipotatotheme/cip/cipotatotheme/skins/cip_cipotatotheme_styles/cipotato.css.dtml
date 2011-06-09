@@ -2552,7 +2552,6 @@ ul.navigation a:focus {
             padding-right:3px;
         }
         div.title { display: none; }
-
 dl.portalMessage {
     background-color: #FFFFE3;
     border: 1px solid #999966;
@@ -2561,19 +2560,10 @@ dl.portalMessage {
     margin: 1em 2em 0 0;
 }
 
-
-
-
-
-.quito_1column {
-width:100%;
-margin-top:5px;
-}
 .quito_1column h3 {
 color:#d8662a;
 margin-top:0;
 }
-
 .quito_1column1 {
 width:270px;
 float:left;
@@ -2582,11 +2572,11 @@ padding-right:10px;
 margin-right:10px;
 }
 .quito_1column2 {
-width:153px;
-float:left;
-border-right:2px solid #c3a0b6;
-padding-right:10px;
-margin-right:10px;
+    border-right: 0 solid #C3A0B6;
+    float: left;
+    margin-right: 10px;
+    padding-right: 10px;
+    width: 153px;
 }
 .quito_1column3 {
 width:170px;
@@ -2601,8 +2591,6 @@ float:left;
 }
 .quito_1column3 ul {
 }
-
-
 .quito_1column1-title {
 background-color:#ffeeea;
 padding:3px;
@@ -2614,13 +2602,6 @@ background-color:#f7e5f1;
 .quito_1column1-title a {
 font-weight:bold;
 font-size:14px;
-}
-.quito_2column {
-width:100%;
-margin-top:5px;
-clear:both;
-display:block;
-height:110px;
 }
 .quito_2column1-img {
 border-right:2px solid #c3a0b6;
@@ -2635,8 +2616,8 @@ float:left;
 margin-top:10px;
 }
 .quito_1column {
-width:100%;
-margin-top:5px;
+    margin-top: 15px;
+    width: 100%;
 }
 .quito_1column h3 {
 color:#d8662a;
@@ -2650,11 +2631,11 @@ padding-right:10px;
 margin-right:10px;
 }
 .quito_1column2 {
-width:153px;
-float:left;
-border-right:2px solid #c3a0b6;
-padding-right:10px;
-margin-right:10px;
+    border-right: 0 solid #C3A0B6;
+    float: left;
+    margin-right: 10px;
+    padding-right: 10px;
+    width: 153px;
 }
 .quito_1column3 {
 width:170px;
@@ -2682,31 +2663,26 @@ font-weight:bold;
 font-size:14px;
 }
 .quito_2column {
-width:100%;
-margin-top:5px;
-clear:both;
-display:block;
-height:110px;
+    display: block;
+    height: 140px;
+    padding-top: 15px;
+    width: 100%;
+    clear:both;
 }
 .quito_2column1-img {
-border-right:2px solid #c3a0b6;
-padding-right:10px;
-margin-right:10px;
-float:left;
-margin-top:20px;
-height:100px;
+    border-right: 0 solid #C3A0B6;
+    float: left;
+    height: 100px;
+    margin-right: 10px;
+    margin-top: 20px;
+    padding-right: 10px;
 }
-
-
-
-
 .tabbed_content {
     background-color: transparent;
     height: 321px;
     margin: -7px 126px 15px -23px;
     width: 839px;
 }
-
 .section-region-quito div#visual-portal-wrapper div#portal-top {
     background: url("2nd-quito.jpg") repeat scroll 0 75px transparent;
     height: 295px;
@@ -2721,7 +2697,6 @@ height:100px;
     position: relative;
     z-index: 3;
 }
-
 .section-potato div#visual-portal-wrapper div#portal-top {
     background: url("2nd-papas2.jpg") repeat scroll 0 0 transparent;
     height: 275px;
@@ -3262,8 +3237,8 @@ input.searchButton {
     margin-left: 2em;
 }
 #content ul, #content ol {
+    margin-left: 0.4em;
 }
-
 .cip-front-social #nav-shadow {
     list-style: none outside none;
     margin: 0 auto 0;

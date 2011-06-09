@@ -30,38 +30,37 @@
                 </div>
                 <div class="quito_1column2">
                     <h3>Personal CIP-Quito</h3>
-                    <img src="personal-cip-quito-image" width="150" />
+                    <a href="contactenos"><img src="personal-cip-quito-image" width="150" /></a>
                 </div>
-                <div class="quito_1column3">
+                <div class="quito_1column3" tal:define="path python:'/'.join(here.getPhysicalPath());
+                                                        news python:context.portal_catalog(path={'query' : path+'/news'}, portal_type='News Item', contentFilter = {'sort_on' : 'modified', 'sort_order' : 'reverse' });
+                                                        news python:news[:3];">
                     <h3>Noticias</h3>
                     <ul>
-                        <li>
-                            Test title of a local news
-                        </li>
-                        <li>
-                            Another test title of a local news
-                        </li>
-                        <li>
-                            Another test title of a local news
+                        <li tal:repeat="new news">
+                            <tal:defs define="title new/pretty_title_or_id;
+                                              url new/getURL|new/absolute_url">
+                                <a href="#" tal:attributes="href url" tal:content="title"></a>
+                            </tal:defs>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="quito_2column">
                 <div class="quito_2column1-img">
-                    <img src="cip-partner-paramo.gif" width="135" style="margin-top:30px;" />
+                    <a href="http://www.paramo.org/"><img src="cip-partner-paramo.gif" width="135" style="margin-top:30px;" /></a>
                 </div>
                 <div class="quito_2column1-img">
-                    <img src="cip-partner-condesan.gif" width="110" />
+                    <a href="http://www.condesan.org"><img src="cip-partner-condesan.gif" width="100" /></a>
                 </div>
                 <div class="quito_2column1-img">
-                    <img src="cip-partner-papandina.gif" width="115" />
+                    <a href="http://www.papandina.org"><img src="cip-partner-papandina.gif" width="100" /></a>
                 </div>
                 <div class="quito_2column1-img">
-                    <img src="cip-partner-inia.gif" style="margin-top:20px" />
+                    <a href="http://www.iniap-ecuador.gov.ec/"><img src="cip-partner-iniap.jpg" width="100" style="margin-top:20px" /></a>
                 </div>
                 <div class="quito_2column1-img2">
-                    <img src="cip-partner-redepapa.gif" width="100" style="margin-top:40px" />
+                    <a href="http://www.redepapa.org/"><img src="cip-partner-redepapa.gif" width="100" style="margin-top:40px" /></a>
                 </div>
             </div>
         </metal:main>

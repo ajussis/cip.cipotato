@@ -5,16 +5,15 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main"
                     tal:define="clatestpublications python: getattr(context, 'latest-publications');
-                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet', 'press-articles','poster','booklet','working-paper','journal','book', 'catalog','manual','video','cd-rom','annual-report','medium-term-plan'];
-                                allpubtitles python:['Newsletters', 'Factsheets & leaflets', 'Press articles','Posters', 'Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs','Research guides','Manuals','CD-roms','Annual reports','Medium term plans'];
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-                                allpubcats_add python:['newsletter', 'fact-sheets-flyer-leaflet',
-'brochure','poster', 'bulletins','cards','video','booklet','working-paper','journal','book-series','book', 'catalog',
-'research-guide','manual','cd-rom','annual-report','medium-term-plan'];
-                                allpubtitles python:['Newsletters', 'Factsheets',
-'Brochures','Posters', 'Bulletins','Cards','Videos','Booklets','Working papers','Journals','Book series','Books', 'Catalogs',
-'Research guides','Manuals','CD-roms','Annual reports','Plans'];
-">
+                                allpubcats_add python:['working-paper','journal','book-series','book','catalog',
+'manual','video','cd-rom','research-guide','bulletins','newsletter', 'fact-sheets-flyer-leaflet',
+'brochure','poster', 'cards','booklet', 
+'annual-report','medium-term-plan'];
+                                allpubtitles python:['Working papers','Journals','Book series','Books','Catalogs',
+'Manuals','Videos','CD-roms','Research guides','Bulletins','Newsletters', 'Factsheets',
+'Brochures','Posters', 'Cards','Booklets', 
+'Annual reports','Plans'];">
 
             <h1>Publications</h1>
 

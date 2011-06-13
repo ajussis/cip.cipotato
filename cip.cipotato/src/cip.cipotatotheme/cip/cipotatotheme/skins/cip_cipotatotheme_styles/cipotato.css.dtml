@@ -2823,12 +2823,14 @@ margin-top:10px;
     float: left;
     font-size: 14px;
     font-weight: bold;
+    height: 225px;
     width: 165px;
 }
 .pub_menu_item2 img {
-margin:0 15px 15px;
-padding-right:35px;
-border-right:1px solid #500F67;
+    border-right: 1px solid #500F67;
+    margin: 0 15px 15px;
+    padding-right: 34px;
+    width: 115px;
 }
 .pub_menu_item2 h3 {
     background: none repeat scroll 0 0 #F8E3F0;

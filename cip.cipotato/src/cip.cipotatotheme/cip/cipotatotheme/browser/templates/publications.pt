@@ -27,7 +27,7 @@
                                 <tal:defs define="pc m/getPubcode">
                                     <div tal:condition="python:view.ImageExist(pc)">
                                         <img src="" alt=""
-                                             tal:attributes="src python:'images/' + pc + '-jpg/image_thumb';
+                                             tal:attributes="src python:'images2/' + pc + '-jpg/image_thumb';
                                                              class python:'pub-img';" />
                                     </div>
                                 </tal:defs>

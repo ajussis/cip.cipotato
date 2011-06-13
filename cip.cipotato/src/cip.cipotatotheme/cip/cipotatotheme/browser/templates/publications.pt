@@ -25,7 +25,7 @@
                             <h3 tal:content="python:allpubtitles[s]" />
                             <tal:reps repeat="m pubs">
                                 <tal:defs define="pc m/getPubcode">
-                                    <div tal:condition="python:view.ImageExist(pc)">
+                                    <div>
                                         <img src="" alt=""
                                              tal:attributes="src python:'images2/' + pc + '-jpg/image_thumb';
                                                              class python:'pub-img';" />

@@ -14,7 +14,7 @@ table.org {
     font-size: 10px;
     margin-left: -10px;
     padding-left: 0;
-    width: 941px;
+    width: 945px;
 }
                 table.org th {
                 border-width: 0px;
@@ -30,6 +30,7 @@ table.org td {
     border-style: solid;
     border-width: 0 4px;
     padding: 4px 2px;
+    width: 85px;
 }
                 table.org tr.big {
                 border-bottom: 20px solid white;
@@ -72,8 +73,8 @@ hr.border {
     border: 0 none;
     float: left;
     height: 2px;
-    margin-left: 248px;
-    width: 198px;
+    margin-left: 237px;
+    width: 231px;
 }
 hr.border2 {
     background: none repeat scroll 0 0 #6C1A7D !important;
@@ -81,23 +82,23 @@ hr.border2 {
     float: left;
     height: 2px;
     margin-left: 57px;
-    width: 500px;
+    width: 473px;
 }
 hr.border3 {
     background: none repeat scroll 0 0 #6C1A7D !important;
     border: 0 none;
     float: left;
     height: 2px;
-    margin-left: 450px;
-    width: 485px;
+    margin-left: 473px;
+    width: 466px;
 }
 hr.border4 {
     background: none repeat scroll 0 0 #6C1A7D !important;
     border: 0 none;
     float: left;
     height: 2px;
-    margin-left: 450px;
-    width: 245px;
+    margin-left: 473px;
+    width: 231px;
 }
 .orgline {
     border-right: 2px solid #6C1A7D;

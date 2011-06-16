@@ -35,9 +35,9 @@ table.org td {
                 table.org tr.big {
                 border-bottom: 20px solid white;
                 }
-                table.org tr.small {
-                border-bottom: 10px solid white;
-                }
+table.org tr.small {
+    border-bottom: 4px solid white;
+}
 table.org span {
     font-size: 12px;
     font-weight: bold;
@@ -102,13 +102,13 @@ hr.border4 {
 }
 .orgline {
     border-right: 2px solid #6C1A7D;
-    height: 17px;
+    height: 14px;
     margin-bottom: -2px;
     width: 55px;
 }
 .orgline2 {
     border-right: 2px solid #6C1A7D;
-    height: 17px;
+    height: 14px;
     width: 55px;
 }
             </style>
@@ -210,7 +210,7 @@ hr.border4 {
                 <tr class="bordertop">
                     <td colspan="8"><hr class="border3" /></td>
                 </tr>
-                <tr class="small">
+                <tr>
                     <td>
                         <span>Human Resources Services</span>
                     </td>
@@ -232,6 +232,16 @@ hr.border4 {
                     <td>
                         <span>Research Support</span>
                     </td>
+                </tr>
+                <tr>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"><div class="orgline2"></div></td>
+                    <td class="blank1"><div class="orgline2"></div></td>
+                    <td class="blank1"><div class="orgline2"></div></td>
+                    <td class="blank1"><div class="orgline2"></div></td>
                 </tr>
                 <tr class="small">
                     <td>
@@ -335,15 +345,27 @@ hr.border4 {
                     <td class="blank"></td>
                     <td class="blank"></td>
                     <td>
-                        <span>Sustaining genetic resources / biodiversity</span>
-                        Leader: David Tay
+                        <span>Sweetpotato Asia</span>
                     </td>
                    <td class="blank"></td>
                    <td>
                         <span>Library</span>
                         Leader: Cecilia Ferreyra
                     </td>
-                 </tr>
+                </tr>
+                <tr class="small">
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Sustaining genetic resources / biodiversity</span>
+                        Leader: David Tay
+                    </td>
+                   <td class="blank"></td>
+                   <td class="blank"></td>
+                </tr>
                 <tr class="small">
                     <td class="blank"></td>
                     <td class="blank"></td>

@@ -1,18 +1,21 @@
 <html metal:use-macro="here/main_template/macros/master">
 <metal:block fill-slot="top_slot"
-                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_one python:request.set('disable_plone.leftcolumn',2);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main">
 
             <style type="text/css">
-                table.org {
-                border-width: 0px;
-                border-spacing: ;
-                border-style: outset;
-                border-color: ;
-                border-collapse: separate;
-                background-color: white;
-                }
+table.org {
+    background-color: white;
+    border-collapse: separate;
+    border-style: outset;
+    border-width: 0;
+    font-size: 10px;
+    margin-left: -10px;
+    padding-left: 0;
+    width: 941px;
+}
                 table.org th {
                 border-width: 0px;
                 padding: 4px;
@@ -21,23 +24,23 @@
                 background-color: rgb(244, 235, 245);
                 -moz-border-radius: ;
                 }
-                table.org td {
-                background-color: #F4EBF5;
-                border-color: white;
-                border-style: solid;
-                border-width: 0 10px;
-                padding: 4px 6px;
-                }
+table.org td {
+    background-color: #F4EBF5;
+    border-color: white;
+    border-style: solid;
+    border-width: 0 4px;
+    padding: 4px 2px;
+}
                 table.org tr.big {
                 border-bottom: 20px solid white;
                 }
                 table.org tr.small {
                 border-bottom: 10px solid white;
                 }
-                table.org span {
-                font-weight:bold;
-                font-size:14px;
-                }
+table.org span {
+    font-size: 12px;
+    font-weight: bold;
+}
                 td.org1 {
                 width:160px;
                 }
@@ -50,6 +53,11 @@
                 td.blank {
                 background-color:white !important;
                 }
+                td.blank1 {
+                padding:0 !important;
+                margin:0;
+                background-color:white !important;
+                }
                 tr.bordertop {
                 padding:0 !important;
                 border:0 !important;
@@ -59,70 +67,163 @@
                 background: none repeat scroll 0 0 white !important;
                 border:0 !important;
                 }
-                hr.border {
-                background: none repeat scroll 0 0 #6C1A7D !important;
-                border: 0 none;
-                float: left;
-                height: 2px;
-                margin-left: 175px;
-                width: 467px;
-                }
-                hr.border2 {
-                background: none repeat scroll 0 0 #6C1A7D !important;
-                border: 0 none;
-                float: left;
-                height: 2px;
-                margin-left: 175px;
-                width: 213px;
-                }
+hr.border {
+    background: none repeat scroll 0 0 #6C1A7D !important;
+    border: 0 none;
+    float: left;
+    height: 2px;
+    margin-left: 248px;
+    width: 198px;
+}
+hr.border2 {
+    background: none repeat scroll 0 0 #6C1A7D !important;
+    border: 0 none;
+    float: left;
+    height: 2px;
+    margin-left: 57px;
+    width: 500px;
+}
+hr.border3 {
+    background: none repeat scroll 0 0 #6C1A7D !important;
+    border: 0 none;
+    float: left;
+    height: 2px;
+    margin-left: 450px;
+    width: 485px;
+}
+hr.border4 {
+    background: none repeat scroll 0 0 #6C1A7D !important;
+    border: 0 none;
+    float: left;
+    height: 2px;
+    margin-left: 450px;
+    width: 245px;
+}
+.orgline {
+    border-right: 2px solid #6C1A7D;
+    height: 17px;
+    margin-bottom: -2px;
+    width: 55px;
+}
+.orgline2 {
+    border-right: 2px solid #6C1A7D;
+    height: 17px;
+    width: 55px;
+}
             </style>
 
-            <h1>Organizational chart</h1>
+            <h1>CIP's internal structure</h1>
 
             <table class="org">
-                <tr class="bordertop">
-                    <td colspan="5"><hr class="border" /></td>
+                <tr class="small">
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Board of trustees</span>
+                    </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
                 </tr>
-                <tr class="big">
-                    <td class="org1">
+                <tr class="bordertop">
+                    <td colspan="8"><hr class="border" /></td>
+                </tr>
+                <tr>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
                         <span>Director General</span>
                         <br />Pamela K. Anderson
                     </td>
-                    <td colspan="2" class="org2">
-                        <span>Communications and Public Awareness Dept</span>
-                        <br />Head: Valerie Gwinner
-                    </td>
-                    <td colspan="2" class="org3">
+                    <td>
                         <span>External Relations</span>
                         <br />Mariella Altet
                     </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+                <tr>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                </tr>                <tr class="bordertop">
+                    <td colspan="8"><hr class="border2" /></td>
+                </tr>
+                <tr>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
                 </tr>
                 <tr class="bordertop">
-                    <td colspan="5"><hr class="border2" /></td>
+                    <td colspan="8"><hr class="border4" /></td>
                 </tr>
-                <tr class="big">
+                <tr>
+                    <td>
+                        <span>Chief Operations Office</span>
+                    </td>
                     <td>
                         <span>DDG for Strategy and Corporate Development</span>
                         Carlos Alonso
                     </td>
-                    <td colspan="2">
-                        <span>Human Resources Services</span>
-                        Head: Ulrica Martinius (as of July 1, 2011)
+                    <td>
+                        <span>Comm- unications and Public Awareness Dept</span>
+                        Head: Valerie Gwinner
                     </td>
+                    <td>
+                        <span>DDG-CCCAP</span>
+                    </td>
+                    <td>
+                        <span>DDG for Research</span>
+                    </td>
+                    <td>
+                        <span>Executive Officer for Research</span>
+                        <br />Philippe Monneveux
+                    </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                </tr>
+                <tr>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"><div class="orgline"></div></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
+                    <td class="blank1"></td>
                 </tr>
                 <tr class="bordertop">
-                    <td colspan="5"><hr class="border" /></td>
+                    <td colspan="8"><hr class="border3" /></td>
                 </tr>
                 <tr class="small">
                     <td>
-                        <span>DDG for Research</span>
-                        Paolo Donini (as of July 1, 2011)
+                        <span>Human Resources Services</span>
                     </td>
                     <td>
-                        <span>Research Divisions</span>
+                        <span>Deputy DDG for Strategy and Corporate Development</span>
+                        <br />Head: Amalia Perochena
+                    </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Research divisions</span>
                     </td>
                     <td>
-                        <span>Partnership Programs</span>
+                        <span>Global and Geographic Programs</span>
                     </td>
                     <td>
                         <span>Regional Offices</span>
@@ -133,60 +234,69 @@
                 </tr>
                 <tr class="small">
                     <td>
-                        <span>Executive Officer for Research</span>
-                        Philippe Monneveux
+                        <span>Finance</span>
                     </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
                     <td>
                         <span>Genetic Resources</span>
-                        Leader: David Tay
+                        <br />Leader: David Tay
                     </td>
                     <td>
-                        <span>VITAA</span>
-                        Coordinator: Esi Amouful
+                        <span>Lowland Potato</span>
                     </td>
                     <td>
                         <span>Sub-Saharan Africa (SSA)</span>
-                        Regional Leader: Dorvin Stockdale
+                        <br />Regional Leader: Dorvin Stockdale
                     </td>
                     <td>
-                        <span>Germplasm and Distribution Unit</span>
-                        Leader: Janny Van Been
+                        <span>Germplasm Acquisition and Distribution Unit</span>
+                        <br />Leader: Janny Van Been
                     </td>
                 </tr>
                 <tr class="small">
-                    <td class="blank">
+                    <td>
+                        <span>Grants & Contracts</span>
+                        Head: Michelle Rodrigo
+                    </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Genetic Enhancement and Crop Improvement</span>
+                        <br />Leader: Meredith Bonierbale
                     </td>
                     <td>
-                        <span>Genetic Enhancement</span>
-                        Leader: Merideth Bonierbale
-                    </td>
-                    <td>
-                        <span>Papa Andina</span>
-                        Coordinator: André Devaux
+                        <span>Temperate Potato</span>
                     </td>
                     <td>
                         <span>South, West and Central Asia (SWCA)</span>
-                        Regional Leader: Dindo Campilan
+                        <br />Regional Leader: Dindo Campilan
                     </td>
                     <td>
                         <span>Applied Biotechnology Laboratory</span>
-                        Leader: Marc Ghislain
+                        <br />Leader: Marc Ghislain
                     </td>
                 </tr>
                 <tr class="small">
-                    <td class="blank">
+                    <td>
+                        <span>Information Technology Unit</span>
+                        Head: Carlos Varela da Silva
+                    </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Crop Management and Production Systems</span>
+                        <br />Leader: Oscar Ortiz
                     </td>
                     <td>
-                        <span>Integrated Crop Management and Production Systems</span>
-                        Leader: Oscar Ortiz
-                    </td>
-                    <td>
-                        <span>UPWARD</span>
-                        Coordinator: Dindo Campilan
+                        <span>Highland Potato</span>
                     </td>
                     <td>
                         <span>East, and Southeast Asia and the Pacific (ESEAP)</span>
-                        Regional Leader: Dindo Campilan
+                        <br />Regional Leader: Dindo Campilan
                     </td>
                     <td>
                         <span>Research Informatics Unit</span>
@@ -194,61 +304,79 @@
                     </td>
                 </tr>
                 <tr class="small">
-                    <td class="blank">
-                    </td>
-                    <td>
-                        <span>Integrated Social and Health Sciences</span>
-                        Leader: Graham Thiele
-                    </td>
-                    <td>
-                        <span>CONDESAN</span>
-                        Coordinator: Miguel Saravia
-                    </td>
-                    <td class="blank">
-                    </td>
-                    <td>
-                        <span>Capacity Strengthening Dept</span>
-                    </td>
-                </tr>
-                <tr class="small">
-                    <td class="blank">
-                    </td>
-                    <td class="blank">
-                    </td>
-                    <td class="blank">
-                    </td>
-                    <td class="blank">
-                    </td>
-                    <td>
-                        <span>Library</span>
-                        Head: Cecilia Ferreyra
-                    </td>
-                </tr>
-                <tr class="bordertop">
-                    <td colspan="5"><hr class="border" /></td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Director of Finance and Administration</span>
-                        Carlos Alonso
-                    </td>
-                    <td>
-                        <span>Finance</span>
-                        Head: Amalia Perochena
-                    </td>
-                    <td>
-                        <span>Grants & Contracts</span>
-                        Head: Michelle Rodrigo
-                    </td>
-                    <td>
-                        <span>Information Technology Unit</span>
-                        Head: Carlos Varela da Silva (as of May 1, 2011)
-                    </td>
                     <td>
                         <span>Administration</span>
                         Head: Eduardo Ferreyra
                     </td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Social and Health Sciences</span>
+                        Leader: Graham Thiele
+                    </td>
+                    <td>
+                        <span>Sweetpotato Sub-Saharan Africa</span>
+                        Leader: Graham Thiele
+                    </td>
+                    <td>
+                        <span>Latin American and the Caribbean (LAC)</span>
+                        Leader: André Devaux
+                    </td>
+                    <td>
+                        <span>Outcome Support Platform</span>
+                    </td>
                 </tr>
+                <tr class="small">
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Sustaining genetic resources / biodiversity</span>
+                        Leader: David Tay
+                    </td>
+                   <td class="blank"></td>
+                   <td>
+                        <span>Library</span>
+                        Leader: Cecilia Ferreyra
+                    </td>
+                 </tr>
+                <tr class="small">
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Accelerating genetic enhancement</span>
+                        Leader: Meredith Bonierbale
+                    </td>
+                   <td class="blank"></td>
+                   <td class="blank"></td>
+                </tr>
+                <tr class="small">
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td class="blank"></td>
+                    <td>
+                        <span>Linking insights / systems-based approaches</span>
+                        Leader: Oscar Ortiz
+                    </td>
+                   <td class="blank"></td>
+                   <td class="blank"></td>
+                </tr>
+
+
+                <script type="text/javascript">
+                    $(function() {
+                        $("#content").css("border-right","0");
+                    });
+                </script>
+
             </table>
         </metal:main>
     </metal:main_macro>

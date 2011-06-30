@@ -259,13 +259,13 @@
      layer=".interfaces.IThemeSpecific"
      permission="zope2.View"
      />
-  <browser:viewlet
+  <!--browser:viewlet
      name="plone.searchboxstaff"
      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
      class=".viewlets.SearchBoxPubViewlet"
      layer=".interfaces.IThemeSpecific"
      permission="zope2.View"
-     />
+     /-->
   <browser:viewlet
      name="plone.belowcontentbody.relateditems"
      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
@@ -346,6 +346,4 @@
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
         />
-
-
 </configure>

@@ -303,6 +303,13 @@
       />
   <browser:page
       for="*"
+      name="changePubids"
+      class=".changepubids.Changepubs"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="pressroomvideos"
       template="templates/pressroomvideos.pt"
       layer=".interfaces.IThemeSpecific"
@@ -339,4 +346,6 @@
         layer=".interfaces.IThemeSpecific"
         permission="zope2.View"
         />
+
+
 </configure>

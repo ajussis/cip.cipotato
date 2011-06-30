@@ -167,7 +167,7 @@ class GalleryView(BrowserView):
     __call__ = ViewPageTemplateFile('templates/galleryview.pt')
 
     def getGalleries(self):
-        results = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general")}, sort_order="ascending", portal_type="Gallery")
+        results = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general")}, sort_order="ascending")
         #import pdb;pdb.set_trace()
         return results
 

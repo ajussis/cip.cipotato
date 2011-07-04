@@ -240,6 +240,13 @@
       />
   <browser:page
       for="*"
+      name="calendarView"
+      class=".viewlets.CalendarView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope.Public"
+      />
+  <browser:page
+      for="*"
       name="jobsopenView"
       class=".jobs.JobsOpenView"
       layer=".interfaces.IThemeSpecific"

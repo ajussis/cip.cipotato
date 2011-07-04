@@ -1,0 +1,404 @@
+<tal:block metal:define-macro="master"
+           define="errors options/state/getErrors | nothing;
+                   schematas nothing;
+                   allow_tabbing python:False;
+                   fieldsets python:['default'];
+                   default_fieldset string:default;
+                   fieldset default_fieldset;
+                   fields python:here.fgFields(request);
+                   portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                   type_name here/getPortalTypeName|here/archetype_name;
+                   base_macros here/fg_edit_macros_p3/macros;
+                   edit_template python:'%s_edit' % portal_type;
+                   edit_macros python:path('here/%s/macros | nothing' % edit_template);
+                   header_macro edit_macros/header | header_macro | base_macros/header;
+                   typedescription_macro edit_macros/typedescription | typedescription_macro | base_macros/typedescription;
+                   body_macro edit_macros/body | body_macro | base_macros/body;
+                   footer_macro edit_macros/footer | footer_macro | base_macros/footer;
+                   css python:here.getUniqueWidgetAttr(fields, 'helper_css');
+                   js python:here.getUniqueWidgetAttr(fields, 'helper_js');
+                   portal portal | context/@@plone_portal_state/portal">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <metal:head fill-slot="top_slot">
+    <tal:block define="macro edit_macros/topslot | nothing"
+                    condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:head>
+  
+  <metal:javascript_head fill-slot="javascript_head_slot">
+    <tal:block define="macro here/archetypes_custom_js/macros/javascript_head | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+    <tal:js condition="js"
+            repeat="item js">
+      <script type="text/javascript"
+              charset="iso-8859-1"
+              tal:condition="python:exists('portal/%s' % item)"
+              tal:attributes="src string:$portal_url/$item">
+      </script>
+    </tal:js>
+
+    <script src="pfgQuickEdit.js"
+            type="text/javascript"
+            tal:condition="python:checkPermission('Modify portal content', here) and here.portal_type=='FormFolder'">
+    </script>
+
+    <tal:block define="macro edit_macros/javascript_head | nothing"
+                    condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+
+    <style type="text/css"
+           media="all"
+           tal:condition="python:checkPermission('Modify portal content', here)">
+       #pfgnedit,#pfgqedit{float:right;cursor:pointer;}
+       #pfgActionEdit, #pfgThanksEdit, #pfg-qetable{clear:right;width:75%;}
+       .editHook {text-align:center}
+       .editHook a {border-bottom:none !important}
+       td.draggable.draggingHook {cursor:ns-resize;vertical-align:middle}
+       .editHook {text-align:center !important}
+    </style>
+
+	<tal:expr replace="structure here/getHeaderInjection | nothing" />
+  </metal:javascript_head>
+
+    
+  <body>
+
+    <metal:fill fill-slot="main">
+      <metal:main define-macro="main"
+                  tal:define="isLocked python:False;
+                              canModify python:checkPermission('Modify portal content', here)">
+        
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        
+        <tal:block tal:condition="canModify">
+            <div id="pfgqedit" style="display:none" tal:content="structure here/maintenance_icon.gif" />
+            <div id="pfgnedit" style="display:none" tal:content="structure here/form_icon.gif" />
+        </tal:block>
+
+        <h1 tal:content="context/Title" class="documentFirstHeading">
+          Title or id
+        </h1>
+
+        <tal:block define="url request/URL;
+                           gen python:'about-cip/contact/' in url;">
+            <div tal:condition="gen">
+	            <div class="contact_basicinfo">
+	                <div class="contact_basicinfo1">
+	                    <h3>CIP Headquarters Lima</h3>
+	                    <p><b>Tel. </b> +511 3496017<br />
+	                        <b>Email. </b> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#105;&#112;&#64;&#99;&#103;&#105;&#97;&#114;&#46;&#111;&#114;&#103;">Click to email CIP</a><br />
+	                        <b>Address. </b>Avenida La Molina 1895, La Molina<br />
+	                        Apartado Postal 1558, Lima, Peru
+	                    </p>
+	                </div>
+	                <div class="contact_basicinfo2">
+	                    <h3>Media contacts</h3>
+	                    <p>
+	                        <b>Jacqueline Becker</b>
+	                        <b> - <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#46;&#98;&#101;&#99;&#107;&#101;&#114;&#64;&#99;&#103;&#105;&#97;&#114;&#46;&#111;&#114;&#103;">Email</a></b>
+	                        <br /><i>Media specialist</i>
+	                    </p>
+	                    <p>
+	                        <b>Valerie Gwinner</b>
+	                        <b> - <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#118;&#46;&#103;&#119;&#105;&#110;&#110;&#101;&#114;&#64;&#99;&#103;&#105;&#97;&#114;&#46;&#111;&#114;&#103;">Email</a></b>
+	                        <br /><i>Head of communications department</i>
+	                    </p>
+	                    <p>
+	                        <a href="contact-info">Questions about this site?</a>
+	                    </p>
+	                </div>
+	            </div>
+	            <script type="text/javascript">
+		            $(document).ready(function() {
+		                $("div.side_bar_main").find(".side_bar").each(function(){
+		                    $(this).find("ul li").first().css("font-weight","bold");
+		                });
+		            });
+	            </script>
+	            <div id="map" class="contactmap"></div>
+	            <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAB2_0mmrf69ZBletOgabykRSXQbsDShJute_U0k4BLUFHpr3AARQkoMv695L4fEZGbcGXbZtR0Phx7w" type="text/javascript"></script>
+	
+	            <form action="#">
+	                <input type="hidden" id="area1box" onclick="boxclick(this,'area1')" />
+	                <input type="hidden" id="area2box" onclick="boxclick(this,'area2')" />
+	                <input type="hidden" id="area3box" onclick="boxclick(this,'area3')" />
+	                <input type="hidden" id="area4box" onclick="boxclick(this,'area4')" />
+	            </form>
+	            <div class="side_bar_main">
+	                <div class="side_bar" id="side_bar1"></div>
+	                <div class="side_bar" id="side_bar2"></div>
+	                <div class="side_bar" id="side_bar3"></div>
+	                <div class="side_bar" id="side_bar4"></div>
+	            </div>
+		
+		
+	            <script type="text/javascript">
+		            //<![CDATA[
+		
+		            if (GBrowserIsCompatible()) {
+		              var gmarkers = [];
+		              var gicons = [];
+		
+		              var baseIcon = new GIcon(G_DEFAULT_ICON);
+		              baseIcon.image = "http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png";
+		
+		              baseIcon.iconAnchor = new GPoint(9,34);
+		              baseIcon.iconSize = new GSize(20,34);
+		              baseIcon.infoWindowAnchor = new GPoint(9,2);
+		
+		
+		              gicons["area1"] = new GIcon(baseIcon,baseIcon.image);
+		              gicons["area2"] = new GIcon(baseIcon,baseIcon.image);
+		              gicons["area3"] = new GIcon(baseIcon,baseIcon.image);
+		              gicons["area4"] = new GIcon(baseIcon,baseIcon.image);
+		
+		              // A function to create the marker and set up the event window
+		              function createMarker(point,name,html,category) {
+		                var marker = new GMarker(point,gicons[category]);
+		                // === Store the category and name info as a marker properties ===
+		                marker.mycategory = category;
+		                marker.myname = name;
+		                GEvent.addListener(marker, "click", function() {
+		                  marker.openInfoWindowHtml(html);
+		                });
+		                gmarkers.push(marker);
+		                return marker;
+		              }
+		
+		              // == shows all markers of a particular category, and ensures the checkbox is checked ==
+		              function show(category) {
+		                for (var i=0; i<gmarkers.length; i++) {
+		                  if (gmarkers[i].mycategory == category) {
+		                    gmarkers[i].show();
+		                  }
+		                }
+		                // == check the checkbox ==
+		                document.getElementById(category+"box").checked = true;
+		              }
+		
+		              // == hides all markers of a particular category, and ensures the checkbox is cleared ==
+		              function hide(category) {
+		                for (var i=0; i<gmarkers.length; i++) {
+		                  if (gmarkers[i].mycategory == category) {
+		                    gmarkers[i].hide();
+		                  }
+		                }
+		                // == clear the checkbox ==
+		                document.getElementById(category+"box").checked = false;
+		                // == close the info window, in case its open on a marker that we just hid
+		                map.closeInfoWindow();
+		              }
+		
+		              // == a checkbox has been clicked ==
+		              function boxclick(box,category) {
+		                if (box.checked) {
+		                  show(category);
+		                } else {
+		                  hide(category);
+		                }
+		                // == rebuild the side bar
+		                makeSidebar();
+		              }
+		
+		              function myclick(i) {
+		                GEvent.trigger(gmarkers[i],"click");
+		              }
+		
+		
+		              // == rebuilds the sidebar to match the markers currently displayed ==
+		              function makeSidebar() {
+		                var html1 = "<ul>";
+		                var html2 = "<ul>";
+		                var html3 = "<ul>";
+		                var html4 = "<ul>";
+		                for (var i=0; i<gmarkers.length; i++) {
+		                  if (!gmarkers[i].isHidden()) {
+		                    if (gmarkers[i].mycategory == 'area1') {
+		                        html1 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
+		                    }
+		                    else if (gmarkers[i].mycategory == 'area2') {
+		                        html2 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
+		                    }
+		                    else if (gmarkers[i].mycategory == 'area3') {
+		                        html3 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
+		                    }
+		                    else if (gmarkers[i].mycategory == 'area4') {
+		                        html4 += '<li><a href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '<\/a><\/li>';
+		                    }
+		                  }
+		                }
+		                document.getElementById("side_bar1").innerHTML = html1+"<\/ul>";
+		                document.getElementById("side_bar2").innerHTML = html2+"<\/ul>";
+		                document.getElementById("side_bar3").innerHTML = html3+"<\/ul>";
+		                document.getElementById("side_bar4").innerHTML = html4+"<\/ul>";
+		              }
+		
+		
+		              // create the map
+		              var map = new GMap2(document.getElementById("map"));
+		              map.addControl(new GLargeMapControl());
+		              map.addControl(new GMapTypeControl());
+		              map.setCenter(new GLatLng(-3.86425,23.55469), 2);
+		
+		
+		              // Read the data
+		              GDownloadUrl("http://www.cipotato.org/categories.xml", function(doc) {
+		                var xmlDoc = GXml.parse(doc);
+		                var markers = xmlDoc.documentElement.getElementsByTagName("marker");
+		                for (var i = 0; i < markers.length; i++) {
+		                  // obtain the attribues of each marker
+		                  var lat = parseFloat(markers[i].getAttribute("lat"));
+		                  var lng = parseFloat(markers[i].getAttribute("lng"));
+		                  var point = new GLatLng(lat,lng);
+		                  var address = markers[i].getAttribute("address");
+		                  var name = markers[i].getAttribute("name");
+		                  var html = "<h3>"+name+"<\/h3><p>"+address;
+		                  var category = markers[i].getAttribute("category");
+		                  // create the marker
+		                  var marker = createMarker(point,name,html,category);
+		                  map.addOverlay(marker);
+		                }
+		
+		                // == show or hide the categories initially ==
+		                show("area1");
+		                show("area2");
+		                show("area3");
+		                show("area4");
+		                // == create the initial sidebar ==
+		                makeSidebar();
+		              });
+		            }
+		
+		            else {
+		              alert("Sorry, the Google Maps API is not compatible with this browser");
+		            }
+		
+		            //]]>
+            	</script>
+	            <h1 style="float:left; margin-bottom:15px !important;">Contact us dfasdfiarectly</h1>
+            </div>
+        </tal:block>
+
+
+        <div class="contactform">
+
+            <p class="documentDescription"
+               tal:content="here/Description"
+               tal:condition="here/Description">
+                Description
+            </p>
+
+            <div tal:replace="structure provider:plone.abovecontentbody" />
+
+                    <p tal:replace="structure here/formPrologue | nothing" />
+
+            <metal:use_body use-macro="body_macro" />
+
+                    <p tal:replace="structure here/formEpilogue | nothing" />
+
+            <table tal:condition="canModify"
+                   id="pfgActionEdit"
+                   class="listing"
+                   summary="Field listing"
+                   style="display:none"
+                   tal:define="liveAdapters here/getActionAdapter">
+                <thead>
+                <tr>
+                    <th>Form Actions</th><th class="editHook">Enabled</th><th class="editHook">Delete</th><th class="editHook">Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tal:block tal:repeat="row python:here.actionAdaptersDL().items()">
+                    <tr tal:attributes="class python:test(repeat['row'].index % 2,'even','odd')">
+                        <td tal:content="python:row[1]" />
+                        <td class="editHook">
+                          <form action="#">
+                              <input type="checkbox" value="1"
+                                  tal:attributes="checked python:test(row[0] in liveAdapters,'checked',None);
+                                  id python:'cbaction-%s' % row[0];
+                                  name python:'cbaction-%s' % row[0]" />
+                          </form>
+                        </td>
+                        <td class="editHook">
+                            <a href="#"
+                               tal:attributes="href python:'%s/delete_confirmation' % row[0]"
+                               title="Delete Action"
+                               ><img src="delete_icon.gif" alt="Delete" /></a>
+                        </td>
+                        <td class="editHook">
+                            <a href="#"
+                               tal:attributes="href python:'%s/edit' % row[0]"
+                               title="Edit Field"
+                               ><img src="edit.gif" alt="Edit" /></a>
+                        </td>
+                    </tr>
+                    </tal:block>
+                </tbody>
+            </table>
+
+            <table tal:condition="canModify"
+                   id="pfgThanksEdit"
+                   class="listing"
+                   summary="Field listing"
+                   style="display:none"
+                   tal:define="liveThanks here/thanksPage">
+                <thead>
+                    <tr>
+                        <th>Thanks Pages</th><th class="editHook">Enabled</th><th class="editHook">Delete</th><th class="editHook">Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tal:block tal:repeat="row python:here.thanksPageVocabulary().items()">
+                    <tr tal:attributes="class python:test(repeat['row'].index % 2,'even','odd')">
+                        <td tal:content="python:row[1]" />
+                        <td class="editHook">
+                          <form action="#">
+                              <input type="radio" name="thanksRadio"
+                                  tal:attributes="value python:row[0];
+                                    checked python:test(row[0] == liveThanks, 'checked', None)" />
+                          </form>
+                        </td>
+                        <td class="editHook">
+                            <a href="#" tal:condition="python:row[0]"
+                               tal:attributes="href python:'%s/delete_confirmation' % row[0]"
+                               title="Delete Page"
+                               ><img src="delete_icon.gif" alt="Delete" /></a>
+                            <tal:block tal:condition="python:not row[0]">&nbsp;</tal:block>
+                        </td>
+                        <td class="editHook">
+                            <a href="#" tal:condition="python:row[0]"
+                               tal:attributes="href python:'%s/edit' % row[0]"
+                               title="Edit Page"
+                               ><img src="edit.gif" alt="Edit" /></a>
+                           <tal:block tal:condition="python:not row[0]">&nbsp;</tal:block>
+                        </td>
+                    </tr>
+                    </tal:block>
+                </tbody>
+            </table>
+
+            <div tal:replace="structure provider:plone.belowcontentbody" tal:condition="canModify" />
+        </div>
+
+      </metal:main>
+    </metal:fill>
+
+  </body>
+
+</html>
+
+</tal:block>

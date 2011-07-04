@@ -1,0 +1,82 @@
+<html metal:use-macro="here/main_template/macros/master">
+<metal:block fill-slot="top_slot"
+                 tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);" />
+    <metal:main_macro define-macro="main">
+        <metal:main fill-slot="main"
+                    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+            <div id="content-core">
+                <h1 tal:content="context/Title"></h1>
+				<div class="calendar_month">
+				    <br />
+					<h2>This month</h2>
+	                <div class="calendar_block" tal:define="calendar python:view.getThisMonth();
+	                	                                      cal python:calendar[0];
+	                	                                      cal2 python:calendar[1];
+	                	                                      ctitle cal/Title;
+	                	                                      ci cal/id;
+	                	                                      ci2 cal/id;
+	                	                                      cid python:ci+'/image_mini';
+	                	                                      cib python:ci+'/at_download/image';
+	                	                                      cif python:ci+'/image_view_fullscreen';
+	                	                                      cib2 python:ci2+'/at_download/image';
+	                	                                      cif2 python:ci2+'/image_view_fullscreen';	                	                                      
+	                	                                      month python:calendar[2]">
+						<img src="#" style="float:left; margin-right:25px;" tal:attributes="src cid" />
+						<div class="float:left; width:300px;"></div><h3><span tal:replace="month" />/2011</h3>
+						<p>
+							<b>English</b>
+							<br />
+							<a href="#" tal:attributes="href cif">View fullscreen</a> | 
+							<a href="#" tal:attributes="href cib">Download</a>
+						</p>
+						<p>
+							<b>Spanish</b>
+							<br />
+							<a href="#" tal:attributes="href cif2">View fullscreen</a> | 
+							<a href="#" tal:attributes="href cib2">Download</a>
+						</p>
+	                </div>
+				</div>
+				<div class="calendar_month">
+					<br /><br />
+					<h2>All months</h2>
+	                <div class="calendar_block" tal:define="calendars python:view.getAllMonths();
+															listes python:calendars[0];
+															listen python:calendars[1]">
+						<div style="width:300px; float:left;">
+							<h3>English</h3>
+							<ul>
+								<li tal:repeat="list listen">
+									<tal:block define="title list/Title;
+                                                       id list/id;
+                                                       fullscreen python:id+'/image_view_fullscreen';
+                                                       download python:id+'/at_download/image'">
+										<span tal:replace="title"/>: <a href="#" tal:attributes="href fullscreen">View fullscreen </a> | <a href="#" tal:attributes="href download">Download</a>
+									</tal:block>
+								</li>
+							</ul>
+						</div>
+						<div style="width:300px; float:left;">
+							<h3>Spanish</h3>
+							<ul>
+								<li tal:repeat="list listes">
+									<tal:block define="title list/Title;
+                                                       id list/id;
+                                                       fullscreen python:id+'/image_view_fullscreen';
+                                                       download python:id+'/at_download/image'">
+										<span tal:replace="title"/>: <a href="#" tal:attributes="href fullscreen">View fullscreen </a> | <a href="#" tal:attributes="href download">Download</a>
+									</tal:block>
+								</li>
+							</ul>
+						</div>
+	                </div>
+				</div>
+
+            </div>
+
+
+        </metal:main>
+    </metal:main_macro>
+</html>
+
+

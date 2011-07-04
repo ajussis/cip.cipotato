@@ -348,3 +348,30 @@ class LanguageSelector(BrowserView):
         if self.tool is not None:
             return self.tool.showFlags()
         return False
+
+class CalendarView(BrowserView):
+    """View for CIP Calendar section
+    """
+    __call__ = ViewPageTemplateFile('templates/calendar.pt')
+
+    def getThisMonth(self):
+        #import pdb;pdb.set_trace()
+        month = datetime.now().strftime("%m")
+        monthen = month + "-ens"
+        monthes = month + "-ens"
+        results = []
+        results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText=monthen)[0])
+        results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText=monthes)[0])
+        results.append(month)
+        return results
+
+    def getAllMonths(self):
+        #import pdb;pdb.set_trace()
+        eslist = []
+        enlist = []
+        results = []
+        eslist = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText="es.jpg", sort_order="ascending")
+        enlist = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText="standard.jpg", sort_order="descending")
+        results.append(eslist)
+        results.append(enlist)
+        return results

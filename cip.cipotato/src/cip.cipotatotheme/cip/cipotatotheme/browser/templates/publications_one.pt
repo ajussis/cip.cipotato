@@ -20,6 +20,7 @@
                                       issn python:context.getIssn();
                                       isbn python:context.getIsbn();
                                       publisher python:context.getPublisher();
+                                      link python:context.getLink();
                                       division context/division;
                                       year python:context.getYear();
                                       category python:context.getCategory();
@@ -92,9 +93,12 @@
                                 <b>Conference:</b> <span tal:replace="conference"/>
                             </p>
                             <p class="frontpdf" tal:condition="python:view.PdfExist(pc)">
-                                <a href="#" tal:attributes="href url">Download pdf</a>
+                                <b><a href="#" tal:attributes="href url">Download pdf</a></b>
                             </p>
-                            <p class="frontpdf" tal:condition="not: python:view.PdfExist(pc)">
+                            <p tal:condition="python:link != ' '">
+                                <b><a href="#" tal:attributes="href link">Read / Download pdf</a></b>
+                            </p>
+                            <p class="frontpdf" tal:condition="python:not view.PdfExist(pc) and link == ' '">
                                 <i>PDF not available</i>
                             </p>
                         </div>

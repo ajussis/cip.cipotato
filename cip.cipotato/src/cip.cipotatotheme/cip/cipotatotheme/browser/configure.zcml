@@ -79,6 +79,13 @@
       />
   <browser:page
       for="*"
+      name="person_view"
+      class=".viewlets.PersonView"
+      layer=".interfaces.IThemeSpecific"
+      permission="zope2.View"
+      />
+  <browser:page
+      for="*"
       name="publicationsone_view"
       class=".publications.PublicationsOneView"
       layer=".interfaces.IThemeSpecific"

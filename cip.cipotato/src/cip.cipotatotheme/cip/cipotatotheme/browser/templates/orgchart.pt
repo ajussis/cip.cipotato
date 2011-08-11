@@ -5,7 +5,13 @@
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main">
 
-            <style type="text/css">
+            <h1>CIP's internal structure</h1>
+			<p><a href="organigrama-27-06-11.pdf">Download as pdf</a></p>
+			<img src="orgchart-06.jpg" />
+
+
+
+            <!--style type="text/css">
 table.org {
     background-color: white;
     border-collapse: separate;
@@ -400,7 +406,7 @@ hr.border4 {
                     });
                 </script>
 
-            </table>
+            </table-->
         </metal:main>
     </metal:main_macro>
 </html>

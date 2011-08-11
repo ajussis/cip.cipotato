@@ -286,6 +286,19 @@ class PressroomView(BrowserView):
     def getYear(self):
         return str(datetime.now())[:4]
 
+class PersonView(BrowserView):
+    """Default view of the individual CIP staff member
+    """
+    __call__ = ViewPageTemplateFile('templates/person.pt')
+
+    def ImageExist(self, img_id):
+        img_id = img_id + '-jpg'
+        img = self.context.portal_catalog.searchResults(id=img_id)
+        if img:
+            return img_id
+        else:
+            return 0
+
 class LanguageSelector(BrowserView):
     implements(IViewlet)
     render = ViewPageTemplateFile('templates/languageselector.pt')
@@ -360,8 +373,8 @@ class CalendarView(BrowserView):
         monthen = month + "-ens"
         monthes = month + "-ens"
         results = []
-        results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText=monthen)[0])
-        results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText=monthes)[0])
+        results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar"), "depth":1}, SearchableText=monthen)[0])
+        results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar"), "depth":1}, SearchableText=monthes)[0])
         results.append(month)
         return results
 
@@ -370,8 +383,15 @@ class CalendarView(BrowserView):
         eslist = []
         enlist = []
         results = []
-        eslist = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText="es.jpg", sort_order="ascending")
-        enlist = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar")}, SearchableText="standard.jpg", sort_order="descending")
+        eslist = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar"), "depth":1}, SearchableText="es.jpg", sort_order="ascending")
+        enlist = self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar"), "depth":1}, SearchableText="standard.jpg", sort_order="descending")
+        """for i in eslist:
+            if "wide" in i:
+                j.pop(j.index(i))
+        for i in enlist:
+            if "wide" in i:
+                j.pop(j.index(i))
+        import pdb; pdb.set_trace()"""
         results.append(eslist)
         results.append(enlist)
         return results

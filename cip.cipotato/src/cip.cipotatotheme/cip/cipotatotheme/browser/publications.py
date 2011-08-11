@@ -90,6 +90,15 @@ class PublicationsSubView(BrowserView):
         return self.index()
 
 
+    def PdfExist(self, pc):
+        #import pdb;pdb.set_trace()
+        result = self.context.portal_catalog.searchResults(path={"query":self.context.portal_url.getPortalPath()+"/publications/pdf/"+str(pc)+".pdf"})
+        if not result:
+            return 0
+        else:
+            return 1
+
+
 class PublicationsOneView(BrowserView):
     """Default view of a Project Folder
     """

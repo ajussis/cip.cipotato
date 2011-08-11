@@ -5,6 +5,7 @@
         <metal:main fill-slot="main"
                     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                                 contactareas python:['Headquarters'];
+                                canEdit python:checkPermission('Modify portal content', here);
                                 insideareas python:[[''],['Director General\'s Office','External Relations','Director for Strategy Corporate Develoment\'s Office','Deputy Director General\'s For Research','Director Finance and Administration Office','Communications and Public Awareness Department','Finances','Administration Office','Logistics','Human Resources','Lodging and Food Services','Information Technology Unit']];">
 
             <script type="text/javascript" src="fading-tabs.js"></script>
@@ -37,64 +38,75 @@
                                      listing python:insideareas[dep];"
                          tal:attributes="id tabid"
                          class="tab1-c">
-                        <div tal:repeat="inside listing" class="contact-div">
-                            <tal:defining>
-                                <h2 class="contact-h2" tal:content="inside"></h2>
-                                <!--div class="contact-p" tal:define="n python:view.cpadHead(inside)">
-                                    <div tal:condition="n" class="contact-p-1">
-                                        <div class="contact-p-1-1">
-                                            <div class="contact-position">Head</div>
-                                            <h3>
-                                                <span tal:replace="n/pretty_title_or_id" />
-                                            </h3>
-                                        </div>
-                                        <div class="contact-p-1-2">
-                                            <p>Email: valerie@email.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="show" id="clickme">Show all staff</p>
-                                    <div class="lineBreak"></div>
-                                </div-->
-                                <div class="contact-p">
-                                    <p class="show" id="clickme">Show all staff</p>
-                                </div>
-                                <div class="contacttoggle">
-                                    <tal:defs define="n python:view.cpad(inside)">
-                                        <div class="contact-p-1" tal:repeat="m n">
-                                            <tal:definepro tal:define="head m/getHead">
-                                                <tal:isprofile tal:condition="head">
-                                                    <div style="float:left">
-                                                        <img src="contact.gif" style="width:20px; margin-top:9px;" />
-                                                    </div>
-                                                    <div style="float:left;margin-left:8px;">
-                                                        <div class="contact-position" tal:content="m/getPosition" />
-                                                        <h4>
-                                                            <a href="#" tal:attributes="href m/getURL">
-                                                                <span tal:replace="m/pretty_title_or_id"/>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <!--div class="contact-p-1-2">
-                                                        <p>Email: email@email.com</p>
-                                                    </div-->
-                                                </tal:isprofile>
-                                                <tal:notprofile tal:condition="not: head">
-                                                    <div style="float:left;margin-left:29px;">
-                                                        <div class="contact-position" style="float:left;" tal:content="m/getPosition" />
-                                                        <h4>
-                                                            <span tal:replace="m/pretty_title_or_id"/>
-                                                        </h4>
-                                                    </div>
-                                                    <!--div class="contact-p-1-2">
-                                                        <p>Email: email@email.com</p>
-                                                    </div-->
-                                                </tal:notprofile>
-                                            </tal:definepro>
-                                        </div>
-                                    </tal:defs>
-                                </div>
-                            </tal:defining>
-                        </div>
+                        <tal:repeatrow repeat="inside listing">
+	                        <div tal:define="oddrow repeat/inside/odd" class="contact-div" 
+	                        	 tal:attributes="class python:oddrow and 'contact-div person_even' or 'contact-div person_odd'">
+	                            <tal:defining>
+	                                <h2 class="contact-h2" tal:content="inside"></h2>
+	                                <!--div class="contact-p" tal:define="n python:view.cpadHead(inside)">
+	                                    <div tal:condition="n" class="contact-p-1">
+	                                        <div class="contact-p-1-1">
+	                                            <div class="contact-position">Head</div>
+	                                            <h3>
+	                                                <span tal:replace="n/pretty_title_or_id" />
+	                                            </h3>
+	                                        </div>
+	                                        <div class="contact-p-1-2">
+	                                            <p>Email: valerie@email.com</p>
+	                                        </div>
+	                                    </div>
+	                                    <p class="show" id="clickme">Show all staff</p>
+	                                    <div class="lineBreak"></div>
+	                                </div-->
+	                                <div class="contact-p">
+	                                    <p class="show" id="clickme">Show staff</p>
+	                                </div>
+	                                <div class="contacttoggle">
+	                                    <tal:defs define="n python:view.cpad(inside)">
+	                                        <div class="contact-p-1" tal:repeat="m n">
+	                                            <tal:definepro tal:define="head m/getHead;
+	                                            						   url m/getURL;">
+	                                                <tal:isprofile tal:condition="head">
+	                                                    <div style="float:left; width:25px;">
+	                                                        <a href="#" tal:attributes="href url">
+	                                                        	<img src="contact.gif" title="Click for full profile" alt="Click for full profile" />
+	                                                        </a>
+	                                                    </div>
+	                                                    <div class="contact-p-1-details">
+	                                                        <div class="contact-position" tal:content="m/getPosition" />
+	                                                        <h4>
+	                                                            <a href="#" tal:attributes="href url">
+	                                                                <span tal:replace="m/pretty_title_or_id"/>
+	                                                            </a>
+	                                                        </h4>
+	                                                    </div>
+	                                                    <!--div class="contact-p-1-2">
+	                                                        <p>Email: email@email.com</p>
+	                                                    </div-->
+	                                                </tal:isprofile>
+	                                                <tal:notprofile tal:condition="not: head">
+	                                                    <div style="float:left;">
+	                                                        <div class="contact-position" style="float:left;" tal:content="m/getPosition" />
+	                                                        <h4 tal:condition="not:canEdit">
+	                                                            <span tal:replace="m/pretty_title_or_id"/>
+	                                                        </h4>
+	                                                        <h4 tal:condition="canEdit">
+	                                                            <a href="#" tal:attributes="href url">
+	                                                                <span tal:replace="m/pretty_title_or_id"/>
+	                                                            </a>
+	                                                        </h4>
+	                                                    </div>
+	                                                    <!--div class="contact-p-1-2">
+	                                                        <p>Email: email@email.com</p>
+	                                                    </div-->
+	                                                </tal:notprofile>
+	                                            </tal:definepro>
+	                                        </div>
+	                                    </tal:defs>
+	                                </div>
+	                            </tal:defining>
+	                        </div>
+	                    </tal:repeatrow>
                     </div>
                 </tal:areas>
             </div>
@@ -111,3 +123,74 @@
         </metal:main>
     </metal:main_macro>
 </html>
+
+
+<!--tal:areas repeat="deps contactareas">
+                    <div tal:define="dep repeat/deps/number;
+                                     tabid python:'tab'+str(dep);
+                                     listing python:insideareas[dep];"
+                         tal:attributes="id tabid"
+                         class="tab1-c">
+                        <div tal:repeat="inside listing" class="contact-div">
+                            <tal:defining tal:condition="repeat/inside/odd">
+                                <h2 class="contact-h2" tal:content="inside"></h2>
+                                <div class="contact-p" tal:define="n python:view.cpadHead(inside)">
+                                   <div tal:condition="n" class="contact-p-1">
+                                        <div class="contact-p-1-1">
+                                            <div class="contact-position">Head</div>
+                                            <h3>
+                                                <span tal:replace="n/pretty_title_or_id" />
+                                            </h3>
+                                        </div>
+                                        <div class="contact-p-1-2">
+                                            <p>Email: valerie@email.com</p>
+                                        </div>
+                                    </div>
+                                    <p class="show" id="clickme">Show all staff</p>
+                                    <div class="lineBreak"></div>
+                                </div>
+                                <div class="contact-p">
+                                    <p class="show" id="clickme">Show staff</p>
+                                </div>
+                                <div class="contacttoggle">
+                                    <tal:defs define="n python:view.cpad(inside)">
+                                        <div class="contact-p-1" tal:repeat="m n">
+                                            <tal:definepro tal:define="head m/getHead;
+                                            						   url m/getURL;">
+                                                <tal:isprofile tal:condition="head">
+                                                    <div style="float:left; width:25px;">
+                                                        <a href="#" tal:attributes="href url">
+                                                        	<img src="contact.gif" title="Click for full profile" alt="Click for full profile" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="contact-p-1-details">
+                                                        <div class="contact-position" tal:content="m/getPosition" />
+                                                        <h4>
+                                                            <a href="#" tal:attributes="href url">
+                                                                <span tal:replace="m/pretty_title_or_id"/>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="contact-p-1-2">
+                                                        <p>Email: email@email.com</p>
+                                                    </div>
+                                                </tal:isprofile>
+                                                <tal:notprofile tal:condition="not: head">
+                                                    <div style="float:left;margin-left:29px;">
+                                                        <div class="contact-position" style="float:left;" tal:content="m/getPosition" />
+                                                        <h4>
+                                                            <span tal:replace="m/pretty_title_or_id"/>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="contact-p-1-2">
+                                                        <p>Email: email@email.com</p>
+                                                    </div>
+                                                </tal:notprofile>
+                                            </tal:definepro>
+                                        </div>
+                                    </tal:defs>
+                                </div>
+                            </tal:defining>
+                        </div>
+                    </div>
+                </tal:areas-->

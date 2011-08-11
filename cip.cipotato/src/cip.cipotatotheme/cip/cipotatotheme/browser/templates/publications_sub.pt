@@ -17,7 +17,8 @@
                                          item_object item/getObject;
                                          pc item/getPubcode;
                                          series item_object/getSeries;
-                                         pubstock python:item_object.getPubstock();">
+                                         pubstock python:item_object.getPubstock();
+                                         link python:item_object.getLink();">
 
                             <div class="pubrow_info">
                                 <tal:testimg condition="python:view.ImageExist(pc)">
@@ -43,7 +44,10 @@
 		                            <span class="frontpdf" tal:condition="python:view.PdfExist(pc)">
 		                                <a href="#" tal:attributes="href url">Download pdf</a>  |
 		                            </span>
-		                            <span class="frontpdf" tal:condition="python:not view.PdfExist(pc)">
+		                            <span class="frontpdf" tal:condition="python:link != ' '">
+		                                <a href="#" tal:attributes="href link">Read / Download pdf</a>  |
+		                            </span>
+		                            <span class="frontpdf" tal:condition="python:not view.PdfExist(pc) and link == ' '">
 		                                <i>PDF not available</i>  |
 		                            </span>
                                     <a href="#" tal:condition="python:int(pubstock) > 4" tal:attributes="href item_url">Order &raquo;</a>

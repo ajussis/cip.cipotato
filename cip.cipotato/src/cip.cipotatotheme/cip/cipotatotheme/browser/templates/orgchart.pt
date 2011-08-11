@@ -4,14 +4,10 @@
                              disable_column_one python:request.set('disable_plone.leftcolumn',2);" />
     <metal:main_macro define-macro="main">
         <metal:main fill-slot="main">
-
             <h1>CIP's internal structure</h1>
-			<p><a href="organigrama-27-06-11.pdf">Download as pdf</a></p>
-			<img src="orgchart-06.jpg" />
-
-
-
-            <!--style type="text/css">
+            <p><a href="orgchart.pdf">Download as PDF</a></p>
+            <img src="orgchart.jpg"/>            
+<!--style type="text/css">
 table.org {
     background-color: white;
     border-collapse: separate;

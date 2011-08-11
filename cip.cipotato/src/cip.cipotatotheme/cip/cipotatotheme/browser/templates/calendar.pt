@@ -15,7 +15,7 @@
 	                	                                      cal2 python:calendar[1];
 	                	                                      ctitle cal/Title;
 	                	                                      ci cal/id;
-	                	                                      ci2 cal/id;
+	                	                                      ci2 cal2/id;
 	                	                                      cid python:ci+'/image_mini';
 	                	                                      cib python:ci+'/at_download/image';
 	                	                                      cif python:ci+'/image_view_fullscreen';
@@ -23,16 +23,16 @@
 	                	                                      cif2 python:ci2+'/image_view_fullscreen';	                	                                      
 	                	                                      wib python:'wide/wide-'+ci+'/at_download/image';
 	                	                                      wif python:'wide/wide-'+ci+'/image_view_fullscreen';
-	                	                                      wib2 python:'wide/wide-'+ci+'/at_download/image';
-	                	                                      wif2 python:'wide/wide-'+ci+'/image_view_fullscreen';">
+	                	                                      wib2 python:'wide/wide-'+ci2+'/at_download/image';
+	                	                                      wif2 python:'wide/wide-'+ci2+'/image_view_fullscreen';">
 						<img src="#" style="float:left; margin-right:25px;" tal:attributes="src cid" />
 						<h3>English</h3>
 						<table class="calendar_table">
 							<tr>
-								<td>
+								<td style="padding-right:10px">
 									<b>View fullscreen:</b>
 								</td>
-								<td>
+								<td style="padding-right:10px">
 									<a href="#" tal:attributes="href cif">Normal</a>
 								</td>
 								<td>
@@ -40,10 +40,10 @@
 								</td>
 							</tr>
 							<tr>
-								<td>
+								<td style="padding-right:10px">
 									<b>Download:</b>
 								</td>
-								<td>
+								<td style="padding-right:10px">
 									<a href="#" tal:attributes="href cib">Normal</a>
 								</td>
 								<td>
@@ -57,7 +57,7 @@
 								<td>
 									<b>View fullscreen:</b>
 								</td>
-								<td>
+								<td style="padding-right:10px">
 									<a href="#" tal:attributes="href cif2">Normal</a>
 								</td>
 								<td>
@@ -68,7 +68,7 @@
 								<td>
 									<b>Download:</b>
 								</td>
-								<td>
+								<td style="padding-right:10px">
 									<a href="#" tal:attributes="href cib2">Normal</a>
 								</td>
 								<td>

@@ -371,7 +371,7 @@ class CalendarView(BrowserView):
         #import pdb;pdb.set_trace()
         month = datetime.now().strftime("%m")
         monthen = month + "-ens"
-        monthes = month + "-ens"
+        monthes = month + "-ess"
         results = []
         results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar"), "depth":1}, SearchableText=monthen)[0])
         results.append(self.context.portal_catalog.searchResults(path={"query" : (self.context.portal_url.getPortalPath()+"/press-room/photo-gallery/general/cip-calendar"), "depth":1}, SearchableText=monthes)[0])

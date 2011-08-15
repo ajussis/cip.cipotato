@@ -705,6 +705,22 @@ margin-top:-15px;
 margin-bottom:10px !important;
 }
 
+.cip-in-the-news-link {
+float:left; 
+margin-top:35px; 
+width:45%
+}
+.cip-in-the-news-link h2:hover {
+color:#EC006E;
+}
+.cip-in-the-news-info {
+margin-left: 20px; 
+float:left; 
+margin-top:15px; 
+width:45%
+}
+
+
 /********************************************/
 /*---------- FRONT TABS --------------------*/
 

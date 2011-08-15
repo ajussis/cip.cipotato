@@ -45,7 +45,7 @@
 
             <div class="second-column">
                 <div class="cip-in-the-news">
-                    <h1>CIP in the Media</h1>
+                    <h1>In the News</h1>
                     <ul tal:define="n cipinthenews/queryCatalog">
                         <li class="cip-news-li" tal:repeat="m n">
                             <tal:defs2 define="item_object m/getObject;

@@ -60,15 +60,17 @@
                                 <b>Author:</b> <span tal:replace="context/author" />
                             </p>
                             <p>
-                                <b>Publication date:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
+                                <b>Publication date:</b>
+                                <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
+                                <span tal:condition="python:item_created == 'Unknown'"><tal:year replace="year"></tal:year></span>
                             </p>
-                            <p tal:condition="python:abstract != ''">
+                            <p tal:condition="python:len(abstract)>1">
                                 <b>Abstract:</b> <span tal:replace="abstract"/>
                             </p>
-                            <p tal:condition="python:source != ''">
-                                <span class="frontDate3" tal:content="source" />
+                            <p tal:condition="python:len(source)>1">
+                                <b>Category:</b> <span tal:replace="source" />
                             </p>
-                            <p tal:condition="python:series != ''">
+                            <p tal:condition="python:len(series)>1">
                                 <b>Series:</b> <span tal:replace="series" />
                             </p>
                             <p tal:condition="exists:item_object/getPrice()">
@@ -77,25 +79,28 @@
                             <p tal:condition="python:price == '0'">
                                 <b>Publication is free</b>
                             </p>
-                            <p tal:condition="python:pages is not None">
+                            <p tal:condition="python:len(pages)>1">
                                 <b>Pages:</b> <span tal:replace="pages"/>
                             </p>
-                            <p tal:condition="python:issn is not None">
+                            <p tal:condition="python:len(issn)>1">
                                 <b>ISSN:</b> <span tal:replace="issn"/>
                             </p>
-                            <p tal:condition="python:publisher is not None">
+                            <p tal:condition="python:len(isbn)>1">
+                                <b>ISBN:</b> <span tal:replace="isbn"/>
+                            </p>
+                            <p tal:condition="python:len(publisher) > 1">
                                 <b>Publisher:</b> <span tal:replace="publisher"/>
                             </p>
-                            <p tal:condition="python:division != ''">
+                            <p tal:condition="python:len(division) > 1">
                                 <b>Division:</b> <span tal:replace="division"/>
                             </p>
-                            <p tal:condition="python:conference != ' '">
+                            <p tal:condition="python:len(conference) >1">
                                 <b>Conference:</b> <span tal:replace="conference"/>
                             </p>
                             <p class="frontpdf" tal:condition="python:view.PdfExist(pc)">
                                 <b><a href="#" tal:attributes="href url">Download pdf</a></b>
                             </p>
-                            <p tal:condition="python:link != ' '">
+                            <p tal:condition="python:len(link) > 1">
                                 <b><a href="#" tal:attributes="href link">Read / Download pdf</a></b>
                             </p>
                             <p class="frontpdf" tal:condition="python:not view.PdfExist(pc) and link == ' '">

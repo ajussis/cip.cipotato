@@ -29,6 +29,7 @@ width:50%;
 font-weight:normal;
 }
 
+
 /*---------- PORTAL TOP ----------*/
 #portal-top {
 /*margin:0 10px;*/

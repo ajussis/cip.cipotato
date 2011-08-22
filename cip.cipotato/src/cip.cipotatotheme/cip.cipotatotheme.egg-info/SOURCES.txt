@@ -36,6 +36,7 @@ cip/cipotatotheme/browser/viewlets.py
 cip/cipotatotheme/browser/images/README.txt
 cip/cipotatotheme/browser/stylesheets/README.txt
 cip/cipotatotheme/browser/stylesheets/main.css
+cip/cipotatotheme/browser/templates/.publications_one.pt.swp
 cip/cipotatotheme/browser/templates/aboutcip.pt
 cip/cipotatotheme/browser/templates/andeanroots.pt
 cip/cipotatotheme/browser/templates/board.pt
@@ -61,6 +62,7 @@ cip/cipotatotheme/browser/templates/newXMLDocument.xml
 cip/cipotatotheme/browser/templates/orgchart.pt
 cip/cipotatotheme/browser/templates/partnerships.pt
 cip/cipotatotheme/browser/templates/path_bar.pt
+cip/cipotatotheme/browser/templates/person.pt
 cip/cipotatotheme/browser/templates/pressroom.pt
 cip/cipotatotheme/browser/templates/pressroomgallery.pt
 cip/cipotatotheme/browser/templates/pressroomvideos.pt

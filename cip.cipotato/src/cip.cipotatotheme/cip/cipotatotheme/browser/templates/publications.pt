@@ -9,11 +9,11 @@
                                 allpubcats_add python:['working-paper','journal','book-series','book','catalog',
 'manual','video','cd-rom','research-guide','bulletins','newsletter', 'fact-sheets-flyer-leaflet',
 'brochure','poster', 'cards','booklet', 
-'annual-report','medium-term-plan'];
+'annual-report','medium-term-plan','crp-roots-tubers-bananas'];
                                 allpubtitles python:['Working papers','Journals','Book series','Books','Catalogs',
 'Manuals','Videos','CD-roms','Research guides','Bulletins','Newsletters', 'Factsheets',
 'Brochures','Posters', 'Cards','Booklets', 
-'Annual reports','Plans'];">
+'Annual reports','Plans','CRP Roots, Tubers & Bananas'];">
 
             <h1>Publications</h1>
 

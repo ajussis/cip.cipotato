@@ -40,7 +40,7 @@
                                 <br />
                                 <span class="frontDate3" tal:content="series"/>
                                 <p class="frontpdf" tal:define="url python:here.portal_url.getPortalPath()+'/publications/pdf/'+pc+'.pdf';
-                                                                pubstock python:int(pubstock)|0;">
+                                                                pubstockdigit python:pubstock.isdigit();">
 
 		                            <span class="frontpdf" tal:condition="python:view.PdfExist(pc)">
 		                                <a href="#" tal:attributes="href url">Download pdf</a>  |
@@ -51,8 +51,12 @@
 		                            <span class="frontpdf" tal:condition="python:not view.PdfExist(pc) and link == ' '">
 		                                <i>PDF not available</i>  |
 		                            </span>
-                                    <a href="#" tal:condition="python:pubstock > 4" tal:attributes="href item_url">Order &raquo;</a>
-                                    <span tal:condition="python:pubstock < 5">Out of stock</span>
+                                    <tal:pubstock tal:condition="pubstockdigit">
+                                        <tal:pubstockdigit tal:define="pubstock python:int(pubstock)">
+                                            <a href="#" tal:condition="python:pubstock > 4" tal:attributes="href item_url">Order &raquo;</a>
+                                            <span tal:condition="python:pubstock < 5">Out of stock</span>
+                                        </tal:pubstockdigit>
+                                    </tal:pubstock>
                                 </p>
                                 <div class="visualClear"></div>
                             </div>

@@ -106,7 +106,6 @@
               });
             });
 
-
         </script>
         <h1 class="documentFirstHeading">
             <span i18n:translate="heading_search_results">
@@ -143,27 +142,86 @@
 
             <dl class="searchResults">
             <tal:results repeat="result batch">
-            <tal:entry define="result_url result/getURL;
+            <div class="result" tal:define="result_url result/getURL;
+                               portal_url portal_url;
                                result_type result/portal_type;
                                item_icon python:plone_view.getIcon(result);
-                               url python:result_url+'/view' if result_type in use_view_action else result_url">
+                               url python:result_url+'/view' if result_type in use_view_action else result_url;
+                               url2 python:result_url if result_type in use_view_action else result_url;
+                               pub python:url.split('/')[-3:] if '/publications/' in url else ['','',''];
+                               pub2 python:pub[1].split('.')[0] if 'pdf' in pub[1] else pub[2];
+                               pcc python:pub[1].replace('-',' ').capitalize();
+                               pub3 python:pub2.isdigit();">
+                <div class="searchimage">
+                    <tal:isdigitimg condition="pub3">
+                        <tal:digimg tal:define="imgurl python:portal_url+'/resources/publications/images2/'+pub2+'-jpg/image_thumb';">
+                            <img src="#" style="float:left;" tal:attributes="src imgurl" />
+                        </tal:digimg>
+                    </tal:isdigitimg>
+                    <tal:isdigitimg condition="python: not pub3 and pub2">
+                        <tal:digimg define="pc result/getPubcode;
+                                            imgurl python:portal_url+'/resources/publications/images2/'+pc+'-jpg/image_thumb';">
+                            <img src="#" style="float:left;" tal:attributes="src imgurl" />
+                        </tal:digimg>
+                    </tal:isdigitimg>
+                </div>
                 <dt tal:define="item_wf_state_class string:state-${result/review_state};"
                     tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type)">
-                  <img tal:replace="structure item_icon/html_tag" />
-                   <a
-                     href="#"
-                     tal:attributes="href url;
-                                     class string:$item_wf_state_class"
-                     tal:content="result/pretty_title_or_id" />
+                  <!--img tal:replace="structure item_icon/html_tag" /-->
+                    <tal:url2 tal:condition="python: not pub3 and not pub2">
+                        <a href="#"
+                           tal:attributes="href url;
+                                           class string:$item_wf_state_class"
+                           tal:content="result/pretty_title_or_id" />
+                        <br />
+                        <tal:defis define="date result/CreationDate">
+                            <span tal:content="result_type" /><br />
+                        </tal:defis>
+                    </tal:url2>
+                    <tal:url2 tal:condition="python: not pub3 and pub2">
+                        <a tal:condition="python:'.pdf' not in url"
+                           href="#"
+                           tal:attributes="href url;
+                                           class string:$item_wf_state_class"
+                           tal:content="result/pretty_title_or_id" />
+                        <br />
+                        <tal:defis define="obj result/getObject;
+                                           puby obj/getYear;">
+                            <span tal:content="result_type" /><br />
+                            <span tal:content="pcc" /><br />
+                            <span tal:content="puby" />
+                        </tal:defis>
+                    </tal:url2>
+                    <tal:url2 tal:condition="pub3" 
+                              tal:define="pub python:context.portal_catalog({'portal_type':'Publication', 'getPubcode':'004358'})[:4];
+                                          pub python:pub[0];
+                                          newurl pub/getURL;
+                                          pubo pub/getObject;
+                                          puby pubo/getYear;
+                                          puburl python:newurl.split('/')[-2];
+                                          pcc python:puburl.replace('-',' ').capitalize();">
+                        <a href="#"
+                           tal:attributes="href newurl;
+                                          class string:$item_wf_state_class"
+                                          tal:content="pub/pretty_title_or_id" >
+                        </a>
+                        <br />
+                        Publication<br /> 
+                        <span tal:replace="pcc" /><br /> 
+                        <span tal:replace="puby" />
+                        
+
+                    </tal:url2>
                 </dt>
 
                 <dd>
                     <span tal:replace="python:plone_view.cropText(result.Description, desc_length, desc_ellipsis)">
                         Cropped description
                     </span>
-
-                    <i><span tal:content="result_type" /></i>
-
+                    <br />
+                    <span tal:condition="not:pub3">
+                        
+                    </span>
 
                 <span class="documentByLine"
                       tal:condition="python:not isAnon or site_properties.allowAnonymousViewAbout">
@@ -211,7 +269,7 @@
 
                 </dd>
 
-            </tal:entry>
+            </div>
             </tal:results>
             </dl>
 

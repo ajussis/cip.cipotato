@@ -2,70 +2,103 @@
      i18n:domain="plone"
      tal:define="navigation_root_url view/navigation_root_url;
                  search_input_id view/search_input_id;">
+    
+    <script type="text/javascript"
+      src="http://www.google.com/jsapi"></script>
+    
+    <script type="text/javascript">
+    
+      function findByClass(tagName, className) {
+        var r = new RegExp('\\b' + className + '\\b');
+        var elements = document.getElementsByTagName(tagName);
+        for (var i = 0;  i < elements.length;  i++) {
+          var e = elements[i];
+          if (e.className && r.test(e.className)) {
+            return e;
+          }
+        }
+        return null;
+      }
+    
+      function searchSubmitted() {
+        var e;
+        if ((e = findByClass('input', 'gsc-input')) != null) {
+          if (e.value === '') {
+            searchCleared();
+          }
+        }
+      }
+    
+      function searchComplete() {
+        document.getElementById('cse-results')
+          .style.display = 'block';
+        document.getElementById('content')
+          .style.display = 'none';
+      }
+    
+      function searchCleared() {
+        document.getElementById('content')
+          .style.display = 'block';
+        document.getElementById('cse-results')
+          .style.display = 'none';
+      }
+    
+      function init() {
+    
+        var cseId = '000036036189061367554:n3ivewm9lv8';
+    
+        var customSearchControl =
+          new google.search.CustomSearchControl(cseId);
+    
+        customSearchControl.setResultSetSize(
+          google.search.Search.FILTERED_CSE_RESULTSET);
+    
+        customSearchControl.setSearchCompleteCallback(
+          null, searchComplete);
+    
+        var options = new google.search.DrawOptions();
+        options.setSearchFormRoot('cse-search-form');
+    
+        customSearchControl.draw('cse-results', options);
+    
+        var e;
+    
+        if ((e = findByClass('form', 'gsc-search-box')) != null) {
+          if (e.addEventListener) {
+            e.addEventListener(
+              'submit', searchSubmitted, false);
+          } else if (e.attachEvent) {
+            e.attachEvent(
+              'onsubmit', searchSubmitted);
+          }
+        }
+    
+        if ((e = findByClass('input', 'gsc-search-button')) != null) {
+          if (e.addEventListener) {
+            e.addEventListener(
+              'click', searchSubmitted, false);
+          } else if (e.attachEvent) {
+            e.attachEvent(
+              'onclick', searchSubmitted);
+          }
+        }
+    
+        if ((e = findByClass('div', 'gsc-clear-button')) != null) {
+          if (e.addEventListener) {
+              e.addEventListener(
+                'click', searchCleared, false);
+          } else if (e.attachEvent) {
+            e.attachEvent(
+              'onclick', searchCleared);
+          }
+        }
+      }
+    
+      google.load('search', '1');
+      google.setOnLoadCallback(init, true); 
+    
+    </script>
 
-    <form name="searchform" id="searchGadget_form" 
-          action="search"
-          tal:attributes="action string:${navigation_root_url}/search;
-          id string:${search_input_id}_form">
-
-        <div class="LSBox">
-        <label class="hiddenStructure"
-               tal:attributes="for search_input_id"
-               i18n:translate="text_search">Search Site</label>
-
-        <input name="SearchableText"
-               type="text"
-               size="18"
-               value=""
-               title="Search Site"
-               accesskey="4"
-               i18n:attributes="title title_search_site;"
-               tal:attributes="value request/form/SearchableText|nothing;
-                               id search_input_id"
-               class="searchField inputLabel" />
-
-        <input class="searchButton"
-               type="submit"
-               value="Search"
-               i18n:attributes="value label_search;" />
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                var pathname = window.location.pathname;
-                if (pathname == '/') {
-                $('#hidefrontsearch').css('display', 'none');
-                }
-            });
-        </script>
-
-        <div class="searchSection" id="hidefrontsearch">
-            <input id="searchbox_currentfolder_only"
-                   class="noborder"
-                   type="checkbox"
-                   name="path"
-		   style="margin-top:1px; float:left;"
-                   tal:attributes="value view/folder_path"
-                   />
-	    <div style="float:left; margin:0 0 0 3px;">
-                <label for="searchbox_currentfolder_only"
-                       i18n:translate="label_searchbox_currentfolder_only"
-                       style="cursor: pointer">
-                    only in current section
-                </label>
-            </div>
-        </div>
-        <div class="LSResult" id="LSResult" style=""><div class="LSShadow" id="LSShadow"></div></div>
-        </div>
-    </form>
-
-    <div id="portal-advanced-search"
-         class="hiddenStructure">
-        <a href="#"
-           tal:attributes="href string:${navigation_root_url}/search_form"
-           i18n:translate="label_advanced_search"
-           accesskey="5">
-            Advanced Search&hellip;
-        </a>
-    </div>
+    <div id="cse-search-form">Loading...</div>
 
 </div>

@@ -83,6 +83,7 @@ $(document).ready(function() {
         </div>
     <div id="portal-columns" class="row">
 
+        <div id="gsearchresults"></div>
         <div id="portal-column-content" class="cell" tal:attributes="class python:sunburst_view.getColumnsClass(view)">
 
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />

@@ -20,7 +20,13 @@
 </head>
 
 <body>
-<metal:main fill-slot="main"
+<metal:main fill-slot="main">
+
+
+
+
+    <!--
+
      tal:define="use_types_blacklist request/use_types_blacklist | python:True;
                  use_navigation_root request/use_navigation_root | python:True;
                  sort_on request/sort_on|nothing;
@@ -168,7 +174,7 @@
                 <dt tal:define="item_wf_state_class string:state-${result/review_state};"
                     tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type)">
                   <!--img tal:replace="structure item_icon/html_tag" /-->
-                    <tal:url2 tal:condition="python: not pub3 and not pub2">
+                    <!--tal:url2 tal:condition="python: not pub3 and not pub2">
                         <a href="#"
                            tal:attributes="href url;
                                            class string:$item_wf_state_class"
@@ -276,7 +282,7 @@
             <div metal:use-macro="context/batch_macros/macros/navigation" />
 
         </div>
-    </div>
+    </div-->
 
 </metal:main>
 </body>

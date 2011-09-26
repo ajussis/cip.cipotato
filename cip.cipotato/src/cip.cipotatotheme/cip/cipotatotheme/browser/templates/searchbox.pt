@@ -28,21 +28,25 @@
           }
         }
       }
-    
+
       function searchComplete() {
         document.getElementById('cse-results')
           .style.display = 'block';
         document.getElementById('content')
           .style.display = 'none';
+        document.getElementById('portal-column-two')
+          .style.display = 'none';
       }
-    
+
       function searchCleared() {
         document.getElementById('content')
+          .style.display = 'block';
+        document.getElementById('portal-column-two')
           .style.display = 'block';
         document.getElementById('cse-results')
           .style.display = 'none';
       }
-    
+
       function init() {
     
         var cseId = '000036036189061367554:n3ivewm9lv8';

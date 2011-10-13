@@ -14,7 +14,6 @@ cip.policy.egg-info/top_level.txt
 cip/policy/__init__.py
 cip/policy/anual_report.xml
 cip/policy/best_sellers.xml
-cip/policy/changepubids.py
 cip/policy/config.xml
 cip/policy/configs.xml
 cip/policy/configure.zcml

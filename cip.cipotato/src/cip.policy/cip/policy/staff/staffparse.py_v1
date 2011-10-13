@@ -1,0 +1,70 @@
+import csv
+data = csv.reader(open("staff.csv", "rb"))
+#fields = data.next()
+ofile  = open('ttest.csv', "wb")
+writer = csv.writer(ofile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+
+m = 0
+row2 = []
+row2.append('"_path","title","_type","firstname","lastname","head","position","section","subsection","joinedcip","leftcip","funded","joint","country","bio","areas","email","tel","skype","languages","publications","elsewhere"')
+rowtemp = []
+type = "Person"
+for row in data:
+    for i in row:
+        if m == 0:
+            firstname = i.strip(" ").split(" ")
+            for k in firstname:
+                k = k.capitalize()
+            firstname = " ".join(firstname)
+        elif m == 1:
+            lastname = i.capitalize()
+            path = "/about-cip/staff/%s-%s" % (firstname.strip(" ").replace(" ", "-").lower(), lastname.strip(" ").replace(" ", "-").lower())
+            rowtemp.extend(path)
+            rowtemp.extend("%s %s" % (firstname, lastname))
+            rowtemp.extend("Person")
+            rowtemp.extend(firstname)
+            rowtemp.extend(lastname)
+        elif m == 2:
+            position = i.strip(" ").split(" ")
+            for k in position:
+                if (k != "and" or k != "or")
+                    k = k.capitalize()
+            position = " ".join(position)
+            rowtemp.extend(position)
+            print "-" * 100
+            print "_path:" + path 
+            print "_type: Person"
+            print "Firstname: %s" % (firstname)
+            print "Lastname: %s" % (lastname)
+            print "Position: %s" % (position)
+            print "Startdate: %s" % (startdate)
+        m = m + 1
+    m = 0
+
+        elif m == 4:
+            startdate = i.split("/")
+            startdate = startdate[2]+"-"+startdate[0]+" "+startdate[1]
+        elif m == 5:
+            leftdate = i.split("/")
+            leftdate = leftdate[2]+"-"+leftdate[0]+" "+leftdate[1]
+            #print "%d: %s" % (m, leftdate)
+        elif m == 6:
+            if (i == "ACCOUNTING"):
+                section = "Director General's office"
+                subsection = i.capitalize()
+        elif m == 7:
+            email = i.lower()
+            #print "%d: %s" % (m, email)
+        print rowtemp
+        try:
+            rowtemp.extend(rowtemp)
+        except:
+            continue
+        m = m + 1
+    m = 0
+
+
+
+    writer.writerow(rowtemp)
+
+

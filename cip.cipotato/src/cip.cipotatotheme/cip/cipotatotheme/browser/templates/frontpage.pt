@@ -9,37 +9,71 @@
                                 featured python:getattr(context, 'featured');
                                 toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
-
             <div class="lineBreak"></div>
 
             <div class="first-column">
                 <div tal:define="n cipnews/queryCatalog;" class="cip-news">
                     <h1>News from CIP</h1>
-                    <div id="news-item" class="cip-news-p" tal:repeat="m n">
-                        <tal:defining define="item_object m/getObject;">
-                            <div class="cip-news-div-img">
-                                <img src="" alt=""
-                                     tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
-                                <span class="frontDate">
-                                    <span class="frontDate2" tal:content="python:toLocalizedTime(m.Date)" />
-                                </span>
-                            </div>
-                            <div class="cip-news-desc">
-                                <tal:rep define="pType m/portal_type;
-                                                 author m/Creator">
-                                    <b>
-                                        <a href="#" tal:attributes="href m/getURL">
-                                            <span tal:replace="m/pretty_title_or_id"/>
-                                        </a>
-                                    </b>
-                                    <p style="margin-top:0.2em !important;" tal:content="m/Description" />
-                                </tal:rep>
-                            </div>
+                    <div id="news-item" class="cip-news-p cip-news-p-first" tal:repeat="m n">
+                        <tal:defining define="item_object m/getObject;
+                                              type m/portal_type;
+                                              url m/getURL;
+                                              blog python:'blogs' in url;
+                                              press python:'press-releases' in url;">
+                            <tal:blog condition="blog">
+                                <div class="cip-blog-desc">
+                                    <tal:rep define="pType m/portal_type;
+                                                     creator m/Creator;
+                                                     mtool context/portal_membership;
+                                                     author python:mtool.getMemberInfo(creator);">
+                                        <b>
+                                            <a href="#" tal:attributes="href m/getURL">
+                                                <span tal:replace="m/pretty_title_or_id"/>
+                                            </a>
+                                        </b>
+                                        <p class="front_news_type">
+                                            <span tal:content="python:toLocalizedTime(m.Date)" /> |
+                                            <span class="next_span">Blog</span> |
+                                            <span class="next_span" 
+                                                  href="#" tal:attributes="href string:${portal_url}/author/${creator}"
+                                                           tal:content="python:author and author['fullname'] or creator"
+                                                           tal:omit-tag="not:author">
+                                                Bob Dobalina
+                                            </span>
+                                        </p>
+                                        <p style="margin-top:0.2em !important;" tal:content="m/Description" />
+                                    </tal:rep>
+                                </div>
+                            </tal:blog>
+                            <tal:press condition="press">
+                                <div class="cip-news-div-img">
+                                    <img src="" alt=""
+                                         tal:replace="structure python: path('nocall:item_object/tag')(scale='thumb', css_class='tileImage')" />
+                                </div>
+                                <div class="cip-news-desc">
+                                    <tal:rep define="pType m/portal_type;">
+                                        <b>
+                                            <a href="#" tal:attributes="href m/getURL">
+                                                <span tal:replace="m/pretty_title_or_id"/>
+                                            </a>
+                                        </b>
+                                        <p class="front_news_type">
+                                            <span tal:content="python:toLocalizedTime(m.Date)" /> |
+                                            <span class="next_span">Press release</span>
+                                        </p>
+                                        <p style="margin-top:0.2em !important;" tal:content="m/Description" />
+                                    </tal:rep>
+                                </div>
+                            </tal:press>
                         </tal:defining>
                     </div>
                     <script>
                         $("div#news-item:first").addClass("cip-news-p-first");
                     </script>
+                </div>
+                <div class="news_read_all">
+                    <a href="press-room/press-releases">Press releases</a> <span class="next_span">|
+                    <a href="press-room/blogs" class="next_span">Blogs</a>
                 </div>
             </div>
 

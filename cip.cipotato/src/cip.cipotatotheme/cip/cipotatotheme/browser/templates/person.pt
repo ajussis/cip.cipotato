@@ -20,13 +20,15 @@
 
             <div class="lineBreak"></div>
 
-            <div class="person_profile" tal:condition="headOrNot">
+            <div class="person_profile">
                 <tal:defs tal:define="sub_title context/pretty_title_or_id;
-                                      sub_url context/getURL|context/absolute_url;
                                       position context/getPosition;
 									  languages context/getLanguages;
+									  skype context/getSkype;
+									  tel context/getTel;
+									  email context/getEmail;
+									  areas context/getAreas;
                                       country context/getCountry;
-                                      elsewhere context/getElsewhere;
                                       subsection context/getSubsection;">
 					<div class="person_profile_1">
 	                    <div class="person_title">
@@ -40,110 +42,83 @@
 	                        <!--p>
 	                            <b>Joined CIP:</b> <span tal:replace="python:toLocalizedTime(item_created,long_format=0)" />
 	                        </p-->
-	                    <div tal:condition="python:country != ''">
+	                    <div class="person_info" tal:condition="python:country != ''">
 		                    <h4>
 		                        Country:
 		                    </h4>
 		                    <p tal:content="country"/>
 						</div>
-	                    <div tal:condition="python:subsection != ''">
+	                    <div class="person_info" tal:condition="python:subsection != ''">
 		                    <h4>
-		                        Division:
+		                        Area:
 		                    </h4>
 		                    <p tal:content="subsection"/>
 						</div>
-	                    <div tal:condition="python:languages != ''">
+                        <div class="person_info" tal:condition="python:areas != ''">
+                            <h4>
+                                Expertise:
+                            </h4>
+                            <p tal:content="areas"/>
+                        </div>
+	                    <div class="person_info" tal:condition="python:languages != ''">
 		                    <h4>
 		                        Languages:
 		                    </h4>
 		                    <p tal:content="languages"/>
 						</div>
-					</div>
-					<div class="person_profile_2">
-		                <tal:moreInfoOrNot tal:condition="elsewhere">
-							<h3>
-								More information:
-							</h3>
-		                    <div tal:content="structure elsewhere" />
-		                </tal:moreInfoOrNot >
+                        <div class="person_info" tal:condition="python:email != ''">
+                            <h4>
+                                Email:
+                            </h4>
+                            <p tal:content="email"/>
+                        </div>
+                        <div class="person_info" tal:condition="python:skype != ''">
+                            <h4>
+                                Skype:
+                            </h4>
+                            <p tal:content="skype"/>
+                        </div>
+                        <div class="person_info" tal:condition="python:tel != ''">
+                            <h4>
+                                Tel:
+                            </h4>
+                            <p tal:content="tel"/>
+                        </div>
 					</div>
                 </tal:defs>
             </div>
 
-			<tal:getBio define="bio context/getBio">
+			<tal:getBio define="bio context/getBio;
+                               elsewhere context/getElsewhere;
+                               cv context/getCv;">
                 <div class="person_bio" tal:condition="bio">
                     <h2>Biography</h2>
                     <div tal:content="structure here/getBio" />
                 </div>
-            </tal:getBio>
-
-			<tal:getBio define="publications context/getPublications">
-                <div class="person_pub" tal:condition="publications">
-                    <h2>Publications</h2>
-                    <div tal:repeat="pub publications">
-						<tal:pubdefs define="pub_title pub/Title;
-											 pub_url pub/absolute_url;
-											 pc pub/getPubcode;
-		                                     source pub/getCategory;
-	                                         publisher pub/getPublisher;
-		                                     year pub/getYear;
-		                                     category pub/getCategory;
-		                                     url context/@@plone_portal_state/navigation_root_url;
-		                                     url python:url+'/publications/pdf/'+pc+'.pdf';">
-	                    	<a href="#" tal:attributes="href pub_url">
-		                    	<h4 tal:content="pub_title"></h4>
-		                    </a>
-		                    <a href="#" tal:attributes="href url">
-		                    	Download pdf
-		                    </a> | 
-		                    <a href="#" tal:attributes="href pub_url">
-		                    	More information
-		                    </a> | 
-                    	</tal:pubdefs>
-                    </div>
+                <div class="person_profile_2">
+                    <tal:moreInfoOrNot tal:condition="elsewhere">
+                        <h2>Elsewhere</h2>
+                        <div tal:content="structure here/getElsewhere" />
+                    </tal:moreInfoOrNot >
+                </div>
+                <div class="person_profile_2">
+                    <tal:moreInfoOrNot tal:condition="cv">
+                        <!--p><b style="color: #500F67">Download CV</b></p-->
+                        <h3>Download CV</h3>
+                        <metal:field use-macro="python:here.widget('cv', mode='view')">
+                            File
+                        </metal:field>
+                    </tal:moreInfoOrNot >
                 </div>
 
-
-                    <div tal:repeat="item publications">
-
-                       <div class="pubrow tileItem visualIEFloatFix vevent"
-                             tal:define="item_url item/getURL|item/absolute_url;
-                                         item_title_or_id item/pretty_title_or_id;
-                                         item_created item/CreationDate;
-                                         pc item/getPubcode;
-                                         series item/getSeries;
-                                         pubstock python:item.getPubstock();">
-
-                            <div class="pubrow_info">
-                                <tal:testimg condition="python:view.ImageExist(pc)">
-                                    <img src="" alt=""
-                                         tal:attributes="src python:'../images2/' + pc + '-jpg/image_thumb';
-                                                         class python:'pub-img2';" />
-                                </tal:testimg>
-                                <h3 class="pubsubh3"
-                                    metal:define-macro="listitem">
-                                    <a href="#"
-                                       class="summary url"
-                                       tal:attributes="href item_url"
-                                       tal:content="item_title_or_id">
-                                        Item Title
-                                    </a>
-                                </h3>
-
-                                <span style="font-size:11px; margin-left:20px;" tal:content="python:toLocalizedTime(item_created,long_format=0)" />
-                                <br />
-                                <span class="frontDate3" tal:content="series"/>
-                                <p class="frontpdf" tal:define="url python:here.portal_url.getPortalPath()+'/publications/pdf/'+pc+'.pdf'">
-                                    <a href="#" tal:attributes="href url">Download pdf &raquo;</a> |
-                                    <a href="#" tal:condition="python:int(pubstock) > 4" tal:attributes="href item_url">Order &raquo;</a>
-                                    <span tal:condition="python:int(pubstock) < 5">Out of stock</span>
-                                </p>
-                                <div class="visualClear"></div>
-                            </div>
-                        </div>
-					</div>
-
             </tal:getBio>
+
+			<tal:getPubs define="publications context/getPublications">
+                <div class="person_publications" tal:condition="publications">
+                    <h2>Publications</h2>
+                    <div tal:content="structure here/getPublications" />                    
+                </div>
+            </tal:getPubs>
 
         </metal:main>
     </metal:main_macro>

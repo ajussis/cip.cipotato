@@ -22,6 +22,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script-->
 
     <!-- Forces IE8+ into newest rendering engine even if on an intranet. This has to be defined before any script/style tags. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
@@ -46,6 +47,19 @@
         <meta name="generator" content="Plone - http://plone.org" />
     </tal:notajax>
 
+<!--script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19064427-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script-->
 </head>
 
 <body tal:define="isRTL portal_state/is_rtl;
@@ -68,6 +82,13 @@ $(document).ready(function() {
     if (pathname.search('sasha-program')>0) {
         $("body").addClass("section-sasha-program");
     };
+    if (pathname.search('region-quito')>0) {
+        $("#menu-quito").appendTo("#portal-top");
+        $(".section-region-quito div#visual-portal-wrapper div#portal-top").css({"background":"white","height":"100%"});
+        $("#banner-quito").appendTo("#portal-top");
+        $("#menu-quito").css("display","block");
+        $('#menu-quito').click(); 
+    };    
 });
 </script>
 
@@ -82,8 +103,8 @@ $(document).ready(function() {
 </div>
         </div>
     <div id="portal-columns" class="row">
+        <div id="cse-results"></div>
 
-        <div id="gsearchresults"></div>
         <div id="portal-column-content" class="cell" tal:attributes="class python:sunburst_view.getColumnsClass(view)">
 
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
@@ -181,6 +202,21 @@ $(document).ready(function() {
     <metal:block i18n:domain="plone" tal:condition="not:ajax_load">
         <div tal:replace="structure provider:plone.portalfooter" />
     </metal:block>
+
+    <p id="menu-quito">Clic para menu de CIP</p>
+
+    <tal:checkQuito define="url here/absolute_url;
+                            url python:'region-quito' in url;">
+        <img tal:condition="url" id="banner-quito" src="2nd-quito.jpg" style="float:left; margin-top:-24px;" />
+    </tal:checkQuito>
+
+    <script>
+        $('#menu-quito').click(function() {
+          $('#portal-header').slideToggle('fast', function() {
+          });
+        });
+    </script>
+
 
 </div>
 </body>
